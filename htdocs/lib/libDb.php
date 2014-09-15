@@ -35,6 +35,17 @@ function closeDb($con)
 	// unset($user, $pass, $server);  // Flush from memory.
 }
 
+function queryValue($query) {
+   $result = '';
 
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	$row = mysqli_fetch_row($dbresult);
+
+   $result = $row[0];
+   
+   return $result;
+
+}
 
 ?>

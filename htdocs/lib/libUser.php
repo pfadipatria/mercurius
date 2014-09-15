@@ -7,7 +7,9 @@ function loggedIn() {
    if (isset($_SERVER['REMOTE_USER'])){
       $uid = $_SERVER['REMOTE_USER'];
       if (!uidExists($uid)){
-         addUser($uid);
+         // addUser($uid);
+         // #TODO
+         echo 'ERROR: add user function has to be implemented';
       }
 
       $userid = getIdFromUid($uid);
@@ -20,13 +22,20 @@ function uidExists($uid) {
    $result = false;
 
    $query = "select count(*) from doorperson where uid = '" . $uid . "';";
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	$row = mysqli_fetch_row($dbresult);
-   if ( $row[0] == 1 ) {
+   $count = queryValue($query);
+   if ( $count == 1 ) {
       $result = true;
    }
    
+   return $result;
+}
+
+function getIdFromUid($uid) {
+   $result = 0;
+
+   $query = "select id from doorperson where uid = '" . $uid . "';";
+   $result = queryValue($query);
+
    return $result;
 }
 
