@@ -63,8 +63,13 @@ ul#Navigation a, ul#Navigation span {
  color: blue; background-color: #ccc;
 }
 
-
 ul#Navigation a:hover, ul#Navigation span {
+ border-color: white;
+ border-left-color: black; border-top-color: black;
+ color: blue; background-color: gray;
+}
+
+ul#Navigation li#Aktiv {
  border-color: white;
  border-left-color: black; border-top-color: black;
  color: blue; background-color: gray;
@@ -101,20 +106,23 @@ function getMenu($menu = ''){
             <li><a href="#">Schl&ouml;sser</a></li>
             <li><a href="#">Personen</a></li>
             <li><a href="#">Hilfe</a></li>
-         </ul></td></tr>';
+         </ul>';
    }
 
    switch($menu){
       case 'all':
          $result .= '
-<tr align="center"><td><ul id="Navigation">
-   <li><a href="/">Mehr</a></li>
-   <li><a href="#">noch Mehr</a></li>
-   <li><a href="#">Schl&ouml;sser</a></li>
-   <li><a href="#">Personen</a></li>
-   <li><a href="#">Hilfe</a></li>
-</ul></td></tr>';
+         <ul id="Navigation" style="border-top-color: silver;">
+            <li><a href="#">Liste</a></li>
+            <li><a href="#">Suchen</a></li>
+            <li><a href="#">Hinzuf&uuml;gen</a></li>
+         </ul>';
       break;
+   }
+
+   if ($menu != '' ) {
+      $result .= '
+         </td></tr>';
    }
 
    return $result;
