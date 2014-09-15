@@ -17,7 +17,7 @@ function showLoginPage () {
 function getHeader () {
    $result = '<html>
 <head>
-<title>my.pfadipatria.com</title>
+<title>skeymanager</title>
 <style type="text/css" id="bla">
 a {
     text-decoration:none;
