@@ -106,7 +106,7 @@ function getMenu($menu = ''){
 
    switch($menu){
       case 'all':
-         $result = '
+         $result .= '
 <tr align="center"><td><ul id="Navigation">
    <li><a href="/">Mehr</a></li>
    <li><a href="#">noch Mehr</a></li>
