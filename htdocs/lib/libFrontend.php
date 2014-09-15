@@ -70,7 +70,7 @@ function getMenu($menu = ''){
          $result = '
 <tr align="center"><td><table cellspacing="10" cellpadding="10" border="1" frame="void"><tr align="center">
    <td><a>Home</a></td>
-   <td><a href="info/">Info</a></td>
+   <a href="info/"><td>Info</td></a>
 </tr></table></td></tr>';
       break;
    }
