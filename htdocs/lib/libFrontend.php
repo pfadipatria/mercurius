@@ -1,7 +1,7 @@
 <?php
 
 function showStartPage () {
-   // global $username;
+   global $uid, $userid;
    echo getHeader();
    echo '<p>Willkommen, ' . $uid . ' (skm #' . $userid . ') bei der Schl&uuml;sselverwaltung.</p>';
 
