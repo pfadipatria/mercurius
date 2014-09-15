@@ -1,8 +1,9 @@
 <?php
 
 function showStartPage () {
+   // global $username;
    echo getHeader();
-   echo '<p>Willkommen, ' . $GLOBALS['username'] . ' bei der Schl&uuml;sselverwaltung.</p>';
+   echo '<p>Willkommen, ' . $uid . ' (skm #' . $userid . ') bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
 }
