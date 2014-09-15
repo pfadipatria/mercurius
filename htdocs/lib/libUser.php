@@ -2,7 +2,7 @@
 
 function loggedIn() {
    $result = false;
-   globals $userid;
+   global $userid;
 
    if (isset($_SERVER['REMOTE_USER'])){
       uid = $_SERVER['REMOTE_USER'];
