@@ -2,7 +2,7 @@
 
 function showStartPage () {
    echo getHeader();
-   echo '<p>Willkommen bei der Schl&uuml;sselverwaltung.</p>';
+   echo '<p>Willkommen, ' . GLOBALS['username'] . ' bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
 }
