@@ -5,7 +5,7 @@ function loggedIn() {
    global $userid;
 
    if (isset($_SERVER['REMOTE_USER'])){
-      uid = $_SERVER['REMOTE_USER'];
+      $uid = $_SERVER['REMOTE_USER'];
       if (!uidExists($uid)){
          addUser($uid);
       }
