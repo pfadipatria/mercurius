@@ -1,0 +1,5 @@
+1. remote_user pruefen
+1.1 301 Error anzeigen
+1.2 check exists in person db
+1.2.1 add to person db and show profile
+1.2.2 set username

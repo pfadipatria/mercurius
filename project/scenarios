@@ -1,4 +1,7 @@
 Schluessel
+* Anzeigen
+** Status
+** History
 * ausgeben
 * depot einziehen
 * depot auszahlen
@@ -11,6 +14,9 @@ Schluessel
 * aus dem System loeschen
 
 Schloesser
+* Anzeigen
+** Status
+** History
 * Batterien wechseln
 * Schluessel sperren
 * Schluessel entsperren
@@ -24,3 +30,17 @@ Schloesser
 * aus dem System loeschen
 * ausbauen
 * einbauen
+
+
+Intern
+* Person
+** anzeigen
+** hinzufuegen
+** loeschen
+** verknuepfen
+*** ldap
+*** mdb
+* History schreiben
+** Schluessel
+** Schloesser
+* Export
