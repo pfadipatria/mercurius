@@ -42,6 +42,34 @@ a {
 	color:grey;
 }
 
+ul#Navigation {
+ margin: 0; padding: 0.8em;
+ text-align: center;
+ border: 1px solid black;
+ background-color: silver;
+}
+
+ul#Navigation li {
+ list-style: none;
+ display: inline;
+ margin: 0.4em; padding: 0;
+}
+
+ul#Navigation a, ul#Navigation span {
+ padding: 0.2em 1em;
+ text-decoration: none; font-weight: bold;
+ border: 1px solid black;
+ border-left-color: white; border-top-color: white;
+ color: blue; background-color: #ccc;
+}
+
+
+ul#Navigation a:hover, ul#Navigation span {
+ border-color: white;
+ border-left-color: black; border-top-color: black;
+ color: white; background-color: gray;
+}
+
 </style>
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
@@ -68,10 +96,10 @@ function getMenu($menu = ''){
    switch($menu){
       case 'all':
          $result = '
-<tr align="center"><td><table cellspacing="10" cellpadding="10" border="1" frame="void"><tr align="center">
-   <td><a>Home</a></td>
-   <a href="info/"><td>Info</td></a>
-</tr></table></td></tr>';
+<tr align="center"><td><ul id="Navigation">
+   <li><a>Home</a></li>
+   <li><a href="info/">Info</a></li>
+</ul></td></tr>';
       break;
    }
 
