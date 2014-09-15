@@ -69,7 +69,7 @@ ul#Navigation a:hover, ul#Navigation span {
  color: blue; background-color: gray;
 }
 
-ul#Navigation li#Aktiv {
+ul#Navigation a#Aktiv {
  border-color: white;
  border-left-color: black; border-top-color: black;
  color: blue; background-color: gray;
@@ -89,6 +89,10 @@ ul#Navigation li#Aktiv {
 function getFooter () {
    $result = '
    </td></tr></table>
+   <hr>
+   <pre>
+   ' . var_dump($_SERVER) . '
+   </pre>
 </body>
 </html>';
 
@@ -98,19 +102,41 @@ function getFooter () {
 function getMenu($menu = ''){
    $result = '';
 
+   $activeLink = ' id="Aktiv" ';
+
+   switch($menu) {
+      case 'home':
+         $homeLink = $activeLink;
+         break;
+      case 'keys':
+         $keysLink = $activeLink;
+         break;
+      case 'locks':
+         $locksLink = $activeLink;
+         break;
+      case 'people':
+         $peopleLink = $activeLink;
+         break;
+      case 'help':
+         $helpLink = $activeLink;
+         break;
+   }
+
    if ($menu != '' ) {
       $result .= '
          <tr align="center"><td><ul id="Navigation">
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Schl&uumlssel</a></li>
-            <li><a href="#">Schl&ouml;sser</a></li>
-            <li><a href="#">Personen</a></li>
-            <li><a href="#">Hilfe</a></li>
+            <li><a href="/"' . $homeLink . '>Home</a></li>
+            <li><a href="#"' . $keysLink . '>Schl&uumlssel</a></li>
+            <li><a href="#"' . $locksLink . '>Schl&ouml;sser</a></li>
+            <li><a href="#"' . $peopleLink . '>Personen</a></li>
+            <li><a href="#"' . $helpLink . '>Hilfe</a></li>
          </ul>';
    }
 
    switch($menu){
-      case 'all':
+      case 'keys':
+      case 'locks':
+      case 'people':
          $result .= '
          <ul id="Navigation" style="border-top-color: silver;">
             <li><a href="#">Liste</a></li>
