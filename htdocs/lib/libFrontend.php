@@ -3,7 +3,7 @@
 function showStartPage () {
    global $uid, $userid;
    echo getHeader($menu = 'all');
-   echo '<p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
+   echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
 }
@@ -93,12 +93,26 @@ function getFooter () {
 function getMenu($menu = ''){
    $result = '';
 
+   if ($menu != '' ) {
+      $result .= '
+         <tr align="center"><td><ul id="Navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Schl&uumlssel</a></li>
+            <li><a href="#">Schl&ouml;sser</a></li>
+            <li><a href="#">Personen</a></li>
+            <li><a href="#">Hilfe</a></li>
+         </ul></td></tr>';
+   }
+
    switch($menu){
       case 'all':
          $result = '
 <tr align="center"><td><ul id="Navigation">
-   <li><a>Home</a></li>
-   <li><a href="info/">Info</a></li>
+   <li><a href="/">Mehr</a></li>
+   <li><a href="#">noch Mehr</a></li>
+   <li><a href="#">Schl&ouml;sser</a></li>
+   <li><a href="#">Personen</a></li>
+   <li><a href="#">Hilfe</a></li>
 </ul></td></tr>';
       break;
    }
