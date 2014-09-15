@@ -3,7 +3,7 @@
 function showStartPage () {
    global $uid, $userid;
    echo getHeader();
-   echo '<p>Willkommen, ' . $uid . ' (skm #' . $userid . ') bei der Schl&uuml;sselverwaltung.</p>';
+   echo '<p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
 }
@@ -44,14 +44,20 @@ a {
 
 </style>
 </head>
-<body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">';
+<body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
+   <table width="80%" border="0">
+   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>
+   <tr align="center"><td>
+';
 
    return $result;
 
 }
 
 function getFooter () {
-   $result = '</body>
+   $result = '
+   </td></tr></table>
+</body>
 </html>';
 
    return $result;
