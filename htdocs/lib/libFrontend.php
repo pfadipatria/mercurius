@@ -67,13 +67,13 @@ ul#Navigation a, ul#Navigation span {
 ul#Navigation a:hover, ul#Navigation span {
  border-color: white;
  border-left-color: black; border-top-color: black;
- color: white; background-color: gray;
+ color: blue; background-color: gray;
 }
 
 </style>
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
-   <table width="80%" border="0">
+   <table width="80%" border="0" align="center">
    <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($menu) . '   <tr align="center"><td>
 ';
 
