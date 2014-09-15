@@ -22,7 +22,7 @@ function uidExists($uid) {
    $query = "select count(*) from doorperson where uid = '" . $uid . "';";
    $con = openDb();
    $dbresult = queryDb($con, $query);
-	$row = mysqli_fetch_row($dbresult)
+	$row = mysqli_fetch_row($dbresult);
    if ( $row[0] == 1 ) {
       $result = true;
    }
