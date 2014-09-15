@@ -68,7 +68,7 @@ function getMenu($menu = ''){
    switch($menu){
       case 'all':
          $result = '
-<tr align="center"><td><table cellspacing="5"><tr align="center">
+<tr align="center"><td><table cellspacing="10" cellpadding="10" border="1" frame="void"><tr align="center">
    <td><a>Home</a></td>
    <td><a href="info/">Info</a></td>
 </tr></table></td></tr>';
