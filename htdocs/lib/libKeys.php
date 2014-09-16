@@ -157,6 +157,7 @@ function printKeyEdit($keyId = '0'){
          elnumber,
          code,
          type,
+         color,
          doorkeycolor.name AS colorname,
          doorkeystatus.name AS statusname,
          doorkeymech.bezeichung AS bezeichung,
@@ -181,6 +182,18 @@ function printKeyEdit($keyId = '0'){
       } else {
          $com = '';
       }
+         $colorChoose = '<select name="color" size="1">';
+         $cquery = 'SELECT id, name FROM doorkeycolor';
+         $ccon = openDb();
+         $cdbresult = queryDb($con, $query);
+	      while ($crow = mysqli_fetch_array($cdbresult)){
+            $colorChoose .= '<option value="' . $crow['id'] . '"';
+            if ($crow['id'] == $row['color']){
+               $colorChoose .= ' selected ';
+            }
+            $colorChoose .= '>' . $row['name'] . '</option>';
+         }
+         $colorChoose .= '</select>';
       echo '<form action="" method="post">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
