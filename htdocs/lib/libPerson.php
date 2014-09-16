@@ -28,7 +28,7 @@ function printPersonList(){
       </tr>';
    $query = '
       SELECT
-         id
+         id,
          name,
          uid,
          uidnumber,
