@@ -167,7 +167,7 @@ function printLockDenials($lockId = '0'){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['keyid'] . '\';" style="cursor: zoom-in">
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['keyid'] . '\';" style="cursor: zoom-in">
                <td>MC ' . $row['keycode'] . '</td>
                <td>' . $row['personname'] . '</td>
             </tr>
