@@ -266,7 +266,7 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
         $con = openDb();
         if (queryDb($con, $query)){
             echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
-            $return true;
+            $return = true;
         } else {
             echo '<p style="color:red">Fehler beim hinzugef&uuml;g in die Datenbank!</p>';
         }
