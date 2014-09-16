@@ -95,9 +95,9 @@ function getFooter () {
    $result = '
    </td></tr></table>
    <hr>
-   <pre>
-   ' . var_dump($_SERVER) . '
-   </pre>
+   <pre>';
+   $result .= var_dump($_SERVER);
+   $result .= '</pre>
 </body>
 </html>';
 
