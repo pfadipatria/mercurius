@@ -64,7 +64,7 @@ function getKeyFromDb(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      $result .= $row;
+      $result[] = $row;
    }   
 
    return $result;
