@@ -171,8 +171,8 @@ function getMenu($menu = '', $submenu = ''){
       case 'history':
          $result .= '
          <ul id="Navigation" style="border-top-color: silver;">
-            <li><a href="/' . $menu .'/list">Liste</a></li>
-            <li><a href="/' . $menu .'/search">Suchen</a></li>
+            <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
+            <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
          </ul>';
       break;
    }
