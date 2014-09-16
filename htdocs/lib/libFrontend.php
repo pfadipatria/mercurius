@@ -144,7 +144,7 @@ function getMenu($menu = '', $submenu = ''){
       case 'locks':
          $locksLink = $activeLink;
          break;
-      case 'people':
+      case 'person':
          $personLink = $activeLink;
          break;
       case 'history':
