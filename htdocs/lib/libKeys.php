@@ -167,11 +167,9 @@ function printKeyEdit($keyId = '0'){
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       if ( $row['communication'] == '1' ){
-         $com = 'Ja';
-      } else if ( $row['communication'] == '0' ) {
-         $com = 'Nein';
+         $com = 'checked';
       } else {
-         $com = 'unknown value';
+         $com = '';
       }
       echo '<form action="" method="post">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
@@ -182,7 +180,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
          <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
          <tr><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
-         <tr><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
+         <tr><td align="right">Kommunikation</td><td><input type="checkbox" name="zutat" value="communication" ' . $com . '></td></tr>
          <tr><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
          </form>';
