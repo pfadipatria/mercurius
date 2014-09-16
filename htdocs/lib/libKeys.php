@@ -142,8 +142,8 @@ function printKeyPermissions($keyId = '0'){
 	while ($row = mysqli_fetch_array($dbresult)){
       echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'">
                <td>SC ' . $row['locksc'] . '</td>
-               <td>SC ' . $row['heim'] . '</td>
-               <td>SC ' . $row['lockname'] . '</td>
+               <td>' . $row['heim'] . '</td>
+               <td>' . $row['lockname'] . '</td>
             </tr>
          ';
    }
