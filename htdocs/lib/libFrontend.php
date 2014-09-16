@@ -96,6 +96,13 @@ ul#Navigation a#Aktiv {
 .highlight { background-color: #cccccc }
 
 </style>
+
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
    <table width="80%" border="0" align="center">
