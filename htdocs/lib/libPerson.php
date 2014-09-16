@@ -235,7 +235,7 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
     if($row != ''){
         echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
     } else {
-        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
+        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . ' ' .  print_r($row) . '</p>';
 
     }
 
