@@ -93,7 +93,7 @@ ul#Navigation a#Aktiv {
 }
 
 .normal { background-color: white }
-.highlight { background-color: grey }
+.highlight { background-color: #cccccc }
 
 </style>
 </head>
