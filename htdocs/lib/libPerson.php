@@ -263,12 +263,13 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
                     '" . $comment . "'
                     );
             ";
+        error_log($query);
         $con = openDb();
         if (queryDb($con, $query)){
             echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
             $return = true;
         } else {
-            echo '<p style="color:red">Fehler beim hinzugef&uuml;g in die Datenbank!</p>';
+            echo '<p style="color:red">Fehler beim hinzugef&uuml;gen in die Datenbank!</p>';
         }
 
     }
