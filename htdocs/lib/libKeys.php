@@ -185,7 +185,7 @@ function printKeyEdit($keyId = '0'){
          $colorChoose = '<select name="color" size="1">';
          $cquery = 'SELECT id, name FROM doorkeycolor';
          $ccon = openDb();
-         $cdbresult = queryDb($con, $query);
+         $cdbresult = queryDb($con, $cquery);
 	      while ($crow = mysqli_fetch_array($cdbresult)){
             $colorChoose .= '<option value="' . $crow['id'] . '"';
             if ($crow['id'] == $row['color']){
