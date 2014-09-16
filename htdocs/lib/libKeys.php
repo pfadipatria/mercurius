@@ -210,7 +210,7 @@ function printKeyEdit($keyId = '0'){
          }
          $statusChoose .= '</select>';
 
-      echo '<form action="" method="post">
+      echo '<form action="/keys/show/' . $keyId . '" method="post">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
          <tr><td align="right">Code</td><td><b><input name="comment" type="text" size="30" maxlength="30" value="' . $row['code'] . '" readonly ></b></td></tr>
