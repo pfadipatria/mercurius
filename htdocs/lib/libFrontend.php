@@ -91,6 +91,9 @@ ul#Navigation a#Aktiv {
  color: blue; background-color: gray;
 }
 
+.normal { background-color: grey }
+.higlight { background-color: while }
+
 </style>
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
