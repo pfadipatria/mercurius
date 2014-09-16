@@ -38,7 +38,7 @@ function printKeyList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';">
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
          <td>' . $row['id'] . '</td>
          <td>' . $row['elnumber'] . '</td>
          <td>' . $row['code'] . '</td>
@@ -46,7 +46,6 @@ function printKeyList(){
          <td>' . $row['statusname'] . '</td>
          <td>' . $row['bezeichung'] . '</td>
          <td>' . $row['comment'] . '</td>
-         <td><a href="/keys/show/' . $row['id'] . '">Show</a></td>
          </tr>';
    }
 
