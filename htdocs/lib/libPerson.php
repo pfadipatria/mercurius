@@ -212,7 +212,7 @@ function printPersonSearch(){
     echo '<form action="/person/search" method="get"><h2>Person suchen</h2>
         <table cellpadding="5" cellspacing="0">
         <tr><td align="center"><input name="query" id="query" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="center"><input type="submit" value=" Suchen " onclick="document.location = \'document.getElementById('query').value\';"></td></form>
+        <tr><td align="center"><input type="submit" value=" Suchen " onclick="document.location = \'document.getElementById(\'query\').value\';"></td></form>
         </table>';
 }
 
