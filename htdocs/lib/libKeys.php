@@ -19,7 +19,7 @@ function showKeyListPage(){
 function printKeyList(){
    $result = '';
 
-   echo '<table>';
+   echo '<table cellpadding="5" cellspacing="0">';
    echo '<tr>
       <td>id</td>
       <td>elNumber</td>
