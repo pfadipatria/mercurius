@@ -120,7 +120,7 @@ function printKeyDetails($keyId = '0'){
       } else {
          $com = 'unknown value';
       }
-      echo '<h2>' . $row['code'] . ' - ' . $row['owner'] . '</h2>
+      echo '<h2>MC ' . $row['code'] . ' - ' . $row['owner'] . '</h2>
          <table cellpadding="5" cellspacing="0">
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">ElNumber</td><td>' . $row['elnumber'] . '</td></tr>

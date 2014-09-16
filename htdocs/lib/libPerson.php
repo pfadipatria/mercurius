@@ -109,7 +109,6 @@ function printPersonDetails($personId = '0'){
 function printPersonKeys($personId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
-   # Ich glaube hier brauchts einen RIGHT JOIN nicht LEFT
    $query = "
       SELECT
          doorkey.id AS keyid,

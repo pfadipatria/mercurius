@@ -118,7 +118,7 @@ function printLockDetails($lockId = '0'){
       } else {
          $bat = 'n/a';
       }
-      echo '<h2>' . $row['heim'] . ' ' . $row['lockname'] . ' - ' . $row['sc'] . '</h2>
+      echo '<h2>' . $row['heim'] . ' ' . $row['lockname'] . ' - SC ' . $row['sc'] . '</h2>
          <table cellpadding="5" cellspacing="0">
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">SC</td><td>' . $row['sc'] . '</td></tr>
