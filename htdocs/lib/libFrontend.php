@@ -130,7 +130,7 @@ function getMenu($menu = '', $submenu = ''){
       return $result;
    }
 
-   $homeLink = $keysLink = $locksLink = $peopleLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = '';
+   $homeLink = $keysLink = $locksLink = $personLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = '';
 
    $activeLink = ' id="Aktiv" ';
 
@@ -145,7 +145,7 @@ function getMenu($menu = '', $submenu = ''){
          $locksLink = $activeLink;
          break;
       case 'people':
-         $peopleLink = $activeLink;
+         $personLink = $activeLink;
          break;
       case 'history':
          $historyLink = $activeLink;
@@ -172,7 +172,7 @@ function getMenu($menu = '', $submenu = ''){
          <li><a href="/home"' . $homeLink . '>Home</a></li>
          <li><a href="/keys/list"' . $keysLink . '>Schl&uuml;ssel</a></li>
          <li><a href="/locks/list"' . $locksLink . '>Schl&ouml;sser</a></li>
-         <li><a href="/people/list"' . $peopleLink . '>Personen</a></li>
+         <li><a href="/person/list"' . $personLink . '>Personen</a></li>
          <li><a href="/history/list"' . $historyLink . '>Verlauf</a></li>
          <li><a href="/help"' . $helpLink . '>Hilfe</a></li>
       </ul>';
@@ -180,7 +180,7 @@ function getMenu($menu = '', $submenu = ''){
    switch($menu){
       case 'keys':
       case 'locks':
-      case 'people':
+      case 'person':
          $result .= '
          <ul id="Navigation" style="border-top-color: silver;">
             <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
