@@ -203,11 +203,10 @@ function printPersonAdd(){
 
 function printPersonSearch(){
 
-    echo '<form action="/person/search" method="get"><h2>Person Suchen</h2>
+    echo '<form action="/person/search" method="get"><h2>Person suchen</h2>
         <table cellpadding="5" cellspacing="0">
-        <tr><td><input name="search" type="text" size="30" maxlength="30"></td></tr>
-        <tr></tr>
-        <tr><td><input type="submit" value=" Suchen "></td></form>
+        <tr><td align="center"><input name="search" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="center"><input type="submit" value=" Suchen "></td></form>
         </table>';
 }
 
