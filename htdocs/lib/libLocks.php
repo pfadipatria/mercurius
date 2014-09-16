@@ -146,7 +146,7 @@ function printLockEdit($lockId = '0'){
          number,
          doorlock.name AS lockname,
          sc,
-         place
+         place,
          doorplace.name AS heim,
          doorlockstatus.name AS statusname,
          hasbatteries,
