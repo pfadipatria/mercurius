@@ -154,8 +154,8 @@ function printPersonEdit($personId = '0'){
          <table cellpadding="5" cellspacing="0">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['name'] . '"></td></tr>
-         <tr><td align="right">uid</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uid'] . '"></td></tr>
-         <tr><td align="right">uidNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uidnumber'] . '"></td></tr>
+         <tr><td align="right">uid</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uid'] . '" locked></td></tr>
+         <tr><td align="right">uidNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uidnumber'] . '" locked></td></tr>
          <tr><td align="right">mdbId</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['mdbid'] . '"></td></tr>
          <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
          <tr></tr>
