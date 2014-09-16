@@ -65,9 +65,9 @@ function printLockList(){
 
 function showLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
+   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
    printLockDetails($lockId);
-   echo '<br><a href="/locks/edit/' . $lockId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
+   echo '<br><a href="/locks/edit/' . $lockId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Sperren:</h3><br>';
    printLockDenials($lockId);
    echo '<br><h3>Berechtigungen auf Schl&uumlssel:</h3><br>';
    printLockPermissions($lockId);
