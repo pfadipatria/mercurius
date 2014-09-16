@@ -177,7 +177,7 @@ function printPersonEdit($personId = '0'){
 
 function printPersonAdd(){
 
-    echo '<form action="/person/add" method="post"><h2>Hinzuf&uuml;gen</h2>
+    echo '<form action="/person/add" method="post"><h2>Person Hinzuf&uuml;gen</h2>
         <table cellpadding="5" cellspacing="0">
         <tr><td align="right">id</td><td>' . getNextId('doorperson') . '</td></tr>
         <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
