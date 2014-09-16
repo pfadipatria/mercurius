@@ -231,11 +231,10 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
       ";
     $con = openDb();
     $dbresult = queryDb($con, $query);
-    $row = mysqli_fetch_array($dbresult);
-    if($row != ''){
+    if(mysqli_num_rows($dbresult) > 0){
         echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
     } else {
-        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . ' ' .  print_r($row) . '</p>';
+        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . ' ' .  print_r($row[]) . '</p>';
 
     }
 
