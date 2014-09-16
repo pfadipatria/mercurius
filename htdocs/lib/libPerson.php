@@ -197,10 +197,10 @@ function printPersonAdd(){
     echo '<form action="/person/add" method="post"><h2>Person Hinzuf&uuml;gen</h2>
         <table cellpadding="5" cellspacing="0">
         <tr><td align="right">id</td><td>&sim; ' . getNextId('doorperson') . '</td></tr>
-        <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="right">uid</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="right">uidNumber</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="right">mdbId</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">Name</td><td><input name="name" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">uid</td><td><input name="uid" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">uidNumber</td><td><input name="uidnumber" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">mdbId</td><td><input name="mdbid" type="text" size="30" maxlength="30"></td></tr>
         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
         <tr></tr>
         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Hinzuf&uuml;gen "></td></form>
