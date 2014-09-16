@@ -24,7 +24,8 @@ function getKeyList(){
    //$con = openDb();
    //$dbresult = queryDb($con, $query);
 	while ($row = getKeyFromDb()){
-      $result .= '<p>' . $row['elnumber'] . ' comment: ' . $row['comment'] . '</p>';
+      // $result .= '<p>' . $row['elnumber'] . ' comment: ' . $row['comment'] . '</p>';
+      $result .= print_r($row);
    }
 
    return $result;
