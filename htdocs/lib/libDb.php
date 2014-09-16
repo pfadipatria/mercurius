@@ -45,6 +45,19 @@ function queryValue($query) {
    $result = $row[0];
    
    return $result;
+}
+
+function getKeyFromDb(){
+   $result = array();
+
+   $query = 'select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) ';
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      $result .= $row;
+   }
+   
+   return $result;
 
 }
 

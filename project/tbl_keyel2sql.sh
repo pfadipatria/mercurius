@@ -16,7 +16,7 @@ do
 INSERT INTO doorkey (
                      elnumber,
                      code,
-                     mechnumber,
+                     mech,
                      color,
                      comment
                     )

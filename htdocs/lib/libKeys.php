@@ -10,10 +10,21 @@ function showKeysPage(){
 }
 
 function showKeyListPage(){
-   echo getHeader('keys', 'lislt');
-   echo '<br><p>Hier ist eine &Uunl;bersicht aller Schl&uumlssel.</p>';
-
+   echo getHeader('keys', 'list');
+   echo '<br><p>Hier ist eine &Uuml;bersicht aller Schl&uumlssel.</p>';
+   echo getKeyList();
    echo getFooter();
+}
+
+function getKeyList(){
+   $result = '';
+
+   while ($key = getKeyFromDb()){
+      $result .= $key;
+
+   }
+
+   return $result;
 }
 
 ?>
