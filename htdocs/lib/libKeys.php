@@ -158,6 +158,7 @@ function printKeyEdit($keyId = '0'){
          code,
          type,
          color,
+         status,
          doorkeycolor.name AS colorname,
          doorkeystatus.name AS statusname,
          doorkeymech.bezeichung AS bezeichung,
@@ -182,6 +183,7 @@ function printKeyEdit($keyId = '0'){
       } else {
          $com = '';
       }
+
          $colorChoose = '<select name="color" size="1">';
          $cquery = 'SELECT id, name FROM doorkeycolor';
          $ccon = openDb();
@@ -194,6 +196,20 @@ function printKeyEdit($keyId = '0'){
             $colorChoose .= '>' . $crow['name'] . '</option>';
          }
          $colorChoose .= '</select>';
+
+         $statusChoose = '<select name="status" size="1">';
+         $squery = 'SELECT id, name FROM doorkeystatus';
+         $scon = openDb();
+         $sdbresult = queryDb($scon, $squery);
+	      while ($crow = mysqli_fetch_array($sdbresult)){
+            $statusChoose .= '<option value="' . $srow['id'] . '"';
+            if ($srow['id'] == $row['status']){
+               $statusChoose .= ' selected ';
+            }
+            $statusChoose .= '>' . $srow['name'] . '</option>';
+         }
+         $statusChoose .= '</select>';
+
       echo '<form action="" method="post">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
