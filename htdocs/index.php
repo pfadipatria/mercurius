@@ -1,10 +1,15 @@
 <?php
 
-
 include 'lib/libAll.php';
 
 if (loggedIn()){
-   showStartPage();
+   switch(getMenuPath()) {
+      case 'keys':
+         showKeysPage();
+         break;
+      default:
+         showStartPage();
+   }
 } else {
    showLoginPage();
 }
