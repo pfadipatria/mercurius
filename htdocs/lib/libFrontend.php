@@ -8,7 +8,7 @@ function showStartPage () {
    if ( $menu  == '' ) {
       $menu = 'default';
    }
-   echo getHeader($menu, $submenu);
+   echo getHeader($menu, getMenuPath('2'));
    // echo getHeader('locks', 'search');
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
@@ -20,6 +20,17 @@ function showLoginPage () {
    echo '<p>Du musst Dich einloggen!.</p>';
 
    echo getFooter();
+}
+
+function getMenuPath ($level = '1') {
+   $result = array();
+
+   $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
+   $result[0] = $explodedRequest[0];
+   $result[1] = $explodedRequest[1];
+   $result[2] = $explodedRequest[2];
+
+   return $result[$level];
 }
 
 function getHeader ($menu = '', $submenu = '') {
