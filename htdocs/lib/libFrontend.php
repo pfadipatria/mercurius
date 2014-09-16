@@ -91,8 +91,8 @@ ul#Navigation a#Aktiv {
  color: blue; background-color: gray;
 }
 
-.normal { background-color: grey }
-.higlight { background-color: while }
+.normal { background-color: white }
+.higlight { background-color: grey }
 
 </style>
 </head>
