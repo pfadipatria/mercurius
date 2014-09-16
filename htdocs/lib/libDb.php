@@ -72,4 +72,11 @@ function getKeyFromDb(){
 
 }
 
+function getNextId($table = ''){
+    $db=openDb();
+    $result = queryDb($db, "SELECT Auto_increment FROM information_schema.tables WHERE table_name=' . $table .'");
+    $row = mysqli_fetch_array($result);
+    return $row['0'];
+}
+
 ?>

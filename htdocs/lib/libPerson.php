@@ -11,6 +11,9 @@ function showPersonPage(){
       case 'edit':
          showPersonEditPage(getMenuPath('3'));
          break;
+      case 'edit':
+         showPersonEditPage(getMenuPath('3'));
+         break;
       default:
          showPersonListPage();
    }
@@ -73,7 +76,15 @@ function showPersonDetailsPage($personId = '0'){
 function showPersonEditPage($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
-   printPersonEdit($personId);
+   printPersonAdd();
+   echo '<br>';
+   echo getFooter();
+}
+
+function showPersonAddPage(){
+   echo getHeader('person', 'add');
+   echo '<br>';
+   printPersonAdd();
    echo '<br>';
    echo getFooter();
 }
@@ -162,6 +173,21 @@ function printPersonEdit($personId = '0'){
          <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>
          </table>';
    }
+}
+
+function printPersonAdd(){
+
+    echo '<form action="/person/add" method="post"><h2>Hinzuf&uuml;gen</h2>
+        <table cellpadding="5" cellspacing="0">
+        <tr><td align="right">id</td><td>' . getNextId('doorperson') . '</td></tr>
+        <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">uid</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">uidNumber</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">mdbId</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
+        <tr></tr>
+        <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Hinzuf&uuml;gen "></td></form>
+        </table>';
 }
 
 ?>
