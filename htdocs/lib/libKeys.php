@@ -223,7 +223,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">Typ</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['type'] . '" readonly ></td></tr>
          <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
          <tr></tr>
-         <tr><td><input type="button" name="back" value=" Zur&uuml;ck " onclick="goBack()"></td><td></td></form>';
+         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>';
    }
 
    echo '</table>';
