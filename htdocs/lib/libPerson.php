@@ -227,10 +227,11 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
          uid,
          uidnumber
          FROM doorperson
-         WHERE name = '" . $name . " or uid = " . $uid . "'
+         WHERE name = '" . $name . "' or uid = '" . $uid . "'
       ";
     $con = openDb();
     $dbresult = queryDb($con, $query);
+    // $rows = mysqli_num_rows($dbresult);
     if(mysqli_num_rows($dbresult) > 0){
         echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
     } else {
