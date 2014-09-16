@@ -10,6 +10,9 @@ if (loggedIn()){
       case 'locks':
          showLocksPage();
          break;
+      case 'person':
+         showPersonPage();
+         break;
       default:
          showStartPage();
    }
