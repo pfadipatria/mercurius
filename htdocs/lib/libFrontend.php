@@ -170,7 +170,7 @@ function getMenu($menu = '', $submenu = ''){
    $result .= '
       <tr align="center"><td><ul id="Navigation">
          <li><a href="/home"' . $homeLink . '>Home</a></li>
-         <li><a href="/keys/list"' . $keysLink . '>Schl&uumlssel</a></li>
+         <li><a href="/keys/list"' . $keysLink . '>Schl&uuml;ssel</a></li>
          <li><a href="/locks/list"' . $locksLink . '>Schl&ouml;sser</a></li>
          <li><a href="/people/list"' . $peopleLink . '>Personen</a></li>
          <li><a href="/history/list"' . $historyLink . '>Verlauf</a></li>
