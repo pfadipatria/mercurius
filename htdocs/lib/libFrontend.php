@@ -116,7 +116,7 @@ function goBack() {
 function getFooter () {
    $result = '
    </td></tr></table>';
-   $result .= '<hr><p><pre>' . var_dump($_SERVER) .'</pre></p>';
+   // $result .= '<hr><p><pre>' . var_dump($_SERVER) .'</pre></p>';
    $result .= '
 </body>
 </html>';

@@ -240,30 +240,18 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
         # @TODO return the form with the prefilled values from the last try
     } else {
         // echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
-        /*
-        foreach(array('name', 'uid', ...) as $value){
-            if (${$value} != ''){
-                # Save to database
-            }
-        } */
         $query = "
             INSERT INTO
-                doorperson (
-                    `name`,
-                    `uid`,
-                    `uidnumber`,
-                    `mdbid`,
-                    `comment`
-                    )
-                VALUES (
-                    '" . $name . "',
-                    '" . $uid . "',
-                    '" . $uidnumber . "',
-                    '" . $mdbid . "',
-                    '" . $comment . "'
-                    );
-            ";
-        error_log($query);
+                doorperson (";
+        $cols = '`name`';
+        $values = '"' . $name . '"';
+        foreach(array( 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
+            if (${$item} != ''){
+                $cols .= ', `' . $item . '`';
+                $values .= ', "' . ${$item} . '"';
+            }
+        }
+        $query .= $cols . ') VALUES(' . $values . ')';
         $con = openDb();
         if (queryDb($con, $query)){
             echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
