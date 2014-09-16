@@ -3,7 +3,7 @@
 function showStartPage () {
    global $uid, $userid;
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
-   echo getHeader('keys');
+   echo getHeader($explodedRequest[1]);
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
@@ -80,7 +80,7 @@ ul#Navigation a#Aktiv {
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
    <table width="80%" border="0" align="center">
-   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($explodedRequest[1]) . '   <tr align="center"><td>
+   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($menu) . '   <tr align="center"><td>
 ';
 
    return $result;
