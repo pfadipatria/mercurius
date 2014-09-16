@@ -174,7 +174,7 @@ function printLockEdit($lockId = '0'){
          $pdbresult = queryDb($pcon, $pquery);
 	      while ($prow = mysqli_fetch_array($pdbresult)){
             $placeChoose .= '<option value="' . $prow['id'] . '"';
-            if ($prow['id'] == $row['color']){
+            if ($prow['id'] == $row['heim']){
                $placeChoose .= ' selected ';
             }
             $placeChoose .= '>' . $prow['name'] . '</option>';
