@@ -1,0 +1,4 @@
+INSERT INTO doorperson (`name`, `uid`, `uidnumber`) VALUES('karbons', 'karbon', '10002');
+INSERT INTO doorperson (`name`, `uid`, `uidnumber`) VALUES('hoermlein', 'hermelin', '10001');
+INSERT INTO doorperson (`name`, `uid`, `uidnumber`) VALUES('mikkaddo', 'mikado', '10009');
+INSERT INTO doorperson (`name`, `uid`, `uidnumber`) VALUES('truffer', 'trueff', '10088');
