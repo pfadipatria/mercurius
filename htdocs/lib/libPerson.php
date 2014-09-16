@@ -113,11 +113,11 @@ function printPersonKeys($personId = '0'){
    $query = "
       SELECT
          doorkey.id AS keyid,
-         doorkey.code AS keycode
+         doorkey.code AS keycode,
          doorkey.comment AS keycomment
          FROM doorperson
          LEFT JOIN doorkey ON (doorperson.id = doorkey.owner)
-         WHERE id = '" . $personId . "'
+         WHERE doorperson.id = '" . $personId . "'
       ";
    // error_log($query);
    $con = openDb();
