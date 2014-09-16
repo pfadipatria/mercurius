@@ -201,7 +201,7 @@ function printKeyEdit($keyId = '0'){
          $squery = 'SELECT id, name FROM doorkeystatus';
          $scon = openDb();
          $sdbresult = queryDb($scon, $squery);
-	      while ($crow = mysqli_fetch_array($sdbresult)){
+	      while ($srow = mysqli_fetch_array($sdbresult)){
             $statusChoose .= '<option value="' . $srow['id'] . '"';
             if ($srow['id'] == $row['status']){
                $statusChoose .= ' selected ';
