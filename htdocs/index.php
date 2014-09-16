@@ -7,6 +7,9 @@ if (loggedIn()){
       case 'keys':
          showKeysPage();
          break;
+      case 'locks':
+         showLocksPage();
+         break;
       default:
          showStartPage();
    }
