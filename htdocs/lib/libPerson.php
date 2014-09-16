@@ -249,11 +249,11 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
         $query = "
             INSERT INTO
                 doorperson (
-                    'name',
-                    'uid',
-                    'uidnumber',
-                    'mdbid',
-                    'comment'
+                    `name`,
+                    `uid`,
+                    `uidnumber`,
+                    `mdbid`,
+                    `comment`
                     )
                 VALUES (
                     '" . $name . "',
