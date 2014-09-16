@@ -3,8 +3,6 @@
 function showStartPage () {
    global $uid, $userid;
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
-   var_dump($explodedRequest);
-   echo 'Current page is ' . $explodedRequest['0'] . ' und test ' . explode('/', $_SERVER['REQUEST_URI'])[1];
    echo getHeader('keys');
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
@@ -82,7 +80,7 @@ ul#Navigation a#Aktiv {
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
    <table width="80%" border="0" align="center">
-   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($menu) . '   <tr align="center"><td>
+   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($explodedRequest[1]) . '   <tr align="center"><td>
 ';
 
    return $result;
@@ -129,11 +127,11 @@ function getMenu($menu = ''){
    if ($menu != '' ) {
       $result .= '
          <tr align="center"><td><ul id="Navigation">
-            <li><a href="/"' . $homeLink . '>Home</a></li>
-            <li><a href="#"' . $keysLink . '>Schl&uumlssel</a></li>
-            <li><a href="#"' . $locksLink . '>Schl&ouml;sser</a></li>
-            <li><a href="#"' . $peopleLink . '>Personen</a></li>
-            <li><a href="#"' . $helpLink . '>Hilfe</a></li>
+            <li><a href="/home"' . $homeLink . '>Home</a></li>
+            <li><a href="/keys"' . $keysLink . '>Schl&uumlssel</a></li>
+            <li><a href="/locks"' . $locksLink . '>Schl&ouml;sser</a></li>
+            <li><a href="/people"' . $peopleLink . '>Personen</a></li>
+            <li><a href="/help"' . $helpLink . '>Hilfe</a></li>
          </ul>';
    }
 
