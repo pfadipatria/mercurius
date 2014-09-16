@@ -8,7 +8,8 @@ function showStartPage () {
    if ( $menu  == '' ) {
       $menu = 'default';
    }
-   echo getHeader($menu, $submenu);
+   // echo getHeader($menu, $submenu);
+   echo getHeader('locks', 'search');
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
@@ -176,10 +177,8 @@ function getMenu($menu = '', $submenu = ''){
       break;
    }
 
-   if ($menu != '' ) {
-      $result .= '
-         </td></tr>';
-   }
+   $result .= '
+      </td></tr>';
 
    return $result;
 }
