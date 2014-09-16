@@ -64,6 +64,8 @@ function showKeyDetailsPage($keyId = '0'){
    echo getHeader('keys', '');
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printKeyDetails($keyId);
+   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br>';
+   printKeyPermissions($keyId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    echo getFooter();
 }
@@ -115,6 +117,34 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         ';
+   }
+
+   echo '</table>';
+}
+
+function printKeyPermissions($keyId = '0'){
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+      SELECT
+         doorlock.sc AS locksc,
+         doorplace.name AS heim,
+         doorlock.name AS lockname
+         FROM doorkey_opens_lock
+         LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
+         JOIN doorplace ON (doorlock.place = doorplace.id)
+         WHERE doorkey_opens_lock.key = '" . $keyId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'">
+               <td>SC ' . $row['locksc'] . '</td>
+               <td>SC ' . $row['heim'] . '</td>
+               <td>SC ' . $row['lockname'] . '</td>
+            </tr>
          ';
    }
 
