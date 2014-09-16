@@ -185,13 +185,13 @@ function printKeyEdit($keyId = '0'){
          $colorChoose = '<select name="color" size="1">';
          $cquery = 'SELECT id, name FROM doorkeycolor';
          $ccon = openDb();
-         $cdbresult = queryDb($con, $cquery);
+         $cdbresult = queryDb($ccon, $cquery);
 	      while ($crow = mysqli_fetch_array($cdbresult)){
             $colorChoose .= '<option value="' . $crow['id'] . '"';
             if ($crow['id'] == $row['color']){
                $colorChoose .= ' selected ';
             }
-            $colorChoose .= '>' . $row['name'] . '</option>';
+            $colorChoose .= '>' . $crow['name'] . '</option>';
          }
          $colorChoose .= '</select>';
       echo '<form action="" method="post">
