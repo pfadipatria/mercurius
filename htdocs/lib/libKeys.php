@@ -8,6 +8,9 @@ function showKeysPage(){
       case 'show':
          showKeyDetailsPage(getMenuPath('3'));
          break;
+      case 'edit':
+         showKeyEditPage(getMenuPath('3'));
+         break;
       default:
          showKeyListPage();
    }
@@ -72,6 +75,16 @@ function showKeyDetailsPage($keyId = '0'){
    echo getFooter();
 }
 
+function showKeyEditPage($keyId = '0'){
+   echo getHeader('keys', '');
+   echo '<br>';
+   printKeyEdit($keyId);
+   echo '<br><br><hr><br><h3>Berechtigungen:</h3><br>';
+   printKeyPermissions($keyId);
+   echo '<br>';
+   echo getFooter();
+}
+
 function printKeyDetails($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
@@ -120,6 +133,59 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
          ';
+   }
+
+   echo '</table>';
+}
+
+function printKeyEdit($keyId = '0'){
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+      SELECT
+         doorkey.id,
+         elnumber,
+         code,
+         type,
+         doorkeycolor.name AS colorname,
+         doorkeystatus.name AS statusname,
+         doorkeymech.bezeichung AS bezeichung,
+         doorperson.name AS owner,
+         doorperson.uid AS owneruid,
+         comment,
+         communication,
+         lastupdate
+         FROM doorkey
+         LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
+         LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
+         LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id )
+         LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
+         WHERE doorkey.id = '" . $keyId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      if ( $row['communication'] == '1' ){
+         $com = 'Ja';
+      } else if ( $row['communication'] == '0' ) {
+         $com = 'Nein';
+      } else {
+         $com = 'unknown value';
+      }
+      echo '<form action="" method="post">
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Code</td><td><b><input name="comment" type="text" size="30" maxlength="30" value="' . $row['code'] . '" readonly ></b></td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Farbe</td><td>' . $row['colorname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         </form>';
    }
 
    echo '</table>';
