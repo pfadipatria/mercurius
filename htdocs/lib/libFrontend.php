@@ -94,10 +94,9 @@ ul#Navigation a#Aktiv {
 function getFooter () {
    $result = '
    </td></tr></table>
-   <hr>
-   <pre>';
-   $result .= var_dump($_SERVER);
-   $result .= '</pre>
+   <hr>';
+   $result .= '<p><pre>' . var_dump($_SERVER) . '</pre></p>';
+   $result .= '
 </body>
 </html>';
 
