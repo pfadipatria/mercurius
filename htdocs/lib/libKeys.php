@@ -65,9 +65,9 @@ function printKeyList(){
 
 function showKeyDetailsPage($keyId = '0'){
    echo getHeader('keys', '');
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
+   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
    printKeyDetails($keyId);
-   echo '<br><a href="/keys/edit/' . $keyId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Berechtigungen:</h3><br>';
+   echo '<br><a href="/keys/edit/' . $keyId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Berechtigungen:</h3><br>';
    printKeyPermissions($keyId);
    echo '<br><h3>Sperren auf T&uuml;ren:</h3><br>';
    printKeyDenials($keyId);
@@ -86,7 +86,6 @@ function showKeyEditPage($keyId = '0'){
 }
 
 function printKeyDetails($keyId = '0'){
-   echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
       SELECT
@@ -120,10 +119,11 @@ function printKeyDetails($keyId = '0'){
       } else {
          $com = 'unknown value';
       }
-      echo '
+      echo '<h2>' . $row['code'] . ' - ' . $row['owner'] . '</h2>
+         <table cellpadding="5" cellspacing="0">
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">ElNumber</td><td>' . $row['elnumber'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Code</td><td><b>' . $row['code'] . '</b></td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Code</td><td>' . $row['code'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Farbe</td><td>' . $row['colorname'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
@@ -132,10 +132,8 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
-         ';
+         </table>';
    }
-
-   echo '</table>';
 }
 
 function printKeyEdit($keyId = '0'){
