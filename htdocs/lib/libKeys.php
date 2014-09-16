@@ -42,6 +42,7 @@ function printKeyList(){
          <td>' . $row['statusname'] . '</td>
          <td>' . $row['bezeichung'] . '</td>
          <td>' . $row['comment'] . '</td>
+         <td><a href="/keys/edit/' . $row['id'] . '">Edit</a></td>
          </tr>';
    }
 
