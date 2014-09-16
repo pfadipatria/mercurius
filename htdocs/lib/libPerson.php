@@ -28,6 +28,7 @@ function printPersonList(){
       <td>uid</td>
       <td>uidNumber</td>
       <td>mbdId</td>
+      <td>Kommentar</td>
       </tr>';
    $query = '
       SELECT
