@@ -88,7 +88,9 @@ function showPersonAddPage(){
    echo getHeader('person', 'add');
    echo '<br>';
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-     echo '<p>adding person '. $_POST .'</p>';
+     echo '<p>adding person ';
+     print_r($_POST);
+     echo '</p>';
 
    }
    printPersonAdd();
