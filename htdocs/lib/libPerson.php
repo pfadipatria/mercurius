@@ -8,6 +8,9 @@ function showPersonPage(){
       case 'show':
          showPersonDetailsPage(getMenuPath('3'));
          break;
+      case 'edit':
+         showPersonEditPage(getMenuPath('3'));
+         break;
       default:
          showPersonListPage();
    }
@@ -70,9 +73,7 @@ function showPersonDetailsPage($personId = '0'){
 function showPersonEditPage($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
-   printKeyEdit($personId);
-   echo '<br><br><hr><br><h3>Berechtigungen:</h3><br>';
-   printKeyPermissions($keyId);
+   printPersonEdit($personId);
    echo '<br>';
    echo getFooter();
 }
@@ -131,4 +132,36 @@ function printPersonKeys($personId = '0'){
 
    echo '</table>';
 }
+
+function printPersonEdit($personId = '0'){
+
+   $query = "
+      SELECT
+         id,
+         name,
+         uid,
+         uidnumber,
+         mdbid,
+         comment
+         FROM doorperson
+         WHERE id = '" . $personId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<form action="/person/show/' . $personId . '" method="post"><h2>' . $row['name'] . '</h2>
+         <table cellpadding="5" cellspacing="0">
+         <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
+         <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['name'] . '"></td></tr>
+         <tr><td align="right">uid</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uid'] . '"></td></tr>
+         <tr><td align="right">uidNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['uidnumber'] . '"></td></tr>
+         <tr><td align="right">mdbId</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['mdbid'] . '"></td></tr>
+         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
+         <tr></tr>
+         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>
+         </table>';
+   }
+}
+
 ?>
