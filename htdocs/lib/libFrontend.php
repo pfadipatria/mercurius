@@ -104,7 +104,7 @@ function getFooter () {
 
 function getMenu($menu = ''){
    $result = '';
-   $homeLink = $keysLink = $locksLink = $peopleLink = $helpLink = '';
+   $homeLink = $keysLink = $locksLink = $peopleLink = $historyLink = $helpLink = '';
 
    $activeLink = ' id="Aktiv" ';
 
@@ -121,6 +121,9 @@ function getMenu($menu = ''){
       case 'people':
          $peopleLink = $activeLink;
          break;
+      case 'history':
+         $historyLink = $activeLink;
+         break;
       case 'help':
          $helpLink = $activeLink;
          break;
@@ -133,6 +136,7 @@ function getMenu($menu = ''){
             <li><a href="/keys"' . $keysLink . '>Schl&uumlssel</a></li>
             <li><a href="/locks"' . $locksLink . '>Schl&ouml;sser</a></li>
             <li><a href="/people"' . $peopleLink . '>Personen</a></li>
+            <li><a href="/history"' . $historyLink . '>Verlauf</a></li>
             <li><a href="/help"' . $helpLink . '>Hilfe</a></li>
          </ul>';
    }
@@ -146,6 +150,13 @@ function getMenu($menu = ''){
             <li><a href="/' . $menu .'/list">Liste</a></li>
             <li><a href="/' . $menu .'/search">Suchen</a></li>
             <li><a href="/' . $menu .'/add">Hinzuf&uuml;gen</a></li>
+         </ul>';
+      break;
+      case 'history':
+         $result .= '
+         <ul id="Navigation" style="border-top-color: silver;">
+            <li><a href="/' . $menu .'/list">Liste</a></li>
+            <li><a href="/' . $menu .'/search">Suchen</a></li>
          </ul>';
       break;
    }
