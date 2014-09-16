@@ -204,9 +204,9 @@ function printLockEdit($lockId = '0'){
          <tr><td align="right">Nummer</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['number'] . '"></td></tr>
          <tr><td align="right">Status</td><td>' . $statusChoose . '</td></tr>
          <tr><td align="right">Elektronik</td><td><input type="checkbox" name="zutat" value="communication" ' . $bat . '></td></tr>
-         <tr><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
-         <tr><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
-         <tr><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr><td align="right">Typ</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['type'] . '"></td></tr>
+         <tr><td align="right">Position</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['position'] . '"></td></tr>
+         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
          <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
          <tr></tr>
          <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>';
