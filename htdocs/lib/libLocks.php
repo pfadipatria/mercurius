@@ -147,6 +147,7 @@ function printLockEdit($lockId = '0'){
          doorlock.name AS lockname,
          sc,
          place,
+         status,
          doorplace.name AS heim,
          doorlockstatus.name AS statusname,
          hasbatteries,
@@ -182,13 +183,26 @@ function printLockEdit($lockId = '0'){
          }
          $placeChoose .= '</select>';
 
+         $statusChoose = '<select name="status" size="1">';
+         $squery = 'SELECT id, name FROM doorlockstatus';
+         $scon = openDb();
+         $sdbresult = queryDb($scon, $squery);
+	      while ($srow = mysqli_fetch_array($sdbresult)){
+            $statusChoose .= '<option value="' . $srow['id'] . '"';
+            if ($srow['id'] == $row['status']){
+               $statusChoose .= ' selected ';
+            }
+            $statusChoose .= '>' . $srow['name'] . '</option>';
+         }
+         $statusChoose .= '</select>';
+
       echo '<form action="/keys/show/' . $lockId . '" method="post">
          <tr><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
-         <tr><td align="right">SC</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['sc'] . '" readonly ></td></tr>
+         <tr><td align="right">SC</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['sc'] . '"></td></tr>
          <tr><td align="right">Heim</td><td>' . $placeChoose . '</td></tr>
          <tr><td align="right">Bezeichnung</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['lockname'] . '"></td></tr>
          <tr><td align="right">Nummer</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['number'] . '"></td></tr>
-         <tr><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr><td align="right">Status</td><td>' . $statusChoose . '</td></tr>
          <tr><td align="right">Elektronik</td><td><input type="checkbox" name="zutat" value="communication" ' . $bat . '></td></tr>
          <tr><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          <tr><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
