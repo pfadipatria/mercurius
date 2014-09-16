@@ -216,11 +216,11 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">Code</td><td><b><input name="comment" type="text" size="30" maxlength="30" value="' . $row['code'] . '" readonly ></b></td></tr>
          <tr><td align="right">Farbe</td><td>' . $colorChoose . '</td></tr>
          <tr><td align="right">Status</td><td>' . $statusChoose . '</td></tr>
-         <tr><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
+         <tr><td align="right">Bezeichnung</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['bezeichung'] . '"></td></tr>
          <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
          <tr><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
          <tr><td align="right">Kommunikation</td><td><input type="checkbox" name="zutat" value="communication" ' . $com . '></td></tr>
-         <tr><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
+         <tr><td align="right">Typ</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['type'] . '"></td></tr>
          <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
          </form>';
    }
