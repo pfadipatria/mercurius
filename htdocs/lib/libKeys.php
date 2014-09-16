@@ -35,11 +35,11 @@ function printKeyList(){
       SELECT
          doorkey.id,
          code,
-         doorkeytatus.name AS statusname,
+         doorkeystatus.name AS statusname,
          comment,
          doorperson.name AS owner
          FROM doorkey
-         LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
+         LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
          LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
          ORDER BY code
          ';
@@ -78,7 +78,7 @@ function printKeyDetails($keyId = '0'){
          code,
          type,
          doorkeycolor.name AS colorname,
-         doorkeytatus.name AS statusname,
+         doorkeystatus.name AS statusname,
          doorkeymech.bezeichung AS bezeichung,
          doorperson.name AS owner,
          doorperson.uid AS owneruid,
@@ -86,8 +86,8 @@ function printKeyDetails($keyId = '0'){
          communication
          FROM doorkey
          LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
-         LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
-         LEFT JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )
+         LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
+         LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id )
          LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
          WHERE doorkey.id = '" . $keyId . "'
       ";
