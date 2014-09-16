@@ -27,6 +27,7 @@ function getMenuPath ($level = '1') {
    $result[0] = $explodedRequest[0];
    $result[1] = $explodedRequest[1];
    $result[2] = $explodedRequest[2];
+   $result[3] = $explodedRequest[3];
 
    return $result[$level];
 }

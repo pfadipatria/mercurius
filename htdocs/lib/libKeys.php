@@ -60,15 +60,7 @@ function showKeyDetailsPage($keyId = '0'){
 
 function printKeyDetails($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
-   echo '<tr>
-      <td>id</td>
-      <td>elNumber</td>
-      <td>Code</td>
-      <td>Color</td>
-      <td>Status</td>
-      <td>Bezeichnung</td>
-      <td>Comment</td>
-      </tr>';
+
    $query = 'select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) WHERE id = \'' . $keyId . '\'';
    $con = openDb();
    $dbresult = queryDb($con, $query);
