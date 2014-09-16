@@ -159,7 +159,7 @@ function printKeyDenials($keyId = '0'){
 
    $query = "
       SELECT
-         doorkey_opens_lock.lock AS lockid,
+         doorlock_locks_key.lock AS lockid,
          doorlock.sc AS locksc,
          doorplace.name AS heim,
          doorlock.name AS lockname
