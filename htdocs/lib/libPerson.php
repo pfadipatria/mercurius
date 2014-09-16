@@ -11,8 +11,8 @@ function showPersonPage(){
       case 'edit':
          showPersonEditPage(getMenuPath('3'));
          break;
-      case 'edit':
-         showPersonEditPage(getMenuPath('3'));
+      case 'add':
+         showPersonAddPage();
          break;
       default:
          showPersonListPage();
