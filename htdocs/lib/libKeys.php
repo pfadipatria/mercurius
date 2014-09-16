@@ -38,7 +38,7 @@ function printKeyList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'">
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';">
          <td>' . $row['id'] . '</td>
          <td>' . $row['elnumber'] . '</td>
          <td>' . $row['code'] . '</td>
