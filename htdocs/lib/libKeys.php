@@ -8,6 +8,8 @@ function showKeysPage(){
       case 'show':
          showKeyDetailsPage(getMenuPath('3'));
          break;
+      default:
+         showKeyListPage();
    }
 }
 
