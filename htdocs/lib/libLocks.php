@@ -39,6 +39,7 @@ function printLockList(){
          number,
          doorlock.name AS lockname,
          sc,
+         comment,
          doorplace.name AS heim,
          doorlockstatus.name AS statusname
          FROM doorlock
