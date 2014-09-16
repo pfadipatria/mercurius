@@ -96,7 +96,7 @@ function printLockDetails($lockId = '0'){
 	while ($row = mysqli_fetch_array($dbresult)){
       if ( $row['hasbatteries'] == '1' ){
          $bat = 'Ja';
-      } else ( $row['hasbatteries'] == '0' ) {
+      } else if ( $row['hasbatteries'] == '0' ) {
          $bat = 'Nein';
       } else {
          $bat = 'n/a';
