@@ -12,7 +12,7 @@ function showPersonPage(){
 
 function showPersonListPage(){
    echo getHeader('person', 'list');
-   printPeopleList();
+   printPersonList();
    echo getFooter();
 }
 
