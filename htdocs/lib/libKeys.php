@@ -32,15 +32,16 @@ function printKeyList(){
       <td>Comment</td>
       </tr>';
    $query = '
-      select
+      SELECT
          doorkey.id,
          code,
          doorkeytatus.name AS statusname,
          comment,
          doorperson.name AS owner
-         from doorkey
+         FROM doorkey
          LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
          LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
+         ORDER BY code
          ';
    // $query = 'select * from doorkey limit 10';
    $con = openDb();
@@ -71,7 +72,7 @@ function printKeyDetails($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
-      select
+      SELECT
          doorkey.id,
          elnumber,
          code,
@@ -83,7 +84,7 @@ function printKeyDetails($keyId = '0'){
          doorperson.uid AS owneruid,
          comment,
          communication
-         from doorkey
+         FROM doorkey
          LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
          LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
          LEFT JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )
