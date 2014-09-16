@@ -215,7 +215,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
          <tr><td align="right">Code</td><td><b><input name="comment" type="text" size="30" maxlength="30" value="' . $row['code'] . '" readonly ></b></td></tr>
          <tr><td align="right">Farbe</td><td>' . $colorChoose . '</td></tr>
-         <tr><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr><td align="right">Status</td><td>' . $statusChoose . '</td></tr>
          <tr><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
          <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
          <tr><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
