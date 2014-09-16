@@ -3,7 +3,7 @@
 function showStartPage () {
    global $uid, $userid;
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
-   echo 'Current page is ' . $explodedRequest[0];
+   echo 'Current page is ' . $explodedRequest['0'];
    echo getHeader('keys');
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
@@ -103,6 +103,7 @@ function getFooter () {
 
 function getMenu($menu = ''){
    $result = '';
+   $homeLink, $keysLink, $locksLink, $peopleLink, $helpLink = '';
 
    $activeLink = ' id="Aktiv" ';
 
