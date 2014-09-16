@@ -47,7 +47,7 @@ function printKeyList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';" style="cursor: zoom-in">
          <td>' . $row['id'] . '</td>
          <td>' . $row['code'] . '</td>
          <td>' . $row['statusname'] . '</td>
@@ -128,6 +128,7 @@ function printKeyPermissions($keyId = '0'){
 
    $query = "
       SELECT
+         doorkey_opens_lock.lock AS lockid,
          doorlock.sc AS locksc,
          doorplace.name AS heim,
          doorlock.name AS lockname
@@ -140,7 +141,7 @@ function printKeyPermissions($keyId = '0'){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'">
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['lockid'] . '\';" style="cursor: zoom-in">
                <td>SC ' . $row['locksc'] . '</td>
                <td>' . $row['heim'] . '</td>
                <td>' . $row['lockname'] . '</td>
