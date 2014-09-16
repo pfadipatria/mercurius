@@ -141,6 +141,16 @@ function printKeyDetails($keyId = '0'){
 function printKeyEdit($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
+   $colorChoose = '<select name="color" size="1">';
+   $query = 'SELECT id, name FROM doorkeycolor';
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      $colorChoose .= '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+   }
+   $colorChoose .= '</select>';
+
+
    $query = "
       SELECT
          doorkey.id,
@@ -175,7 +185,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">ElNumber</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
          <tr><td align="right">Code</td><td><b><input name="comment" type="text" size="30" maxlength="30" value="' . $row['code'] . '" readonly ></b></td></tr>
-         <tr><td align="right">Farbe</td><td>' . $row['colorname'] . '</td></tr>
+         <tr><td align="right">Farbe</td><td>' . $colorChoose . ' ' . $row['colorname'] . '</td></tr>
          <tr><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
          <tr><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
          <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
