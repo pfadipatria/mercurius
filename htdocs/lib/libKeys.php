@@ -37,10 +37,10 @@ function printKeyList(){
          code,
          doorkeytatus.name AS statusname,
          comment,
-         owner
+         doorperson.name AS owner
          from doorkey
-         JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
-         JOIN doorperson ON (doorkey.owner = doorkey.person.id )
+         LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
+         LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
          ';
    // $query = 'select * from doorkey limit 10';
    $con = openDb();
@@ -84,10 +84,10 @@ function printKeyDetails($keyId = '0'){
          comment,
          communication
          from doorkey
-         JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
-         JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
-         JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )
-         JOIN doorperson ON (doorkey.owner = doorkey.person.id )
+         LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
+         LEFT JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
+         LEFT JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )
+         LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
          WHERE doorkey.id = '" . $keyId . "'
       ";
    // error_log($query);
