@@ -65,7 +65,7 @@ function showLockDetailsPage($lockId = '0'){
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printLockDetails($lockId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
-   printLockDenials($keyId);
+   printLockDenials($lockId);
    echo '<br><h3>Berechtigungen auf Schl&uumlssel:</h3><br>';
    printLockPermissions($lockId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
@@ -159,9 +159,9 @@ function printLockDenials($lockId = '0'){
          doorkey.code AS keycode,
          doorperson.name AS personname
          FROM doorlock_locks_key
-         LEFT JOIN doorkey ON (doorkey_opens_lock.key = doorkey.id )
+         LEFT JOIN doorkey ON (doorlock_locks_key.key = doorkey.id )
          LEFT JOIN doorperson ON (doorkey.owner = doorperson.id)
-         WHERE doorlock_locks_key.key = '" . $lockId . "'
+         WHERE doorlock_locks_key.lock = '" . $lockId . "'
       ";
    // error_log($query);
    $con = openDb();
