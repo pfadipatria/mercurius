@@ -26,37 +26,31 @@ function printKeyList(){
    echo '<table cellpadding="5" cellspacing="0">';
    echo '<tr>
       <td>id</td>
-      <td>elNumber</td>
       <td>Code</td>
-      <td>Color</td>
       <td>Status</td>
-      <td>Bezeichnung</td>
+      <td>Besitzer</td>
       <td>Comment</td>
       </tr>';
    $query = '
       select
          doorkey.id,
-         elnumber,
          code,
-         doorkeycolor.name AS colorname,
          doorkeytatus.name AS statusname,
-         doorkeymech.bezeichung AS bezeichung,
-         comment
+         comment,
+         owner
          from doorkey
-         JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
          JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
-         JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )';
+         JOIN doorperson ON (doorkey.owner = doorkey.person.id )
+         ';
    // $query = 'select * from doorkey limit 10';
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
          <td>' . $row['id'] . '</td>
-         <td>' . $row['elnumber'] . '</td>
          <td>' . $row['code'] . '</td>
-         <td>' . $row['colorname'] . '</td>
          <td>' . $row['statusname'] . '</td>
-         <td>' . $row['bezeichung'] . '</td>
+         <td>' . $row['owner'] . '</td>
          <td>' . $row['comment'] . '</td>
          </tr>';
    }
@@ -76,7 +70,26 @@ function showKeyDetailsPage($keyId = '0'){
 function printKeyDetails($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
-   $query = "select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) WHERE doorkey.id = '" . $keyId . "'";
+   $query = "
+      select
+         doorkey.id,
+         elnumber,
+         code,
+         type,
+         doorkeycolor.name AS colorname,
+         doorkeytatus.name AS statusname,
+         doorkeymech.bezeichung AS bezeichung,
+         doorperson.name AS owner,
+         doorperson.uid AS owneruid,
+         comment,
+         communication
+         from doorkey
+         JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
+         JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id)
+         JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id )
+         JOIN doorperson ON (doorkey.owner = doorkey.person.id )
+         WHERE doorkey.id = '" . $keyId . "'
+      ";
    // error_log($query);
    $con = openDb();
    $dbresult = queryDb($con, $query);
@@ -89,6 +102,9 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $row['communication'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
          ';
    }
 
