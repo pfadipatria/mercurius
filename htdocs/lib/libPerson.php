@@ -91,7 +91,7 @@ function showPersonAddPage(){
      echo '<p>adding person ';
      // print_r($_POST);
      echo '</p>';
-    addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment'])
+    addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment']);
 
    }
    printPersonAdd();
