@@ -169,7 +169,7 @@ function printKeyEdit($keyId = '0'){
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       if ( $row['communication'] == '1' ){
-         $com = 'checked';
+         $com = ' checked ';
       } else {
          $com = '';
       }

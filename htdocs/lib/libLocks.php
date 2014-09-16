@@ -163,25 +163,25 @@ function printLockEdit($lockId = '0'){
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       if ( $row['hasbatteries'] == '1' ){
-         $bat = 'Ja';
-      } else if ( $row['hasbatteries'] == '0' ) {
-         $bat = 'Nein';
+         $bat = ' checked ';
       } else {
-         $bat = 'n/a';
+         $bat = '';
       }
-      echo '
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">SC</td><td>' . $row['sc'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Heim</td><td>' . $row['heim'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['lockname'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Nummer</td><td>' . $row['number'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Elektronik</td><td>' . $bat . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
-         ';
+
+      echo '<form action="/keys/show/' . $lockId . '" method="post">
+         <tr><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
+         <tr><td align="right">SC</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
+         <tr><td align="right">Heim</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['heim'] . '" readonly ></td></tr>
+         <tr><td align="right">Bezeichnung</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['lockname'] . '"></td></tr>
+         <tr><td align="right">Nummer</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['number'] . '"></td></tr>
+         <tr><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr><td align="right">Elektronik</td><td><input type="checkbox" name="zutat" value="communication" ' . $bat . '></td></tr>
+         <tr><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
+         <tr><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
+         <tr><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         <tr></tr>
+         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>';
    }
 
    echo '</table>';
