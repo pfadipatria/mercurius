@@ -203,18 +203,11 @@ function printPersonAdd(){
 
 function printPersonSearch(){
 
-    echo '<form action="/person/search" method="get"><h2>Person suchen</h2>
-        <table cellpadding="5" cellspacing="0">
-        <tr><td align="center"><input name="search" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="center"><input type="submit" value=" Suchen "></td></form>
-        </table>';
-
-    echo '<form><h2>Person suchen</h2>
-        <table cellpadding="5" cellspacing="0">
-        <tr><td align="center"><input name="query" id="query" type="text" size="30" maxlength="30"></td></tr>
-        <tr><td align="center"><input type="submit" value=" Suchen " onclick="document.location = \'document.getElementById(\'query\').value\';"></td>
-        <tr><td><a href="javascript:void(0)" onClick="document.location = \'document.getElementById(\'query\').value\';">Search</a></td></tr></form>
-        </table>';
+    echo '<h2>Person suchen</h2>
+          <table cellpadding="5" cellspacing="0">
+          <tr><td align="center"><input name="query" id="query" type="text" size="30" maxlength="30"></td></tr>
+          <tr><td align="center"><a href="javascript:void(0)" onClick="document.location = \'/person/search/\' + document.getElementById(\'query\').value;">Suchen</a></td>
+          </table>';
 }
 
 ?>
