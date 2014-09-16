@@ -143,9 +143,9 @@ function getMenu($menu = ''){
       case 'people':
          $result .= '
          <ul id="Navigation" style="border-top-color: silver;">
-            <li><a href="#">Liste</a></li>
-            <li><a href="#">Suchen</a></li>
-            <li><a href="#">Hinzuf&uuml;gen</a></li>
+            <li><a href="/' . $menu .'/list">Liste</a></li>
+            <li><a href="/' . $menu .'/search">Suchen</a></li>
+            <li><a href="/' . $menu .'/add">Hinzuf&uuml;gen</a></li>
          </ul>';
       break;
    }
