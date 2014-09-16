@@ -14,6 +14,9 @@ function showPersonPage(){
       case 'add':
          showPersonAddPage();
          break;
+      case 'search':
+         showPersonSearchPage();
+         break;
       default:
          showPersonListPage();
    }
@@ -85,6 +88,14 @@ function showPersonAddPage(){
    echo getHeader('person', 'add');
    echo '<br>';
    printPersonAdd();
+   echo '<br>';
+   echo getFooter();
+}
+
+function showPersonSearchPage(){
+   echo getHeader('person', 'search');
+   echo '<br>';
+   printPersonSearch();
    echo '<br>';
    echo getFooter();
 }
@@ -187,6 +198,16 @@ function printPersonAdd(){
         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30"></td></tr>
         <tr></tr>
         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Hinzuf&uuml;gen "></td></form>
+        </table>';
+}
+
+function printPersonSearch(){
+
+    echo '<form action="/person/search" method="get"><h2>Person Suchen</h2>
+        <table cellpadding="5" cellspacing="0">
+        <tr><td><input name="search" type="text" size="30" maxlength="30"></td></tr>
+        <tr></tr>
+        <tr><td><input type="submit" value=" Suchen "></td></form>
         </table>';
 }
 
