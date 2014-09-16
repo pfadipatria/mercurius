@@ -169,7 +169,7 @@ function printLockEdit($lockId = '0'){
       }
 
          $placeChoose = '<select name="place" size="1">';
-         $cquery = 'SELECT id, name FROM doorplace';
+         $pquery = 'SELECT id, name FROM doorplace';
          $pcon = openDb();
          $pdbresult = queryDb($pcon, $pquery);
 	      while ($prow = mysqli_fetch_array($pdbresult)){
