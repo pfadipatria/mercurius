@@ -5,6 +5,9 @@ function showPersonPage(){
       case 'list':
          showPersonListPage();
          break;
+      case 'show':
+         showPersonDetailsPage(getMenuPath('3'));
+         break;
       default:
          showPersonListPage();
    }
