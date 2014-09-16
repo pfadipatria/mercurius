@@ -55,9 +55,9 @@ function printKeyList(){
 
 function showKeyDetailsPage($keyId = '0'){
    echo getHeader('keys', '');
-   echo '<br><button onclick="goBack()">Go Back</button><br><hr>';
+   echo '<br><p onclick="goBack()">Zur&uuml;ck</p><br>';
    printKeyDetails($keyId);
-   echo '<br><hr><button onclick="goBack()">Go Back</button>';
+   echo '<br><p onclick="goBack()">Zur&uuml;ck</p><br>';
    echo getFooter();
 }
 
