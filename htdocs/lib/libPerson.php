@@ -220,6 +220,9 @@ function printPersonSearch(){
 function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment = ''){
     $return = false;
 
+    # @TODO Check if at least the name (or uid?) is given
+
+    # @TODO Check if there are similar users and warn
     $query = "
       SELECT
          id,
@@ -234,8 +237,39 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
     // $rows = mysqli_num_rows($dbresult);
     if(mysqli_num_rows($dbresult) > 0){
         echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
+        # @TODO return the form with the prefilled values from the last try
     } else {
-        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
+        // echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
+        /*
+        foreach(array('name', 'uid', ...) as $value){
+            if (${$value} != ''){
+                # Save to database
+            }
+        } */
+        $query = "
+            INSERT INTO
+                doorperson (
+                    'name',
+                    'uid',
+                    'uidnumber',
+                    'mdbid',
+                    'comment'
+                    )
+                VALUES (
+                    '" . $name . "',
+                    '" . $uid . "',
+                    '" . $uidnumber . "',
+                    '" . $mdbid . "',
+                    '" . $comment . "'
+                    );
+            ";
+        $con = openDb();
+        if (queryDb($con, $query)){
+            echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
+            $return true;
+        } else {
+            echo '<p style="color:red">Fehler beim hinzugef&uuml;g in die Datenbank!</p>';
+        }
 
     }
 
