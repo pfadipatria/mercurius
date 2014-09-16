@@ -97,8 +97,10 @@ function printKeyDetails($keyId = '0'){
 	while ($row = mysqli_fetch_array($dbresult)){
       if ( $row['communication'] == '1' ){
          $com = 'Ja';
-      } else {
+      } else if ( $row['communication'] == '0' ) {
          $com = 'Nein';
+      } else {
+         $com = 'unknown value';
       }
       echo '
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
