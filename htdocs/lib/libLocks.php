@@ -168,10 +168,23 @@ function printLockEdit($lockId = '0'){
          $bat = '';
       }
 
+         $placeChoose = '<select name="place" size="1" disabled>';
+         $cquery = 'SELECT id, name FROM doorplaces';
+         $pcon = openDb();
+         $pdbresult = queryDb($pcon, $pquery);
+	      while ($prow = mysqli_fetch_array($pdbresult)){
+            $placeChoose .= '<option value="' . $prow['id'] . '"';
+            if ($prow['id'] == $row['color']){
+               $placeChoose .= ' selected ';
+            }
+            $placeChoose .= '>' . $prow['name'] . '</option>';
+         }
+         $placeChoose .= '</select>';
+
       echo '<form action="/keys/show/' . $lockId . '" method="post">
          <tr><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
-         <tr><td align="right">SC</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['elnumber'] . '" readonly ></td></tr>
-         <tr><td align="right">Heim</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['heim'] . '" readonly ></td></tr>
+         <tr><td align="right">SC</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['sc'] . '" readonly ></td></tr>
+         <tr><td align="right">Heim</td><td>' . $placeChoose . '</td></tr>
          <tr><td align="right">Bezeichnung</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['lockname'] . '"></td></tr>
          <tr><td align="right">Nummer</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['number'] . '"></td></tr>
          <tr><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
