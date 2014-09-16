@@ -70,13 +70,13 @@ function printKeyDetails($keyId = '0'){
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       echo '
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>id</td><td>' . $row['id'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>ElNumber</td><td>' . $row['elnumber'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>Code</td><td><b>' . $row['code'] . '</b></td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>Farbe</td><td>' . $row['colorname'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>Status</td><td>' . $row['statusname'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td>Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">ElNumber</td><td>' . $row['elnumber'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Code</td><td><b>' . $row['code'] . '</b></td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Farbe</td><td>' . $row['colorname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
          ';
    }
 
