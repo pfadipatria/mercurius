@@ -8,6 +8,9 @@ function showLocksPage(){
       case 'show':
          showLockDetailsPage(getMenuPath('3'));
          break;
+      case 'edit':
+         showLockEditPage(getMenuPath('3'));
+         break;
       default:
          showLockListPage();
    }
@@ -64,7 +67,7 @@ function showLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printLockDetails($lockId);
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
+   echo '<br><a href="/locks/edit/' . $lockId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
    printLockDenials($lockId);
    echo '<br><h3>Berechtigungen auf Schl&uumlssel:</h3><br>';
    printLockPermissions($lockId);
@@ -72,7 +75,68 @@ function showLockDetailsPage($lockId = '0'){
    echo getFooter();
 }
 
+function showLockEditPage($lockId = '0'){
+   echo getHeader('locks', '');
+   echo '<br>';
+   printLockEdit($lockId);
+   echo '<br><br><hr><br><h3>Sperren:</h3><br>';
+   printLockDenials($lockId);
+   echo '<br>';
+   echo getFooter();
+}
+
 function printLockDetails($lockId = '0'){
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+
+      SELECT
+         doorlock.id AS lockid,
+         number,
+         doorlock.name AS lockname,
+         sc,
+         doorplace.name AS heim,
+         doorlockstatus.name AS statusname,
+         hasbatteries,
+         lastupdate,
+         type,
+         position,
+         comment
+         FROM doorlock
+         LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
+         LEFT JOIN doorlockstatus ON (doorlock.status = doorlockstatus.id)
+         WHERE doorlock.id = '" . $lockId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      if ( $row['hasbatteries'] == '1' ){
+         $bat = 'Ja';
+      } else if ( $row['hasbatteries'] == '0' ) {
+         $bat = 'Nein';
+      } else {
+         $bat = 'n/a';
+      }
+      echo '
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">SC</td><td>' . $row['sc'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Heim</td><td>' . $row['heim'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['lockname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Nummer</td><td>' . $row['number'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Elektronik</td><td>' . $bat . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         ';
+   }
+
+   echo '</table>';
+}
+
+function printLockEdit($lockId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "

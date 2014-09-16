@@ -141,16 +141,6 @@ function printKeyDetails($keyId = '0'){
 function printKeyEdit($keyId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
-   $colorChoose = '<select name="color" size="1">';
-   $query = 'SELECT id, name FROM doorkeycolor';
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      $colorChoose .= '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
-   }
-   $colorChoose .= '</select>';
-
-
    $query = "
       SELECT
          doorkey.id,
