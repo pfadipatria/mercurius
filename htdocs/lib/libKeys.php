@@ -20,7 +20,7 @@ function printKeyList(){
    $result = '';
 
    echo '<table>';
-   echo '<th>
+   echo '<tr>
       <td>id</td>
       <td>elNumber</td>
       <td>Code</td>
@@ -28,7 +28,7 @@ function printKeyList(){
       <td>Status</td>
       <td>Bezeichnung</td>
       <td>Comment</td>
-      </th>';
+      </tr>';
    $query = 'select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) LIMIT 10';
    // $query = 'select * from doorkey limit 10';
    $con = openDb();
