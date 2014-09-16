@@ -103,7 +103,7 @@ function getFooter () {
 
 function getMenu($menu = ''){
    $result = '';
-   $homeLink, $keysLink, $locksLink, $peopleLink, $helpLink = '';
+   $homeLink = $keysLink = $locksLink = $peopleLink = $helpLink = '';
 
    $activeLink = ' id="Aktiv" ';
 
