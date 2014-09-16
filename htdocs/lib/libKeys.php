@@ -64,9 +64,10 @@ function showKeyDetailsPage($keyId = '0'){
    echo getHeader('keys', '');
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printKeyDetails($keyId);
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br>';
+   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><p>Berechtigungen:</p><br>';
    printKeyPermissions($keyId);
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
+   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><p>Sperren auf T&uuml;ren:</p><br>';
+   printKeyDenials($keyId);
    echo getFooter();
 }
 
@@ -136,6 +137,35 @@ function printKeyPermissions($keyId = '0'){
          LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
          JOIN doorplace ON (doorlock.place = doorplace.id)
          WHERE doorkey_opens_lock.key = '" . $keyId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['lockid'] . '\';" style="cursor: zoom-in">
+               <td>SC ' . $row['locksc'] . '</td>
+               <td>' . $row['heim'] . '</td>
+               <td>' . $row['lockname'] . '</td>
+            </tr>
+         ';
+   }
+
+   echo '</table>';
+}
+
+function printKeyDenials($keyId = '0'){
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+      SELECT
+         doorkey_opens_lock.lock AS lockid,
+         doorlock.sc AS locksc,
+         doorplace.name AS heim,
+         doorlock.name AS lockname
+         FROM doorlock_locks_key
+         LEFT JOIN doorlock ON (doorlock_locks_key.lock = doorlock.id )
+         JOIN doorplace ON (doorlock.place = doorplace.id)
+         WHERE doorlock_locks_key.key = '" . $keyId . "'
       ";
    // error_log($query);
    $con = openDb();
