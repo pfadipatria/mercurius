@@ -168,8 +168,8 @@ function printLockEdit($lockId = '0'){
          $bat = '';
       }
 
-         $placeChoose = '<select name="place" size="1" disabled>';
-         $cquery = 'SELECT id, name FROM doorplaces';
+         $placeChoose = '<select name="place" size="1">';
+         $cquery = 'SELECT id, name FROM doorplace';
          $pcon = openDb();
          $pdbresult = queryDb($pcon, $pquery);
 	      while ($prow = mysqli_fetch_array($pdbresult)){
