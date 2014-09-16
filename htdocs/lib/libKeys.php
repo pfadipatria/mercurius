@@ -18,7 +18,7 @@ function showKeyListPage(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<p>' . print_r($row) . '</p>';
+      echo '<p>' . $row['elnumber'] . ' comment: ' . $row['comment'] . '</p>';
    }
    echo getFooter();
 }
