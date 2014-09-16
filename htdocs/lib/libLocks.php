@@ -146,6 +146,7 @@ function printLockEdit($lockId = '0'){
          number,
          doorlock.name AS lockname,
          sc,
+         place
          doorplace.name AS heim,
          doorlockstatus.name AS statusname,
          hasbatteries,
@@ -174,7 +175,7 @@ function printLockEdit($lockId = '0'){
          $pdbresult = queryDb($pcon, $pquery);
 	      while ($prow = mysqli_fetch_array($pdbresult)){
             $placeChoose .= '<option value="' . $prow['id'] . '"';
-            if ($prow['id'] == $row['heim']){
+            if ($prow['id'] == $row['place']){
                $placeChoose .= ' selected ';
             }
             $placeChoose .= '>' . $prow['name'] . '</option>';
