@@ -39,7 +39,7 @@ function printKeyList(){
          doorkey.id,
          code,
          doorkeystatus.name AS statusname,
-         comment,
+         doorkey.comment AS keycomment,
          doorperson.name AS owner
          FROM doorkey
          LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
@@ -55,7 +55,7 @@ function printKeyList(){
          <td>' . $row['code'] . '</td>
          <td>' . $row['statusname'] . '</td>
          <td>' . $row['owner'] . '</td>
-         <td>' . $row['comment'] . '</td>
+         <td>' . $row['keycomment'] . '</td>
          </tr>';
    }
 
@@ -98,7 +98,7 @@ function printKeyDetails($keyId = '0'){
          doorkeymech.bezeichung AS bezeichung,
          doorperson.name AS owner,
          doorperson.uid AS owneruid,
-         comment,
+         doorkey.comment AS keycomment,
          communication,
          lastupdate
          FROM doorkey
@@ -127,7 +127,7 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Farbe</td><td>' . $row['colorname'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Status</td><td>' . $row['statusname'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Bezeichnung</td><td>' . $row['bezeichung'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['keycomment'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
@@ -152,7 +152,7 @@ function printKeyEdit($keyId = '0'){
          doorkeymech.bezeichung AS bezeichung,
          doorperson.name AS owner,
          doorperson.uid AS owneruid,
-         comment,
+         doorkey.comment AS keycomment,
          communication,
          lastupdate
          FROM doorkey
@@ -205,7 +205,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">Farbe</td><td>' . $colorChoose . '</td></tr>
          <tr><td align="right">Status</td><td>' . $statusChoose . '</td></tr>
          <tr><td align="right">Bezeichnung</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['bezeichung'] . '" readonly ></td></tr>
-         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
+         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['keycomment'] . '"></td></tr>
          <tr><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
          <tr><td align="right">Kommunikation</td><td><input type="checkbox" name="zutat" value="communication" ' . $com . '></td></tr>
          <tr><td align="right">Typ</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['type'] . '" readonly ></td></tr>
