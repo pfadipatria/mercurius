@@ -3,7 +3,11 @@
 function showStartPage () {
    global $uid, $userid;
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
-   echo getHeader($explodedRequest[1]);
+   $menu = $explodedRequest[1];
+   if ( $menu  == '' ) {
+      $menu = 'default';
+   }
+   echo getHeader($menu);
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
