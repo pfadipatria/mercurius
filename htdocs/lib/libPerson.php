@@ -35,7 +35,8 @@ function printPersonList(){
          name,
          uid,
          uidnumber,
-         mdbid
+         mdbid,
+         comment
          FROM doorperson
          ORDER BY name
          ';
@@ -48,6 +49,7 @@ function printPersonList(){
          <td>' . $row['uid'] . '</td>
          <td>' . $row['uidnumber'] . '</td>
          <td>' . $row['mdbid'] . '</td>
+         <td>' . $row['comment'] . '</td>
          </tr>';
    }
 
@@ -72,7 +74,8 @@ function printPersonDetails($personId = '0'){
          name,
          uid,
          uidnumber,
-         mdbid
+         mdbid,
+         comment
          FROM doorperson
          WHERE id = '" . $personId . "'
       ";
@@ -87,7 +90,37 @@ function printPersonDetails($personId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uid</td><td>' . $row['uid'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uidNumber</td><td>' . $row['uidnumber'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">mdbId</td><td>' . $row['mdbid'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
          </table>';
    }
+}
+
+function printPersonKeys($personId = '0'){
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+      SELECT
+         doorperson.id,
+         doorkey.code,
+         uid,
+         uidnumber,
+         mdbid
+         LEFT JOIN doorkey ON (doorperson.id = doorkey.owner)
+         FROM doorperson
+         WHERE id = '" . $personId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['lockid'] . '\';" style="cursor: zoom-in">
+               <td>SC ' . $row['locksc'] . '</td>
+               <td>' . $row['heim'] . '</td>
+               <td>' . $row['lockname'] . '</td>
+            </tr>
+         ';
+   }
+
+   echo '</table>';
 }
 ?>
