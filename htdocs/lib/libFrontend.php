@@ -4,10 +4,11 @@ function showStartPage () {
    global $uid, $userid;
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
    $menu = $explodedRequest[1];
+   $submenu = $explodedRequest[2];
    if ( $menu  == '' ) {
       $menu = 'default';
    }
-   echo getHeader($menu);
+   echo getHeader($menu, $submenu);
    echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
@@ -20,7 +21,7 @@ function showLoginPage () {
    echo getFooter();
 }
 
-function getHeader ($menu = '') {
+function getHeader ($menu = '', $submenu = '') {
    $result = '<html>
 <head>
 <title>skeymanager</title>
@@ -84,7 +85,7 @@ ul#Navigation a#Aktiv {
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
    <table width="80%" border="0" align="center">
-   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($menu) . '   <tr align="center"><td>
+   <tr align="center"><td><h1>skeymanager - dev</h1></td></tr>' . getMenu($menu, $submenu) . '   <tr align="center"><td>
 ';
 
    return $result;
@@ -102,9 +103,13 @@ function getFooter () {
    return $result;
 }
 
-function getMenu($menu = ''){
+function getMenu($menu = '', $submenu = ''){
    $result = '';
-   $homeLink = $keysLink = $locksLink = $peopleLink = $historyLink = $helpLink = '';
+   if ( $menu = '' ) {
+      return $result;
+   }
+
+   $homeLink = $keysLink = $locksLink = $peopleLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = '';
 
    $activeLink = ' id="Aktiv" ';
 
@@ -129,17 +134,27 @@ function getMenu($menu = ''){
          break;
    }
 
-   if ($menu != '' ) {
-      $result .= '
-         <tr align="center"><td><ul id="Navigation">
-            <li><a href="/home"' . $homeLink . '>Home</a></li>
-            <li><a href="/keys"' . $keysLink . '>Schl&uumlssel</a></li>
-            <li><a href="/locks"' . $locksLink . '>Schl&ouml;sser</a></li>
-            <li><a href="/people"' . $peopleLink . '>Personen</a></li>
-            <li><a href="/history"' . $historyLink . '>Verlauf</a></li>
-            <li><a href="/help"' . $helpLink . '>Hilfe</a></li>
-         </ul>';
+   switch($submenu) {
+      case 'list':
+         $listLink = $activeLink;
+         break;
+      case 'search':
+         $searchLink = $activeLink;
+         break;
+      case 'add':
+         $addLink = $activeLink;
+         break;
    }
+
+   $result .= '
+      <tr align="center"><td><ul id="Navigation">
+         <li><a href="/home"' . $homeLink . '>Home</a></li>
+         <li><a href="/keys"' . $keysLink . '>Schl&uumlssel</a></li>
+         <li><a href="/locks"' . $locksLink . '>Schl&ouml;sser</a></li>
+         <li><a href="/people"' . $peopleLink . '>Personen</a></li>
+         <li><a href="/history"' . $historyLink . '>Verlauf</a></li>
+         <li><a href="/help"' . $helpLink . '>Hilfe</a></li>
+      </ul>';
 
    switch($menu){
       case 'keys':
@@ -147,9 +162,9 @@ function getMenu($menu = ''){
       case 'people':
          $result .= '
          <ul id="Navigation" style="border-top-color: silver;">
-            <li><a href="/' . $menu .'/list">Liste</a></li>
-            <li><a href="/' . $menu .'/search">Suchen</a></li>
-            <li><a href="/' . $menu .'/add">Hinzuf&uuml;gen</a></li>
+            <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
+            <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
+            <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
          </ul>';
       break;
       case 'history':
