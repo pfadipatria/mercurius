@@ -89,8 +89,9 @@ function showPersonAddPage(){
    echo '<br>';
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
      echo '<p>adding person ';
-     print_r($_POST);
+     // print_r($_POST);
      echo '</p>';
+    addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment'])
 
    }
    printPersonAdd();
@@ -214,6 +215,31 @@ function printPersonSearch(){
           <tr><td align="center"><input name="query" id="query" type="text" size="30" maxlength="30"></td></tr>
           <tr><td align="center"><a href="javascript:void(0)" onClick="document.location = \'/person/search/\' + document.getElementById(\'query\').value;">Suchen</a></td>
           </table>';
+}
+
+function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment = ''){
+    $return = false;
+
+    $query = "
+      SELECT
+         id,
+         name,
+         uid,
+         uidnumber
+         FROM doorperson
+         WHERE name = '" . $name . " or uid = " . $uid . "'
+      ";
+    $con = openDb();
+    $dbresult = queryDb($con, $query);
+    $row = mysqli_fetch_array($dbresult);
+    if($row != ''){
+        echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
+    } else {
+        echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
+
+    }
+
+    return $return;
 }
 
 ?>
