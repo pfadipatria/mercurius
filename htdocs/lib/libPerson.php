@@ -87,7 +87,7 @@ function showPersonEditPage($personId = '0'){
 function showPersonAddPage(){
    echo getHeader('person', 'add');
    echo '<br>';
-   if (isset($_POST) {
+   if (isset($_POST)) {
      echo '<p>adding person</p>';
 
    }
