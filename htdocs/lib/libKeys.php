@@ -136,7 +136,7 @@ function printKeyPermissions($keyId = '0'){
          doorlock.name AS lockname
          FROM doorkey_opens_lock
          LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
-         JOIN doorplace ON (doorlock.place = doorplace.id)
+         LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
          WHERE doorkey_opens_lock.key = '" . $keyId . "'
       ";
    // error_log($query);
@@ -165,7 +165,7 @@ function printKeyDenials($keyId = '0'){
          doorlock.name AS lockname
          FROM doorlock_locks_key
          LEFT JOIN doorlock ON (doorlock_locks_key.lock = doorlock.id )
-         JOIN doorplace ON (doorlock.place = doorplace.id)
+         LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
          WHERE doorlock_locks_key.key = '" . $keyId . "'
       ";
    // error_log($query);

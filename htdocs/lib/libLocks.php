@@ -64,8 +64,8 @@ function showLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printLockDetails($lockId);
-   // echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
-   // printLockDenials($keyId);
+   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Sperren:</h3><br>';
+   printLockDenials($keyId);
    echo '<br><h3>Berechtigungen auf Schl&uumlssel:</h3><br>';
    printLockPermissions($lockId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
@@ -150,28 +150,26 @@ function printLockPermissions($lockId = '0'){
    echo '</table>';
 }
 
-function printLockDenials($keyId = '0'){
+function printLockDenials($lockId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
       SELECT
-         doorlock_locks_key.lock AS lockid,
-         doorlock.sc AS locksc,
-         doorplace.name AS heim,
-         doorlock.name AS lockname
+         doorlock_locks_key.key AS keyid,
+         doorkey.code AS keycode,
+         doorperson.name AS personname
          FROM doorlock_locks_key
-         LEFT JOIN doorlock ON (doorlock_locks_key.lock = doorlock.id )
-         JOIN doorplace ON (doorlock.place = doorplace.id)
-         WHERE doorlock_locks_key.key = '" . $keyId . "'
+         LEFT JOIN doorkey ON (doorkey_opens_lock.key = doorkey.id )
+         LEFT JOIN doorperson ON (doorkey.owner = doorperson.id)
+         WHERE doorlock_locks_key.key = '" . $lockId . "'
       ";
    // error_log($query);
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['lockid'] . '\';" style="cursor: zoom-in">
-               <td>SC ' . $row['locksc'] . '</td>
-               <td>' . $row['heim'] . '</td>
-               <td>' . $row['lockname'] . '</td>
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['keyid'] . '\';" style="cursor: zoom-in">
+               <td>MC ' . $row['keycode'] . '</td>
+               <td>' . $row['personname'] . '</td>
             </tr>
          ';
    }
