@@ -86,7 +86,6 @@ function showLockEditPage($lockId = '0'){
 }
 
 function printLockDetails($lockId = '0'){
-   echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
 
@@ -118,7 +117,8 @@ function printLockDetails($lockId = '0'){
       } else {
          $bat = 'n/a';
       }
-      echo '
+      echo '<h2>' . $row['heim'] . ' ' . $row['lockname'] . ' - ' . $row['sc'] . '</h2>
+         <table cellpadding="5" cellspacing="0">
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">id</td><td>' . $row['lockid'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">SC</td><td>' . $row['sc'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Heim</td><td>' . $row['heim'] . '</td></tr>
@@ -130,10 +130,8 @@ function printLockDetails($lockId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Position</td><td>' . $row['position'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
-         ';
+         </table>';
    }
-
-   echo '</table>';
 }
 
 function printLockEdit($lockId = '0'){
