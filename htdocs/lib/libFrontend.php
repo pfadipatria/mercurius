@@ -2,9 +2,7 @@
 
 function showStartPage () {
    global $uid, $userid;
-   $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
-   $menu = $explodedRequest[1];
-   $submenu = $explodedRequest[2];
+   $menu = getMenuPath('1');
    if ( $menu  == '' ) {
       $menu = 'default';
    }
