@@ -106,7 +106,7 @@ function getFooter () {
 
 function getMenu($menu = '', $submenu = ''){
    $result = '';
-   if ( $menu = '' ) {
+   if ( $menu == '' ) {
       return $result;
    }
 
