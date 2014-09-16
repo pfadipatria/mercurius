@@ -17,7 +17,7 @@ function showKeyListPage(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo $row;
+      var_dump($row);
    }
    echo getFooter();
 }
