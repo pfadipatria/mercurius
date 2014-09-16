@@ -67,7 +67,7 @@ function showKeyDetailsPage($keyId = '0'){
    echo getHeader('keys', '');
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    printKeyDetails($keyId);
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Berechtigungen:</h3><br>';
+   echo '<br><a href="/keys/edit/' . $kexId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br><hr><br><h3>Berechtigungen:</h3><br>';
    printKeyPermissions($keyId);
    echo '<br><h3>Sperren auf T&uuml;ren:</h3><br>';
    printKeyDenials($keyId);
