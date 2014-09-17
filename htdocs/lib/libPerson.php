@@ -295,7 +295,7 @@ function modifiyDbPerson($params = array()){
          if ($params['mode'] == 'update') $query .= " WHERE id = '" . $id . "'";
     $con = openDb();
     $dbresult = queryDb($con, $query);
-    $row = mysqli_fetch_row($dbresult):
+    $row = mysqli_fetch_row($dbresult);
 
     # @TODO (If adding?) check if this name (or uid?) already exists
 
