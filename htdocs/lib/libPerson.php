@@ -194,7 +194,7 @@ function printPersonEdit($personId = '0'){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<form action="/person/show/' . $personId . '" method="post"><h2>' . $row['name'] . '</h2>
+      echo '<form action="/person/edit/" method="post"><h2>' . $row['name'] . '</h2>
          <table cellpadding="5" cellspacing="0">
          <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr><td align="right">Name</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['name'] . '"></td></tr>
