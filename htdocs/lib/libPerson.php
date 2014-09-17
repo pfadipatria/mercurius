@@ -79,7 +79,18 @@ function showPersonDetailsPage($personId = '0'){
 function showPersonEditPage($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
-   printPersonAdd();
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+     echo '<p>modifiyng person ';
+     // print_r($_POST);
+     echo '</p>';
+    $addArray['mode'] = 'update';
+    foreach($_POST as $item){
+        $addArray[$item] = $_POST[$item];
+    }
+    modifiyDbPerson($addArray);
+   }
+   // Should we return to the view of this person (on success?)?
+   printPersonEdit();
    echo '<br>';
    echo getFooter();
 }
@@ -94,6 +105,7 @@ function showPersonAddPage(){
     addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment']);
 
    }
+   // Should we return to the form or to the newly created person?
    printPersonAdd();
    echo '<br>';
    echo getFooter();
@@ -246,7 +258,7 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
         $cols = '`name`';
         $values = '"' . $name . '"';
         foreach(array( 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
-            if (${$item} != ''){
+            if (${$item} != '' and ${$item} != '0') {
                 $cols .= ', `' . $item . '`';
                 $values .= ', "' . ${$item} . '"';
             }
@@ -260,6 +272,69 @@ function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment
             echo '<p style="color:red">Fehler beim hinzugef&uuml;gen in die Datenbank!</p>';
         }
 
+    }
+
+    return $return;
+}
+
+function modifiyDbPerson($params = array()){
+    $return = false;
+
+    # We we need at least an id for updates or an name for adds
+    if ( empty($params['mode']) || $params['mode'] == 'update' && empty($params['id']) || $params['mode'] == 'add' && empty($params['name']) ) return false;
+
+    $query = "
+         SELECT
+         id,
+         name,
+         uid,
+         uidnumber
+         FROM doorperson";
+         # @TODO Check if a similar user already exists
+         if ($params['mode'] == 'add') $query .= " WHERE name = '" . $name . "' or uid = '" . $uid . "'";
+         if ($params['mode'] == 'update') $query .= " WHERE id = '" . $id . "'";
+    $con = openDb();
+    $dbresult = queryDb($con, $query);
+    $row = mysqli_fetch_row($dbresult):
+
+    # @TODO (If adding?) check if this name (or uid?) already exists
+
+    # Add the beginnen of the query
+    if ($params['add'] == 'update') {
+        $query = 'INSERT INTO doorperson ';
+        $cols = ' (`lastupdate` ';
+        $values = ' ( NOW() ';
+        }
+    if ($params['mode'] == 'update') $query = 'UPDATE doorperson SET `lastupdate` = NOW() ';
+
+    # @TODO Check if the name is not NULL
+
+    # Add / Update the fields
+    # @TODO (How) can fields be emptied (set to NULL)?
+    foreach(array( 'name', 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
+        if (${$item} != '' || ${$item} != '0') {
+            if ($params['mode'] == 'add') $cols .= ', `' . $item . '`';
+            if ($params['mode'] == 'add') $values .= ', "' . ${$item} . '"';
+            if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = "' ${$item} '" ';
+        } else {
+            echo 'The ' . $item . ' must not be empty or 0!';
+            return false;
+        }
+    }
+
+    # Add the end of the query
+    if ($params['mode'] == 'add') $query .= $cols . ') VALUES (' . $values . ')';
+    if ($params['mode'] == 'update') $query .= ' WHERE `id` = "' . $id . '"';
+
+    # Perfom the db add/update
+    error_log($query);
+    $con = openDb();
+    if (queryDb($con, $query)){
+        echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
+        $return = true;
+        # @TODO create history
+    } else {
+        echo '<p style="color:red">Fehler beim hinzugef&uuml;gen in die Datenbank!</p>';
     }
 
     return $return;
