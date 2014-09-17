@@ -317,7 +317,7 @@ function modifiyDbPerson($params = array()){
         if ($params[$item] != '' || $params[$item] != '0') {
             if ($params['mode'] == 'add') $cols .= ', `' . $item . '`';
             if ($params['mode'] == 'add') $values .= ', "' . $params[$item] . '"';
-            if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = "' . $params[$ite] . '" ';
+            if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = "' . $params[$item] . '" ';
         } else {
             echo 'The ' . $item . ' must not be empty or 0!';
             return false;
