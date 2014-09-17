@@ -1,7 +1,8 @@
 <?php
 
 function showStartPage () {
-   global $uid, $userid;
+   // global $uid, $userid;
+   // global $uid;
    $menu = getMenuPath('1');
    if ( $menu  == '' ) {
       $menu = 'default';
