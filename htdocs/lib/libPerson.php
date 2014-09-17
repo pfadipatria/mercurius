@@ -332,11 +332,11 @@ function modifiyDbPerson($params = array()){
     error_log($query);
     $con = openDb();
     if (queryDb($con, $query)){
-        echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
+        echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
         $return = true;
         # @TODO create history
     } else {
-        echo '<p style="color:red">Fehler beim hinzugef&uuml;gen in die Datenbank!</p>';
+        echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
     }
 
     return $return;
