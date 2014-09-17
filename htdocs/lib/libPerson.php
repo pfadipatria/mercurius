@@ -302,7 +302,7 @@ function modifiyDbPerson($params = array()){
     # @TODO (If adding?) check if this name (or uid?) already exists
 
     # Add the beginnen of the query
-    if ($params['add'] == 'update') {
+    if ($params['mode'] == 'add') {
         $query = 'INSERT INTO doorperson ';
         $cols = ' (`lastupdate` ';
         $values = ' ( NOW() ';
