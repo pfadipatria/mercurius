@@ -86,9 +86,7 @@ function showPersonEditPage($personId = '0'){
     $addArray['mode'] = 'update';
     $addArray['id'] = $personId;
     foreach($_POST as $item => $value){
-        if ($value != '' || $value != '0' || !empty(value)) {
-            $addArray[$item] = $value;
-        }
+        if ($value != '' || $value != '0' || !empty($value)) $addArray[$item] = $value;
     }
     modifiyDbPerson($addArray);
    }
