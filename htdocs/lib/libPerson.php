@@ -314,7 +314,7 @@ function modifiyDbPerson($params = array()){
     # Add / Update the fields
     # @TODO (How) can fields be emptied (set to NULL)?
     foreach(array( 'name', 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
-        if ($params[$item] != '' || $params[$item] != '0') {
+        if ($params[$item] != '' || $params[$item] != '0' || !empty($params[$item])) {
             if ($params['mode'] == 'add') $cols .= ', `' . $item . '`';
             if ($params['mode'] == 'add') $values .= ', "' . $params[$item] . '"';
             if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = "' . $params[$item] . '" ';
