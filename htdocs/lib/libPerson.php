@@ -79,6 +79,7 @@ function showPersonDetailsPage($personId = '0'){
 function showPersonEditPage($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
+   /*
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
      echo '<p>modifiyng person ';
      // print_r($_POST);
@@ -89,8 +90,9 @@ function showPersonEditPage($personId = '0'){
     }
     modifiyDbPerson($addArray);
    }
+   */
    // Should we return to the view of this person (on success?)?
-   printPersonEdit();
+   printPersonEdit($personId);
    echo '<br>';
    echo getFooter();
 }
