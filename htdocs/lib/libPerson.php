@@ -293,8 +293,8 @@ function modifiyDbPerson($params = array()){
          uidnumber
          FROM doorperson";
          # @TODO Check if a similar user already exists
-         if ($params['mode'] == 'add') $query .= " WHERE name = '" . $name . "' or uid = '" . $uid . "'";
-         if ($params['mode'] == 'update') $query .= " WHERE id = '" . $id . "'";
+         if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
+         if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
     $con = openDb();
     $dbresult = queryDb($con, $query);
     $row = mysqli_fetch_row($dbresult);
@@ -326,7 +326,7 @@ function modifiyDbPerson($params = array()){
 
     # Add the end of the query
     if ($params['mode'] == 'add') $query .= $cols . ') VALUES (' . $values . ')';
-    if ($params['mode'] == 'update') $query .= ' WHERE `id` = "' . $id . '"';
+    if ($params['mode'] == 'update') $query .= ' WHERE `id` = "' . $params['id'] . '"';
 
     # Perfom the db add/update
     error_log($query);
