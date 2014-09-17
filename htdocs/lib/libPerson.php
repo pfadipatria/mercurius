@@ -83,13 +83,12 @@ function showPersonEditPage($personId = '0'){
      echo '<p>modifiyng person ';
      // print_r($_POST);
      echo '</p>';
-    /*
     $addArray['mode'] = 'update';
+    $addArray['id'] = $personId;
     foreach($_POST as $item){
         $addArray[$item] = $_POST[$item];
     }
     modifiyDbPerson($addArray);
-    */
    }
 
    // Should we return to the view of this person (on success?)?
