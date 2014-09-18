@@ -374,6 +374,7 @@ function createPersonHistory($params = array()){
       }
    }
    $query .= $cols . ') VALUES (' . $values . ')';
+   error_log($query);
    $con = openDb();
    if ($dbresult = queryDb($con, $query)) $return = true;
 
