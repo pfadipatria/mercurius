@@ -1,7 +1,7 @@
 <?php
 
-function routing(loggedIn = false){
-    if(loggedIn){
+function routing($loggedIn = false){
+    if($loggedIn){
        switch(getMenuPath()) {
           case 'keys':
              showKeysPage();
