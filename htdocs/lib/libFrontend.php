@@ -39,6 +39,7 @@ function getHeader ($menu = '', $submenu = '') {
         'title' => 'skeymanager - dev'
    );
 
+   var_dump($view);
    ob_start();
    include __DIR__.'/../templates/header.phtml';
    $result = ob_end_flush();
