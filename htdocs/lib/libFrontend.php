@@ -42,7 +42,8 @@ function getHeader ($menu = '', $submenu = '') {
    var_dump($view);
    ob_start();
    include __DIR__.'/../templates/header.phtml';
-   $result = ob_end_flush();
+   $result = ob_get_contents();
+   ob_end_clean();
 
    return $result;
 
