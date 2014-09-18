@@ -34,7 +34,8 @@ function getMenuPath ($level = '1') {
 }
 
 function getHeader ($menu = '', $submenu = '') {
-   $result = '<html>
+   $result = '<!DOCTYPE html>
+<html>
 <head>
 <title>skeymanager</title>
 <style type="text/css" id="bla">
