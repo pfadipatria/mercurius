@@ -285,22 +285,26 @@ function modifiyDbPerson($params = array()){
     # We we need at least an id for updates or an name for adds
     if ( empty($params['mode']) || $params['mode'] == 'update' && empty($params['id']) || $params['mode'] == 'add' && empty($params['name']) ) return false;
 
-    $query = "
-         SELECT
-         id,
-         name,
-         uid,
-         uidnumber,
-         mdbid,
-         comment
-         FROM doorperson";
-         # @TODO Check if a similar user already exists
-    $con = openDb();
-    $dbresult = queryDb($con, $query);
-    $row = mysqli_fetch_row($dbresult);
+    if ($params['mode'] == 'update') {
+       $oldquery = "
+            SELECT
+            id,
+            name,
+            uid,
+            uidnumber,
+            mdbid,
+            comment
+            FROM doorperson
+            WHERE id = '" . $params['id'] ."'
+            ";
+            # @TODO Check if a similar user already exists
+       $con = openDb();
+       $dbresult = queryDb($con, $oldquery);
+       $row = mysqli_fetch_array($dbresult);
 
-    # Save the old data for history
-    $hist['old'] = $row;
+       # Save the old data for history
+       $hist['old'] = $row;
+    }
 
     if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
     if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
