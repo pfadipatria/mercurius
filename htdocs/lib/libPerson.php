@@ -360,13 +360,13 @@ function createPersonHistory($params = array()){
    echo '<pre>';
    var_dump($params);
    echo '</pre>';
-   /*
+   
    foreach($params['old'] as $item => $value){
       if ($params['new'][$item] != $value) {
          echo 'Creating history for item ' . $item . ' as ' . $value ' != ' . $params['new'][$item] '!';
       }
    }
-   */
+   
 
 }
 
