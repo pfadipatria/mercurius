@@ -73,7 +73,7 @@ function showPersonHistoryPage(){
 
 function getPersonList(){
 
-    $people = new \SKeyManager\PeopleRepository\PersonRepository;
+    $people = new \SKeyManager\Repository\PersonRepository;
     list($rows, $locations) = $people->getAll();
 
     $view = array(
