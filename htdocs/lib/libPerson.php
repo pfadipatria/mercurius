@@ -398,7 +398,7 @@ function printPersonHistory($count = '10'){
    $query = '
       SELECT
          hist.id,
-         user.name AS user,
+         user.name AS username,
          authors.name AS author,
          hist.name,
          hist.uid,
@@ -430,10 +430,10 @@ function printPersonHistory($count = '10'){
          <tr>
          <td>' . $row['date'] . '</td>
          <td>' . $row['author'] . '</td>
-         <td>' . $row['user'] . '</td>
+         <td>' . $row['username'] . '</td>
          <td>';
          foreach(array('hist.name' => 'name', 'hist.uid' => 'uid') as $item => $value){
-            if($row[$item] != 'NULL') echo ' ' . $value . ' (' . $row[$item] . ') ';
+            if($row[$item] != NULL) echo ' ' . $value . ' (' . $row[$item] . ') ';
          }
 
       echo '</td></tr>';
