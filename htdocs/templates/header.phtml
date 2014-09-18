@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>skeymanager</title>
+<style type="text/css" id="bla">
+a {
+    text-decoration:none;
+}
+
+.label {
+    font-size:1.5em;
+}
+
+.sublabel {
+
+}
+
+.labelinactive {
+   font-size:1.5em;
+	color:grey;
+
+}
+
+.sublabelinactive {
+	color:grey;
+}
+
+ul#Navigation {
+ margin: 0; padding: 0.8em;
+ text-align: center;
+ border: 1px solid black;
+ background-color: silver;
+}
+
+ul#Navigation li {
+ list-style: none;
+ display: inline;
+ margin: 0.4em; padding: 0;
+}
+
+ul#Navigation a, ul#Navigation span {
+ padding: 0.2em 1em;
+ text-decoration: none; font-weight: bold;
+ border: 1px solid black;
+ border-left-color: white; border-top-color: white;
+ color: blue; background-color: #ccc;
+}
+
+ul#Navigation a:hover, ul#Navigation span {
+ border-color: white;
+ border-left-color: black; border-top-color: black;
+ color: blue; background-color: gray;
+}
+
+ul#Navigation a#Aktiv {
+ border-color: white;
+ border-left-color: black; border-top-color: black;
+ color: blue; background-color: gray;
+}
+
+.normal { background-color: white }
+.highlight { background-color: #cccccc }
+
+.hovertable tr {
+    background-color: white;
+    border: 0;
+}
+
+.hovertable tr:hover {
+    background-color: #cccccc }
+
+.listtable td {
+    padding:5px;
+    margin:0;
+}
+
+.listtable th {
+    padding:5px;
+    margin:0;
+}
+
+
+</style>
+
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
+
+</head>
+<body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
+   <table width="80%" border="0" align="center">
+   <tr align="center"><td><h1><?php echo $view['title']; ?></h1></td></tr>
+   <?php echo $view['menu']; ?>
+   <tr align="center"><td>

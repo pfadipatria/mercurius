@@ -38,9 +38,10 @@ function getHeader ($menu = '', $submenu = '') {
         'menu' => getMenu($menu, $submenu),
         'title' => 'skeymanager - dev'
    );
-   $result = '
 
-';
+   ob_start();
+   include __DIR__.'/../templates/header.phtml';
+   $result = ob_end_flush();
 
    return $result;
 
