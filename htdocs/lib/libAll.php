@@ -8,4 +8,4 @@ require_once 'libLocks.php';
 require_once 'libPerson.php';
 require_once 'libRouting.php';
 require_once 'libRender.php';
-require_once '../SKeyManager/Repository/PersonRepository.php';
+require_once '../src/SKeyManager/Repository/PersonRepository.php';
