@@ -2,7 +2,7 @@
 
 namespace SKeyManager\Repository;
 
-class PersonRepository {
+class PersonRepository extends AbstractRepository {
 
     protected $locationPattern = '/person/show/%s';
 
@@ -18,20 +18,6 @@ class PersonRepository {
             FROM doorperson
             ORDER BY name;
         ';
-    }
-
-
-    function getAll() {
-        $con = openDb();
-        $dbresult = queryDb($con, $this->query);
-        $rows = array();
-        $locations = array();
-        while ($row = mysqli_fetch_assoc($dbresult)){
-            $locations[] = sprintf($this->locationPattern, $row['id']);
-            $rows[] = $row;
-        }
-
-        return array($rows, $locations);
     }
 
 }
