@@ -86,7 +86,7 @@ function getPersonList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
     $rows = array();
-    while ($row = mysqli_fetch_array($dbresult)){
+    while ($row = mysqli_fetch_assoc($dbresult)){
         $row['location'] = sprintf('/person/show/%s', $row['id']);
         $rows[] = $row;
     }
