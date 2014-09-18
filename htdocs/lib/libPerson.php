@@ -300,7 +300,7 @@ function modifiyDbPerson($params = array()){
             # @TODO Check if a similar user already exists
        $con = openDb();
        $dbresult = queryDb($con, $oldquery);
-       $row = mysqli_fetch_array($dbresult);
+       $row = mysqli_fetch_assoc($dbresult);
 
        # Save the old data for history
        $hist['old'] = $row;
