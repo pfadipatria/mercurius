@@ -363,7 +363,7 @@ function createPersonHistory($params = array()){
    
    foreach($params['old'] as $item => $value){
       if ($params['new'][$item] != $value) {
-         echo 'Creating history for item ' . $item . ' as ' . $value ' != ' . $params['new'][$item] '!';
+         echo 'Creating history for item ' . $item . ' as ' . $value ' != ' . $params['new'][$item] . '!';
       }
    }
    
