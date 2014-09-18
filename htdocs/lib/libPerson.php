@@ -1,33 +1,14 @@
 <?php
 
-function showPersonPage(){
-   switch(getMenuPath('2')){
-      case 'list':
-         showPersonListPage();
-         break;
-      case 'show':
-         showPersonDetailsPage(getMenuPath('3'));
-         break;
-      case 'edit':
-         showPersonEditPage(getMenuPath('3'));
-         break;
-      case 'add':
-         showPersonAddPage();
-         break;
-      case 'search':
-         showPersonSearchPage();
-      case 'history':
-         showPersonHistoryPage();
-         break;
-      default:
-         showPersonListPage();
-   }
-}
-
 function showPersonListPage(){
-   echo getHeader('person', 'list');
-   printPersonList();
-   echo getFooter();
+   $view = array(
+        'header' => getHeader('person', 'list'),
+        // 'body' => getPersonList(),
+        'footer' => getFooter()
+    );
+    echo $view['header'];
+    printPersonList();
+    echo $view['footer'];
 }
 
 function showPersonDetailsPage($personId = '0'){
