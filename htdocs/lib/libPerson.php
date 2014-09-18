@@ -16,6 +16,8 @@ function showPersonPage(){
          break;
       case 'search':
          showPersonSearchPage();
+      case 'history':
+         showPersonHistoryPage();
          break;
       default:
          showPersonListPage();
@@ -26,44 +28,6 @@ function showPersonListPage(){
    echo getHeader('person', 'list');
    printPersonList();
    echo getFooter();
-}
-
-function printPersonList(){
-
-   echo '<table cellpadding="5" cellspacing="0">';
-   echo '<tr>
-      <td>id</td>
-      <td>Name</td>
-      <td>uid</td>
-      <td>uidNumber</td>
-      <td>mbdId</td>
-      <td>Kommentar</td>
-      </tr>';
-   $query = '
-      SELECT
-         id,
-         name,
-         uid,
-         uidnumber,
-         mdbid,
-         comment
-         FROM doorperson
-         ORDER BY name
-         ';
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/person/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
-         <td>' . $row['id'] . '</td>
-         <td>' . $row['name'] . '</td>
-         <td>' . $row['uid'] . '</td>
-         <td>' . $row['uidnumber'] . '</td>
-         <td>' . $row['mdbid'] . '</td>
-         <td>' . $row['comment'] . '</td>
-         </tr>';
-   }
-
-   echo '</table>';
 }
 
 function showPersonDetailsPage($personId = '0'){
@@ -119,6 +83,50 @@ function showPersonSearchPage(){
    printPersonSearch();
    echo '<br>';
    echo getFooter();
+}
+
+function showPersonHistoryPage(){
+   echo getHeader('person', 'history');
+   printPersonHistory();
+   echo getFooter();
+}
+
+function printPersonList(){
+
+   echo '<table cellpadding="5" cellspacing="0">';
+   echo '<tr>
+      <td>id</td>
+      <td>Name</td>
+      <td>uid</td>
+      <td>uidNumber</td>
+      <td>mbdId</td>
+      <td>Kommentar</td>
+      </tr>';
+   $query = '
+      SELECT
+         id,
+         name,
+         uid,
+         uidnumber,
+         mdbid,
+         comment
+         FROM doorperson
+         ORDER BY name
+         ';
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/person/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
+         <td>' . $row['id'] . '</td>
+         <td>' . $row['name'] . '</td>
+         <td>' . $row['uid'] . '</td>
+         <td>' . $row['uidnumber'] . '</td>
+         <td>' . $row['mdbid'] . '</td>
+         <td>' . $row['comment'] . '</td>
+         </tr>';
+   }
+
+   echo '</table>';
 }
 
 function printPersonDetails($personId = '0'){
@@ -385,5 +393,53 @@ function createPersonHistory($params = array()){
 
 }
 
+function printPersonHistory($count = '10'){
+
+   $query = '
+      SELECT
+         hist.id,
+         user.name AS user,
+         authors.name AS author,
+         hist.name,
+         hist.uid,
+         hist.uidnumber,
+         hist.mdbid,
+         hist.comment,
+         hist.date 
+         FROM doorpersonhistory AS hist 
+         LEFT JOIN doorperson AS authors ON (hist.author = authors.id) 
+         LEFT JOIN doorperson AS user ON (hist.person = user.id)
+         ORDER by hist.date DESC
+         LIMIT ' . $count . '
+      ';
+
+   echo '<h2>Personen Verlauf</h2>
+         <table cellpadding="5" cellspacing="0">
+         <tr>
+            <td>Date</td>
+            <td>Author</td>
+            <td>User</td>
+            <td>Changes</td>
+         </tr>';
+
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '
+         <tr>
+         <td>' . $row['date'] . '</td>
+         <td>' . $row['author'] . '</td>
+         <td>' . $row['user'] . '</td>
+         <td>';
+         foreach(array('hist.name' => 'name', 'hist.uid' => 'uid') as $item => $value){
+            if($row[$item] != 'NULL') echo ' ' . $value . ' ';
+         }
+
+      echo '</td></tr>';
+   }
+
+   echo '</table>';
+}
 
 ?>
