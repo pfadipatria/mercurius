@@ -432,7 +432,7 @@ function printPersonHistory($count = '10'){
          <td>' . $row['author'] . '</td>
          <td>' . $row['username'] . '</td>
          <td>';
-         foreach(array('hist.name' => 'name', 'hist.uid' => 'uid') as $item => $value){
+         foreach(array('name' => 'name', 'uid' => 'uid') as $item => $value){
             if($row[$item] != NULL) echo ' ' . $value . ' (' . $row[$item] . ') ';
          }
 
