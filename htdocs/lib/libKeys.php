@@ -101,7 +101,7 @@ function printKeyDetails($keyId = '0'){
          doorperson.uid AS owneruid,
          doorkey.comment AS keycomment,
          communication,
-         doorkey.lastupdate
+         doorkey.lastupdate AS keyupdate
          FROM doorkey
          LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
          LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
@@ -132,7 +132,7 @@ function printKeyDetails($keyId = '0'){
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Besitzer</td><td onclick="document.location = \'/person/show/' . $row['ownerid'] . '\';" style="cursor: pointer">' . $row['owner'] . ' (' . $row['owneruid'] . ')</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommunikation</td><td>' . $com . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Typ</td><td>' . $row['type'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Letztes Update</td><td>' . $row['keyupdate'] . '</td></tr>
          </table>';
    }
 }
@@ -155,7 +155,7 @@ function printKeyEdit($keyId = '0'){
          doorperson.uid AS owneruid,
          doorkey.comment AS keycomment,
          communication,
-         lastupdate
+         doorkey.lastupdate AS keyupdate
          FROM doorkey
          LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
          LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
@@ -210,7 +210,7 @@ function printKeyEdit($keyId = '0'){
          <tr><td align="right">Besitzer</td><td>' . $row['owner'] . '(' . $row['owneruid'] . ')</td></tr>
          <tr><td align="right">Kommunikation</td><td><input type="checkbox" name="zutat" value="communication" ' . $com . '></td></tr>
          <tr><td align="right">Typ</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['type'] . '" readonly ></td></tr>
-         <tr><td align="right">Letztes Update</td><td>' . $row['lastupdate'] . '</td></tr>
+         <tr><td align="right">Letztes Update</td><td>' . $row['keyupdate'] . '</td></tr>
          <tr></tr>
          <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>';
    }
