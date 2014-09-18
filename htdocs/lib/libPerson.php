@@ -3,12 +3,11 @@
 function showPersonListPage(){
    $view = array(
         'header' => getHeader('person', 'list'),
-        // 'body' => getPersonList(),
+        'body' => getPersonList(),
         'footer' => getFooter()
     );
-    echo $view['header'];
-    printPersonList();
-    echo $view['footer'];
+
+    echo render($view, 'layout');
 }
 
 function showPersonDetailsPage($personId = '0'){
@@ -72,17 +71,7 @@ function showPersonHistoryPage(){
    echo getFooter();
 }
 
-function printPersonList(){
-
-   echo '<table class="hovertable listtable">';
-   echo '<thead><tr>
-      <th>id</th>
-      <th>Name</th>
-      <th>uid</th>
-      <th>uidNumber</th>
-      <th>mbdId</th>
-      <th>Kommentar</th>
-      </tr></thead><tbody>';
+function getPersonList(){
    $query = '
       SELECT
          id,
@@ -96,18 +85,25 @@ function printPersonList(){
          ';
    $con = openDb();
    $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onclick="document.location = \'/person/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
-         <td>' . $row['id'] . '</td>
-         <td>' . $row['name'] . '</td>
-         <td>' . $row['uid'] . '</td>
-         <td>' . $row['uidnumber'] . '</td>
-         <td>' . $row['mdbid'] . '</td>
-         <td>' . $row['comment'] . '</td>
-         </tr>';
-   }
+    $rows = array();
+    while ($row = mysqli_fetch_array($dbresult)){
+        $row['location'] = sprintf('/person/show/%s', $row['id']);
+        $rows[] = $row;
+    }
 
-   echo '</tbody></table>';
+    $view = array(
+        'headers' => array (
+            'Id',
+            'Name',
+            'Uid',
+            'UidNumber',
+            'MdbId',
+            'Comment'
+        ),
+        'rows' => $rows
+    );
+
+    return render($view, 'list');
 }
 
 function printPersonDetails($personId = '0'){
