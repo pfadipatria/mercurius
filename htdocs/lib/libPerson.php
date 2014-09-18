@@ -72,25 +72,9 @@ function showPersonHistoryPage(){
 }
 
 function getPersonList(){
-   $query = '
-      SELECT
-         id,
-         name,
-         uid,
-         uidnumber,
-         mdbid,
-         comment
-         FROM doorperson
-         ORDER BY name
-         ';
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-    $rows = array();
-    $locations = array();
-    while ($row = mysqli_fetch_assoc($dbresult)){
-        $locations[] = sprintf('/person/show/%s', $row['id']);
-        $rows[] = $row;
-    }
+
+    $people = new \SKeyManager\PeopleRepository\PersonRepository;
+    list($rows, $locations) = $people->getAll();
 
     $view = array(
         'headers' => array (

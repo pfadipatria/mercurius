@@ -1,11 +1,13 @@
 <table class="hovertable listtable">
-    <thead>
-        <tr>
-        <?php foreach($view['headers'] as $header) { ?>
-            <th><?php echo $header; ?></th>
-        <?php } ?>
-        </tr>
-    </thead>
+    <?php if(is_array($view['headers']) { ?>
+        <thead>
+            <tr>
+            <?php foreach($view['headers'] as $header) { ?>
+                <th><?php echo $header; ?></th>
+            <?php } ?>
+            </tr>
+        </thead>
+    <?php } ?>
     <tbody>
         <?php foreach($view['rows'] as $key => $row) { ?>
             <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
