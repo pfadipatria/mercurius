@@ -101,7 +101,7 @@ function printKeyDetails($keyId = '0'){
          doorperson.uid AS owneruid,
          doorkey.comment AS keycomment,
          communication,
-         lastupdate
+         doorkey.lastupdate
          FROM doorkey
          LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
          LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
