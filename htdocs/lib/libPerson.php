@@ -366,17 +366,17 @@ function createPersonHistory($params = array()){
 
    $authorId = getIdFromUid($_SERVER['REMOTE_USER']);
    $query = 'INSERT INTO doorpersonhistory ';
-   $cols = ' (`person`, `author` ';
-   $values = ' ( "' . $params['id'] . '", "' . $authorId . '" ';
+   $cols = ' `person`, `author` ';
+   $values = ' "' . $params['id'] . '", "' . $authorId . '" ';
    if(isset($params['old']))
    foreach($params['old'] as $item => $value){
       if ($params['new'][$item] != $value) {
          // echo 'Creating history for item ' . $item . ' as ' . $value . ' != ' . $params['new'][$item] . '!';
-         $cols .= ' , `' . $item . '`';
-         $values .= ', "' . $value . '"';
+         $cols .= ' , `' . $item . '` ';
+         $values .= ', "' . $value . '" ';
       }
    }
-   $query .= $cols . ') VALUES (' . $values . ')';
+   $query .= ' ( ' . $cols . ') VALUES (' . $values . ')';
    error_log($query);
    $con = openDb();
    if ($dbresult = queryDb($con, $query)) $return = true;
