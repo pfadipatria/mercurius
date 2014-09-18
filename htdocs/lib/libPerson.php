@@ -101,7 +101,7 @@ function printPersonList(){
       <th>uidNumber</th>
       <th>mbdId</th>
       <th>Kommentar</th>
-      </tr></thead>';
+      </tr></thead><tbody>';
    $query = '
       SELECT
          id,
@@ -126,7 +126,7 @@ function printPersonList(){
          </tr>';
    }
 
-   echo '</table>';
+   echo '</tbody></table>';
 }
 
 function printPersonDetails($personId = '0'){
