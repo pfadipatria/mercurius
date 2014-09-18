@@ -341,7 +341,7 @@ function modifiyDbPerson($params = array()){
         echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
         $return = true;
         # @TODO create history
-        hist['new'] = $params;
+        $hist['new'] = $params;
         createPersonHistory($hist);
     } else {
         echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
