@@ -27,7 +27,7 @@ class PersonRepository {
         $rows = array();
         $locations = array();
         while ($row = mysqli_fetch_assoc($dbresult)){
-            $locations[] = sprintf($his->locationPattern, $row['id']);
+            $locations[] = sprintf($this->locationPattern, $row['id']);
             $rows[] = $row;
         }
 
