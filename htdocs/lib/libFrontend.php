@@ -97,8 +97,8 @@ ul#Navigation a#Aktiv {
 .normal { background-color: white }
 .highlight { background-color: #cccccc }
 
-.hoverrow { background-color: white }
-.hoverrow:hover { background-color: #cccccc }
+.hovertable tr { background-color: white }
+.hovertable tr:hover { background-color: #cccccc }
 
 </style>
 

@@ -147,8 +147,8 @@ function printPersonDetails($personId = '0'){
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
       echo '<h2>' . $row['name'] . '</h2>
-         <table cellpadding="5" cellspacing="0">
-         <tr class="hoverrow"><td align="right">id</td><td>' . $row['id'] . '</td></tr>
+         <table cellpadding="5" cellspacing="0" class="hovertable">
+         <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Name</td><td>' . $row['name'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uid</td><td>' . $row['uid'] . '</td></tr>
          <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uidNumber</td><td>' . $row['uidnumber'] . '</td></tr>
