@@ -100,6 +100,17 @@ ul#Navigation a#Aktiv {
 .hovertable tr { background-color: white }
 .hovertable tr:hover { background-color: #cccccc }
 
+.listtable td {
+    padding:5px;
+    margin:0;
+}
+
+.listtable th {
+    padding:5px;
+    margin:0;
+}
+
+
 </style>
 
 <script>

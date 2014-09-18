@@ -93,15 +93,15 @@ function showPersonHistoryPage(){
 
 function printPersonList(){
 
-   echo '<table cellpadding="5" cellspacing="0">';
-   echo '<tr>
-      <td>id</td>
-      <td>Name</td>
-      <td>uid</td>
-      <td>uidNumber</td>
-      <td>mbdId</td>
-      <td>Kommentar</td>
-      </tr>';
+   echo '<table class="hovertable listtable">';
+   echo '<thead><tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>uid</th>
+      <th>uidNumber</th>
+      <th>mbdId</th>
+      <th>Kommentar</th>
+      </tr></thead>';
    $query = '
       SELECT
          id,
@@ -116,7 +116,7 @@ function printPersonList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/person/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
+      echo '<tr onclick="document.location = \'/person/show/' . $row['id'] . '\';" style="cursor: zoom-in";>
          <td>' . $row['id'] . '</td>
          <td>' . $row['name'] . '</td>
          <td>' . $row['uid'] . '</td>
