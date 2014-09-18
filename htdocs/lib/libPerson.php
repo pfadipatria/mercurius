@@ -290,14 +290,20 @@ function modifiyDbPerson($params = array()){
          id,
          name,
          uid,
-         uidnumber
+         uidnumber,
+         mdbid,
+         comment
          FROM doorperson";
          # @TODO Check if a similar user already exists
-         if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
-         if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
     $con = openDb();
     $dbresult = queryDb($con, $query);
     $row = mysqli_fetch_row($dbresult);
+
+    # Save the old data for history
+    $hist['old'] = $row;
+
+    if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
+    if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
 
     # @TODO (If adding?) check if this name (or uid?) already exists
 
@@ -322,22 +328,43 @@ function modifiyDbPerson($params = array()){
         }
     }
 
+
+
     # Add the end of the query
     if ($params['mode'] == 'add') $query .= $cols . ') VALUES (' . $values . ')';
     if ($params['mode'] == 'update') $query .= ' WHERE `id` = "' . $params['id'] . '"';
 
     # Perfom the db add/update
-    error_log($query);
+    # error_log($query);
     $con = openDb();
     if (queryDb($con, $query)){
         echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
         $return = true;
         # @TODO create history
+        hist['new'] = $params;
+        createPersonHistory($hist);
     } else {
         echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
     }
 
     return $return;
 }
+
+function createPersonHistory($params = array()){
+   $result = false;
+
+   echo '<pre>';
+   var_dump($params);
+   echo '</pre>';
+   /*
+   foreach($params['old'] as $item => $value){
+      if ($params['new'][$item] != $value) {
+         echo 'Creating history for item ' . $item . ' as ' . $value ' != ' . $params['new'][$item] '!';
+      }
+   }
+   */
+
+}
+
 
 ?>
