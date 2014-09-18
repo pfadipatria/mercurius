@@ -304,10 +304,11 @@ function modifiyDbPerson($params = array()){
 
        # Save the old data for history
        $hist['old'] = $row;
+       $hist['id'] = $params['id'];
     }
 
-    if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
-    if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
+    // if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
+    // if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
 
     # @TODO (If adding?) check if this name (or uid?) already exists
 
@@ -344,7 +345,7 @@ function modifiyDbPerson($params = array()){
     if (queryDb($con, $query)){
         echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
         $return = true;
-        # @TODO create history
+        if ($params['mode'] == 'add') $hist['id'] = mysql_insert_id();
         $hist['new'] = $params;
         createPersonHistory($hist);
     } else {
@@ -363,9 +364,11 @@ function createPersonHistory($params = array()){
    echo '</pre>';
    */
 
+   $authorId = getIdFromUid($_SERVER['REMOTE_USER']);
    $query = 'INSERT INTO doorpersonhistory ';
-   $cols = ' (`date` ';
-   $values = ' ( NOW() ';
+   $cols = ' (`person`, `author` ';
+   $values = ' ( "' . $params['id'] . '", "' . $authorId . '" ';
+   if(isset($params['old']))
    foreach($params['old'] as $item => $value){
       if ($params['new'][$item] != $value) {
          // echo 'Creating history for item ' . $item . ' as ' . $value . ' != ' . $params['new'][$item] . '!';
