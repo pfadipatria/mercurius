@@ -355,18 +355,29 @@ function modifiyDbPerson($params = array()){
 }
 
 function createPersonHistory($params = array()){
-   $result = false;
+   $return = false;
 
+   /*
    echo '<pre>';
    var_dump($params);
    echo '</pre>';
-   
+   */
+
+   $query = 'INSERT INTO doorpersonhistory ';
+   $cols = ' (`date` ';
+   $values = ' ( NOW() ';
    foreach($params['old'] as $item => $value){
       if ($params['new'][$item] != $value) {
-         echo 'Creating history for item ' . $item . ' as ' . $value . ' != ' . $params['new'][$item] . '!';
+         // echo 'Creating history for item ' . $item . ' as ' . $value . ' != ' . $params['new'][$item] . '!';
+         $cols .= ' , `' . $item . '`';
+         $values .= ', "' . $value . '"';
       }
    }
-   
+   $query .= $cols . ') VALUES (' . $values . ')';
+   $con = openDb();
+   if ($dbresult = queryDb($con, $query)) $return = true;
+
+   return $return;
 
 }
 
