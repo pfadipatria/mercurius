@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/libAll.php';
+
 function bootstrap(){
     if (loggedIn()){
        switch(getMenuPath()) {
