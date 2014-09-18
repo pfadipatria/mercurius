@@ -86,8 +86,9 @@ function getPersonList(){
    $con = openDb();
    $dbresult = queryDb($con, $query);
     $rows = array();
+    $locations = array();
     while ($row = mysqli_fetch_assoc($dbresult)){
-        $row['location'] = sprintf('/person/show/%s', $row['id']);
+        $locations[] = sprintf('/person/show/%s', $row['id']);
         $rows[] = $row;
     }
 
@@ -100,7 +101,8 @@ function getPersonList(){
             'MdbId',
             'Comment'
         ),
-        'rows' => $rows
+        'rows' => $rows,
+        'locations' => $locations
     );
 
     return render($view, 'list');

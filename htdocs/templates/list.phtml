@@ -7,8 +7,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach($view['rows'] as $row) { ?>
-            <tr onclick="document.location = '<?php echo $row['location']; ?>';" style="cursor: zoom-in">
+        <?php foreach($view['rows'] as $key => $row) { ?>
+            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
                 <?php foreach($row as $value) { ?>
                     <td><?php echo $value ?></td>
                 <?php } ?>
