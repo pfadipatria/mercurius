@@ -436,7 +436,10 @@ function printPersonHistory($count = '10'){
             if($row[$item] != NULL) echo ' ' . $value . ' (' . $row[$item] . ') ';
          }
 
-      echo '</td></tr>';
+      echo '</td><td><pre>';
+      var_dump($row);
+      echo '</pre></td>
+      </tr>';
    }
 
    echo '</table>';
