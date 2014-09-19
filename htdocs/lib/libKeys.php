@@ -1,29 +1,39 @@
 <?php
 
-function showKeysPage(){
-   switch(getMenuPath('2')){
-      case 'list':
-         showKeyListPage();
-         break;
-      case 'show':
-         showKeyDetailsPage(getMenuPath('3'));
-         break;
-      case 'edit':
-         showKeyEditPage(getMenuPath('3'));
-         break;
-      default:
-         showKeyListPage();
-   }
-}
-
 function showKeyListPage(){
-   echo getHeader('keys', 'list');
-   // echo '<br><p>Hier ist eine &Uuml;bersicht aller Schl&uumlssel.</p>';
+   $view = array(
+        'header' => getHeader('keys', 'list'),
+        // 'body' => getPersonList(),
+        // 'footer' => getFooter()
+    );
+
+    echo render($view, 'layout');
+
    printKeyList();
    echo getFooter();
 }
 
 function printKeyList(){
+
+    $keys = new \SKeyManager\Repository\KeyRepository;
+    list($rows, $locations) = $keys->getAll();
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'Code',
+            'Status',
+            'Holder',
+            'Comment'
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    echo render($view, 'list');
+    return;
+
+
    $result = '';
 
    echo '<table cellpadding="5" cellspacing="0">';

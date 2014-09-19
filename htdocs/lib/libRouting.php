@@ -34,6 +34,22 @@ function routing($loggedIn = false){
    }
 }
 
+function showKeysPage(){
+   switch(getMenuPath('2')){
+      case 'list':
+         showKeyListPage();
+         break;
+      case 'show':
+         showKeyDetailsPage(getMenuPath('3'));
+         break;
+      case 'edit':
+         showKeyEditPage(getMenuPath('3'));
+         break;
+      default:
+         showKeyListPage();
+   }
+}
+
 function showPersonPage(){
    switch(getMenuPath('2')){
       case 'list':
