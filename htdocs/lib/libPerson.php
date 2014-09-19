@@ -15,7 +15,7 @@ function showPersonDetailsPage($personId = '0'){
    echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
    printPersonDetails($personId);
    echo '<br><a href="/person/edit/' . $personId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
-   printPersonKeys($personId);
+   echo getPersonKeys($personId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    echo getFooter();
 }
@@ -121,7 +121,7 @@ function printPersonDetails($personId = '0'){
    }
 }
 
-function printPersonKeys($personId = '0'){
+function getPersonKeys($personId = '0'){
     $keys = new \SKeyManager\Repository\KeyRepository;
 
     list($rows, $locations) = $keys->getByPersonId($personId);
@@ -131,7 +131,7 @@ function printPersonKeys($personId = '0'){
         'locations' => $locations
     );
 
-    echo render($view, 'list');
+    return render($view, 'list');
 }
 
 function printPersonEdit($personId = '0'){
