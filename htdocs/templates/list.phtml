@@ -7,7 +7,8 @@
             <?php } ?>
             </tr>
         </thead>
-    <?php } ?>
+    <?php };
+    var_dump($views); ?>
     <tbody>
         <?php foreach($view['rows'] as $key => $row) { ?>
             <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
