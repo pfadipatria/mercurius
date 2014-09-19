@@ -3,17 +3,14 @@
 function showKeyListPage(){
    $view = array(
         'header' => getHeader('keys', 'list'),
-        // 'body' => getPersonList(),
-        // 'footer' => getFooter()
+        'body' => getKeyList(),
+        'footer' => getFooter()
     );
 
     echo render($view, 'layout');
-
-   printKeyList();
-   echo getFooter();
 }
 
-function printKeyList(){
+function getKeyList(){
 
     $keys = new \SKeyManager\Repository\KeyRepository;
     list($rows, $locations) = $keys->getAll();
@@ -30,47 +27,7 @@ function printKeyList(){
         'locations' => $locations
     );
 
-    echo render($view, 'list');
-    return;
-
-
-   $result = '';
-
-   echo '<table cellpadding="5" cellspacing="0">';
-   echo '<tr>
-      <td>id</td>
-      <td>Code</td>
-      <td>Status</td>
-      <td>Besitzer</td>
-      <td>Comment</td>
-      </tr>';
-   $query = '
-      SELECT
-         doorkey.id,
-         code,
-         doorkeystatus.name AS statusname,
-         doorkey.comment AS keycomment,
-         doorperson.name AS owner
-         FROM doorkey
-         LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
-         LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
-         ORDER BY code
-         ';
-   // $query = 'select * from doorkey limit 10';
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['id'] . '\';" style="cursor: zoom-in">
-         <td>' . $row['id'] . '</td>
-         <td>' . $row['code'] . '</td>
-         <td>' . $row['statusname'] . '</td>
-         <td>' . $row['owner'] . '</td>
-         <td>' . $row['keycomment'] . '</td>
-         </tr>';
-   }
-
-   echo '</table>';
-   // return $result;
+    return render($view, 'list');
 }
 
 function showKeyDetailsPage($keyId = '0'){
