@@ -11,8 +11,11 @@ function showPersonListPage(){
 }
 
 function showPersonDetailsPage($personId = '0'){
-   echo getHeader('person', '');
-   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
+   $view = array(
+      'header' => getHeader('person', '')
+   );
+   echo render($view, 'layout');
+
    printPersonDetails($personId);
    echo '<br><a href="/person/edit/' . $personId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
    echo getPersonKeys($personId);
