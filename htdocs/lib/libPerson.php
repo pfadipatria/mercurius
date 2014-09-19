@@ -122,6 +122,17 @@ function printPersonDetails($personId = '0'){
 }
 
 function printPersonKeys($personId = '0'){
+    $keys = new \SKeyManager\Repository\KeyRepository;
+
+    list($rows, $locations) = $keys->getByPersonId($personId);
+
+    $view = array(
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+
    echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
@@ -145,6 +156,7 @@ function printPersonKeys($personId = '0'){
    }
 
    echo '</table>';
+
 }
 
 function printPersonEdit($personId = '0'){
