@@ -9,7 +9,7 @@ abstract class AbstractRepository {
     }
 
     protected function query($where = ' ') {
-        var_dump($this);
+        var_dump($this, $where);
         $con = openDb();
         $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
         $rows = array();
