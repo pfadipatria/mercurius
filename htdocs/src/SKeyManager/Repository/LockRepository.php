@@ -9,7 +9,7 @@ class LockRepository extends AbstractRepository {
     function __construct() {
         $this->select = '
             SELECT
-               doorlock.id AS lockid,
+               doorlock.id AS id,
                number,
                doorlock.name AS lockname,
                sc,
