@@ -1,5 +1,5 @@
 <table class="hovertable listtable">
-    <?php if(is_array($view['headers'])) { ?>
+    <?php if(array_key_exists('headers',$view)) { ?>
         <thead>
             <tr>
             <?php foreach($view['headers'] as $header) { ?>
