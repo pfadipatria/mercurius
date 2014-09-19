@@ -1,0 +1,21 @@
+<table class="hovertable listtable">
+    <?php if(array_key_exists('headers',$view)) { ?>
+        <thead>
+            <tr>
+            <?php foreach($view['headers'] as $header) { ?>
+                <th><?php echo $header; ?></th>
+            <?php } ?>
+            </tr>
+        </thead>
+    <?php } ?>
+    <tbody>
+        <?php foreach($view['rows'] as $key => $row) { ?>
+            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
+                <?php foreach($row as $value) { ?>
+                    <td><?php echo $value ?></td>
+                <?php } ?>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
