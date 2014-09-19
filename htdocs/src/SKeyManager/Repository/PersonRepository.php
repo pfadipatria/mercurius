@@ -7,7 +7,7 @@ class PersonRepository extends AbstractRepository {
     protected $locationPattern = '/person/show/%s';
 
     function __construct() {
-        $this->query = '
+        $this->select = '
             SELECT
                 id,
                 name,
@@ -15,7 +15,13 @@ class PersonRepository extends AbstractRepository {
                 uidnumber,
                 mdbid,
                 comment
+        ';
+
+        $this->from = '
             FROM doorperson
+        ';
+
+        $this->order = '
             ORDER BY name;
         ';
     }

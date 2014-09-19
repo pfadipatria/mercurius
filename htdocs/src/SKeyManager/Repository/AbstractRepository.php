@@ -4,10 +4,13 @@ namespace SKeyManager\Repository;
 
 abstract class AbstractRepository {
 
-
     function getAll() {
+        return $this->query();
+    }
+
+    protected function query($where = ' ') {
         $con = openDb();
-        $dbresult = queryDb($con, $this->query);
+        $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
         $rows = array();
         $locations = array();
         while ($row = mysqli_fetch_assoc($dbresult)){
