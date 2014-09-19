@@ -132,32 +132,6 @@ function printPersonKeys($personId = '0'){
     );
 
     echo render($view, 'list');
-    return;
-
-   echo '<table cellpadding="5" cellspacing="0">';
-
-   $query = "
-      SELECT
-         doorkey.id AS keyid,
-         doorkey.code AS keycode,
-         doorkey.comment AS keycomment
-         FROM doorperson
-         LEFT JOIN doorkey ON (doorperson.id = doorkey.owner)
-         WHERE doorperson.id = '" . $personId . "'
-      ";
-   // error_log($query);
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/keys/show/' . $row['keyid'] . '\';" style="cursor: zoom-in">
-               <td>MC ' . $row['keycode'] . '</td>
-               <td>' . $row['keycomment'] . '</td>
-            </tr>
-         ';
-   }
-
-   echo '</table>';
-
 }
 
 function printPersonEdit($personId = '0'){
