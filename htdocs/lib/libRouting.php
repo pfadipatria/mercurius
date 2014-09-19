@@ -50,6 +50,22 @@ function showKeysPage(){
    }
 }
 
+function showLocksPage(){
+   switch(getMenuPath('2')){
+      case 'list':
+         showLockListPage();
+         break;
+      case 'show':
+         showLockDetailsPage(getMenuPath('3'));
+         break;
+      case 'edit':
+         showLockEditPage(getMenuPath('3'));
+         break;
+      default:
+         showLockListPage();
+   }
+}
+
 function showPersonPage(){
    switch(getMenuPath('2')){
       case 'list':

@@ -1,28 +1,35 @@
 <?php
 
-function showLocksPage(){
-   switch(getMenuPath('2')){
-      case 'list':
-         showLockListPage();
-         break;
-      case 'show':
-         showLockDetailsPage(getMenuPath('3'));
-         break;
-      case 'edit':
-         showLockEditPage(getMenuPath('3'));
-         break;
-      default:
-         showLockListPage();
-   }
-}
-
 function showLockListPage(){
-   echo getHeader('locks', 'list');
-   printLockList();
-   echo getFooter();
+   $view = array(
+        'header' => getHeader('locks', 'list'),
+        'body' => getLockList(),
+        'footer' => getFooter()
+    );
+
+    echo render($view, 'layout');
 }
 
-function printLockList(){
+function getLockList(){
+
+    $locks = new \SKeyManager\Repository\LockRepository;
+    list($rows, $locations) = $locks->getAll();
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'SC',
+            'Heim',
+            'Bezeichung',
+            'Status',
+            'Comment'
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+
 
    echo '<table cellpadding="5" cellspacing="0">';
    echo '<tr>
