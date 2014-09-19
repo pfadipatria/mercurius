@@ -131,7 +131,8 @@ function printPersonKeys($personId = '0'){
         'locations' => $locations
     );
 
-    return render($view, 'list');
+    echo render($view, 'list');
+    return;
 
    echo '<table cellpadding="5" cellspacing="0">';
 
