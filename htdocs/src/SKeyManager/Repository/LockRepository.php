@@ -53,6 +53,7 @@ class LockRepository extends AbstractRepository {
         $this->order = '
             ORDER BY doorlock.sc
         ';
+      error_log($this->select.$this->from.$where.$this->order);
       $rows = parent::getAll();
 
       var_dump($rows);
