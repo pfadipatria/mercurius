@@ -12,3 +12,14 @@
        </tbody>
    </table>
 </form>
+
+<form role="form">
+   <?php foreach($view['row'] as $key => $value) { ?>
+      <div class="form-group">
+      <label for="<?php echo $key ?>"><?php echo $key ?></label>
+      <input type="email" class="form-control" id="<?php echo $key ?>" placeholder="<?php echo $value ?>">
+      </div>
+   <?php } ?>
+   <button type="button" class="btn" onclick="goBack()">Abbrechen</button>
+   <button type="submit" class="btn btn-default">Speichern</button>
+</form>
