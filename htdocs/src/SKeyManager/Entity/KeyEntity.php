@@ -56,6 +56,7 @@ class KeyEntity extends AbstractEntity {
          ';
       $rows = parent::getAll();
 
+      var_dump($rows);
       return $return;
    }
 
