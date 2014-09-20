@@ -5,8 +5,11 @@ namespace SKeyManager\Entity;
 class PersonEntity extends AbstractEntity {
 
     protected $locationPattern = '/person/show/%s';
+    var $id;
 
     function __construct($id) {
+        $this->id = $id;
+
         $this->select = '
             SELECT
                 id,
@@ -28,6 +31,10 @@ class PersonEntity extends AbstractEntity {
         $this->order = '
             ORDER BY name;
         ';
+    }
+
+    function getAll() {
+        return $this->query($id);
     }
 
 }
