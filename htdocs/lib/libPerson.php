@@ -30,11 +30,11 @@ function showPersonEditPage($personId = '0'){
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $message = '';
+      $id = null;
+      if (array_key_exists('id',$_POST)) {
+         $id = $_POST['id'];
+      }
       try {
-         $id = null;
-         if (array_key_exists('id',$_POST)) {
-            $id = $_POST['id'];
-         }
          $person = new SKeyManager\Entity\Person($id);
          if (array_key_exists('id',$_POST)) {
             $person->load();
