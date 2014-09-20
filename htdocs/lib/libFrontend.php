@@ -145,6 +145,79 @@ $result = '
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Button <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Primary <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Danger <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Warning <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Success <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Info <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Default <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div> <!-- .btn-group -->
+      </div> <!-- .btn-toolbar -->
 ';
 
    return $result;
