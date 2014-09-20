@@ -111,15 +111,15 @@ function getPersonEdit($personId = '0'){
             'label' => 'ID',
             'value' => $row['id'],
             'editable' => false
-            )
+            ),
          'name' => array(
             'label' => 'Name',
             'value' => $row['name']
-            )
+            ),
          'uid' => array(
             'label' => 'UID',
             'value' => $row['uid']
-            )
+            ),
          'uidnumber' => array(
             'label' => 'UidNumber',
             'value' => $row['uidnumber']
