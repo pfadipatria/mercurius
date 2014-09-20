@@ -103,14 +103,6 @@ function getPersonDetails($personId = '0'){
 
     $view = array(
         'title' => $name,
-        'headers' => array (
-            'Id',
-            'Name',
-            'Uid',
-            'UidNumber',
-            'MdbId',
-            'Comment'
-        ),
         'row' => $row,
         'locations' => $locations
     );

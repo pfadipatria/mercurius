@@ -17,7 +17,8 @@ class PersonEntity extends AbstractEntity {
                 uid,
                 uidnumber,
                 mdbid,
-                comment
+                comment,
+                lastupdate
         ';
 
         $this->from = '

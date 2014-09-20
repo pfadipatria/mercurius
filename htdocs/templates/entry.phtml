@@ -1,18 +1,9 @@
 <h1><?php echo $view['title']; ?></h1>
 <table class="hovertable listtable">
-    <?php if(array_key_exists('headers',$view)) { ?>
-        <thead>
-            <tr>
-            <?php foreach($view['headers'] as $header) { ?>
-                <th><?php echo $header; ?></th>
-            <?php } ?>
-            </tr>
-        </thead>
-    <?php } ?>
     <tbody>
         <?php foreach($view['row'] as $key => $value) { ?>
             <tr>
-               <td><?php echo $key ?></td>
+               <th align="right"><?php echo $key ?></th>
                <td><?php echo $value ?></td>
             </tr>
         <?php } ?>
