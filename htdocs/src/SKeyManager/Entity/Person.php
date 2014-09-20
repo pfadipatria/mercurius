@@ -50,10 +50,15 @@ class Person extends AbstractEntity {
    }
 
    function save() {
+      $idString = '';
+      if($this->getId()) {
+         $idString = ', id = '.$this->getId();
+      }
       $sql = '
          REPLACE doorperson
-         SET name = "'.$this->getName().'",
-         id = '.$this->getId().'
+         SET name = "'.$this->getName().'"
+         '.$idString.'
+         
       ';
       var_dump($sql);
       $con = openDb();
