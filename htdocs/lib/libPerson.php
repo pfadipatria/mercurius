@@ -24,6 +24,56 @@ function showPersonDetailsPage($personId = '0'){
    echo getFooter();
 }
 
+function getPersonList(){
+
+    $people = new \SKeyManager\Repository\PersonRepository;
+    list($rows, $locations) = $people->getAll();
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'Name',
+            'Uid',
+            'UidNumber',
+            'MdbId',
+            'Comment'
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+}
+
+function getPersonDetails($personId = '0'){
+
+    $person = new \SKeyManager\Entity\PersonEntity($personId);
+    $row = $person->getAll();
+    $name = $person->getName();
+
+    $view = array(
+        'title' => $name,
+        'row' => $row,
+        'locations' => $locations
+    );
+
+    return render($view, 'entry');
+}
+
+function getPersonKeys($personId = '0'){
+   $keys = new \SKeyManager\Repository\KeyRepository;
+
+   list($rows, $locations) = $keys->getByPersonId($personId);
+
+   $view = array(
+      'title' => 'Schl&uuml;ssel',
+      'rows' => $rows,
+      'locations' => $locations
+   );
+
+   return render($view, 'list');
+}
+
 function showPersonEditPage($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
@@ -73,56 +123,6 @@ function showPersonHistoryPage(){
    echo getHeader('person', 'history');
    printPersonHistory();
    echo getFooter();
-}
-
-function getPersonList(){
-
-    $people = new \SKeyManager\Repository\PersonRepository;
-    list($rows, $locations) = $people->getAll();
-
-    $view = array(
-        'headers' => array (
-            'Id',
-            'Name',
-            'Uid',
-            'UidNumber',
-            'MdbId',
-            'Comment'
-        ),
-        'rows' => $rows,
-        'locations' => $locations
-    );
-
-    return render($view, 'list');
-}
-
-function getPersonDetails($personId = '0'){
-
-    $person = new \SKeyManager\Entity\PersonEntity($personId);
-    $row = $person->getAll();
-    $name = $person->getName();
-
-    $view = array(
-        'title' => $name,
-        'row' => $row,
-        'locations' => $locations
-    );
-
-    return render($view, 'entry');
-}
-
-function getPersonKeys($personId = '0'){
-   $keys = new \SKeyManager\Repository\KeyRepository;
-
-   list($rows, $locations) = $keys->getByPersonId($personId);
-
-   $view = array(
-      'title' => 'Schl&uuml;ssel',
-      'rows' => $rows,
-      'locations' => $locations
-   );
-
-   return render($view, 'list');
 }
 
 function printPersonEdit($personId = '0'){
