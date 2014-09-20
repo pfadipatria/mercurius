@@ -61,6 +61,7 @@ class Person extends AbstractEntity {
             name = '.$this->getName().'
          WHERE id = '.$this->getId().'
       ';
+      var_dump($sql);
       $con = openDb();
       return queryDb($con, $sql);
    }
