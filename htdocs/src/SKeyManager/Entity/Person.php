@@ -27,7 +27,9 @@ class Person extends AbstractEntity {
       $this->order = '
          ORDER BY name;
       ';
+   }
 
+   function load() {
       $data = $this->query();
       foreach($data as $name => $value){
          $this->$name = $value;
