@@ -123,6 +123,19 @@ function getPersonEdit($personId = '0'){
          'uidnumber' => array(
             'label' => 'UidNumber',
             'value' => $row['uidnumber']
+            ),
+         'mdbid' => array(
+            'label' => 'mdbId',
+            'value' => $row['mdbid']
+            ),
+         'comment' => array(
+            'label' => 'Kommentar',
+            'value' => $row['comment']
+            ),
+         'lastupdate' => array(
+            'label' => 'lastUpdate',
+            'value' => $row['lastupdate'],
+            'editable' => false
             )
          ),
       'locations' => $locations

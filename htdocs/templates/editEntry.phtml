@@ -5,7 +5,11 @@
       <div class="row">
       <div class="form-group col-xs-4">
       <label for="<?php echo $item ?>"><?php echo $values['label'] ?></label>
-      <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>">
+      <?php if($values['editable']) {?>
+         <label for="<?php echo $item ?>"><?php echo $values['value'] ?></label>
+         <?php } else { ?>
+         <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $item ?>" name="<?php echo $item ?>" value="<?php echo $values['value'] ?>">
+         <?php } ?>
       </div>
       </div>
    <?php } ?>
