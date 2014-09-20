@@ -95,16 +95,13 @@ function getPersonList(){
 function getPersonDetails($personId = '0'){
 
     $person = new \SKeyManager\Entity\PersonEntity($personId);
-    $row = $person->getAll();
-    $name = $person->getName();
 
     $view = array(
-        'title' => $name,
-        'row' => $row,
+        'person' => $person,
         'locations' => $locations
     );
 
-    return render($view, 'entry');
+    return render($view, 'person_entry');
 }
 
 function getPersonKeys($personId = '0'){

@@ -34,6 +34,10 @@ class PersonEntity extends AbstractEntity {
       }
    }
 
+   function getId() {
+      return $this->id;
+   }
+
    function getName() {
       return $this->name;
    }
