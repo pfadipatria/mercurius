@@ -80,7 +80,7 @@ function getKeyDetails($keyId = '0'){
 
 function getKeyPermissions($keyId = '0'){
     $locks = new \SKeyManager\Repository\LockRepository;
-    list($rows, $locations) = $locks->getAllowedByKeyId();
+    list($rows, $locations) = $locks->getAllowedByKeyId($keyId);
 
     $view = array(
         'headers' => array (
