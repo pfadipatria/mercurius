@@ -32,7 +32,7 @@ function showPersonEditPage($personId = '0'){
       $person = new SKeyManager\Entity\Person($_POST['id']);
       $person->load();
       $person->setId($_POST['id']);
-      $person->setName()$_POST['name'];
+      $person->setName($_POST['name']);
       $result = $person->save();
 
       if($result){
