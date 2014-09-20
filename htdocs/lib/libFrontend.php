@@ -64,13 +64,19 @@ function getMenu($menu = '', $submenu = ''){
    $homeLink = $keysLink = $locksLink = $personLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = $passiveLink;
 
    switch($menu) {
-      case 'home':
+      case '':
          $homeLink = $activeLink;
          break;
       case 'keys':
          $keysLink = $activeLink;
          break;
+      case 'key':
+         $keysLink = $activeLink;
+         break;
       case 'locks':
+         $locksLink = $activeLink;
+         break;
+      case 'lock':
          $locksLink = $activeLink;
          break;
       case 'person':
@@ -85,9 +91,6 @@ function getMenu($menu = '', $submenu = ''){
    }
 
    switch($submenu) {
-      case 'list':
-         $listLink = $activeLink;
-         break;
       case 'search':
          $searchLink = $activeLink;
          break;
@@ -106,26 +109,38 @@ $result = '
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">SKeyMangager - DEV</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ' . $homeLink . '><a href="/">Home</a></li>
-        <li ' . $keysLink . '><a href="#">Schl&uuml;ssel</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <a href="/key" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="/key/add">Hinzuf&uuml;gen</a></li>
+            <li><a href="/key/search">Suchen</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="/key" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/lock/add">Hinzuf&uuml;gen</a></li>
+            <li><a href="/lock/search">Suchen</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="/key" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
+            <li><a href="/person/search">Suchen</a></li>
+          </ul>
+        </li>
+        <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
+        <li ' . $helpLink . '><a href="/help">Help</a></li>
       </ul>
+
+
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">

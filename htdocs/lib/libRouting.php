@@ -20,7 +20,13 @@ function routing($loggedIn = false){
       case 'keys':
          showKeysPage();
          break;
+      case 'key':
+         showKeysPage();
+         break;
       case 'locks':
+         showLocksPage();
+         break;
+      case 'lock':
          showLocksPage();
          break;
       case 'person':

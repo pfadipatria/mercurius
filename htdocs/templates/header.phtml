@@ -9,24 +9,6 @@ a {
     text-decoration:none;
 }
 
-.label {
-    font-size:1.5em;
-}
-
-.sublabel {
-
-}
-
-.labelinactive {
-   font-size:1.5em;
-	color:grey;
-
-}
-
-.sublabelinactive {
-	color:grey;
-}
-
 ul#Navigation {
  margin: 0; padding: 0.8em;
  text-align: center;
@@ -60,28 +42,6 @@ ul#Navigation a#Aktiv {
  color: blue; background-color: gray;
 }
 
-.normal { background-color: white }
-.highlight { background-color: #cccccc }
-
-.hovertable tr {
-    background-color: white;
-    border: 0;
-}
-
-.hovertable tr:hover {
-    background-color: #cccccc }
-
-.listtable td {
-    padding:5px;
-    margin:0;
-}
-
-.listtable th {
-    padding:5px;
-    margin:0;
-}
-
-
 </style>
 
 <script>
@@ -92,7 +52,6 @@ function goBack() {
 
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
-   <table width="80%" border="0" align="center">
-   <tr align="center"><td><h1><?php echo $view['title']; ?></h1></td></tr>
    <?php echo $view['menu']; ?>
+   <table width="80%" border="0" align="center">
    <tr align="center"><td>
