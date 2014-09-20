@@ -35,7 +35,7 @@ class PersonEntity extends AbstractEntity {
 
     function getName() {
         $this->select .= 'SELECT name';
-        $row = getAll();
+        $row = parent::getAll();
         return $row['name'];
     }
 
