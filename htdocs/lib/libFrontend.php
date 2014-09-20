@@ -116,7 +116,7 @@ $result = '
       <ul class="nav navbar-nav">
         <li ' . $homeLink . '><a href="/">Home</a></li>
         <li class="dropdown">
-          <a href="/key" ' . $keysLink . ' class="dropdown-toggle" data-hover="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
+          <a href="/key" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/key/add">Hinzuf&uuml;gen</a></li>
             <li><a href="/key/search">Suchen</a></li>
