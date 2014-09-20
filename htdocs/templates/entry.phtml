@@ -9,11 +9,10 @@
         </thead>
     <?php } ?>
     <tbody>
-        <?php foreach($view['rows'] as $key => $row) { ?>
-            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
-                <?php foreach($row as $value) { ?>
-                    <td><?php echo $value ?></td>
-                <?php } ?>
+        <?php foreach($view['row'] as $key => $value) { ?>
+            <tr>
+               <td><?php echo $key ?></td>
+               <td><?php echo $value ?></td>
             </tr>
         <?php } ?>
     </tbody>

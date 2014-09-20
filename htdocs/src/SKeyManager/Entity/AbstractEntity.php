@@ -13,11 +13,8 @@ abstract class AbstractEntity {
         $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
         $rows = array();
         $locations = array();
-        while ($row = mysqli_fetch_assoc($dbresult)){
-            $locations[] = sprintf($this->locationPattern, $row['id']);
-            $rows[] = $row;
-        }
-        return array($rows, $locations);
+        $row = mysqli_fetch_assoc($dbresult);
+        return array($row);
     }
 
 }

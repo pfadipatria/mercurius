@@ -98,7 +98,7 @@ function getPersonList(){
 function getPersonDetails($personId = '0'){
 
     $person = new \SKeyManager\Entity\PersonEntity($personId);
-    list($rows, $locations) = $person->getAll();
+    list($row, $locations) = $person->getAll();
 
     $view = array(
         'headers' => array (
@@ -109,7 +109,7 @@ function getPersonDetails($personId = '0'){
             'MdbId',
             'Comment'
         ),
-        'rows' => $rows,
+        'row' => $row,
         'locations' => $locations
     );
 
