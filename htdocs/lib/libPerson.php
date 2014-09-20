@@ -31,8 +31,14 @@ function showPersonEditPage($personId = '0'){
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $message = '';
       try {
-         $person = new SKeyManager\Entity\Person($_POST['id']);
-         $person->load();
+         $id = null;
+         if (array_key_exists('id',$_POST)) {
+            $id = $_POST['id'];
+         }
+         $person = new SKeyManager\Entity\Person($id);
+         if (array_key_exists('id',$_POST)) {
+            $person->load();
+         }
          $person->setName($_POST['name']);
          $result = $person->save();
       } catch (Exception $exception) {
