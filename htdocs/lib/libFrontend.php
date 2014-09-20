@@ -121,6 +121,7 @@ $result = '
       <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
       <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
       <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
+      <li><a href="/' . $menu .'/history">Verlauf</a></li>
    </ul>
 ';
       break;
