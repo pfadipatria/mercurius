@@ -33,4 +33,10 @@ class PersonEntity extends AbstractEntity {
         ';
     }
 
+    function getName() {
+        $this->select .= 'SELECT name';
+        $row = getAll();
+        return $row['name'];
+    }
+
 }
