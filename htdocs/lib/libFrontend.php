@@ -114,30 +114,10 @@ $result = '
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/key/">Liste</a></li>
-            <li><a href="/key/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/key/search">Suchen</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/lock" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/lock/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/lock/search">Suchen</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen</a>
-          <!-- <ul class="dropdown-menu" role="menu">
-            <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/person/search">Suchen</a></li>
-          </ul> -->
-        </li>
+        <li><a href="#" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel</a></li>
+        <li><a href="/lock" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser</a></li>
+        <li><a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen</a></li>
         <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
-
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ' . $helpLink . '><a href="/help">Help</a></li>
@@ -162,7 +142,6 @@ $result = '
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">'. $menu .'</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
