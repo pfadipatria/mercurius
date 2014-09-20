@@ -78,7 +78,7 @@ function getKeyDetails($keyId = '0'){
 }
 
 function getKeyPermissions($keyId = '0'){
-   return ' ';
+
     $locks = new \SKeyManager\Repository\LockRepository;
     list($rows, $locations) = $locks->getAllowedByKeyId($keyId);
 
