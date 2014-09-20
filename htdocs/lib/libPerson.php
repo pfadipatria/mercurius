@@ -34,9 +34,14 @@ function showPersonEditPage($personId = '0'){
       foreach($_POST as $item => $value){
          if ($value != '' || $value != '0' || !empty($value)) $addArray[$item] = $value;
       }
-      modifiyDbPerson($addArray);
+      if(modifiyDbPerson($addArray)){
+         $view['body'] = '<div class="alert alert-success" role="alert">OK! Der Eintrag wurde aktualisiert.</div>';
+         $view['body'] .= getPersonDetails($personId);
+      } else {
+         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht aktualisiert werden.</div>';
+         $view['body'] .= getPersonEdit($personId);
+      }
    } else {
-      // Should we return to the view of this person (on success?)?
       $view['body'] = getPersonEdit($personId);
    }
 
@@ -93,25 +98,18 @@ function getPersonKeys($personId = '0'){
    return render($view, 'list');
 }
 
-function showPersonEditPageOld($personId = '0'){
-   echo getHeader('person', '');
-   echo '<br>';
-   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-     echo '<p>modifiyng person ';
-     // print_r($_POST);
-     echo '</p>';
-    $addArray['mode'] = 'update';
-    $addArray['id'] = $personId;
-    foreach($_POST as $item => $value){
-        if ($value != '' || $value != '0' || !empty($value)) $addArray[$item] = $value;
-    }
-    modifiyDbPerson($addArray);
-   }
+function getPersonEdit($personId = '0'){
+    $person = new \SKeyManager\Entity\PersonEntity($personId);
+    $row = $person->getAll();
+    $name = $person->getName();
 
-   // Should we return to the view of this person (on success?)?
-   printPersonEdit($personId);
-   echo '<br>';
-   echo getFooter();
+    $view = array(
+        'title' => $name,
+        'row' => $row,
+        'locations' => $locations
+    );
+
+    return render($view, 'editEntry');
 }
 
 function showPersonAddPage(){
@@ -142,48 +140,6 @@ function showPersonHistoryPage(){
    echo getHeader('person', 'history');
    printPersonHistory();
    echo getFooter();
-}
-
-function getPersonEdit($personId = '0'){
-    $person = new \SKeyManager\Entity\PersonEntity($personId);
-    $row = $person->getAll();
-    $name = $person->getName();
-
-    $view = array(
-        'title' => $name,
-        'row' => $row,
-        'locations' => $locations
-    );
-
-    return render($view, 'editEntry');
-
-   $query = "
-      SELECT
-         id,
-         name,
-         uid,
-         uidnumber,
-         mdbid,
-         comment
-         FROM doorperson
-         WHERE id = '" . $personId . "'
-      ";
-   // error_log($query);
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<form action="/person/edit/' . $personId . '" method="post"><h2>' . $row['name'] . '</h2>
-         <table cellpadding="5" cellspacing="0">
-         <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
-         <tr><td align="right">Name</td><td><input name="name" type="text" size="30" maxlength="30" value="' . $row['name'] . '"></td></tr>
-         <tr><td align="right">uid</td><td><input name="uid" type="text" size="30" maxlength="30" value="' . $row['uid'] . '"></td></tr>
-         <tr><td align="right">uidNumber</td><td><input name="uidnumber" type="text" size="30" maxlength="30" value="' . $row['uidnumber'] . '"></td></tr>
-         <tr><td align="right">mdbId</td><td><input name="mdbid" type="text" size="30" maxlength="30" value="' . $row['mdbid'] . '"></td></tr>
-         <tr><td align="right">Kommentar</td><td><input name="comment" type="text" size="30" maxlength="30" value="' . $row['comment'] . '"></td></tr>
-         <tr></tr>
-         <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></form>
-         </table>';
-   }
 }
 
 function printPersonAdd(){
@@ -322,13 +278,14 @@ function modifiyDbPerson($params = array()){
     # error_log($query);
     $con = openDb();
     if (queryDb($con, $query)){
-        echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
+        // echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
         $return = true;
-        if ($params['mode'] == 'add') $hist['id'] = mysql_insert_id();
+        /* if ($params['mode'] == 'add') $hist['id'] = mysql_insert_id();
         $hist['new'] = $params;
         createPersonHistory($hist);
-    } else {
-        echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
+        */
+    // } else {
+        // echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
     }
 
     return $return;
