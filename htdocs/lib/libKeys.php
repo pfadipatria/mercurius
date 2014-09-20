@@ -68,7 +68,7 @@ function getKeyDetails($keyId = '0'){
     $row = $key->getAll();
     $name = $key->getName();
 
-    $row['owner'] = '<a href="/person/'.$row['owner'].'">'.$row['owner'].'<a>';
+    $row['owner'] = '<a href="/person/'.$row['ownerid'].'">'.$row['owner'].'<a>';
     $view = array(
         'title' => $name,
         'row' => $row,
