@@ -86,7 +86,7 @@ function showPersonPage(){
       case 'history':
          showPersonHistoryPage();
          break;
-      case (preg_match('[0-9]+', getMenuPath('2')) ? true : false) :
+      case (preg_match('/[0-9]+/', getMenuPath('2')) ? true : false) :
          showPersonDetailsPage(getMenuPath('2'));
          break;
       default:
