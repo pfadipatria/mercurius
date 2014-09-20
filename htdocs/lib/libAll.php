@@ -1,5 +1,6 @@
 <?php
 
+require_once 'libTranslate.php';
 require_once 'libFrontend.php';
 require_once 'libUser.php';
 require_once 'libDb.php';
