@@ -31,6 +31,16 @@ function getKeyList(){
 }
 
 function showKeyDetailsPage($keyId = '0'){
+   $view = array(
+      'header' => getHeader('key', ''),
+      'body' => getKeyDetails($keyId),
+      'footer' => getFooter()
+   );
+
+   $view['body'] .= getPersonKeys($keyId);
+
+   echo render($view, 'layout');
+
    echo getHeader('keys', '');
    echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
    printKeyDetails($keyId);
@@ -52,7 +62,19 @@ function showKeyEditPage($keyId = '0'){
    echo getFooter();
 }
 
-function printKeyDetails($keyId = '0'){
+function getKeyDetails($keyId = '0'){
+
+    $key = new \SKeyManager\Entity\KeyEntity($keyId);
+    $row = $key->getAll();
+    $name = $key->getName();
+
+    $view = array(
+        'title' => $name,
+        'row' => $row,
+        'locations' => $locations
+    );
+
+    return render($view, 'entry');
 
    $query = "
       SELECT

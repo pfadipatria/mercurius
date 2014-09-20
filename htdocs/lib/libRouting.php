@@ -45,12 +45,21 @@ function showKeysPage(){
       case 'list':
          showKeyListPage();
          break;
+      case '':
+         showKeyListPage();
+         break;
       case 'show':
          showKeyDetailsPage(getMenuPath('3'));
          break;
       case 'edit':
          showKeyEditPage(getMenuPath('3'));
          break;
+      case (preg_match('/^[0-9]+$/', getMenuPath('2')) ? true : false) :
+         if(getMenuPath('3') == 'edit') {
+            showKeyEditPage(getMenuPath('2'));
+         } else {
+            showKeyDetailsPage(getMenuPath('2'));
+         }
       default:
          showKeyListPage();
    }

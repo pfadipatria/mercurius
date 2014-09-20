@@ -4,24 +4,21 @@ namespace SKeyManager\Entity;
 
 class KeyEntity extends AbstractEntity {
 
-    protected $locationPattern = '/keys/show/%s';
+    protected $locationPattern = '/key/%s';
 
     function __construct($id) {
+        $this->id = $id;
+
         $this->select = '
             SELECT
-                doorkey.id,
-                code,
-                doorkeystatus.name AS statusname,
-                doorperson.name AS owner,
-                doorkey.comment AS keycomment
-
-
                doorkey.id,
                elnumber,
                code,
                type,
                doorkeycolor.name AS colorname,
+               doorkeycolor.id AS colorid,
                doorkeystatus.name AS statusname,
+               doorkeystatus.id AS statusid,
                doorkeymech.bezeichung AS bezeichung,
                doorperson.name AS owner,
                doorperson.id AS ownerid,
@@ -38,10 +35,6 @@ class KeyEntity extends AbstractEntity {
             LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id )
             LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
         ';
-
-         $this->where = '
-            WHERE doorkey.id = ' . $id . '
-         ';
 
         $this->order = '
             ORDER BY code
