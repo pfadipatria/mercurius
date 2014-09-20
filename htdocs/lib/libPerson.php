@@ -115,7 +115,7 @@ function getPersonKeys($personId = '0'){
       'locations' => $locations
    );
 
-   return render($view, 'list');
+   return render($view, 'person_keylist');
 }
 
 function getPersonEdit($personId = '0'){

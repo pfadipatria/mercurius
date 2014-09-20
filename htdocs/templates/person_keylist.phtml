@@ -1,0 +1,12 @@
+<h3>Schlüssel</h3>
+<table class="table table-hover" style="width:auto">
+    <tbody>
+        <?php foreach($view['rows'] as $key => $row) { ?>
+            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
+                 <td>MC <?php echo $row['code'] ?></td>
+                 <td><?php echo $row['statusname'] ?></td>
+                 <td><?php echo $row['comment'] ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
