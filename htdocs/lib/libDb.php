@@ -14,7 +14,7 @@ function openDb($dbHost = 'mysql02', $dbUsername = 'skm_dev', $dbPassword = 'irg
 	// Check connection
 	if (mysqli_connect_errno($con))
 	  {
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	  throw new Exception('Failed to connect to MySQL: '. mysqli_connect_error());
 	  }
 
 	return $con;

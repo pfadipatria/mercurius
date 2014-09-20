@@ -29,16 +29,22 @@ function showPersonEditPage($personId = '0'){
    );
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-      $person = new SKeyManager\Entity\Person($_POST['id']);
-      $person->load();
-      $person->setName($_POST['name']);
-      $result = $person->save();
+      $message = '';
+      try {
+         $person = new SKeyManager\Entity\Person($_POST['id']);
+         $person->load();
+         $person->setName($_POST['name']);
+         $result = $person->save();
+      } catch (Exception $exception) {
+         $result = false;
+         $message = ' ('.$expection->getMessage().')';
+      }
 
       if($result){
          $view['body'] = '<div class="alert alert-success" role="alert">'._('OK! Der Eintrag wurde aktualisiert.').'</div>';
          $view['body'] .= getPersonDetails($personId);
       } else {
-         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht aktualisiert werden.</div>';
+         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message.'</div>';
          $view['body'] .= getPersonEdit($personId);
       }
    } else {
