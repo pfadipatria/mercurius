@@ -40,6 +40,7 @@ function showKeyDetailsPage($keyId = '0'){
    $view['body'] .= getKeyPermissions($keyId);
 
    echo render($view, 'layout');
+   return;
 
    echo '<br><a href="/keys/edit/' . $keyId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Berechtigungen:</h3><br>';
    printKeyPermissions($keyId);
@@ -79,10 +80,17 @@ function getKeyDetails($keyId = '0'){
 
 function getKeyPermissions($keyId = '0'){
     $key = new \SKeyManager\Entity\KeyEntity($keyId);
-    $rows = $key->getPermissions();
+    list($rows, $locations) = $key->getPermissions();
 
     $view = array(
         'title' => 'Berechtigungen',
+        'headers' => array (
+            'Id',
+            'Code',
+            'Status',
+            'Holder',
+            'Comment'
+        ),
         'rows' => $rows,
         'locations' => $locations
     );
