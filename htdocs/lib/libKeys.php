@@ -68,6 +68,7 @@ function getKeyDetails($keyId = '0'){
     $row = $key->getAll();
     $name = $key->getName();
 
+    $row['owner'] = '<a href="/person/4">NichtUser<a>';
     $view = array(
         'title' => $name,
         'row' => $row,
