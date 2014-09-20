@@ -114,9 +114,9 @@ $result = '
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel</a></li>
-        <li><a href="/lock" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser</a></li>
-        <li><a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen</a></li>
+        <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
+        <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
+        <li ' . $personLink . '><a href="/person">Personen</a></li>
         <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
