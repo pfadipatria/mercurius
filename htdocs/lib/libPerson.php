@@ -64,34 +64,6 @@ function showPersonEditPage($personId = '0'){
    echo render($view, 'layout');
 }
 
-function showPersonAddPage(){
-   $view = array(
-      'header' => getHeader('person', 'add'),
-      'footer' => getFooter()
-      );
-
-   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-      $person = new SKeyManager\Entity\Person();
-      $person->setName($_POST['name']);
-      $result = $person->save();
-
-
-      if($result){
-         $view['body'] = '<div class="alert alert-success" role="alert">OK! Das Eintragen war erfolgreich.</div>';
-         // We might to show the newly created entry here (instead of the whole list)
-         $view['body'] .= getPersonList();
-      } else {
-         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht gemacht werden.</div>';
-         // We might to show the newly created entry here (instead of the whole list)
-         $view['body'] .= getPersonList();
-      }
-   } else {
-         $view['body'] .= getPersonAdd();
-   }
-
-   echo render($view, 'layout');
-}
-
 function getPersonList(){
 
     $people = new \SKeyManager\Repository\PersonRepository;
