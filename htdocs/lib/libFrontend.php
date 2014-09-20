@@ -59,8 +59,8 @@ function getMenu($menu = '', $submenu = ''){
       return $result;
    }
 
-   $activeLink = ' id="Aktiv" ';
-   $passiveLink = ' class="active" ';
+   $activeLink = ' class="active"  ';
+   $passiveLink = ' ';
    $homeLink = $keysLink = $locksLink = $personLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = $passiveLink;
 
    switch($menu) {
