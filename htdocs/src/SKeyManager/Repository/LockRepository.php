@@ -60,7 +60,7 @@ class LockRepository extends AbstractRepository {
         $rows = array();
         $locations = array();
         while ($row = mysqli_fetch_assoc($dbresult)){
-            $locations[] = sprintf($this->locationPattern, $row['locksc']);
+            $locations[] = sprintf($this->locationPattern, $row['lockid']);
             $rows[] = $row;
         }
         return array($rows, $locations);
