@@ -10,11 +10,9 @@ abstract class AbstractEntity {
       return $this->query();
    }
 
-    protected function query($where = ' WHERE true ') {
-      $where .= ' AND id = '.$this->id;
+    protected function query() {
       $con = openDb();
-      error_log($this->select.$this->from.$where.$this->order);
-      $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
+      $dbresult = queryDb($con, $this->select.$this->from.$this->where.$this->order);
       $row = array();
       $locations = array();
       $row = mysqli_fetch_assoc($dbresult);

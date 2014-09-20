@@ -29,10 +29,6 @@ class LockRepository extends AbstractRepository {
         ';
     }
 
-    function getBanByKeyId($id) {
-        // return $this->query('WHERE doorperson.id = '.$id);
-    }
-
    function getAllowedByKeyId($id) {
       $return = '';
       $this->select = 'SELECT

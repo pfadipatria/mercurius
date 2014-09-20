@@ -7,8 +7,6 @@ class PersonEntity extends AbstractEntity {
    protected $locationPattern = '/person/%s';
 
    function __construct($id) {
-      $this->id = $id;
-
       $this->select = '
          SELECT
              id,
@@ -23,16 +21,21 @@ class PersonEntity extends AbstractEntity {
       $this->from = '
          FROM doorperson
       ';
-
+      $this->where = '
+         WHERE doorperson.id = '.$id'
+      ';
       $this->order = '
          ORDER BY name;
       ';
+
+      $data = $this->query();
+      foreach($data as $name => $value){
+         $this->$name = $value;
+      }
    }
 
    function getName() {
-      $this->select = 'SELECT name';
-      $row = parent::getAll();
-      return $row['name'];
+      return $this->name;
    }
 
 }
