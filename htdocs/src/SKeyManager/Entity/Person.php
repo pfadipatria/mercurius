@@ -6,7 +6,7 @@ class Person extends AbstractEntity {
 
    protected $locationPattern = '/person/%s';
 
-   function __construct($id) {
+   function __construct($id = null) {
       $this->select = '
          SELECT
              id,
@@ -40,11 +40,6 @@ class Person extends AbstractEntity {
       return $this->id;
    }
 
-   function setId($id) {
-      $this->id = $id;
-      return $this;
-   }
-
    function getName() {
       return $this->name;
    }
@@ -56,10 +51,9 @@ class Person extends AbstractEntity {
 
    function save() {
       $sql = '
-         UPDATE doorperson
-         SET id = '.$this->getId().',
-            name = "'.$this->getName().'"
-         WHERE id = '.$this->getId().'
+         INSERT doorperson
+         SET name = "'.$this->getName().'"
+         ON DUPLICATE KEY UPDATE id = '.$this->getId().'
       ';
       var_dump($sql);
       $con = openDb();

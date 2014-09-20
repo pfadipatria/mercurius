@@ -31,7 +31,6 @@ function showPersonEditPage($personId = '0'){
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $person = new SKeyManager\Entity\Person($_POST['id']);
       $person->load();
-      $person->setId($_POST['id']);
       $person->setName($_POST['name']);
       $result = $person->save();
 
@@ -56,7 +55,12 @@ function showPersonAddPage(){
       );
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-      if(addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment'])){
+      $person = new SKeyManager\Entity\Person();
+      $person->setName($_POST['name']);
+      $result = $person->save();
+
+
+      if($result){
          $view['body'] = '<div class="alert alert-success" role="alert">OK! Das Eintragen war erfolgreich.</div>';
          // We might to show the newly created entry here (instead of the whole list)
          $view['body'] .= getPersonList();
