@@ -13,6 +13,7 @@ abstract class AbstractEntity {
     protected function query($where = ' true ') {
       $where .= ' AND id = '.$this->id;
       $con = openDb();
+      erorr_log($this->select.$this->from.$where.$this->order);
       $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
       $row = array();
       $locations = array();
