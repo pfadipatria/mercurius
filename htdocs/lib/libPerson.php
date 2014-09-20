@@ -16,19 +16,8 @@ function showPersonDetailsPage($personId = '0'){
       'body' => getPersonDetails($personId)
    );
 
+   $view['body'] .= getPersonKeys($personId);
    echo render($view, 'layout');
-
-   $keys = new \SKeyManager\Repository\KeyRepository;
-
-   list($rows, $locations) = $keys->getByPersonId($personId);
-
-   $view = array(
-      'title' => 'Schl&uumlssel',
-      'rows' => $rows,
-      'locations' => $locations
-   );
-
-   echo render($view, 'list');
 
 
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
@@ -123,16 +112,17 @@ function getPersonDetails($personId = '0'){
 }
 
 function getPersonKeys($personId = '0'){
-    $keys = new \SKeyManager\Repository\KeyRepository;
+   $keys = new \SKeyManager\Repository\KeyRepository;
 
-    list($rows, $locations) = $keys->getByPersonId($personId);
+   list($rows, $locations) = $keys->getByPersonId($personId);
 
-    $view = array(
-        'rows' => $rows,
-        'locations' => $locations
-    );
+   $view = array(
+      'title' => 'Schl&uuml;ssel',
+      'rows' => $rows,
+      'locations' => $locations
+   );
 
-    return render($view, 'list');
+   return render($view, 'list');
 }
 
 function printPersonEdit($personId = '0'){
