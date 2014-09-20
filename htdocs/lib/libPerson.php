@@ -41,11 +41,11 @@ function showPersonEditPage($personId = '0'){
       }
 
       if($result){
-         $view['body'] = '<div class="alert alert-success" role="alert">'._('OK! Der Eintrag wurde aktualisiert.').'</div>';
-         $view['body'] .= getPersonDetails($personId);
+         $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $view['body'] = getPersonDetails($personId);
       } else {
-         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message.'</div>';
-         $view['body'] .= getPersonEdit($personId);
+         $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         $view['body'] = getPersonEdit($personId);
       }
    } else {
       $view['body'] = getPersonEdit($personId);

@@ -1,4 +1,10 @@
 <?php
     echo $view['header'];
+    if(isset($view['success']) { ?>
+      <div class="alert alert-success" role="alert"><?php echo $view['error']; ?></div><?php
+    }
+    if(isset($view['danger']) { ?>
+      <div class="alert alert-danger" role="alert"><?php echo $view['error']; ?></div><?php
+    }
     echo $view['body'];
     echo $view['footer'];
