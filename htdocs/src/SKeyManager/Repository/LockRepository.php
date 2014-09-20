@@ -48,7 +48,7 @@ class LockRepository extends AbstractRepository {
          LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
          ';
       $this->where = '
-         WHERE doorkey_opens_lock.id = '.$id.'
+         WHERE doorkey_opens_lock.key = '.$id.'
       ';
         $this->order = '
             ORDER BY doorlock.sc
@@ -58,6 +58,8 @@ class LockRepository extends AbstractRepository {
 
       var_dump($rows);
       return $rows;
+
+
     }
 }
 
