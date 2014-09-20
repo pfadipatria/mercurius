@@ -35,7 +35,7 @@ function showPersonEditPage($personId = '0'){
       $result = $person->save();
 
       if($result){
-         $view['body'] = '<div class="alert alert-success" role="alert">OK! Der Eintrag wurde aktualisiert.</div>';
+         $view['body'] = '<div class="alert alert-success" role="alert">'._('OK! Der Eintrag wurde aktualisiert.').'</div>';
          $view['body'] .= getPersonDetails($personId);
       } else {
          $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht aktualisiert werden.</div>';
