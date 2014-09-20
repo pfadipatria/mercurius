@@ -110,7 +110,7 @@ function getPersonEdit($personId = '0'){
          'id' => array(
             'label' => 'ID',
             'value' => $row['id'],
-            'editable' => false
+            'editable' => True
             ),
          'name' => array(
             'label' => 'Name',
@@ -135,7 +135,7 @@ function getPersonEdit($personId = '0'){
          'lastupdate' => array(
             'label' => 'lastUpdate',
             'value' => $row['lastupdate'],
-            'editable' => false
+            'editable' => False
             )
          ),
       'locations' => $locations
