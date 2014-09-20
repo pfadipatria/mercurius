@@ -89,7 +89,7 @@ function getPersonList(){
         'locations' => $locations
     );
 
-    return render($view, 'list');
+    return render($view, 'person_list');
 }
 
 function getPersonDetails($personId = '0'){
