@@ -131,11 +131,11 @@ $result = '
           </ul>
         </li>
         <li class="dropdown">
-          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
+          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Personen <span class="caret"></span></a>
+          <!-- <ul class="dropdown-menu" role="menu">
             <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
             <li><a href="/person/search">Suchen</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
 
