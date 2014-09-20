@@ -1,0 +1,23 @@
+<?php
+
+namespace SKeyManager\Entity;
+
+abstract class AbstractEntity {
+
+    function getAll() {
+        return $this->query();
+    }
+
+    protected function query($where = ' ') {
+        $con = openDb();
+        $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
+        $rows = array();
+        $locations = array();
+        while ($row = mysqli_fetch_assoc($dbresult)){
+            $locations[] = sprintf($this->locationPattern, $row['id']);
+            $rows[] = $row;
+        }
+        return array($rows, $locations);
+    }
+
+}
