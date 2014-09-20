@@ -54,7 +54,11 @@ function showPersonEditPage($personId = '0'){
          $view['body'] = getPersonEdit($personId);
       }
    } else {
-      $view['body'] = getPersonEdit($personId);
+      if ($personId === '0') {
+         $view['body'] = getPersonAdd();
+      } else {
+         $view['body'] = getPersonEdit($personId);
+      }
    }
 
    echo render($view, 'layout');

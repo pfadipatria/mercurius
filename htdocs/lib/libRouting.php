@@ -98,7 +98,7 @@ function showPersonPage(){
          showPersonEditPage(getMenuPath('3'));
          break;
       case 'add':
-         showPersonAddPage();
+         showPersonEditPage();
          break;
       case 'search':
          showPersonSearchPage();
