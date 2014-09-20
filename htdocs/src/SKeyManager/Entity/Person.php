@@ -58,7 +58,7 @@ class Person extends AbstractEntity {
       $sql = '
          UPDATE doorperson
          SET id = '.$this->getId().',
-            name = '.$this->getName().'
+            name = "'.$this->getName().'"
          WHERE id = '.$this->getId().'
       ';
       var_dump($sql);
