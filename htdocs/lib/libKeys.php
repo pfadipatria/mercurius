@@ -71,7 +71,6 @@ function getKeyDetails($keyId = '0'){
     $view = array(
         'title' => $name,
         'row' => $row,
-        'locations' => $locations
     );
 
     return render($view, 'entry');
