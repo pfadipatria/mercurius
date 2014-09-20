@@ -6,9 +6,9 @@
       <div class="form-group col-xs-4">
       <label for="<?php echo $item ?>"><?php echo $values['label'] ?></label>
       <?php if($values['editable']) {?>
-         <p><?php echo $values['value'] ?></p>
-         <?php } else { ?>
          <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $item ?>" name="<?php echo $item ?>" value="<?php echo $values['value'] ?>">
+         <?php } else { ?>
+         <p><?php echo $values['value'] ?></p>
          <?php } ?>
       </div>
       </div>
