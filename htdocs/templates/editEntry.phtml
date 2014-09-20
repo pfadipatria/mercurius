@@ -8,8 +8,7 @@
                   <td><input name="name" type="text" size="30" maxlength="30" value="<?php echo $value ?>"></td>
                </tr>
            <?php } ?>
-           <tr><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()"></td><td><input type="submit" value=" Speichern "></td></tr>
+           <tr colspan="2"><td><input type="button" name="back" value=" Abbrechen " onclick="goBack()">&nbsp;<input type="submit" value=" Speichern "></td></tr>
        </tbody>
    </table>
 </form>
-<a href="/person/<?php echo $view['row']['id']; ?>/edit">Bearbeiten</a><br>
