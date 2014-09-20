@@ -129,14 +129,19 @@ $result = '
   </div><!-- /.container-fluid -->
 </nav>
 
+<h1>SKeyMangager - DEV</h1>
       <div class="navbar masthead">
-        <h3 class="navbar-brand">Project name</h3>
         <ul class="nav nav-justified">
         <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
         <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
         <li ' . $personLink . '><a href="/person">Personen</a></li>
         <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
         </ul>
+      <ul class="nav navjustified">
+      <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
+      <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
+      <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
+      </ul>
       </div>
 ';
 
@@ -161,6 +166,7 @@ $result = '
       <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
       <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
       <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
