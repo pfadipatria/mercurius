@@ -101,48 +101,15 @@ function getMenu($menu = '', $submenu = ''){
 
 $result = '
 
-
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">SKeyMangager - DEV</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
-        <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
-        <li ' . $personLink . '><a href="/person">Personen</a></li>
-        <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ' . $helpLink . '><a href="/help">Help</a></li>
-        <li><a href="/profile"><span class="glyphicon glyphicon-user"></a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
 <h1>SKeyMangager - DEV</h1>
-      <div class="navbar masthead">
-        <ul class="nav nav-justified">
-        <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
-        <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
-        <li ' . $personLink . '><a href="/person">Personen</a></li>
-        <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
-        </ul>
-      <ul class="nav nav-justified">
-      <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
-      <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
-      <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
-      </ul>
-      </div>
+<div class="navbar masthead">
+   <ul class="nav nav-justified">
+      <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
+      <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
+      <li ' . $personLink . '><a href="/person">Personen</a></li>
+      <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
+      <li ' . $helpLink . '><a href="/help">Help</a></li>
+   </ul>
 ';
 
    switch($menu){
@@ -150,29 +117,16 @@ $result = '
       case 'locks':
       case 'person':
          $result .= '
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid" align="center">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+   <ul class="nav nav-justified">
       <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
       <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
       <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+   </ul>
 ';
       break;
    }
+
+$result .= '</div>';
 
 echo '
 ';
