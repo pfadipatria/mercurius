@@ -8,7 +8,7 @@ abstract class AbstractEntity {
         return $this->query();
     }
 
-    protected function query() {
+    protected function query($where = ' ') {
         $con = openDb();
         $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
         $row = array();
