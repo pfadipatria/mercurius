@@ -54,7 +54,7 @@ class KeyEntity extends AbstractEntity {
          LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
          LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
          ';
-      $rows = parent::getAll();
+      $rows = parent::query(' WHERE doorkey_opens_lock.lock = '.$this->id.' ');
 
       var_dump($rows);
       return $return;
