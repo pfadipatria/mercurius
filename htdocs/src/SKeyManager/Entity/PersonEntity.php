@@ -4,7 +4,7 @@ namespace SKeyManager\Entity;
 
 class PersonEntity extends AbstractEntity {
 
-   protected $locationPattern = '/person/show/%s';
+   protected $locationPattern = '/person/%s';
 
    function __construct($id) {
       $this->id = $id;
