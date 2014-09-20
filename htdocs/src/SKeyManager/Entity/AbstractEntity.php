@@ -11,10 +11,10 @@ abstract class AbstractEntity {
     protected function query($where = ' ') {
         $con = openDb();
         $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
-        $rows = array();
+        $row = array();
         $locations = array();
         $row = mysqli_fetch_assoc($dbresult);
-        return array($row);
+        return $row;
     }
 
 }
