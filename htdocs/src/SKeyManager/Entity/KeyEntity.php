@@ -37,7 +37,7 @@ class KeyEntity extends AbstractEntity {
         ';
 
         $this->order = '
-            ORDER BY code
+            ORDER BY doorkey.code
         ';
     }
 
@@ -50,11 +50,12 @@ class KeyEntity extends AbstractEntity {
          doorlock.name AS lockname
          ';
       $this->from = '
-         FROM doorkey_opens_lock
+         FROM doorkey
+         LEFT JOIN doorkey_opens_lock ON (doorkey.id = doorkey_opens_lock.key )
          LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
          LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
          ';
-      $rows = parent::query(' WHERE doorkey_opens_lock.lock = '.$this->id.' ');
+      $rows = parent::getAll();
 
       var_dump($rows);
       return $return;
