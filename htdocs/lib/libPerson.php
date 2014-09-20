@@ -63,8 +63,10 @@ function showPersonAddPage(){
          $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht gemacht werden.</div>';
          // We might to show the newly created entry here (instead of the whole list)
          $view['body'] .= getPersonList();
+      }
    } else {
          $view['body'] .= getPersonAdd();
+   }
 
    echo render($view, 'layout');
 }
