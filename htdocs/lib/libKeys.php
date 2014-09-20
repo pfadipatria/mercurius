@@ -33,17 +33,14 @@ function getKeyList(){
 function showKeyDetailsPage($keyId = '0'){
    $view = array(
       'header' => getHeader('key', ''),
-      'body' => getKeyDetails($keyId),
       'footer' => getFooter()
    );
 
-   $view['body'] .= getPersonKeys($keyId);
+   $view['body'] .=> getKeyDetails($keyId);
+   $view['body'] .= getKeyPermissions($keyId);
 
    echo render($view, 'layout');
 
-   echo getHeader('keys', '');
-   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
-   printKeyDetails($keyId);
    echo '<br><a href="/keys/edit/' . $keyId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Berechtigungen:</h3><br>';
    printKeyPermissions($keyId);
    echo '<br><h3>Sperren auf T&uuml;ren:</h3><br>';
@@ -69,6 +66,7 @@ function getKeyDetails($keyId = '0'){
     $name = $key->getName();
 
     $row['owner'] = '<a href="/person/'.$row['ownerid'].'">'.$row['owner'].'<a>';
+
     $view = array(
         'title' => $name,
         'row' => $row,
@@ -77,6 +75,46 @@ function getKeyDetails($keyId = '0'){
 
     return render($view, 'entry');
 
+}
+
+function getKeyPermissions($keyId = '0'){
+    $key = new \SKeyManager\Entity\KeyEntity($keyId);
+    $rows = $key->getPermissions();
+
+    $view = array(
+        'title' => 'Berechtigungen',
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+
+   echo '<table cellpadding="5" cellspacing="0">';
+
+   $query = "
+      SELECT
+         doorkey_opens_lock.lock AS lockid,
+         doorlock.sc AS locksc,
+         doorplace.name AS heim,
+         doorlock.name AS lockname
+         FROM doorkey_opens_lock
+         LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
+         LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
+         WHERE doorkey_opens_lock.key = '" . $keyId . "'
+      ";
+   // error_log($query);
+   $con = openDb();
+   $dbresult = queryDb($con, $query);
+	while ($row = mysqli_fetch_array($dbresult)){
+      echo '<tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'" onclick="document.location = \'/locks/show/' . $row['lockid'] . '\';" style="cursor: zoom-in">
+               <td>SC ' . $row['locksc'] . '</td>
+               <td>' . $row['heim'] . '</td>
+               <td>' . $row['lockname'] . '</td>
+            </tr>
+         ';
+   }
+
+   echo '</table>';
 }
 
 function printKeyEdit($keyId = '0'){

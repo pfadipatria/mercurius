@@ -41,11 +41,29 @@ class KeyEntity extends AbstractEntity {
         ';
     }
 
+   function getPermissions() {
+      $return = '';
+      $this->select = 'SELECT
+         doorkey_opens_lock.lock AS lockid,
+         doorlock.sc AS locksc,
+         doorplace.name AS heim,
+         doorlock.name AS lockname
+         ';
+      $this->from = '
+         FROM doorkey_opens_lock
+         LEFT JOIN doorlock ON (doorkey_opens_lock.lock = doorlock.id )
+         LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
+         ';
+      $rows = parent::getAll();
+
+      return $return;
+   }
+
    function getName() {
       $return = '';
       $this->select = 'SELECT code, doorperson.name AS owner';
       $row = parent::getAll();
-      $return .= 'SC '.$row['code'];
+      $return .= 'MC '.$row['code'];
       if(!empty($row['owner'])) $return .= ' - '.$row['owner'];
 
       return $return;
