@@ -188,6 +188,50 @@ function showPersonHistoryPage(){
 
 function getPersonAdd(){
 
+   $person = new \SKeyManager\Entity\PersonEntity($personId);
+   $row = $person->getAll();
+   $name = $person->getName();
+
+   $view = array(
+      'title' => 'Person hinzuf&uuml;gen',
+      'row' => $row,
+      'content' => array(
+         'id' => array(
+            'label' => 'ID',
+            'value' => getNextId('doorperson'),
+            'editable' => False
+            ),
+         'name' => array(
+            'label' => 'Name',
+            'value' => '',
+            'editable' => True
+            ),
+         'uid' => array(
+            'label' => 'UID',
+            'value' => '',
+            'editable' => True
+            ),
+         'uidnumber' => array(
+            'label' => 'UidNumber',
+            'value' => '',
+            'editable' => True
+            ),
+         'mdbid' => array(
+            'label' => 'mdbId',
+            'value' => '',
+            'editable' => True
+            ),
+         'comment' => array(
+            'label' => 'Kommentar',
+            'value' => '',
+            'editable' => True
+            )
+         ),
+      'locations' => $locations
+   );
+
+   return render($view, 'editEntry');
+
     return '<form action="/person/add" method="post"><h2>Person Hinzuf&uuml;gen</h2>
         <table cellpadding="5" cellspacing="0">
         <tr><td align="right">id</td><td>&sim; ' . getNextId('doorperson') . '</td></tr>
