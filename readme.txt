@@ -9,3 +9,9 @@
 #  but it also disguises very good as Winter Sports Administration Tool.   #
 #                                                                          #
 ############################################################################
+
+
+############################################################################
+# Development
+
+php vendor/bin/phpmd htdocs/ html cleancode,codesize,controversial,design,naming,unusedcode --reportfile /var/www/phpmd.html
