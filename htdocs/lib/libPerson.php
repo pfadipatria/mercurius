@@ -13,15 +13,13 @@ function showPersonListPage(){
 function showPersonDetailsPage($personId = '0'){
    $view = array(
       'header' => getHeader('person', ''),
-      'body' => getPersonDetails($personId)
+      'body' => getPersonDetails($personId),
+      'footer' => getFooter()
    );
 
    $view['body'] .= getPersonKeys($personId);
+
    echo render($view, 'layout');
-
-
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
-   echo getFooter();
 }
 
 function getPersonList(){
