@@ -12,8 +12,8 @@ class KeyRepository extends AbstractRepository {
                 doorkey.id,
                 code,
                 doorkeystatus.name AS statusname,
-                doorkey.comment AS keycomment,
-                doorperson.name AS owner
+                doorperson.name AS owner,
+                doorkey.comment AS keycomment
         ';
 
         $this->from = '
