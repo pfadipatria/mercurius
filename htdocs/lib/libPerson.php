@@ -98,7 +98,7 @@ function getPersonList(){
 function getPersonDetails($personId = '0'){
 
     $person = new \SKeyManager\Entity\PersonEntity($personId);
-    list($row, $locations) = $person->getAll();
+    $row = $person->getAll();
 
     $view = array(
         'headers' => array (
