@@ -54,12 +54,18 @@ class LockRepository extends AbstractRepository {
             ORDER BY doorlock.sc
         ';
       error_log($this->select.$this->from.$where.$this->order);
-      $rows = parent::getAll();
 
-      var_dump($rows);
+        $con = openDb();
+        $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
+        $rows = array();
+        $locations = array();
+        while ($row = mysqli_fetch_assoc($dbresult)){
+            $locations[] = sprintf($this->locationPattern, $row['locksc']);
+            $rows[] = $row;
+        }
+        return array($rows, $locations);
+
       return $rows;
-
-
     }
 }
 
