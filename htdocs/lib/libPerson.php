@@ -18,8 +18,19 @@ function showPersonDetailsPage($personId = '0'){
 
    echo render($view, 'layout');
 
-   echo '<br><a href="/person/edit/' . $personId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
-   echo getPersonKeys($personId);
+   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
+   $keys = new \SKeyManager\Repository\KeyRepository;
+
+   list($rows, $locations) = $keys->getByPersonId($personId);
+
+   $view = array(
+     'rows' => $rows,
+     'locations' => $locations
+   );
+
+   echo render($view, 'list');
+
+
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    echo getFooter();
 }

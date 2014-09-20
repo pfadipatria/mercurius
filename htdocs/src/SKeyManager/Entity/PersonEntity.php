@@ -40,4 +40,8 @@ class PersonEntity extends AbstractEntity {
         return $row['name'];
     }
 
+   function getKeys() {
+
+   }
+
 }
