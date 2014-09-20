@@ -10,7 +10,7 @@ abstract class AbstractRepository {
 
     protected function query($where = ' ') {
         $con = openDb();
-        $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
+        $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
         $rows = array();
         $locations = array();
         while ($row = mysqli_fetch_assoc($dbresult)){

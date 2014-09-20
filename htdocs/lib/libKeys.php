@@ -79,6 +79,22 @@ function getKeyDetails($keyId = '0'){
 }
 
 function getKeyPermissions($keyId = '0'){
+    $locks = new \SKeyManager\Repository\LockRepository;
+    list($rows, $locations) = $locks->getAllowedByKeyId();
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'SC',
+            'Heim',
+            'Name',
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+
     $key = new \SKeyManager\Entity\KeyEntity($keyId);
     list($rows, $locations) = $key->getPermissions();
 

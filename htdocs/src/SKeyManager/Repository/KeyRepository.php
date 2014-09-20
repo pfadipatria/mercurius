@@ -30,4 +30,9 @@ class KeyRepository extends AbstractRepository {
     function getByPersonId($id) {
         return $this->query('WHERE doorperson.id = '.$id);
     }
+
+    function getByAllowedForLock($id) {
+        return $this->query('WHERE doorperson.id = '.$id);
+    }
+
 }
