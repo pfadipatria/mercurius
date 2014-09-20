@@ -146,7 +146,13 @@ $result = '
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+';
 
+   switch($menu){
+      case 'keys':
+      case 'locks':
+      case 'person':
+         $result .= '
 <nav class="navbar" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -156,43 +162,22 @@ $result = '
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">SKeyMangager - DEV</a>
+      <a class="navbar-brand" href="/">'. $menu .'</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/key/">Liste</a></li>
-            <li><a href="/key/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/key/search">Suchen</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/lock" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/lock/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/lock/search">Suchen</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen</a>
-          <!-- <ul class="dropdown-menu" role="menu">
-            <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
-            <li><a href="/person/search">Suchen</a></li>
-          </ul> -->
-        </li>
-        <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
-
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ' . $helpLink . '><a href="/help">Help</a></li>
-        <li><a href="/profile"><span class="glyphicon glyphicon-user"></a></li>
-      </ul>
+      <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
+      <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
+      <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+';
+      break;
+   }
+
+echo '
 ';
    return $result;
 }
