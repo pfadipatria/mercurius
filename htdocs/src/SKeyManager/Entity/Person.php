@@ -52,16 +52,14 @@ class Person extends AbstractEntity {
    function save() {
       $idString = '';
       if($this->getId()) {
-         $idString = ', id = '.$this->getId();
+         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
       }
+      $con = openDb();
       $sql = '
          REPLACE doorperson
-         SET name = "'.$this->getName().'"
+         SET name = "'.mysqli_real_escape_string($con, $this->getName()).'"
          '.$idString.'
-         
       ';
-      var_dump($sql);
-      $con = openDb();
       return queryDb($con, $sql);
    }
 
