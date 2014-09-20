@@ -110,7 +110,7 @@ function getPersonEdit($personId = '0'){
          'id' => array(
             'label' => 'ID',
             'value' => $row['id'],
-            'editable' => True
+            'editable' => False
             ),
          'name' => array(
             'label' => 'Name',
