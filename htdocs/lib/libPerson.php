@@ -199,11 +199,6 @@ function showPersonHistoryPage(){
 
 function getPersonAdd(){
 
-   $person = new \SKeyManager\Entity\Person($personId);
-   $person->load();
-   $row = $person->getAll();
-   $name = $person->getName();
-
    $view = array(
       'title' => 'Person hinzuf&uuml;gen',
       'row' => $row,
