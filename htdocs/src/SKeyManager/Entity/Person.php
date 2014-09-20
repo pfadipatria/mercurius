@@ -51,10 +51,10 @@ class Person extends AbstractEntity {
 
    function save() {
       $idString = '';
+      $con = openDb();
       if($this->getId()) {
          $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
       }
-      $con = openDb();
       $sql = '
          REPLACE doorperson
          SET name = "'.mysqli_real_escape_string($con, $this->getName()).'"
