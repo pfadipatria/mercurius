@@ -123,14 +123,14 @@ $result = '
           </ul>
         </li>
         <li class="dropdown">
-          <a href="/key" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser <span class="caret"></span></a>
+          <a href="/lock" ' . $locksLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&ouml;sser <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/lock/add">Hinzuf&uuml;gen</a></li>
             <li><a href="/lock/search">Suchen</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="/key" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen <span class="caret"></span></a>
+          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
             <li><a href="/person/search">Suchen</a></li>
