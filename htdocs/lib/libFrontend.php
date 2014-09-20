@@ -114,7 +114,7 @@ $result = '
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ' . $homeLink . '><a href="/">Home</a></li>
+        <li ' . $homeLink . '><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
         <li class="dropdown">
           <a href="#" ' . $keysLink . ' class="dropdown-toggle" data-toggle="dropdown">Schl&uuml;ssel <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -131,7 +131,7 @@ $result = '
           </ul>
         </li>
         <li class="dropdown">
-          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Personen <span class="caret"></span></a>
+          <a href="/person" ' . $personLink . ' class="dropdown-toggle" data-toggle="dropdown">Personen</a>
           <!-- <ul class="dropdown-menu" role="menu">
             <li><a href="/person/add">Hinzuf&uuml;gen</a></li>
             <li><a href="/person/search">Suchen</a></li>
