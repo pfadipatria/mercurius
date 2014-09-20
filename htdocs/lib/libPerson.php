@@ -18,14 +18,14 @@ function showPersonDetailsPage($personId = '0'){
 
    echo render($view, 'layout');
 
-   echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
    $keys = new \SKeyManager\Repository\KeyRepository;
 
    list($rows, $locations) = $keys->getByPersonId($personId);
 
    $view = array(
-     'rows' => $rows,
-     'locations' => $locations
+      'title' => 'Schl&uumlssel',
+      'rows' => $rows,
+      'locations' => $locations
    );
 
    echo render($view, 'list');
