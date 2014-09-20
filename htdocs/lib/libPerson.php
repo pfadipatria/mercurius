@@ -15,6 +15,7 @@ function showPersonDetailsPage($personId = '0'){
       'header' => getHeader('person', ''),
       'body' => getPersonDetails($personId)
    );
+
    echo render($view, 'layout');
 
    echo '<br><a href="/person/edit/' . $personId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
@@ -108,32 +109,6 @@ function getPersonDetails($personId = '0'){
     );
 
     return render($view, 'entry');
-
-   $query = "
-      SELECT
-         id,
-         name,
-         uid,
-         uidnumber,
-         mdbid,
-         comment
-         FROM doorperson
-         WHERE id = '" . $personId . "'
-      ";
-   // error_log($query);
-   $con = openDb();
-   $dbresult = queryDb($con, $query);
-	while ($row = mysqli_fetch_array($dbresult)){
-      echo '<h2>' . $row['name'] . '</h2>
-         <table cellpadding="5" cellspacing="0" class="hovertable">
-         <tr><td align="right">id</td><td>' . $row['id'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Name</td><td>' . $row['name'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uid</td><td>' . $row['uid'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">uidNumber</td><td>' . $row['uidnumber'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">mdbId</td><td>' . $row['mdbid'] . '</td></tr>
-         <tr onMouseOver="this.className=\'highlight\'" onMouseOut="this.className=\'normal\'"><td align="right">Kommentar</td><td>' . $row['comment'] . '</td></tr>
-         </table>';
-   }
 }
 
 function getPersonKeys($personId = '0'){
