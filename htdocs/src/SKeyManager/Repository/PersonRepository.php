@@ -4,7 +4,7 @@ namespace SKeyManager\Repository;
 
 class PersonRepository extends AbstractRepository {
 
-    protected $locationPattern = '/person/show/%s';
+    protected $locationPattern = '/person/%s';
 
     function __construct() {
         $this->select = '
