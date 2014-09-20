@@ -22,7 +22,7 @@ class PersonEntity extends AbstractEntity {
          FROM doorperson
       ';
       $this->where = '
-         WHERE doorperson.id = '.$id'
+         WHERE doorperson.id = '.$id.'
       ';
       $this->order = '
          ORDER BY name;
