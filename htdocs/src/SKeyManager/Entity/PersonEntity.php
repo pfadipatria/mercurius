@@ -8,7 +8,8 @@ class PersonEntity extends AbstractEntity {
    var $id;
 
    function __construct($id) {
-      error_log('id ist ' . $id)
+      error_log('id ist ' . $id);
+
       $this->id = $id;
 
       $this->select = '
