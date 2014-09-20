@@ -29,12 +29,13 @@ function showPersonEditPage($personId = '0'){
    );
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-      $addArray['mode'] = 'update';
-      $addArray['id'] = $personId;
-      foreach($_POST as $item => $value){
-         if ($value != '' || $value != '0' || !empty($value)) $addArray[$item] = $value;
-      }
-      if(modifiyDbPerson($addArray)){
+      $person = new SKeyManager\Entity\Person($_POST['id']);
+      $person->load();
+      $person->setId($_POST['id']);
+      $person->setName()$_POST['name'];
+      $result = $person->save();
+
+      if($result){
          $view['body'] = '<div class="alert alert-success" role="alert">OK! Der Eintrag wurde aktualisiert.</div>';
          $view['body'] .= getPersonDetails($personId);
       } else {

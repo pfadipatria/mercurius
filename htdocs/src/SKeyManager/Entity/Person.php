@@ -40,8 +40,29 @@ class Person extends AbstractEntity {
       return $this->id;
    }
 
+   function setId($id) {
+      $this->id = $id;
+      return $this;
+   }
+
    function getName() {
       return $this->name;
+   }
+
+   function setName($name) {
+      $this->name = $name;
+      return $this;
+   }
+
+   function save() {
+      $sql = '
+         UPDATE doorperson
+         SET id = '.$this->getId().',
+            name = '.$this->getName().'
+         WHERE id = '.$this->getId().'
+      ';
+      $con = openDb();
+      return queryDb($con, $sql);
    }
 
 }
