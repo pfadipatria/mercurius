@@ -17,7 +17,7 @@ function showPersonDetailsPage($personId = '0'){
       'footer' => getFooter()
    );
 
-   $view['body'] .= getPersonKeys($personId);
+   // $view['body'] .= getPersonKeys($personId);
 
    echo render($view, 'layout');
 }
