@@ -48,6 +48,27 @@ function showPersonEditPage($personId = '0'){
    echo render($view, 'layout');
 }
 
+function showPersonAddPage(){
+   $view = array(
+      'header' => getHeader('person', 'add'),
+      'footer' => getFooter()
+      );
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      if(addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment'])){
+         $view['body'] = '<div class="alert alert-success" role="alert">OK! Das Eintragen war erfolgreich.</div>';
+         // We might to show the newly created entry here (instead of the whole list)
+         $view['body'] .= getPersonList();
+      } else {
+         $view['body'] = '<div class="alert alert-danger" role="alert">Fehler! Der Eintrag konnte nicht gemacht werden.</div>';
+         // We might to show the newly created entry here (instead of the whole list)
+         $view['body'] .= getPersonList();
+   } else {
+         $view['body'] .= getPersonAdd();
+
+   echo render($view, 'layout');
+}
+
 function getPersonList(){
 
     $people = new \SKeyManager\Repository\PersonRepository;
@@ -149,22 +170,6 @@ function getPersonEdit($personId = '0'){
    return render($view, 'editEntry');
 }
 
-function showPersonAddPage(){
-   echo getHeader('person', 'add');
-   echo '<br>';
-   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-     echo '<p>adding person ';
-     // print_r($_POST);
-     echo '</p>';
-    addPerson($_POST['name'], $_POST['uid'], $_POST['uidnumber'], $_POST['mdbid'], $_POST['comment']);
-
-   }
-   // Should we return to the form or to the newly created person?
-   printPersonAdd();
-   echo '<br>';
-   echo getFooter();
-}
-
 function showPersonSearchPage(){
    echo getHeader('person', 'search');
    echo '<br>';
@@ -179,7 +184,7 @@ function showPersonHistoryPage(){
    echo getFooter();
 }
 
-function printPersonAdd(){
+function getPersonAdd(){
 
     echo '<form action="/person/add" method="post"><h2>Person Hinzuf&uuml;gen</h2>
         <table cellpadding="5" cellspacing="0">
