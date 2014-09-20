@@ -111,10 +111,10 @@ function getPersonDetails($personId = '0'){
 
     $person = new \SKeyManager\Entity\PersonEntity($personId);
     $row = $person->getAll();
-    // $name = $person->getName();
+    $name = $person->getName();
 
     $view = array(
-        // 'title' => $name,
+        'title' => $name,
         'row' => $row,
         'locations' => $locations
     );
