@@ -1,0 +1,14 @@
+<h2><?php echo $view['person']->getName(); ?></h2>
+<table class="table" style="width:auto">
+    <tbody>
+         <tr>
+            <th style="text-align:right">Id:</th>
+            <td><?php echo $view['person']->getId(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right">Name:</th>
+            <td><?php echo $view['person']->getName(); ?></td>
+         </tr>
+    </tbody>
+</table>
+<a href="<?php echo $_SERVER['REQUEST_URI']; ?>/edit">Bearbeiten</a><br>
