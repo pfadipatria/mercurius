@@ -34,7 +34,7 @@ class PersonEntity extends AbstractEntity {
     }
 
     function getAll() {
-        return $this->query($id);
+        return $this->query($this->id);
     }
 
 }
