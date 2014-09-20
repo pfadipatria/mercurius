@@ -87,7 +87,7 @@ function showPersonPage(){
          showPersonHistoryPage();
          break;
       case (preg_match('/^[0-9]+$/', getMenuPath('2')) ? true : false) :
-         if(isset(getMenuPath('3')) && getMenuPath('3') == 'edit') {
+         if(getMenuPath('3') == 'edit') {
             showPersonEditPage(getMenuPath('2'));
          } else {
             showPersonDetailsPage(getMenuPath('2'));
