@@ -99,17 +99,36 @@ function getPersonKeys($personId = '0'){
 }
 
 function getPersonEdit($personId = '0'){
-    $person = new \SKeyManager\Entity\PersonEntity($personId);
-    $row = $person->getAll();
-    $name = $person->getName();
+   $person = new \SKeyManager\Entity\PersonEntity($personId);
+   $row = $person->getAll();
+   $name = $person->getName();
 
-    $view = array(
-        'title' => $name,
-        'row' => $row,
-        'locations' => $locations
-    );
+   $view = array(
+      'title' => $name,
+      'row' => $row,
+      'content' => array(
+         'id' => array(
+            'label' => 'ID',
+            'value' => $row['id'],
+            'editable' => false
+            )
+         'name' => array(
+            'label' => 'Name',
+            'value' => $row['name']
+            )
+         'uid' => array(
+            'label' => 'UID',
+            'value' => $row['uid']
+            )
+         'uidnumber' => array(
+            'label' => 'UidNumber',
+            'value' => $row['uidnumber']
+            )
+         ),
+      'locations' => $locations
+   );
 
-    return render($view, 'editEntry');
+   return render($view, 'editEntry');
 }
 
 function showPersonAddPage(){

@@ -1,10 +1,10 @@
 <h2><?php echo $view['title']; ?></h2>
 <table class="table" style="width:auto" align="center"><tr><td>
 <form role="form">
-   <?php foreach($view['row'] as $key => $value) { ?>
+   <?php foreach($view['conent'] as $item => $values) { ?>
       <div class="row">
       <div class="form-group col-xs-4">
-      <label for="<?php echo $key ?>"><?php echo $key ?></label>
+      <label for="<?php echo $item ?>"><?php echo $values['label'] ?></label>
       <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>">
       </div>
       </div>
