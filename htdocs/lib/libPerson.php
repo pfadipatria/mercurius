@@ -119,19 +119,23 @@ function getPersonEdit($personId = '0'){
             ),
          'uid' => array(
             'label' => 'UID',
-            'value' => $row['uid']
+            'value' => $row['uid'],
+            'editable' => True
             ),
          'uidnumber' => array(
             'label' => 'UidNumber',
-            'value' => $row['uidnumber']
+            'value' => $row['uidnumber'],
+            'editable' => True
             ),
          'mdbid' => array(
             'label' => 'mdbId',
-            'value' => $row['mdbid']
+            'value' => $row['mdbid'],
+            'editable' => True
             ),
          'comment' => array(
             'label' => 'Kommentar',
-            'value' => $row['comment']
+            'value' => $row['comment'],
+            'editable' => True
             ),
          'lastupdate' => array(
             'label' => 'lastUpdate',
