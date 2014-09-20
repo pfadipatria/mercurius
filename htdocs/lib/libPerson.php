@@ -94,7 +94,7 @@ function getPersonList(){
 
 function getPersonDetails($personId = '0'){
 
-    $person = new \SKeyManager\Entity\PersonEntity($personId);
+    $person = new \SKeyManager\Entity\Person($personId);
 
     $view = array(
         'person' => $person,
@@ -119,7 +119,7 @@ function getPersonKeys($personId = '0'){
 }
 
 function getPersonEdit($personId = '0'){
-   $person = new \SKeyManager\Entity\PersonEntity($personId);
+   $person = new \SKeyManager\Entity\Person($personId);
    $row = $person->getAll();
    $name = $person->getName();
 
@@ -185,7 +185,7 @@ function showPersonHistoryPage(){
 
 function getPersonAdd(){
 
-   $person = new \SKeyManager\Entity\PersonEntity($personId);
+   $person = new \SKeyManager\Entity\Person($personId);
    $row = $person->getAll();
    $name = $person->getName();
 

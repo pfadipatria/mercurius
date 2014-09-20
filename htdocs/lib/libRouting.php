@@ -13,6 +13,7 @@ function routing($loggedIn = false){
     $menuPath = 'login';
 
     header('Content-Type: text/html; charset=utf8');
+
     if($loggedIn){
         $menuPath = getMenuPath();
     }
