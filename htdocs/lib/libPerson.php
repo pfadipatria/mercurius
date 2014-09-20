@@ -22,6 +22,27 @@ function showPersonDetailsPage($personId = '0'){
    echo render($view, 'layout');
 }
 
+function showPersonEditPage($personId = '0'){
+   $view = array(
+      'header' => getHeader('person', ''),
+      'footer' => getFooter()
+   );
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $addArray['mode'] = 'update';
+      $addArray['id'] = $personId;
+      foreach($_POST as $item => $value){
+         if ($value != '' || $value != '0' || !empty($value)) $addArray[$item] = $value;
+      }
+      modifiyDbPerson($addArray);
+   } else {
+      // Should we return to the view of this person (on success?)?
+      $view['body'] = getPersonEdit($personId);
+   }
+
+   echo render($view, 'layout');
+}
+
 function getPersonList(){
 
     $people = new \SKeyManager\Repository\PersonRepository;
@@ -72,7 +93,7 @@ function getPersonKeys($personId = '0'){
    return render($view, 'list');
 }
 
-function showPersonEditPage($personId = '0'){
+function showPersonEditPageOld($personId = '0'){
    echo getHeader('person', '');
    echo '<br>';
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -123,7 +144,18 @@ function showPersonHistoryPage(){
    echo getFooter();
 }
 
-function printPersonEdit($personId = '0'){
+function getPersonEdit($personId = '0'){
+    $person = new \SKeyManager\Entity\PersonEntity($personId);
+    $row = $person->getAll();
+    $name = $person->getName();
+
+    $view = array(
+        'title' => $name,
+        'row' => $row,
+        'locations' => $locations
+    );
+
+    return render($view, 'editEntry');
 
    $query = "
       SELECT
