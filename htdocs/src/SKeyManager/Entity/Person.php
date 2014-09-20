@@ -60,7 +60,11 @@ class Person extends AbstractEntity {
          SET name = "'.mysqli_real_escape_string($con, $this->getName()).'"
          '.$idString.'
       ';
-      return queryDb($con, $sql);
+      $dbresult = queryDb($con, $sql);
+      if ($dbresult) {
+         $this->id = mysqli_insert_id($con);
+      }
+      return $dbresult;
    }
 
 }
