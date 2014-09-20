@@ -1,27 +1,15 @@
 <h2><?php echo $view['title']; ?></h2>
-<form action="/person/edit/' . $personId . '" method="post">
-   <table class="table" style="width:auto">
-       <tbody>
-           <?php foreach($view['row'] as $key => $value) { ?>
-               <tr>
-                  <th style="text-align:right"><?php echo $key ?>:</th>
-                  <td><input name="name" type="text" size="30" maxlength="30" value="<?php echo $value ?>"></td>
-               </tr>
-           <?php } ?>
-           <tr><td style="text-align:center" colspan="2"><input type="button" name="back" value=" Abbrechen " onclick="goBack()">&nbsp;&nbsp;<input type="submit" value=" Speichern "></td></tr>
-       </tbody>
-   </table>
-</form>
-
+<div align="center">
 <form role="form">
    <?php foreach($view['row'] as $key => $value) { ?>
       <div class="row">
       <div class="form-group col-xs-4">
       <label for="<?php echo $key ?>"><?php echo $key ?></label>
-      <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $key ?>" value="<?php echo $value ?>">
+      <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>">
       </div>
       </div>
    <?php } ?>
    <button type="button" class="btn" onclick="goBack()">Abbrechen</button>
    <button type="submit" class="btn btn-default">Speichern</button>
 </form>
+</div>
