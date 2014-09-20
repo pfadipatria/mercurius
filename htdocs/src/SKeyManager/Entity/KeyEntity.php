@@ -46,7 +46,8 @@ class KeyEntity extends AbstractEntity {
       $this->select = 'SELECT code, doorperson.name AS owner';
       $row = parent::getAll();
       return 'SC '.$row['code'];
-      if(!empty($row['owner'])) $return .= ' - '.$row['owner'];
+      //if(!empty($row['owner']))
+$return .= ' - '.$row['owner'];
 
       return $return;
    }
