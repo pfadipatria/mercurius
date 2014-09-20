@@ -12,11 +12,11 @@ function showPersonListPage(){
 
 function showPersonDetailsPage($personId = '0'){
    $view = array(
-      'header' => getHeader('person', '')
+      'header' => getHeader('person', ''),
+      'body' => getPersonDetails($personId)
    );
    echo render($view, 'layout');
 
-   printPersonDetails($personId);
    echo '<br><a href="/person/edit/' . $personId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Schl&uuml;ssel:</h3><br>';
    echo getPersonKeys($personId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
@@ -95,7 +95,25 @@ function getPersonList(){
     return render($view, 'list');
 }
 
-function printPersonDetails($personId = '0'){
+function getPersonDetails($personId = '0'){
+
+    $person = new \SKeyManager\Entity\PersonEntity($personId);
+    list($rows, $locations) = $person->getAll();
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'Name',
+            'Uid',
+            'UidNumber',
+            'MdbId',
+            'Comment'
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'entry');
 
    $query = "
       SELECT
