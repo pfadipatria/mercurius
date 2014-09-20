@@ -37,7 +37,7 @@ function showPersonEditPage($personId = '0'){
          $result = $person->save();
       } catch (Exception $exception) {
          $result = false;
-         $message = ' ('.$expection->getMessage().')';
+         $message = ' ('.$exception->getMessage().')';
       }
 
       if($result){
