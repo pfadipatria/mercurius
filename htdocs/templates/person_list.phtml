@@ -1,0 +1,22 @@
+<?php if(array_key_exists('title',$view)) { ?>
+   <h2><?php echo $view['title']; ?></h2>
+<?php } ?>
+<table class="table table-hover" style="width:auto">
+    <?php if(array_key_exists('headers',$view)) { ?>
+        <thead>
+            <tr>
+            <?php foreach($view['headers'] as $header) { ?>
+                <th><?php echo $header; ?></th>
+            <?php } ?>
+            </tr>
+        </thead>
+    <?php } ?>
+    <tbody>
+        <?php foreach($view['rows'] as $key => $row) { ?>
+            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
+                    <td><?php echo $row->getId(); ?></td>
+                    <td><?php echo $row->getName(); ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>

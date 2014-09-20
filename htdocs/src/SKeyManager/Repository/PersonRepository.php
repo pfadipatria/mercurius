@@ -26,4 +26,8 @@ class PersonRepository extends AbstractRepository {
         ';
     }
 
+    function getAll() {
+        return $this->query('', 'SKeyManager\Entity\Person');
+    }
+
 }
