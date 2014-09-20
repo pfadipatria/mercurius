@@ -53,6 +53,7 @@ class KeyEntity extends AbstractEntity {
 
     protected function query($where = ' WHERE true ') {
       $where .= ' AND doorkey.id = '.$this->id;
+      error_log($this->select.$this->from.$where.$this->order);
       $con = openDb();
       $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
       $row = array();
