@@ -50,4 +50,15 @@ class KeyEntity extends AbstractEntity {
 
       return $return;
    }
+
+    protected function query($where = ' WHERE true ') {
+      $where .= ' AND doorkey.id = '.$this->id;
+      $con = openDb();
+      error_log($this->select.$this->from.$where.$this->order);
+      $dbresult = queryDb($con, $this->select.$this->from.$where.$this->order);
+      $row = array();
+      $locations = array();
+      $row = mysqli_fetch_assoc($dbresult);
+      return $row;
+    }
 }
