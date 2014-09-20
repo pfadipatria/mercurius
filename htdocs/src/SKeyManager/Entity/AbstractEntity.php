@@ -10,7 +10,7 @@ abstract class AbstractEntity {
       return $this->query();
    }
 
-    protected function query($where = ' true ') {
+    protected function query($where = ' WHERE true ') {
       $where .= ' AND id = '.$this->id;
       $con = openDb();
       error_log($this->select.$this->from.$where.$this->order);
