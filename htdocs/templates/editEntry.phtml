@@ -6,7 +6,7 @@
       <div class="form-group">
       <label for="<?php echo $item ?>"><?php echo $values['label'] ?></label>
       <?php if($values['editable']) {?>
-         <input type="text" class="form-control" size="30" maxlength="30" id="<?php echo $item ?>" name="<?php echo $item ?>" value="<?php echo $values['value'] ?>">
+         <input type="text" class="form-control" maxlength="30" id="<?php echo $item ?>" name="<?php echo $item ?>" value="<?php echo $values['value'] ?>">
          <?php } else { ?>
          <p><?php echo $values['value'] ?></p>
          <?php } ?>
