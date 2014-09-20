@@ -36,7 +36,7 @@ function showKeyDetailsPage($keyId = '0'){
       'footer' => getFooter()
    );
 
-   $view['body'] .= getKeyDetails($keyId);
+   $view['body'] = getKeyDetails($keyId);
    $view['body'] .= getKeyPermissions($keyId);
 
    echo render($view, 'layout');
