@@ -51,7 +51,7 @@ function showPersonEditPage($personId = '0'){
          $view['body'] = getPersonDetails($id);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
-         $view['body'] = getPersonEdit($personId);
+         $view['body'] = getPersonEdit($id);
       }
    } else {
       if ($personId === '0') {
