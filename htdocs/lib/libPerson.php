@@ -48,7 +48,7 @@ function showPersonEditPage($personId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $view['body'] = getPersonDetails($personId);
+         $view['body'] = getPersonDetails($id);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
          $view['body'] = getPersonEdit($personId);
