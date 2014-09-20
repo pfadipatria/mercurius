@@ -51,9 +51,9 @@ class Person extends AbstractEntity {
 
    function save() {
       $sql = '
-         INSERT doorperson
+         REPLACE doorperson
          SET name = "'.$this->getName().'"
-         ON DUPLICATE KEY UPDATE id = '.$this->getId().'
+         WHERE id = '.$this->getId().'
       ';
       var_dump($sql);
       $con = openDb();
