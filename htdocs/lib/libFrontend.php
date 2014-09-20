@@ -142,6 +142,7 @@ $result = '
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ' . $helpLink . '><a href="/help">Help</a></li>
+        <li><a href="/profile"><span class="glyphicon glyphicon-user"></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
