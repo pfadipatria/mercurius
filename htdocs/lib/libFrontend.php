@@ -100,6 +100,8 @@ function getMenu($menu = '', $submenu = ''){
    }
 
 $result = '
+
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -126,6 +128,16 @@ $result = '
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+      <div class="navbar masthead">
+        <h3 class="navbar-brand">Project name</h3>
+        <ul class="nav nav-justified">
+        <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
+        <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
+        <li ' . $personLink . '><a href="/person">Personen</a></li>
+        <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
+        </ul>
+      </div>
 ';
 
    switch($menu){
@@ -134,7 +146,7 @@ $result = '
       case 'person':
          $result .= '
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+  <div class="container-fluid" align="center">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
