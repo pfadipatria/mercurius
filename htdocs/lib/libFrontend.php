@@ -137,7 +137,7 @@ $result = '
         <li ' . $personLink . '><a href="/person">Personen</a></li>
         <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
         </ul>
-      <ul class="nav navjustified">
+      <ul class="nav nav-justified">
       <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
       <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
       <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
