@@ -80,6 +80,10 @@ class Key extends AbstractEntity {
       return $this->comment;
    }
 
+   function getLastUpdate(){
+      return $this->lastupdate;
+   }
+
    function getName() {
       $name = 'MC '.$this->getCode();
       $name .= $this->getOwnerName() ? ' - '.$this->getOwnerName() : '';
