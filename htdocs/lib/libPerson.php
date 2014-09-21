@@ -140,7 +140,7 @@ function showPersonDeletePage($personId = '0'){
    if ($deletable) {
       $view['body'] = '<p>Confirm user deletion</p>';
    } else {
-      $view['danger'] = echo sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
+      $view['danger'] = sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
       $view['body'] = getPersonDetails($person);
    }
 
