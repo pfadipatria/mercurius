@@ -1,0 +1,34 @@
+<h2><?php echo $view['key']->getName(); ?></h2>
+<table class="table" style="width:auto">
+    <tbody>
+         <tr>
+            <th style="text-align:right"><?php echo _('Id'); ?>:</th>
+            <td><?php echo $view['key']->getId(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('MC'); ?>:</th>
+            <td><?php echo $view['key']->getCode(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Status'); ?>:</th>
+            <td><?php echo $view['key']->getStatus(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Owner'); ?>:</th>
+            <td><?php echo $view['key']->getOwnerName(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
+            <td><?php echo $view['key']->getComment(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Last Updated'); ?>:</th>
+            <td><?php echo $view['key']->getLastUpdate(); ?></td>
+         </tr>
+         <tr><br></tr>
+         <tr>
+            <td align="center"><a href="<?php echo $view['key']->getLocation(); ?>/edit" data-toggle="tooltip" title="<?php echo _('Edit'); ?>" style="color:black"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td align="center"><a href="<?php echo $view['key']->getLocation(); ?>/delete" data-toggle="tooltip" title="<?php echo _('Delete'); ?>" style="color:black"><span class="glyphicon glyphicon-trash"></span></a></td>
+         </tr>
+    </tbody>
+</table>
