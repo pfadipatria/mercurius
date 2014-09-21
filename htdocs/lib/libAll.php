@@ -15,4 +15,4 @@ require_once __DIR__.'/../src/SKeyManager/Repository/KeyRepository.php';
 require_once __DIR__.'/../src/SKeyManager/Repository/LockRepository.php';
 require_once __DIR__.'/../src/SKeyManager/Entity/AbstractEntity.php';
 require_once __DIR__.'/../src/SKeyManager/Entity/Person.php';
-require_once __DIR__.'/../src/SKeyManager/Entity/KeyEntity.php';
+require_once __DIR__.'/../src/SKeyManager/Entity/Key.php';
