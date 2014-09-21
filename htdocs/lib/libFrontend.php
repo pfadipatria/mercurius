@@ -26,8 +26,16 @@ function getMenuPath ($level = '1') {
 
    $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
    $result[0] = $explodedRequest[0];
-   $result[1] = $explodedRequest[1];
-   $result[2] = $explodedRequest[2];
+   if(!empty($explodedRequest[1])) {
+      $result[1] = $explodedRequest[1];
+      } else {
+      $result[1] = '';
+   }
+   if(!empty($explodedRequest[2])) {
+      $result[2] = $explodedRequest[2];
+      } else {
+      $result[2] = '';
+   }
    if(!empty($explodedRequest[3])) {
       $result[3] = $explodedRequest[3];
       } else {
