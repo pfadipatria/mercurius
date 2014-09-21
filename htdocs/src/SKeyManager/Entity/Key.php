@@ -43,7 +43,7 @@ class Key extends AbstractEntity {
         ';
     }
 
-   function __get() {
+   function __get($arg = null) {
       return null;
    }
 
