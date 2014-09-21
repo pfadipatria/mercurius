@@ -1,13 +1,25 @@
 <?php
 
 function showLockListPage(){
+
+   $locks = new \SKeyManager\Repository\LockRepository;
+
    $view = array(
         'header' => getHeader('locks', 'list'),
-        'body' => getLockList(),
+        'body' => getLockList($locks),
         'footer' => getFooter()
     );
 
     echo render($view, 'layout');
+}
+
+function getLockList($lock = null){
+
+    $view = array(
+        'locks' => $locks->getAll()
+    );
+
+    return render($view, 'lock_list');
 }
 
 function getLockList(){

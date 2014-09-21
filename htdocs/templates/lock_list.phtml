@@ -1,0 +1,25 @@
+<table class="table table-hover" style="width:auto">
+   <thead>
+      <tr>
+          <!-- <th><?php echo _('Id'); ?></th> -->
+          <th><?php echo _('SC'); ?></th>
+          <th><?php echo _('Venue'); ?></th>
+          <th><?php echo _('Name'); ?></th>
+          <th><?php echo _('Status'); ?></th>
+      </tr>
+   </thead>
+    <tbody>
+        <?php foreach($view['locks'] as $lock) { ?>
+            <tr>
+                    <!-- <td><?php echo $lock->getId(); ?></td> -->
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $lock->getCode(); ?></td>
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $lock->getVenue(); ?></td>
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $lock->getName(); ?></td>
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $lock->getStatus(); ?></td>
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>';" style="cursor: pointer"><span class="glyphicon glyphicon-zoom-in"></span></td>
+                    <td onclick="document.location = '<?php echo $lock->getLocation(); ?>/edit';" style="cursor: pointer"><span class="glyphicon glyphicon-pencil"></span></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+

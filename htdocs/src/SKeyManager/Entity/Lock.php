@@ -11,7 +11,7 @@ class Lock extends AbstractEntity {
             SELECT
                doorlock.id AS id,
                number,
-               doorlock.name AS lockname,
+               doorlock.name AS name,
                sc AS code,
                comment,
                lastupdate,
@@ -52,6 +52,14 @@ class Lock extends AbstractEntity {
       return $this->code;
    }
 
+   function getName(){
+      return $this->name;
+   }
+
+   function getVenue(){
+      return $this->venuename;
+   }
+
    function getStatus() {
       return $this->getStatusName();
    }
@@ -68,9 +76,4 @@ class Lock extends AbstractEntity {
       return $this->lastupdate;
    }
 
-   function getName() {
-      $name = 'MC '.$this->getCode();
-      $name .= $this->getOwnerName() ? ' - '.$this->getOwnerName() : '';
-      return $name;
-   }
 }

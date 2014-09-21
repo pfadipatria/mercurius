@@ -79,6 +79,13 @@ function showLocksPage(){
       case 'edit':
          showLockEditPage(getMenuPath('3'));
          break;
+      case (preg_match('/^[0-9]+$/', getMenuPath('2')) ? true : false) :
+         if(getMenuPath('3') == 'edit') {
+            showLockEditPage(getMenuPath('2'));
+         } else {
+            showLockDetailsPage(getMenuPath('2'));
+         }
+         break;
       default:
          showLockListPage();
    }
