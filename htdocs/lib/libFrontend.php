@@ -106,7 +106,7 @@ function getMenu($menu = '', $submenu = ''){
 $result = '
 
 <h1>SKeyManager - DEV</h1>
-<div class="navbar masthead">
+<div class="navbar masthead" style="width:60%">
    <ul class="nav nav-justified">
       <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
       <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
