@@ -16,21 +16,12 @@ function showKeyListPage(){
 function getKeyList($keys = null){
 
     $keys = new \SKeyManager\Repository\KeyRepository;
-    list($rows, $locations) = $keys->getAll();
 
     $view = array(
-        'headers' => array (
-            'Id',
-            'Code',
-            'Status',
-            'Holder',
-            'Comment'
-        ),
-        'rows' => $rows,
-        'locations' => $locations
+        'keys' => $locations
     );
 
-    return render($view, 'list');
+    return render($view, 'key_list');
 }
 
 function showKeyDetailsPage($keyId = '0'){

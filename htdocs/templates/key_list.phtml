@@ -1,17 +1,25 @@
-<h2><?php echo $view['title']; ?></h2>
 <table class="table table-hover" style="width:auto">
-    <?php if(array_key_exists('headers',$view)) { ?>
-        <thead>
-            <tr>
-                <th><?php echo $header; ?></th>
-            </tr>
-        </thead>
-    <?php } ?>
+   <thead>
+      <tr>
+          <!-- <th><?php echo _('Id'); ?></th> -->
+          <th><?php echo _('SC'); ?></th>
+          <th><?php echo _('Location'); ?></th>
+          <th><?php echo _('Name'); ?></th>
+          <th><?php echo _('Status'); ?></th>
+      </tr>
+   </thead>
     <tbody>
-        <?php foreach($view['rows'] as $key => $row) { ?>
-            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
-                    <td><?php echo $key->getPerson()->getName(); ?></td>
+        <?php foreach($view['keys'] as $key) { ?>
+            <tr>
+                    <!-- <td><?php echo $key->getId(); ?></td> -->
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getVenue(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getName(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getStatus(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
 </table>
+
