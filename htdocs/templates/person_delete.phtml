@@ -3,7 +3,7 @@
     <h3 class="panel-title"><?php echo sprintf(_('Deletion of %s'), $view['person']->getName()); ?></h3>
   </div>
   <div class="panel-body">
-   <?php echo sprintf(_('Do you really want do delete %s'), $view['person']->getName());?>
+   <?php echo sprintf(_('Do you really want do delete %s'), $view['person']->getName());?><br>
    <form role="form" method="post">
             <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $view['person']->getId(); ?>">
             <input type="hidden" class="form-control" id="confirm" name="confirm" value="true">
