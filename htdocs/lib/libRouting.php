@@ -59,6 +59,8 @@ function showKeysPage(){
       case (preg_match('/^[0-9]+$/', getMenuPath('2')) ? true : false) :
          if(getMenuPath('3') == 'edit') {
             showKeyEditPage(getMenuPath('2'));
+         } else if (getMenuPath('3') == 'delete') {
+            showPersonDeletePage(getMenuPath('2'));
          } else {
             showKeyDetailsPage(getMenuPath('2'));
          }

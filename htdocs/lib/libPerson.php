@@ -122,6 +122,34 @@ function getPersonEdit($person = null){
    return render($view, 'person_edit');
 }
 
+function showPersonDeletePage($personId = '0'){
+
+   $person = new \SKeyManager\Entity\Person($personId);
+   $person->load();
+
+   $view = array(
+      'header' => getHeader('person', $personId, 'delete'),
+      'body' => getPersonDelete($person),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
+function getPersonDelete($person = null){
+
+   $deletable = false;
+   if !$person->getKeys() $deletable = true;
+
+   $view = array(
+      'personDetails' => render(array('person' => $person), 'person_entry'),
+      'person' => $person,
+      'deletable' => $deletable
+   );
+
+   return render($view, 'person_delete');
+}
+
 function showPersonSearchPage(){
    echo getHeader('person', 'search');
    echo '<br>';
