@@ -130,4 +130,20 @@ class Person extends AbstractEntity {
       return $dbresult;
    }
 
+   function delete() {
+      // @TODO Check if db integrity conditions are fullfilled
+
+      $result = false;
+
+      if($this->getId()) {
+         $con = openDb();
+         $sql = '
+            DELETE FROM doorperson
+            WHERE id = '.mysqli_real_escape_string($con, $this->getName()).'
+         ';
+         $return = queryDb($con, $sql);
+      }
+
+      return $return;
+   }
 }

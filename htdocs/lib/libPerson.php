@@ -134,36 +134,27 @@ function showPersonDeletePage($personId = '0'){
    );
 
 
-   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-      $message = '';
-      $id = null;
-      if (array_key_exists('id',$_POST)) {
-         $id = $_POST['id'];
-      }
-      $person = new SKeyManager\Entity\Person($id);
+   if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['id'] && $_POST['confirm'] === true) {
+      $personId = $_POST['id'];
+      $name = '';
+      $person = new SKeyManager\Entity\Person($personId);
       try {
-         if (array_key_exists('id',$_POST)) {
-            $person->load();
-         }
-         $person->setName($_POST['name']);
-         $person->setUid($_POST['uid']);
-         $person->setUidNumber($_POST['uidnumber']);
-         $person->setMdbId($_POST['mdbid']);
-         $person->setComment($_POST['comment']);
-         $result = $person->save();
+         $person->load();
+         $name = $person->getName();
+         $result = $person->delete();
       } catch (Exception $exception) {
          $result = false;
          $message = ' ('.$exception->getMessage().')';
       }
 
       if($result){
-         $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $newPerson = new \SKeyManager\Entity\Person($person->getId());
-         $newPerson->load();
-         $view['body'] = getPersonDetails($newPerson);
+         $view['success'] = _('OK! '.$name.' wurde gelöscht.');
+         $view['body'] = getPersonList();
+         $view['header'] => getHeader('person');
       } else {
-         $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         $view['danger'] = _('Fehler! Der Eintrag konnte nicht gelöscht werden.'.$message);
          $view['body'] = getPersonEdit($person);
+         $view['header'] => getHeader('person', $personId);
       }
    } else {
       // Check for conditions to be true for person deletion
