@@ -9,7 +9,7 @@ class KeyRepository extends AbstractRepository {
     function __construct() {
         $this->select = '
             SELECT
-                doorkey.id,
+                doorkey.id AS id,
                 code,
                 doorkeystatus.name AS statusname,
                 doorperson.name AS owner,
