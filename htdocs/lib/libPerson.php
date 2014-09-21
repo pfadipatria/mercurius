@@ -89,13 +89,15 @@ function showPersonEditPage($personId = '0'){
          $view['body'] = getPersonDetails($person);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
-         $view['body'] = getPersonEdit($person->getId());
+         $view['body'] = getPersonEdit($person);
       }
    } else {
       if ($personId === '0') {
-         $view['body'] = getPersonAdd();
+         $view['body'] = getPersonEdit();
       } else {
-         $view['body'] = getPersonEdit($personId);
+         $person = new \SKeyManager\Entity\Person($personId);
+         $person->load();
+         $view['body'] = getPersonEdit($person);
       }
    }
 
@@ -104,7 +106,15 @@ function showPersonEditPage($personId = '0'){
 
 
 
-function getPersonEdit($personId = '0'){
+function getPersonEdit($person = null){
+   $view = array(
+     'person' => $person
+   );
+
+   return render($view, 'person_edit');
+
+
+
    $person = new \SKeyManager\Entity\Person($personId);
    $person->load();
 

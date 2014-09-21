@@ -85,11 +85,7 @@ class Person extends AbstractEntity {
    }
 
    function setComment($comment) {
-      if ($comment === '') {
-         $this->comment = null;
-      } else {
-         $this->comment = $comment;
-      }
+      $this->comment = $comment;
       return $this;
    }
 
