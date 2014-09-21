@@ -13,7 +13,7 @@ function showLockListPage(){
     echo render($view, 'layout');
 }
 
-function getLockList($lock = null){
+function getLockList($locks = null){
 
     $view = array(
         'locks' => $locks->getAll()
