@@ -18,7 +18,7 @@ class Key extends AbstractEntity {
                doorkeystatus.name AS statusname,
                doorkeystatus.id AS statusid,
                doorkeymech.bezeichung AS description,
-               doorperson.name AS owner,
+               doorperson.name AS ownername,
                doorperson.id AS ownerid,
                doorperson.uid AS owneruid,
                doorkey.comment AS keycomment,
@@ -60,6 +60,10 @@ class Key extends AbstractEntity {
 
    function getStatusName(){
       return $this->statusname;
+   }
+
+   function getOwnerName(){
+      return $this->ownername;
    }
 
    function getComment(){

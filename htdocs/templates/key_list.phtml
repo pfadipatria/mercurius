@@ -2,10 +2,10 @@
    <thead>
       <tr>
           <!-- <th><?php echo _('Id'); ?></th> -->
-          <th><?php echo _('SC'); ?></th>
-          <th><?php echo _('Location'); ?></th>
-          <th><?php echo _('Name'); ?></th>
+          <th><?php echo _('MC'); ?></th>
+          <th><?php echo _('Owner'); ?></th>
           <th><?php echo _('Status'); ?></th>
+          <th><?php echo _('Comment'); ?></th>
       </tr>
    </thead>
     <tbody>
@@ -13,10 +13,9 @@
             <tr>
                     <!-- <td><?php echo $key->getId(); ?></td> -->
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
-                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getVenue(); ?></td>
-                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getName(); ?></td>
-                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getStatus(); ?></td>
-                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getOwnerName(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getStatusName(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getComment(); ?></td>
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
             </tr>
         <?php } ?>
