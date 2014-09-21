@@ -6,6 +6,7 @@
           <th><?php echo _('Uid'); ?></th>
           <!-- <th><?php echo _('UidNumber'); ?></th> -->
           <!-- <th><?php echo _('MdbId'); ?></th> -->
+          <th><?php echo _('# of Keys'); ?></th>
           <th><?php echo _('Comment'); ?></th>
       </tr>
    </thead>
@@ -17,6 +18,7 @@
                     <td><?php echo $person->getUid(); ?></td>
                     <!-- <td><?php echo $person->getUidNumber(); ?></td> -->
                     <!-- <td><?php echo $person->getMdbId(); ?></td> -->
+                    <td><?php echo $person->getNumberOfKeys(); ?></td>
                     <td><?php echo $person->getComment(); ?></td>
             </tr>
         <?php } ?>

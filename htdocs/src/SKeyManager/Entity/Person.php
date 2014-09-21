@@ -97,6 +97,10 @@ class Person extends AbstractEntity {
       return $this->keys;
    }
 
+   function getNumberOfKeys() {
+      return count($this->keys);
+   }
+
    function save() {
       $idString = '';
       $con = openDb();
