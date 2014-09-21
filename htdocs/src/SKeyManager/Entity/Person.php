@@ -5,6 +5,7 @@ namespace SKeyManager\Entity;
 class Person extends AbstractEntity {
 
    protected $locationPattern = '/person/%s';
+   var $keys;
 
    function __construct($id = null) {
       $this->select = '
