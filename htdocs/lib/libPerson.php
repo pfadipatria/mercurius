@@ -97,7 +97,7 @@ function showPersonEditPage($personId = '0'){
          $view['body'] = getPersonEdit();
       } else {
          $person = new \SKeyManager\Entity\Person($personId);
-         $person->load();
+         var_dump($person);
          $view['body'] = getPersonEdit($person);
       }
    }
