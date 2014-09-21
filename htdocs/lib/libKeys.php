@@ -15,10 +15,8 @@ function showKeyListPage(){
 
 function getKeyList($keys = null){
 
-    $keys = new \SKeyManager\Repository\KeyRepository;
-
     $view = array(
-        'keys' => $locations
+        'keys' => $keys
     );
 
     return render($view, 'key_list');
