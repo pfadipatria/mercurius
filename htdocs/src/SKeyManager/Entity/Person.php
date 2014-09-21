@@ -95,7 +95,10 @@ class Person extends AbstractEntity {
 
    function getKeys() {
       // return $this->keys;
-      return null;
+      // return null;
+
+      $keys = new \SKeyManager\Repository\KeyRepository;
+      return $keys->getByPersonId($this->id);
    }
 
    function getNumberOfKeys() {
