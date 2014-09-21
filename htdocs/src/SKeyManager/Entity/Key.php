@@ -31,7 +31,7 @@ class Key extends AbstractEntity {
             FROM doorkey
             LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id)
             LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
-            LEFT JOIN doorkeymech ON (doorkey.mech = dookeymech.id)
+            LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id)
         ';
 
       $this->where = '
