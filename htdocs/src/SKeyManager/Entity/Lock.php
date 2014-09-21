@@ -56,6 +56,12 @@ class Lock extends AbstractEntity {
       return $this->name;
    }
 
+   function getFullName(){
+      $name = 'SC '.$this->getCode();
+      $name .= $this->getName() ? ' - '.$this->getName() : '';
+      return $name;
+   }
+
    function getVenue(){
       return $this->venuename;
    }
