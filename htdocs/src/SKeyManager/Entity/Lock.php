@@ -52,6 +52,10 @@ class Lock extends AbstractEntity {
       return $this->code;
    }
 
+   function getNumber(){
+      return $this->number;
+   }
+
    function getName(){
       return $this->name;
    }
