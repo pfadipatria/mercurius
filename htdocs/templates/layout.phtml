@@ -1,10 +1,10 @@
 <?php
     echo $view['header'];
     if(isset($view['success'])) { ?>
-      <div class="alert alert-success" role="alert"><?php echo $view['success']; ?></div><?php
+      <div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><?php echo $view['success']; ?></div><?php
     }
     if(isset($view['danger'])) { ?>
-      <div class="alert alert-danger" role="alert"><?php echo $view['danger']; ?></div><?php
+      <div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><?php echo $view['danger']; ?></div><?php
     }
     echo $view['body'];
     echo $view['footer'];
