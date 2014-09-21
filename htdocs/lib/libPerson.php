@@ -112,7 +112,7 @@ function getPersonEdit($person = null){
       $hasData = true;
    } else {
       $person = new \SKeyManager\Entity\Person();
-      $person->setName = 'New User';
+      $person->setName('New User');
    }
 
    $view = array(
