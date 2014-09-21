@@ -92,6 +92,7 @@ class Key extends AbstractEntity {
       $locations = array();
       $row = mysqli_fetch_assoc($dbresult);
       return $row;
-*/
+
     }
+*/
 }
