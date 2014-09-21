@@ -24,6 +24,12 @@
             <th style="text-align:right"><?php echo _('Last Updated'); ?>:</th>
             <td><?php echo $view['person']->getLastUpdate(); ?></td>
          </tr>
+         <tr>
+         </tr>
+         <tr>
+            <td><a href="<?php echo $view['person']->getLocation(); ?>/edit" data-toggle="tooltip" title="<?php echo _('Edit'); ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href="<?php echo $view['person']->getLocation(); ?>/delete" data-toggle="tooltip" title="<?php echo _('Delete'); ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+         </tr>
     </tbody>
 </table>
-<a href="<?php echo $view['person']->getLocation(); ?>/edit"><?php echo _('Edit'); ?></a><br>
+<br>
