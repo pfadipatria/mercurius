@@ -105,23 +105,6 @@ function showKeyEditPage($keyId = '0'){
    echo getFooter();
 }
 
-function getKeyDetails($keyId = '0'){
-
-    $key = new \SKeyManager\Entity\KeyEntity($keyId);
-    $row = $key->getAll();
-    $name = $key->getName();
-
-    $row['owner'] = '<a href="/person/'.$row['ownerid'].'">'.$row['owner'].'<a>';
-
-    $view = array(
-        'title' => $name,
-        'row' => $row,
-    );
-
-    return render($view, 'entry');
-
-}
-
 function getKeyPermissions($keyId = '0'){
 
     $locks = new \SKeyManager\Repository\LockRepository;
