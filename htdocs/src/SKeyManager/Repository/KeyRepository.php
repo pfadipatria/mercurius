@@ -9,29 +9,14 @@ class KeyRepository extends AbstractRepository {
     function __construct() {
         $this->select = '
             SELECT
-                doorkey.id,
-               elnumber,
-               code,
-               type,
-               doorkeycolor.name AS colorname,
-               doorkeycolor.id AS colorid,
-               doorkeystatus.name AS statusname,
-               doorkeystatus.id AS statusid,
-               doorkeymech.bezeichung AS description,
-               doorperson.name AS ownername,
-               doorperson.id AS ownerid,
-               doorperson.uid AS owneruid,
-               doorkey.comment AS keycomment,
-               communication,
-               doorkey.lastupdate AS keyupdate
+               id
         ';
 
         $this->from = '
             FROM doorkey
-            LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
-            LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
-            LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id )
-            LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
+        ';
+
+        $this->where = '
         ';
 
         $this->order = '
@@ -57,4 +42,15 @@ class KeyRepository extends AbstractRepository {
     function getAll() {
         return $this->query('', 'SKeyManager\Entity\Key');
     }
+
+    protected function query($where = ' ', $object = 'SKeyManager\Entity\Key') {
+      $con = openDb();
+      $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
+      while ($row = mysqli_fetch_assoc($dbresult)){
+         $this->keys[$row['id']] = new SKeyManager\Entity\Key($row['id']);
+      }
+
+      return $this->keys;
+    }
+
 }
