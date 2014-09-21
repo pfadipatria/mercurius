@@ -123,15 +123,26 @@ function getPersonEdit($person = null){
 }
 
 function showPersonDeletePage($personId = '0'){
+   $deletable = false;
 
    $person = new \SKeyManager\Entity\Person($personId);
    $person->load();
 
+   // Check for conditions to be true for person deletion
+   // The person must not own any keys
+   $person->getKeys() ? $deletable = false : $deletable = true;
+
    $view = array(
       'header' => getHeader('person', $personId, 'delete'),
-      'body' => getPersonDelete($person),
       'footer' => getFooter()
    );
+
+   if ($deletable) {
+      $view['body'] = '<p>Confirm user deletion</p>';
+   } else {
+      $view['danger'] = echo sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
+      $view['body'] = getPersonDetails($person);
+   }
 
    echo render($view, 'layout');
 }
