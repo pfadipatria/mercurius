@@ -11,13 +11,15 @@ function showPersonListPage(){
 }
 
 function showPersonDetailsPage($personId = '0'){
+
+   $person = new \SKeyManager\Entity\Person($personId);
+   $person->load();
+
    $view = array(
       'header' => getHeader('person', ''),
-      'body' => getPersonDetails($personId),
+      'body' => getPersonDetails($person),
       'footer' => getFooter()
    );
-
-   $view['body'] .= getPersonKeys($personId);
 
    echo render($view, 'layout');
 }
@@ -85,17 +87,25 @@ function getPersonList(){
     return render($view, 'person_list');
 }
 
-function getPersonDetails($personId = '0'){
+function getPersonDetails($person = null){
 
-    $person = new \SKeyManager\Entity\Person($personId);
-    $person->load();
+   $person = new \SKeyManager\Entity\Person($personId);
+   $person->load();
 
-    $view = array(
-        'person' => $person,
-        'locations' => $locations
-    );
+   $personView = array(
+     'person' => $person
+   );
 
-    return render($view, 'person_entry');
+   $keyView = array(
+      'keys' => $person->getKeys()
+   );
+
+   $view = array(
+      'person' => render($personView, 'person_entry'),
+      'keys' => render($keyView, 'person_keylist')
+   );
+
+   return render($view, 'person_layout');
 }
 
 function getPersonKeys($personId = '0'){
