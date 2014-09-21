@@ -139,7 +139,7 @@ function showPersonDeletePage($personId = '0'){
 function getPersonDelete($person = null){
 
    $deletable = false;
-   !$person->getKeys() ? $deletable = true;
+   $person->getKeys() ? $deletable = false : $deletable = true;
 
    $view = array(
       'personDetails' => render(array('person' => $person), 'person_entry'),
