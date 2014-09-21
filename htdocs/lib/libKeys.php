@@ -16,7 +16,7 @@ function showKeyListPage(){
 function getKeyList($keys = null){
 
     $view = array(
-        'keys' => $keys
+        'keys' => $keys->getAll()
     );
 
     return render($view, 'key_list');
