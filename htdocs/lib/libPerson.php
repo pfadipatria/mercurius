@@ -74,6 +74,10 @@ function showPersonEditPage($personId = '0'){
             $person->load();
          }
          $person->setName($_POST['name']);
+         $person->setUid($_POST['uid']);
+         $person->setUidNumber($_POST['uidnumber']);
+         $person->setMdbId($_POST['mdbid']);
+         $person->setComment($_POST['comment']);
          $result = $person->save();
       } catch (Exception $exception) {
          $result = false;
