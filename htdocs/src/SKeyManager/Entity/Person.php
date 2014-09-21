@@ -88,7 +88,7 @@ class Person extends AbstractEntity {
    }
 
    function getKeys() {
-
+      return $this->keys;
    }
 
    function save() {

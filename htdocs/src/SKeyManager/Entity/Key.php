@@ -2,7 +2,7 @@
 
 namespace SKeyManager\Entity;
 
-class KeyEntity extends AbstractEntity {
+class Key extends AbstractEntity {
 
     protected $locationPattern = '/key/%s';
 

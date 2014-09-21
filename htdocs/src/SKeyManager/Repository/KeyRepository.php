@@ -28,11 +28,14 @@ class KeyRepository extends AbstractRepository {
     }
 
     function getByPersonId($id) {
-        return $this->query('WHERE doorperson.id = '.$id);
+        return $this->query('WHERE doorperson.id = '.$id, 'SKeyManager\Entity\Key');
     }
 
     function getByAllowedForLock($id) {
         return $this->query('WHERE doorperson.id = '.$id);
     }
 
+    function getAll() {
+        return $this->query('', 'SKeyManager\Entity\Key');
+    }
 }
