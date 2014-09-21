@@ -6,7 +6,7 @@ class Lock extends AbstractEntity {
 
     protected $locationPattern = '/lock/%s';
 
-    function __construct($lockId = null) {
+    function __construct($id = null) {
         $this->select = '
             SELECT
                doorlock.id AS id,
