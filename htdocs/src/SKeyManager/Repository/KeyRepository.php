@@ -5,6 +5,7 @@ namespace SKeyManager\Repository;
 class KeyRepository extends AbstractRepository {
 
     protected $locationPattern = '/key/%s';
+    var $keys = array();
 
     function __construct() {
         $this->select = '
