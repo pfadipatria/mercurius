@@ -150,7 +150,7 @@ function showPersonDeletePage($personId = '0'){
       if($result){
          $view['success'] = _('OK! '.$name.' wurde gelöscht.');
          $view['body'] = getPersonList();
-         $view['header'] => getHeader('person');
+         $view['header'] = getHeader('person');
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht gelöscht werden.'.$message);
          $view['body'] = getPersonEdit($person);
