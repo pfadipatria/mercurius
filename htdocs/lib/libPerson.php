@@ -108,7 +108,12 @@ function showPersonEditPage($personId = '0'){
 
 function getPersonEdit($person = null){
    $hasData = false;
-   if ($person !== null) $hasData = true;
+   if ($person !== null) {
+      $hasData = true;
+   } else {
+      $person = new \SKeyManager\Entity\Person();
+      $person->setName = 'New User';
+   }
 
    $view = array(
      'hasData' => $hasData,
