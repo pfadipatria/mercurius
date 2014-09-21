@@ -19,14 +19,10 @@
             <td><?php echo $view['person']->getMdbId(); ?></td>
          </tr>         <tr>
             <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
-            <td><?php echo $view['person']->getId(); ?></td>
+            <td><?php echo $view['person']->getComment(); ?></td>
          </tr>         <tr>
             <th style="text-align:right"><?php echo _('Last Updated'); ?>:</th>
-            <td><?php echo $view['person']->getId(); ?></td>
-         </tr>
-         <tr>
-            <th style="text-align:right">Name:</th>
-            <td><?php echo $view['person']->getName(); ?></td>
+            <td><?php echo $view['person']->getLastUpdate(); ?></td>
          </tr>
     </tbody>
 </table>
