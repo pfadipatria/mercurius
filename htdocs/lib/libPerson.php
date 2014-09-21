@@ -86,7 +86,8 @@ function showPersonEditPage($personId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $person->load();
+         // $person->load();
+         var_dump($person);
          $view['body'] = getPersonDetails($person);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
@@ -97,7 +98,7 @@ function showPersonEditPage($personId = '0'){
          $view['body'] = getPersonEdit();
       } else {
          $person = new \SKeyManager\Entity\Person($personId);
-         var_dump($person);
+         $person->load();
          $view['body'] = getPersonEdit($person);
       }
    }
