@@ -47,7 +47,7 @@ class KeyRepository extends AbstractRepository {
       $con = openDb();
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
       while ($row = mysqli_fetch_assoc($dbresult)){
-         $this->keys[$row['id']] = new SKeyManager\Entity\Key($row['id']);
+         $this->keys[$row['id']] = new \SKeyManager\Entity\Key($row['id']);
       }
 
       return $this->keys;
