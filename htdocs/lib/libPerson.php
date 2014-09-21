@@ -89,9 +89,6 @@ function getPersonList(){
 
 function getPersonDetails($person = null){
 
-   $person = new \SKeyManager\Entity\Person($personId);
-   $person->load();
-
    $personView = array(
      'person' => $person
    );
