@@ -10,7 +10,7 @@
       </tr>
    </thead>
     <tbody>
-        <?php foreach($view['people']->people as $person) { ?>
+        <?php foreach($view['people'] as $person) { ?>
             <tr onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in">
                     <td><?php echo $person->getId(); ?></td>
                     <td><?php echo $person->getName(); ?></td>
