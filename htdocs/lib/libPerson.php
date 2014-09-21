@@ -153,7 +153,7 @@ function showPersonDeletePage($personId = '0'){
          $view['header'] = getHeader('person');
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht gelöscht werden.'.$message);
-         $view['body'] = getPersonEdit($person);
+         $view['body'] = getPersonDetails($person);
          $view['header'] = getHeader('person', $personId);
       }
    } else {

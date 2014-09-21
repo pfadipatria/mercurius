@@ -139,7 +139,7 @@ class Person extends AbstractEntity {
          $con = openDb();
          $sql = '
             DELETE FROM doorperson
-            WHERE id = '.mysqli_real_escape_string($con, $this->getName()).'
+            WHERE id = '.mysqli_real_escape_string($con, $this->getId()).'
          ';
          $return = queryDb($con, $sql);
       }
