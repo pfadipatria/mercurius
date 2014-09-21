@@ -13,11 +13,11 @@
       <div class="row">
       <div class="form-group">
 
-         <input type="text" class="form-control" maxlength="45" id="id" name="id" value="<?php if (!empty($view['person']->getId())) echo $view['person']->getId(); ?>" hidden>
+         <input type="text" class="form-control" maxlength="45" id="id" name="id" value="<?php /* if (!empty($view['person']->getId())) echo $view['person']->getId(); */ ?>" hidden>
 
 
          <label for="name"><?php echo _('Name'); ?></label>
-         <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if (!empty($view['person']->getName())) echo $view['person']->getName(); ?>">
+         <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if (!empty($view['person'])) echo $view['person']->getName(); ?>">
 
          <label for="name"><?php echo _('Uid'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="uid" name="uid" value="<?php if (!empty($view['person']->getUid())) echo $view['person']->getUid(); ?>">
