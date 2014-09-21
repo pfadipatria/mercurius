@@ -12,7 +12,7 @@
    </thead>
     <tbody>
         <?php foreach($view['people'] as $person) { ?>
-            <tr onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in">
+            <tr>
                     <!-- <td><?php echo $person->getId(); ?></td> -->
                     <td><?php echo $person->getName(); ?></td>
                     <td><?php echo $person->getUid(); ?></td>
@@ -20,6 +20,8 @@
                     <!-- <td><?php echo $person->getMdbId(); ?></td> -->
                     <td><?php echo $person->getNumberOfKeys(); ?></td>
                     <td><?php echo $person->getComment(); ?></td>
+                    <td><?php echo $person->getComment(); ?></td>
+                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in"><span class="glyphicon glyphicon-pencil"></span></td>
             </tr>
         <?php } ?>
     </tbody>
