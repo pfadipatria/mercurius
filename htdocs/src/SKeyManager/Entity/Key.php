@@ -49,11 +49,15 @@ class Key extends AbstractEntity {
          $this->$name = $value;
       }
 
+      $owner = null;
       if(!empty($this->ownerid)) {
          $owner = new \SKeyManager\Entity\Person($this->ownerid);
          $owner->load();
-         $this->owner = $owner;
+      } else {
+         $owner = new \SKeyManager\Entity\Person();
       }
+
+      $this->owner = $owner;
    }
 
    function getId(){
