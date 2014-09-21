@@ -9,24 +9,15 @@ abstract class AbstractRepository {
     }
 
     protected function query($where = ' ', $object = null) {
+      $result = array();
       $con = openDb();
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
-      $rows = array();
-      $locations = array();
       while ($row = mysqli_fetch_assoc($dbresult)){
-         if ($object){
-            $entity = new $object($row['id']);
-            foreach ($row as $name => $value) {
-               $entity->$name = $value;
-            }
-         } else {
-            $entity = $row;
-         }
-         $locations[] = sprintf($this->locationPattern, $row['id']);
-         $rows[] = $entity;
-         
+         $entity = new $object($row['id']);
+         $entity->load();
+         $result[] = $entity;
       }
-      return array($rows, $locations);
-    }
 
+      return $result;
+    }
 }
