@@ -50,7 +50,6 @@ class Key extends AbstractEntity {
       }
 
       if(!empty($this->ownerid)) {
-         var_dump($this->ownerid);
          $owner = new \SKeyManager\Entity\Person($this->ownerid);
          $owner->load();
          $this->owner = $owner;
