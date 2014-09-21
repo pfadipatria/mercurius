@@ -1,9 +1,12 @@
 <?php
 
 function showPersonListPage(){
+
+   $people = new \SKeyManager\Repository\PersonRepository;
+
    $view = array(
         'header' => getHeader('person', 'list'),
-        'body' => getPersonList(),
+        'body' => getPersonList($people),
         'footer' => getFooter()
     );
 
@@ -66,22 +69,12 @@ function showPersonEditPage($personId = '0'){
    echo render($view, 'layout');
 }
 
-function getPersonList(){
+function getPersonList($people = null){
 
     $people = new \SKeyManager\Repository\PersonRepository;
-    list($rows, $locations) = $people->getAll();
 
     $view = array(
-        'headers' => array (
-            'Id',
-            'Name',
-            'Uid',
-            'UidNumber',
-            'MdbId',
-            'Comment'
-        ),
-        'rows' => $rows,
-        'locations' => $locations
+        'people' => $people
     );
 
     return render($view, 'person_list');

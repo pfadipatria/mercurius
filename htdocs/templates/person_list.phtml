@@ -1,21 +1,23 @@
-<?php if(array_key_exists('title',$view)) { ?>
-   <h2><?php echo $view['title']; ?></h2>
-<?php } ?>
-<table class="table table-hover" style="width:auto">
-    <?php if(array_key_exists('headers',$view)) { ?>
-        <thead>
-            <tr>
-            <?php foreach($view['headers'] as $header) { ?>
-                <th><?php echo $header; ?></th>
-            <?php } ?>
-            </tr>
-        </thead>
-    <?php } ?>
+<table class="table table-hover" style="width:auto">>
+   <thead>
+      <tr>
+          <th><?php echo _('Id'); ?></th>
+          <th><?php echo _('Name'); ?></th>
+          <th><?php echo _('Uid'); ?></th>
+          <th><?php echo _('UidNumber'); ?></th>
+          <th><?php echo _('MdbId'); ?></th>
+          <th><?php echo _('Comment'); ?></th>
+      </tr>
+   </thead>
     <tbody>
-        <?php foreach($view['rows'] as $key => $row) { ?>
-            <tr onclick="document.location = '<?php echo $view['locations'][$key]; ?>';" style="cursor: zoom-in">
-                    <td><?php echo $row->getId(); ?></td>
-                    <td><?php echo $row->getName(); ?></td>
+        <?php foreach($view['people'] as $person) { ?>
+            <tr onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in">
+                    <td><?php echo $person->getId(); ?></td>
+                    <td><?php echo $person->getName(); ?></td>
+                    <td><?php echo $person->getUid(); ?></td>
+                    <td><?php echo $person->getUidNumber(); ?></td>
+                    <td><?php echo $person->getMdbId(); ?></td>
+                    <td><?php echo $person->getComment(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
