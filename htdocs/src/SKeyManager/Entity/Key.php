@@ -66,6 +66,10 @@ class Key extends AbstractEntity {
       return $this->keycomment;
    }
 
+   function getLocation(){
+      return sprintf($this->locationPattern, $this->id);
+   }
+
    function getPermissions() {
       $return = '';
       $this->select = 'SELECT
