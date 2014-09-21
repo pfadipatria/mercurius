@@ -107,7 +107,11 @@ function showPersonEditPage($personId = '0'){
 
 
 function getPersonEdit($person = null){
+   $hasData = false;
+   if ($person !== null) $hasData = true;
+
    $view = array(
+     'hasData' => $hasData,
      'person' => $person
    );
 
