@@ -13,11 +13,21 @@
       <div class="row">
       <div class="form-group">
 
-         <input type="text" class="form-control" maxlength="45" id="id" name="id" value="<?php /* if (!empty($view['person']->getId())) echo $view['person']->getId(); */ ?>" hidden>
+         <input type="text" class="form-control" maxlength="45" id="id" name="id" value="<?php  if ($view['hasData']) echo $view['person']->getId(); ?>" hidden>
 
 
          <label for="name"><?php echo _('Name'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if ($view['hasData']) echo $view['person']->getName(); ?>">
+
+         <label for="name"><?php echo _('Uid'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="uid" name="uid" value="<?php if ($view['hasData']) echo $view['person']->getUid(); ?>">
+
+         <label for="name"><?php echo _('UidNumber'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="uidnumber" name="uidnumber" value="<?php if ($view['hasData']) echo $view['person']->getUidNumber(); ?>">
+
+         <label for="name"><?php echo _('Name'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if ($view['hasData']) echo $view['person']->getName(); ?>">
+
 
          <label for="name"><?php echo _('Uid'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="uid" name="uid" value="<?php if (!empty($view['person'])) echo $view['person']->getUid(); ?>">
