@@ -22,9 +22,36 @@ function getLockList($locks = null){
     return render($view, 'lock_list');
 }
 
+function showLockDetailsPage($lockId = '0'){
+
+   $lock = new \SKeyManager\Entity\Lock($lockId);
+   $lock->load();
+
+   $view = array(
+      'header' => getHeader('lock', $lockId),
+      'body' => getLockDetails($lock),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
+function getLockDetails($lock = null){
+
+   $lockView = array(
+     'key' => $lock
+   );
+
+   $view = array(
+      'lock' => render($lockView, 'lock_entry')
+   );
+
+   return render($view, 'lock_layout');
+}
+
 //////////////////////////////////////////////////////////
 
-function showLockDetailsPage($lockId = '0'){
+function oldshowLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
    printLockDetails($lockId);

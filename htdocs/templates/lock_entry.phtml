@@ -1,0 +1,26 @@
+<h2><?php echo $view['lock']->getName(); ?></h2>
+<table class="table" style="width:auto">
+    <tbody>
+         <tr>
+            <th style="text-align:right"><?php echo _('Id'); ?>:</th>
+            <td><?php echo $view['lock']->getId(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('SC'); ?>:</th>
+            <td><?php echo $view['lock']->getCode(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Status'); ?>:</th>
+            <td><?php echo $view['lock']->getStatus(); ?></td>
+         </tr>
+ 
+
+
+
+         <tr><br></tr>
+         <tr>
+            <td align="center"><a href="<?php echo $view['lock']->getLocation(); ?>/edit" data-toggle="tooltip" title="<?php echo _('Edit'); ?>" style="color:black"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td align="center"><a href="<?php echo $view['lock']->getLocation(); ?>/delete" data-toggle="tooltip" title="<?php echo _('Delete'); ?>" style="color:black"><span class="glyphicon glyphicon-trash"></span></a></td>
+         </tr>
+    </tbody>
+</table>
