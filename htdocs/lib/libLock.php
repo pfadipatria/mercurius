@@ -39,7 +39,7 @@ function showLockDetailsPage($lockId = '0'){
 function getLockDetails($lock = null){
 
    $lockView = array(
-     'key' => $lock
+     'lock' => $lock
    );
 
    $view = array(
