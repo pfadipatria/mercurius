@@ -103,10 +103,12 @@ class Person extends AbstractEntity {
       if($this->getId()) {
          $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
       }
+
+      $uid = !empty($this->getUid()) ? '"'.mysqli_real_escape_string($con, $this->getUid()).'"' : 'NULL';
       $sql = '
          REPLACE doorperson
          SET name = "'.mysqli_real_escape_string($con, $this->getName()).'",
-            uid = "'.mysqli_real_escape_string($con, $this->getUid()).'",
+            uid = '.$uid.',
             uidnumber = "'.mysqli_real_escape_string($con, $this->getUidNumber()).'",
             mdbid = "'.mysqli_real_escape_string($con, $this->getMdbId()).'",
             comment = "'.mysqli_real_escape_string($con, $this->getComment()).'"
