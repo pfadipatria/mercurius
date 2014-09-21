@@ -83,6 +83,11 @@ class Person extends AbstractEntity {
       return $this->comment;
    }
 
+   function setComment($comment) {
+      $this->comment = $comment;
+      return $this;
+   }
+
    function getLastUpdate() {
       return $this->lastupdate;
    }
