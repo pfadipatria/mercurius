@@ -73,7 +73,7 @@ class Key extends AbstractEntity {
 
    function getName() {
       $name = 'MC '.$this->getCode;
-      $this->getOwnerName ? $name .= ' - '.$this->getOwnerName();
+      $this->getOwnerName ? $name .= ' - '.$this->getOwnerName() : ;
       return $name;
    }
 
