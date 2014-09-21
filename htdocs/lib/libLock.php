@@ -22,6 +22,8 @@ function getLockList($lock = null){
     return render($view, 'lock_list');
 }
 
+//////////////////////////////////////////////////////////
+
 function showLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
