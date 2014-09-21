@@ -43,6 +43,10 @@ class Key extends AbstractEntity {
         ';
     }
 
+   function __get() {
+      return null;
+   }
+
    function load() {
       $data = $this->query();
       foreach($data as $name => $value){
