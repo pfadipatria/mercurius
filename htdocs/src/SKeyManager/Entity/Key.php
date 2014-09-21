@@ -82,6 +82,7 @@ class Key extends AbstractEntity {
       return $return;
    }
 
+/*
     protected function query($where = ' WHERE true ') {
       $where .= ' AND doorkey.id = '.$this->id;
       error_log($this->select.$this->from.$where.$this->order);
@@ -91,5 +92,6 @@ class Key extends AbstractEntity {
       $locations = array();
       $row = mysqli_fetch_assoc($dbresult);
       return $row;
+*/
     }
 }
