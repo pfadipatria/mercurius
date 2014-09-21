@@ -94,7 +94,8 @@ class Person extends AbstractEntity {
    }
 
    function getKeys() {
-      return $this->keys;
+      // return $this->keys;
+      return null;
    }
 
    function getNumberOfKeys() {

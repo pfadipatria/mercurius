@@ -45,7 +45,8 @@ function getPersonDetails($person = null){
    );
 
    $keyView = array(
-      'keys' => $person->getKeys()
+      // 'keys' => $person->getKeys()
+      'keys' => null
    );
 
    $view = array(
