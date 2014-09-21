@@ -128,24 +128,57 @@ function showPersonDeletePage($personId = '0'){
    $person = new \SKeyManager\Entity\Person($personId);
    $person->load();
 
-   // Check for conditions to be true for person deletion
-   // The person must not own any keys
-   $person->getKeys() ? $deletable = false : $deletable = true;
-
    $view = array(
       'header' => getHeader('person', $personId, 'delete'),
       'footer' => getFooter()
    );
 
-   if ($deletable) {
-      $deleteView = array(
-         'personDetails' => render(array('person' => $person), 'person_entry'),
-         'person' => $person,
-      );
-      $view['body'] = render($deleteView, 'person_delete');
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $message = '';
+      $id = null;
+      if (array_key_exists('id',$_POST)) {
+         $id = $_POST['id'];
+      }
+      $person = new SKeyManager\Entity\Person($id);
+      try {
+         if (array_key_exists('id',$_POST)) {
+            $person->load();
+         }
+         $person->setName($_POST['name']);
+         $person->setUid($_POST['uid']);
+         $person->setUidNumber($_POST['uidnumber']);
+         $person->setMdbId($_POST['mdbid']);
+         $person->setComment($_POST['comment']);
+         $result = $person->save();
+      } catch (Exception $exception) {
+         $result = false;
+         $message = ' ('.$exception->getMessage().')';
+      }
+
+      if($result){
+         $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $newPerson = new \SKeyManager\Entity\Person($person->getId());
+         $newPerson->load();
+         $view['body'] = getPersonDetails($newPerson);
+      } else {
+         $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         $view['body'] = getPersonEdit($person);
+      }
    } else {
-      $view['danger'] = sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
-      $view['body'] = getPersonDetails($person);
+      // Check for conditions to be true for person deletion
+      // The person must not own any keys
+      $person->getKeys() ? $deletable = false : $deletable = true;
+      if ($deletable) {
+         $deleteView = array(
+            'personDetails' => render(array('person' => $person), 'person_entry'),
+            'person' => $person,
+         );
+         $view['body'] = render($deleteView, 'person_delete');
+      } else {
+         $view['danger'] = sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
+         $view['body'] = getPersonDetails($person);
+      }
    }
 
    echo render($view, 'layout');
