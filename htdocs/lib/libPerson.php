@@ -87,7 +87,7 @@ function showPersonEditPage($personId = '0'){
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
          $newPerson = new \SKeyManager\Entity\Person($person->getId());
-         $person->load();
+         $newPerson->load();
          var_dump($person);
          var_dump($newPerson);
          $view['body'] = getPersonDetails($newPerson);
