@@ -104,14 +104,19 @@ class Person extends AbstractEntity {
          $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
       }
 
+      $name = $this->getName() ? '"'.mysqli_real_escape_string($con, $this->getName()).'"' : 'NULL';
       $uid = $this->getUid() ? '"'.mysqli_real_escape_string($con, $this->getUid()).'"' : 'NULL';
+      $uidnumber = $this->getUidNumber() ? '"'.mysqli_real_escape_string($con, $this->getUidNumber()).'"' : 'NULL';
+      $mdbid = $this->getMdbId() ? '"'.mysqli_real_escape_string($con, $this->getMdbId()).'"' : 'NULL';
+      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
       $sql = '
          REPLACE doorperson
-         SET name = "'.mysqli_real_escape_string($con, $this->getName()).'",
+         SET name = '.$name.',
             uid = '.$uid.',
-            uidnumber = "'.mysqli_real_escape_string($con, $this->getUidNumber()).'",
-            mdbid = "'.mysqli_real_escape_string($con, $this->getMdbId()).'",
-            comment = "'.mysqli_real_escape_string($con, $this->getComment()).'"
+            uidnumber = '.$uidnumber.',
+            mdbid = '.$mdbid.',
+            comment = '.$comment.'
          '.$idString.'
       ';
       $dbresult = queryDb($con, $sql);
