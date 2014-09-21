@@ -50,10 +50,21 @@ class Key extends AbstractEntity {
       }
    }
 
+   function getId(){
+      return $this->id;
+   }
+
    function getCode(){
       return $this->code;
    }
 
+   function getStatusName(){
+      return $this->statusname;
+   }
+
+   function getComment(){
+      return $this->keycomment;
+   }
 
    function getPermissions() {
       $return = '';

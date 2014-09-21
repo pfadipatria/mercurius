@@ -2,10 +2,10 @@
 <table class="table table-hover" style="width:auto">
     <tbody>
         <?php foreach($view['keys'] as $key) { ?>
-            <tr onclick="document.location = '<?php /* echo $view['locations'][$key]; */ ?>';" style="cursor: zoom-in">
+            <tr onclick="document.location = '<?php echo $key->getId(); ?>';" style="cursor: zoom-in">
                  <td>MC <?php echo $key->getCode(); ?></td>
-                 <td><?php echo $row['statusname'] ?></td>
-                 <td><?php echo $row['comment'] ?></td>
+                 <td><?php echo $key->getStatusName(); ?></td>
+                 <td><?php echo $key->getComment(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
