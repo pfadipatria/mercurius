@@ -2,7 +2,26 @@
 <table class="table" style="width:auto">
     <tbody>
          <tr>
-            <th style="text-align:right">Id:</th>
+            <th style="text-align:right"><?php echo _('Id'); ?>:</th>
+            <td><?php echo $view['person']->getId(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Name'); ?>:</th>
+            <td><?php echo $view['person']->getName(); ?></td>
+         </tr>         <tr>
+            <th style="text-align:right"><?php echo _('Uid'); ?>:</th>
+            <td><?php echo $view['person']->getUid(); ?></td>
+         </tr>         <tr>
+            <th style="text-align:right"><?php echo _('UidNumber'); ?>:</th>
+            <td><?php echo $view['person']->getUidNumber(); ?></td>
+         </tr>         <tr>
+            <th style="text-align:right"><?php echo _('MdbId'); ?>:</th>
+            <td><?php echo $view['person']->getMdbId(); ?></td>
+         </tr>         <tr>
+            <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
+            <td><?php echo $view['person']->getId(); ?></td>
+         </tr>         <tr>
+            <th style="text-align:right"><?php echo _('Last Updated'); ?>:</th>
             <td><?php echo $view['person']->getId(); ?></td>
          </tr>
          <tr>
@@ -11,4 +30,4 @@
          </tr>
     </tbody>
 </table>
-<a href="<?php echo $_SERVER['REQUEST_URI']; ?>/edit">Bearbeiten</a><br>
+<a href="/person/<?php echo $view['person']->getId(); ?>/edit"><?php echo _('Edit'); ?></a><br>

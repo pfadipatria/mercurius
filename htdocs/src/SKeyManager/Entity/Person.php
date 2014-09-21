@@ -34,6 +34,9 @@ class Person extends AbstractEntity {
       foreach($data as $name => $value){
          $this->$name = $value;
       }
+
+      $keys = new \SKeyManager\Repository\KeyRepository;
+      $this->keys = $keys->getByPersonId($this->id);
    }
 
    function getId() {
@@ -47,6 +50,45 @@ class Person extends AbstractEntity {
    function setName($name) {
       $this->name = $name;
       return $this;
+   }
+
+   function getUid() {
+      return $this->uid;
+   }
+
+   function setUid($uid) {
+      $this->uid = $uid;
+      return $this;
+   }
+
+   function getUidNumber() {
+      return $this->uidnumber;
+   }
+
+   function setUidNumber($uidnumber) {
+      $this->uidnumber = $uidnumber;
+      return $this;
+   }
+
+   function getMdbId() {
+      return $this->mdbid;
+   }
+
+   function setMdbId($mdbid) {
+      $this->mdbid = $mdbid;
+      return $this;
+   }
+
+   function getComment() {
+      return $this->comment;
+   }
+
+   function getLastUpdate() {
+      return $this->lastupdate;
+   }
+
+   function getKeys() {
+
    }
 
    function save() {
