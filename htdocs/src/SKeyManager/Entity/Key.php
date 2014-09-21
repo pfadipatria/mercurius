@@ -53,6 +53,7 @@ class Key extends AbstractEntity {
          $owner = new \SKeyManager\Entity\Person($this->ownerid);
          $owner->load();
          $this->owner = $owner;
+      }
    }
 
    function getId(){
