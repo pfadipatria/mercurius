@@ -14,7 +14,8 @@ class PersonRepository extends AbstractRepository {
                 uid,
                 uidnumber,
                 mdbid,
-                comment
+                comment,
+                lastupdate
         ';
 
         $this->from = '
