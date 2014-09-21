@@ -6,7 +6,7 @@ class Key extends AbstractEntity {
 
     protected $locationPattern = '/key/%s';
 
-    function __construct($id) {
+    function __construct($id = null) {
         $this->id = $id;
 
         $this->select = '
@@ -36,10 +36,21 @@ class Key extends AbstractEntity {
             LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
         ';
 
+      $this->where = '
+         WHERE doorkey.id = '.$id.'
+      ';
+
         $this->order = '
             ORDER BY doorkey.code
         ';
     }
+
+   function load() {
+      $data = $this->query();
+      foreach($data as $name => $value){
+         $this->$name = $value;
+      }
+   }
 
    function getPermissions() {
       $return = '';
