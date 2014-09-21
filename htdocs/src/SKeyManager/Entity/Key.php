@@ -56,7 +56,6 @@ class Key extends AbstractEntity {
       } else {
          $owner = new \SKeyManager\Entity\Person();
       }
-
       $this->owner = $owner;
    }
 
@@ -81,9 +80,7 @@ class Key extends AbstractEntity {
    }
 
    function getOwnerName(){
-      var_dump($this->owner);
       return $this->getOwner()->getName();
-      // return 'Key Owner Name';
    }
 
    function getComment(){
