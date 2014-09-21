@@ -106,7 +106,7 @@ class Person extends AbstractEntity {
    }
 
    function getNumberOfKeys() {
-      return count($this->keys);
+      return count($this->getKeys());
    }
 
    function save() {
