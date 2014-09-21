@@ -24,13 +24,6 @@ class KeyRepository extends AbstractRepository {
         ';
     }
 
-   function load() {
-      $data = $this->query();
-      foreach($data as $name => $value){
-         $this->$name = $value;
-      }
-   }
-
     function getByPersonId($id) {
         return $this->query('WHERE owner = '.$id, 'SKeyManager\Entity\Key');
     }
