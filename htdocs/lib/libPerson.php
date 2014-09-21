@@ -93,7 +93,6 @@ function getPersonDetails($person = null){
      'person' => $person
    );
 
-   var_dump($person->getKeys());
    $keyView = array(
       'keys' => $person->getKeys()
    );

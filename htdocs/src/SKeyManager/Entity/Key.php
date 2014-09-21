@@ -50,6 +50,9 @@ class Key extends AbstractEntity {
       }
    }
 
+   function getCode(){
+      return $this->code;
+   }
 
 
    function getPermissions() {
