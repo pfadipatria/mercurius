@@ -19,12 +19,41 @@ function showPersonDetailsPage($personId = '0'){
    $person->load();
 
    $view = array(
-      'header' => getHeader('person', ''),
+      'header' => getHeader('person', $personId),
       'body' => getPersonDetails($person),
       'footer' => getFooter()
    );
 
    echo render($view, 'layout');
+}
+
+function getPersonList($people = null){
+
+    $people = new \SKeyManager\Repository\PersonRepository;
+
+    $view = array(
+        'people' => $people->getAll()
+    );
+
+    return render($view, 'person_list');
+}
+
+function getPersonDetails($person = null){
+
+   $personView = array(
+     'person' => $person
+   );
+
+   $keyView = array(
+      'keys' => $person->getKeys()
+   );
+
+   $view = array(
+      'person' => render($personView, 'person_entry'),
+      'keys' => render($keyView, 'person_keylist')
+   );
+
+   return render($view, 'person_layout');
 }
 
 function showPersonEditPage($personId = '0'){
@@ -69,48 +98,7 @@ function showPersonEditPage($personId = '0'){
    echo render($view, 'layout');
 }
 
-function getPersonList($people = null){
 
-    $people = new \SKeyManager\Repository\PersonRepository;
-
-    $view = array(
-        'people' => $people->getAll()
-    );
-
-    return render($view, 'person_list');
-}
-
-function getPersonDetails($person = null){
-
-   $personView = array(
-     'person' => $person
-   );
-
-   $keyView = array(
-      'keys' => $person->getKeys()
-   );
-
-   $view = array(
-      'person' => render($personView, 'person_entry'),
-      'keys' => render($keyView, 'person_keylist')
-   );
-
-   return render($view, 'person_layout');
-}
-
-function getPersonKeys($personId = '0'){
-   $keys = new \SKeyManager\Repository\KeyRepository;
-
-   list($rows, $locations) = $keys->getByPersonId($personId);
-
-   $view = array(
-      'title' => 'Schl&uuml;ssel',
-      'rows' => $rows,
-      'locations' => $locations
-   );
-
-   return render($view, 'person_keylist');
-}
 
 function getPersonEdit($personId = '0'){
    $person = new \SKeyManager\Entity\Person($personId);
