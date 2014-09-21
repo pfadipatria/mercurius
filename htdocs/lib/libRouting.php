@@ -73,6 +73,9 @@ function showLocksPage(){
       case 'list':
          showLockListPage();
          break;
+      case '':
+         showLockListPage();
+         break;
       case 'show':
          showLockDetailsPage(getMenuPath('3'));
          break;
