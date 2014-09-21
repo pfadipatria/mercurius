@@ -86,6 +86,7 @@ function showPersonEditPage($personId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $person->load();
          $view['body'] = getPersonDetails($person);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
@@ -120,59 +121,6 @@ function getPersonEdit($person = null){
    $view['person'] = $person;
 
    return render($view, 'person_edit');
-
-
-
-   $person = new \SKeyManager\Entity\Person($personId);
-   $person->load();
-
-   $row = $person->getAll();
-   $name = $person->getName();
-
-   $view = array(
-      'title' => $name,
-      'row' => $row,
-      'content' => array(
-         'id' => array(
-            'label' => 'ID',
-            'value' => $row['id'],
-            'editable' => True
-            ),
-         'name' => array(
-            'label' => 'Name',
-            'value' => $row['name'],
-            'editable' => True
-            ),
-         'uid' => array(
-            'label' => 'UID',
-            'value' => $row['uid'],
-            'editable' => True
-            ),
-         'uidnumber' => array(
-            'label' => 'UidNumber',
-            'value' => $row['uidnumber'],
-            'editable' => True
-            ),
-         'mdbid' => array(
-            'label' => 'mdbId',
-            'value' => $row['mdbid'],
-            'editable' => True
-            ),
-         'comment' => array(
-            'label' => 'Kommentar',
-            'value' => $row['comment'],
-            'editable' => True
-            ),
-         'lastupdate' => array(
-            'label' => 'lastUpdate',
-            'value' => $row['lastupdate'],
-            'editable' => False
-            )
-         ),
-      'locations' => $locations
-   );
-
-   return render($view, 'editEntry');
 }
 
 function showPersonSearchPage(){
