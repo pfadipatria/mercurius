@@ -35,10 +35,8 @@ class Person extends AbstractEntity {
          $this->$name = $value;
       }
 
-     /* $keys = new \SKeyManager\Repository\KeyRepository;
-      $keys->load();
+      $keys = new \SKeyManager\Repository\KeyRepository;
       $this->keys = $keys->getByPersonId($this->id);
-      */
    }
 
    function getId() {
