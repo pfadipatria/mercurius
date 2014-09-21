@@ -77,6 +77,7 @@ class Key extends AbstractEntity {
    }
 
    function getOwnerName(){
+      var_dump($this->owner);
       return $this->getOwner()->getName();
       // return 'Key Owner Name';
    }
