@@ -62,6 +62,7 @@ function showKeysPage(){
          } else {
             showKeyDetailsPage(getMenuPath('2'));
          }
+         break;
       default:
          showKeyListPage();
    }
