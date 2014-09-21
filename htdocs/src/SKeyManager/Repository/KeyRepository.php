@@ -4,7 +4,7 @@ namespace SKeyManager\Repository;
 
 class KeyRepository extends AbstractRepository {
 
-    protected $locationPattern = '/keys/show/%s';
+    protected $locationPattern = '/key/%s';
 
     function __construct() {
         $this->select = '
@@ -26,6 +26,13 @@ class KeyRepository extends AbstractRepository {
             ORDER BY code
         ';
     }
+
+   function load() {
+      $data = $this->query();
+      foreach($data as $name => $value){
+         $this->$name = $value;
+      }
+   }
 
     function getByPersonId($id) {
         return $this->query('WHERE doorperson.id = '.$id, 'SKeyManager\Entity\Key');

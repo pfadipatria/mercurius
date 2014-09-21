@@ -36,6 +36,7 @@ class Person extends AbstractEntity {
       }
 
       $keys = new \SKeyManager\Repository\KeyRepository;
+      $keys->load();
       $this->keys = $keys->getByPersonId($this->id);
    }
 
