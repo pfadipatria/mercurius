@@ -50,6 +50,8 @@ class Key extends AbstractEntity {
       }
    }
 
+
+
    function getPermissions() {
       $return = '';
       $this->select = 'SELECT
