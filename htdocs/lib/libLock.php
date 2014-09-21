@@ -22,27 +22,6 @@ function getLockList($lock = null){
     return render($view, 'lock_list');
 }
 
-function getLockList(){
-
-    $locks = new \SKeyManager\Repository\LockRepository;
-    list($rows, $locations) = $locks->getAll();
-
-    $view = array(
-        'headers' => array (
-            'Id',
-            'SC',
-            'Heim',
-            'Bezeichung',
-            'Status',
-            'Comment'
-        ),
-        'rows' => $rows,
-        'locations' => $locations
-    );
-
-    return render($view, 'list');
-}
-
 function showLockDetailsPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p>';
