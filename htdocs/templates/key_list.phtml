@@ -16,7 +16,8 @@
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getOwnerName(); ?></td>
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getStatusName(); ?></td>
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getComment(); ?></td>
-                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: pointer"><span class="glyphicon glyphicon-zoom-in"></span></td>
+                    <td onclick="document.location = '<?php echo $key->getLocation(); ?>/edit';" style="cursor: pointer"><span class="glyphicon glyphicon-pencil"></span></td>
             </tr>
         <?php } ?>
     </tbody>
