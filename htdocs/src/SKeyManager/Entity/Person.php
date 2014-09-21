@@ -40,6 +40,7 @@ class Person extends AbstractEntity {
          $this->$name = $value;
       }
 
+      // We can't load the Keys here, as it would loop (persons are 'owned' by a key anyway, not vice versa)
       //$keys = new \SKeyManager\Repository\KeyRepository;
       // $this->keys = $keys->getByPersonId($this->id);
    }
