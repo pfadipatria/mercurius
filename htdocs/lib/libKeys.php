@@ -1,16 +1,19 @@
 <?php
 
 function showKeyListPage(){
+
+   $keys = new \SKeyManager\Repository\KeyRepository;
+
    $view = array(
         'header' => getHeader('keys', 'list'),
-        'body' => getKeyList(),
+        'body' => getKeyList($keys),
         'footer' => getFooter()
     );
 
     echo render($view, 'layout');
 }
 
-function getKeyList(){
+function getKeyList($keys = null){
 
     $keys = new \SKeyManager\Repository\KeyRepository;
     list($rows, $locations) = $keys->getAll();
