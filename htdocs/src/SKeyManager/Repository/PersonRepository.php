@@ -18,6 +18,9 @@ class PersonRepository extends AbstractRepository {
                 lastupdate
         ';
 
+        $this->where = '
+        ';
+
         $this->from = '
             FROM doorperson
         ';
