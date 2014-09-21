@@ -116,10 +116,8 @@ function getPersonEdit($person = null){
       $view['title'] = _('Add a new Person');
    }
 
-   $view = array(
-     'hasData' => $hasData,
-     'person' => $person
-   );
+   $view['hasData'] = $hasData;
+   $view['person'] = $person;
 
    return render($view, 'person_edit');
 
