@@ -7,8 +7,6 @@ class Key extends AbstractEntity {
     protected $locationPattern = '/key/%s';
 
     function __construct($id = null) {
-        $this->id = $id;
-
         $this->select = '
             SELECT
                doorkey.id,
