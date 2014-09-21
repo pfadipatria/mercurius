@@ -2,7 +2,22 @@
 <?php echo $view['personDetails']; ?>
 <?php if ($view['deletable']) { ?>
 <p>Soll die Person wirklich geloescht werden.</p>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title"><?php echo sprintf(_('Deletion of %s (Id: %s)'), $view['peson']->getName(), $view['peson']->getId()); ?></h3>
+  </div>
+  <div class="panel-body">
+    <?php echo sprintf(_('Do you really want do delete %s (Id: %s)'), $view['peson']->getName(), $view['peson']->getId());?>
+  </div>
+</div>
 <?php } else { ?>
-<p>Die Person kann nicht gelöscht werden.</p>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title"><?php echo sprintf(_('Can not delete %s (Id: %s)'), $view['peson']->getName(), $view['peson']->getId()); ?></h3>
+  </div>
+  <div class="panel-body">
+    <?php echo sprintf(_('%s (Id: %s) can not be deleted (he probably still owns keys).'), $view['peson']->getName(), $view['peson']->getId());?>
+  </div>
+</div>
 <?php } ?>
 <br><p onclick="goBack()" style="cursor: pointer"><?php echo _('Back'); ?></p>
