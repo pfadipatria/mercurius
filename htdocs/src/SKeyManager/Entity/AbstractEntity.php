@@ -10,6 +10,10 @@ abstract class AbstractEntity {
       return $this->query();
    }
 
+   function getLocation(){
+      return sprintf($this->locationPattern, $this->id);
+   }
+
     protected function query() {
       $con = openDb();
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$this->order);
