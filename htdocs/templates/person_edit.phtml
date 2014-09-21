@@ -4,9 +4,11 @@
       <div class="row">
       <div class="form-group">
 
+         <?php if ($view['hasData']) { ?>
          <label for="id"><?php echo _('Id'); ?></label>
-         <input type="hidden" class="form-control" maxlength="45" id="id" name="id" value="<?php  if ($view['hasData']) echo $view['person']->getId(); ?>">
-         <p class="form-control-static">email@example.com</p>
+         <input type="hidden" class="form-control" maxlength="45" id="id" name="id" value="<?php echo $view['person']->getId(); ?>">
+         <p class="form-control-static"><?php echo $view['person']->getId(); ?></p>
+         <?php } ?>
 
          <label for="name"><?php echo _('Name'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if ($view['hasData']) echo $view['person']->getName(); ?>">
