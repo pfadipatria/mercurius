@@ -32,7 +32,7 @@ class KeyRepository extends AbstractRepository {
    }
 
     function getByPersonId($id) {
-        return $this->query('WHERE doorperson.id = '.$id, 'SKeyManager\Entity\Key');
+        return $this->query('WHERE owner = '.$id, 'SKeyManager\Entity\Key');
     }
 
     function getByAllowedForLock($id) {
