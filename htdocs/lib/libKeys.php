@@ -34,26 +34,6 @@ function showKeyDetailsPage($keyId = '0'){
    );
 
    echo render($view, 'layout');
-
-   return;
-
-   $view = array(
-      'header' => getHeader('key', ''),
-      'footer' => getFooter()
-   );
-
-   $view['body'] = getKeyDetails($keyId);
-   $view['body'] .= getKeyPermissions($keyId);
-
-   echo render($view, 'layout');
-   return;
-
-   echo '<br><a href="/keys/edit/' . $keyId . '">Bearbeiten</a><br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><hr><h3>Berechtigungen:</h3><br>';
-   printKeyPermissions($keyId);
-   echo '<br><h3>Sperren auf T&uuml;ren:</h3><br>';
-   printKeyDenials($keyId);
-   echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
-   echo getFooter();
 }
 
 function getKeyDetails($key = null){
@@ -79,20 +59,6 @@ function getKeyDetails($key = null){
    );
 
    return render($view, 'key_layout');
-
-    $key = new \SKeyManager\Entity\KeyEntity($keyId);
-    $row = $key->getAll();
-    $name = $key->getName();
-
-    $row['owner'] = '<a href="/person/'.$row['ownerid'].'">'.$row['owner'].'<a>';
-
-    $view = array(
-        'title' => $name,
-        'row' => $row,
-    );
-
-    return render($view, 'entry');
-
 }
 
 function showKeyEditPage($keyId = '0'){
