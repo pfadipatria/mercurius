@@ -17,7 +17,7 @@ class Key extends AbstractEntity {
                doorkeycolor.id AS colorid,
                doorkeystatus.name AS statusname,
                doorkeystatus.id AS statusid,
-               doorkeymech.bezeichung AS bezeichung,
+               doorkeymech.bezeichung AS description,
                doorperson.name AS owner,
                doorperson.id AS ownerid,
                doorperson.uid AS owneruid,
