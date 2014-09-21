@@ -5,6 +5,9 @@ namespace SKeyManager\Entity;
 class Key extends AbstractEntity {
 
     protected $locationPattern = '/key/%s';
+   var $owner;
+   var $allowedLocks;
+   var $denyingLocks;
 
     function __construct($id = null) {
         $this->select = '
@@ -18,20 +21,16 @@ class Key extends AbstractEntity {
                doorkeystatus.name AS statusname,
                doorkeystatus.id AS statusid,
                doorkeymech.bezeichung AS description,
-               doorperson.name AS ownername,
-               doorperson.id AS ownerid,
-               doorperson.uid AS owneruid,
-               doorkey.comment AS keycomment,
+               owner AS ownerid,
+               doorkey.comment AS comment,
                communication,
-               doorkey.lastupdate AS keyupdate
+               doorkey.lastupdate AS lastupdate
         ';
 
         $this->from = '
             FROM doorkey
             LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id )
             LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
-            LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id )
-            LEFT JOIN doorperson ON (doorkey.owner = doorperson.id )
         ';
 
       $this->where = '
@@ -48,6 +47,8 @@ class Key extends AbstractEntity {
       foreach($data as $name => $value){
          $this->$name = $value;
       }
+
+      if(!empty($this->ownerid)) $this->owner = new \SKeyManager\Entity\Person($this->ownerid);
    }
 
    function getId(){
@@ -63,13 +64,25 @@ class Key extends AbstractEntity {
    }
 
    function getOwnerName(){
-      return $this->ownername;
+      return $this->owner->getName();
    }
 
    function getComment(){
-      return $this->keycomment;
+      return $this->comment;
    }
 
+   function getName() {
+      $name = 'MC '.$this->getCode;
+      $this->getOwnerName ? $name .= ' - '.$this->getOwnerName();
+      return $name;
+   }
+
+   function getAllowedLocks() {
+      return $this->allowedLocks;
+   }
+
+
+///////////////////////////////////////////////////////
    function getPermissions() {
       $return = '';
       $this->select = 'SELECT
@@ -89,6 +102,7 @@ class Key extends AbstractEntity {
       return $return;
    }
 
+/*
    function getName() {
       $return = '';
       $this->select = 'SELECT code, doorperson.name AS owner';
@@ -99,7 +113,7 @@ class Key extends AbstractEntity {
       return $return;
    }
 
-/*
+
     protected function query($where = ' WHERE true ') {
       $where .= ' AND doorkey.id = '.$this->id;
       error_log($this->select.$this->from.$where.$this->order);

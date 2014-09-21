@@ -23,6 +23,20 @@ function getKeyList($keys = null){
 }
 
 function showKeyDetailsPage($keyId = '0'){
+
+   $key = new \SKeyManager\Entity\Key($keyId);
+   $key->load();
+
+   $view = array(
+      'header' => getHeader('key', $keyId),
+      'body' => getKeyDetails($key),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+
+   return;
+
    $view = array(
       'header' => getHeader('key', ''),
       'footer' => getFooter()
@@ -40,6 +54,45 @@ function showKeyDetailsPage($keyId = '0'){
    printKeyDenials($keyId);
    echo '<br><p onclick="goBack()" style="cursor: pointer">Zur&uuml;ck</p><br>';
    echo getFooter();
+}
+
+function getKeyDetails($key = null){
+
+   $keyView = array(
+     'key' => $key
+   );
+/*
+   $permissionView = array(
+      'title' => _('Permissions to Locks'),
+      'locks' => $key->getAllowedLocks()
+   );
+
+   $denialView = array(
+      'title' => _('Denied by Locks'),
+      'locks' => $key->getDenyingLocks()
+   );
+*/
+   $view = array(
+      'key' => render($keyView, 'key_entry')
+   //   'permissions' => render($permissionView, 'key_locklist'),
+   //   'denials' => render($denialView, 'key_locklist')
+   );
+
+   return render($view, 'key_layout');
+
+    $key = new \SKeyManager\Entity\KeyEntity($keyId);
+    $row = $key->getAll();
+    $name = $key->getName();
+
+    $row['owner'] = '<a href="/person/'.$row['ownerid'].'">'.$row['owner'].'<a>';
+
+    $view = array(
+        'title' => $name,
+        'row' => $row,
+    );
+
+    return render($view, 'entry');
+
 }
 
 function showKeyEditPage($keyId = '0'){
