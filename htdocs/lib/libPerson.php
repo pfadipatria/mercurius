@@ -13,6 +13,17 @@ function showPersonListPage(){
     echo render($view, 'layout');
 }
 
+function getPersonList($people = null){
+
+    $people = new \SKeyManager\Repository\PersonRepository;
+
+    $view = array(
+        'people' => $people->getAll()
+    );
+
+    return render($view, 'person_list');
+}
+
 function showPersonDetailsPage($personId = '0'){
 
    $person = new \SKeyManager\Entity\Person($personId);
@@ -25,17 +36,6 @@ function showPersonDetailsPage($personId = '0'){
    );
 
    echo render($view, 'layout');
-}
-
-function getPersonList($people = null){
-
-    $people = new \SKeyManager\Repository\PersonRepository;
-
-    $view = array(
-        'people' => $people->getAll()
-    );
-
-    return render($view, 'person_list');
 }
 
 function getPersonDetails($person = null){
@@ -88,8 +88,6 @@ function showPersonEditPage($personId = '0'){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
          $newPerson = new \SKeyManager\Entity\Person($person->getId());
          $newPerson->load();
-         var_dump($person);
-         var_dump($newPerson);
          $view['body'] = getPersonDetails($newPerson);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
@@ -107,8 +105,6 @@ function showPersonEditPage($personId = '0'){
 
    echo render($view, 'layout');
 }
-
-
 
 function getPersonEdit($person = null){
    $hasData = false;
@@ -140,49 +136,6 @@ function showPersonHistoryPage(){
    echo getFooter();
 }
 
-function getPersonAdd(){
-
-   $view = array(
-      'title' => 'Person hinzuf&uuml;gen',
-      'row' => $row,
-      'content' => array(
-         'id' => array(
-            'label' => 'ID',
-            'value' => getNextId('doorperson'),
-            'editable' => False
-            ),
-         'name' => array(
-            'label' => 'Name',
-            'value' => '',
-            'editable' => True
-            ),
-         'uid' => array(
-            'label' => 'UID',
-            'value' => '',
-            'editable' => True
-            ),
-         'uidnumber' => array(
-            'label' => 'UidNumber',
-            'value' => '',
-            'editable' => True
-            ),
-         'mdbid' => array(
-            'label' => 'mdbId',
-            'value' => '',
-            'editable' => True
-            ),
-         'comment' => array(
-            'label' => 'Kommentar',
-            'value' => '',
-            'editable' => True
-            )
-         ),
-      'locations' => $locations
-   );
-
-   return render($view, 'editEntry');
-}
-
 function printPersonSearch(){
 
     echo '<h2>Person suchen</h2>
@@ -190,131 +143,6 @@ function printPersonSearch(){
           <tr><td align="center"><input name="query" id="query" type="text" size="30" maxlength="30"></td></tr>
           <tr><td align="center"><a href="javascript:void(0)" onClick="document.location = \'/person/search/\' + document.getElementById(\'query\').value;">Suchen</a></td>
           </table>';
-}
-
-function addPerson($name = '', $uid = '', $uidnumber = '', $mdbid = '', $comment = ''){
-    $return = false;
-
-    # @TODO Check if at least the name (or uid?) is given
-
-    # @TODO Check if there are similar users and warn
-    $query = "
-      SELECT
-         id,
-         name,
-         uid,
-         uidnumber
-         FROM doorperson
-         WHERE name = '" . $name . "' or uid = '" . $uid . "'
-      ";
-    $con = openDb();
-    $dbresult = queryDb($con, $query);
-    // $rows = mysqli_num_rows($dbresult);
-    if(mysqli_num_rows($dbresult) > 0){
-        echo '<p style="color:red">Fehler: Der Benutzer ' . $name . ' (uid: ' . $uid .') existiert schon!</p>';
-        # @TODO return the form with the prefilled values from the last try
-    } else {
-        // echo '<p>Fuege hinzu: ' . $name . ' ' . $uid . ' ' . $uidnumber . ' ' . $mdbid . ' ' . $comment . '</p>';
-        $query = "
-            INSERT INTO
-                doorperson (";
-        $cols = '`name`';
-        $values = '"' . $name . '"';
-        foreach(array( 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
-            if (${$item} != '' and ${$item} != '0') {
-                $cols .= ', `' . $item . '`';
-                $values .= ', "' . ${$item} . '"';
-            }
-        }
-        $query .= $cols . ') VALUES(' . $values . ')';
-        $con = openDb();
-        if (queryDb($con, $query)){
-            echo '<p style="color:green">OK, ' . $name . ' wurde hinzugef&uuml;gt!</p>';
-            $return = true;
-        } else {
-            echo '<p style="color:red">Fehler beim hinzugef&uuml;gen in die Datenbank!</p>';
-        }
-
-    }
-
-    return $return;
-}
-
-function modifiyDbPerson($params = array()){
-    $return = false;
-
-    # We we need at least an id for updates or an name for adds
-    if ( empty($params['mode']) || $params['mode'] == 'update' && empty($params['id']) || $params['mode'] == 'add' && empty($params['name']) ) return false;
-
-    if ($params['mode'] == 'update') {
-       $oldquery = "
-            SELECT
-            id,
-            name,
-            uid,
-            uidnumber,
-            mdbid,
-            comment
-            FROM doorperson
-            WHERE id = '" . $params['id'] ."'
-            ";
-            # @TODO Check if a similar user already exists
-       $con = openDb();
-       $dbresult = queryDb($con, $oldquery);
-       $row = mysqli_fetch_assoc($dbresult);
-
-       # Save the old data for history
-       $hist['old'] = $row;
-       $hist['id'] = $params['id'];
-    }
-
-    // if ($params['mode'] == 'add') $query .= " WHERE name = '" . $params['name'] . "' or uid = '" . $params['uid'] . "'";
-    // if ($params['mode'] == 'update') $query .= " WHERE id = '" . $params['id'] . "'";
-
-    # @TODO (If adding?) check if this name (or uid?) already exists
-
-    # Add the beginnen of the query
-    if ($params['mode'] == 'add') {
-        $query = 'INSERT INTO doorperson ';
-        $cols = ' (`lastupdate` ';
-        $values = ' ( NOW() ';
-        }
-    if ($params['mode'] == 'update') $query = 'UPDATE doorperson SET `lastupdate` = NOW() ';
-
-    # @TODO Check if the name is not NULL
-
-    # Add / Update the fields
-    foreach(array( 'name', 'uid', 'uidnumber', 'mdbid', 'comment') as $item){
-        if ($params[$item] == '' || $params[$item] == '0' || empty($params[$item])) {
-            if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = NULL ';
-        } else {
-            if ($params['mode'] == 'add') $cols .= ', `' . $item . '`';
-            if ($params['mode'] == 'add') $values .= ', "' . $params[$item] . '"';
-            if ($params['mode'] == 'update') $query .= ' , `' . $item . '` = "' . $params[$item] . '" ';
-        }
-    }
-
-
-
-    # Add the end of the query
-    if ($params['mode'] == 'add') $query .= $cols . ') VALUES (' . $values . ')';
-    if ($params['mode'] == 'update') $query .= ' WHERE `id` = "' . $params['id'] . '"';
-
-    # Perfom the db add/update
-    # error_log($query);
-    $con = openDb();
-    if (queryDb($con, $query)){
-        // echo '<p style="color:green">OK, ' . $name . ' wurde aktualisiert</p>';
-        $return = true;
-        /* if ($params['mode'] == 'add') $hist['id'] = mysql_insert_id();
-        $hist['new'] = $params;
-        createPersonHistory($hist);
-        */
-    // } else {
-        // echo '<p style="color:red">Fehler beim bearbeiten in die Datenbank!</p>';
-    }
-
-    return $return;
 }
 
 function createPersonHistory($params = array()){
