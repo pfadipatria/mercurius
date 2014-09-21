@@ -74,7 +74,7 @@ function getPersonList($people = null){
     $people = new \SKeyManager\Repository\PersonRepository;
 
     $view = array(
-        'people' => $people
+        'people' => $people->getAll()
     );
 
     return render($view, 'person_list');
