@@ -156,17 +156,14 @@ class Lock extends AbstractEntity {
 
       $sql = '
          INSERT INTO doorlock
-            (
-            number,
-            status,
-            comment
-            )
-         VALUES(
-            '.$number.',
-            '.$statusid.',
-            '.$comment.'
-            )
-         ';
+            ( lastupdate ';
+      $keys = '';
+      $values = '';
+      foreach($data as $key => $value){
+         $keys .= ' , '.$key;
+         $valules .= ' , '.$values;
+      }
+      $sql .= $keys.') VALUES( VALUES(CURRENT_TIMESTAMP() '.$values.' )';
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
          $this->id = mysqli_insert_id($con);
