@@ -120,6 +120,10 @@ class Key extends AbstractEntity {
       return $this->holder;
    }
 
+   function getHolderId() {
+      return $this->holderid;
+   }
+
    function setHolderId($holderid) {
       $this->holderid = $holderid;
       return $this;
