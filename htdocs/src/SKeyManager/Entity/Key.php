@@ -162,9 +162,9 @@ class Key extends AbstractEntity {
          SET
             elnumber = '.$elnumber.',
             code = '.$code.',
-            statusid = '.$statusid.',
+            status = '.$statusid.',
             type = '.$type.',
-            colorid = '.$colorid.',
+            color = '.$colorid.',
             comment = '.$comment.'
          '.$idString.'
       ';
