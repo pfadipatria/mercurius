@@ -10,9 +10,7 @@
          <p class="form-control-static"><?php echo $view['key']->getId(); ?></p>
          <?php } ?>
 
-         <label for="elnumber"><?php echo _('elnumber'); ?></label>
-         <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
-         <p class="help-block"><?php echo _('The elnumber of this key.'); ?></p>
+
 
 
 
@@ -24,6 +22,12 @@
             <label for="lastupdate"><?php echo _('Last Update'); ?></label>
             <p class="form-control-static"><?php echo $view['key']->getLastUpdate(); ?></p>
          <?php } ?>
+
+         <label for="internalMessage"><?php echo _('Internal attributes you should not change'); ?></label>
+
+         <label for="elnumber"><?php echo _('elnumber'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
+         <p class="help-block"><?php echo _('The elnumber of this key.'); ?></p>
 
       </div>
       </div>
