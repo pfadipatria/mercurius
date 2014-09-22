@@ -3,6 +3,7 @@
 function showStartPage () {
    // global $uid, $userid;
    // global $uid;
+   global $activeUserId, $activeUid;
    $menu = getMenuPath('1');
    if ( $menu  == '' ) {
       $menu = 'default';
