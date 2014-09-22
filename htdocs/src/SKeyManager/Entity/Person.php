@@ -30,6 +30,7 @@ class Person extends AbstractEntity {
       ';
    }
 
+   // Needed to provide a Name of a 'empty' person ?
    function __get($arg = null) {
       return null;
    }
