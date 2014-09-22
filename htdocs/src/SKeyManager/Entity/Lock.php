@@ -79,6 +79,10 @@ class Lock extends AbstractEntity {
       return $this->statusname;
    }
 
+   function getStatusId(){
+      return $this->statusid;
+   }
+
    function getComment(){
       return $this->comment;
    }

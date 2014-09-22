@@ -184,6 +184,23 @@ function getKeyStatuses(){
    return $result;
 }
 
+function getLockStatuses(){
+   $result = array();
+   $sql = '
+      SELECT
+         id,
+         name
+      FROM doorlockstatus
+      ORDER BY name
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'name' => $row['name']);
+   }
+   return $result;
+}
+
 function getColors(){
    $result = array();
    $sql = '

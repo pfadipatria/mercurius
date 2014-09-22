@@ -64,6 +64,74 @@ function getLockDetails($lock = null){
    return render($view, 'lock_layout');
 }
 
+function showLockEditPage($lockId = '0'){
+   $view = array(
+      'header' => getHeader('lock', ''),
+      'footer' => getFooter()
+   );
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $message = '';
+      $id = null;
+      if (array_key_exists('id',$_POST)) {
+         $id = $_POST['id'];
+      }
+      $lock = new SKeyManager\Entity\Lock($id);
+      try {
+         if (array_key_exists('id',$_POST)) {
+            $key->load();
+         }
+         $lock->setElNumber($_POST['elnumber']);
+         $lock->setCode($_POST['code']);
+         $lock->setStatusId($_POST['statusid']);
+         $lock->setType($_POST['type']);
+         $lock->setColorId($_POST['colorid']);
+         $lock->setComment($_POST['comment']);
+         $lock->setHolderId($_POST['holderid']);
+         $result = $lock->save();
+      } catch (Exception $exception) {
+         $result = false;
+         $message = ' ('.$exception->getMessage().')';
+      }
+
+      if($result){
+         $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $newLock = new \SKeyManager\Entity\Key($lock->getId());
+         $newLock->load();
+         $view['body'] = getKeyDetails($newLock);
+      } else {
+         $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         $view['body'] = getLockEdit($lock);
+      }
+   } else {
+      if ($lockId === '0') {
+         $view['body'] = getLockEdit();
+      } else {
+         $key = new \SKeyManager\Entity\Lock($lockId);
+         $key->load();
+         $view['body'] = getLockEdit($key);
+      }
+   }
+
+   echo render($view, 'layout');
+}
+
+function getLockEdit($lock = null){
+   $hasData = false;
+   if ($lock !== null) {
+      $hasData = true;
+      $view['title'] = $lock->getFullName();
+   } else {
+      $lock = new \SKeyManager\Entity\Lock();
+      $view['title'] = _('Add a new Lock');
+   }
+
+   $view['hasData'] = $hasData;
+   $view['key'] = $lock;
+
+   return render($view, 'lock_edit');
+}
+
 //////////////////////////////////////////////////////////
 
 function oldshowLockDetailsPage($lockId = '0'){
@@ -78,7 +146,7 @@ function oldshowLockDetailsPage($lockId = '0'){
    echo getFooter();
 }
 
-function showLockEditPage($lockId = '0'){
+function oldshowLockEditPage($lockId = '0'){
    echo getHeader('locks', '');
    echo '<br>';
    printLockEdit($lockId);
@@ -88,7 +156,7 @@ function showLockEditPage($lockId = '0'){
    echo getFooter();
 }
 
-function printLockDetails($lockId = '0'){
+function oldprintLockDetails($lockId = '0'){
 
    $query = "
 
@@ -137,7 +205,7 @@ function printLockDetails($lockId = '0'){
    }
 }
 
-function printLockEdit($lockId = '0'){
+function oldprintLockEdit($lockId = '0'){
    echo '<table cellpadding="5" cellspacing="0">';
 
    $query = "
