@@ -2,7 +2,7 @@
 
 function loggedIn() {
    $result = false;
-   // global $userid, $uid;
+   global $activeUserId, $activeUid;
 
    if (isset($_SERVER['REMOTE_USER'])){
       $uid = $_SERVER['REMOTE_USER'];
@@ -12,7 +12,8 @@ function loggedIn() {
          echo 'ERROR: add user function has to be implemented';
       }
 
-      $userid = getIdFromUid($uid);
+      $activeUserId = getIdFromUid($uid);
+      $activeUid = $uid;
       $result = true;
    }
    return $result;

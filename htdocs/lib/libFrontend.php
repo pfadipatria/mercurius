@@ -9,7 +9,7 @@ function showStartPage () {
    }
    echo getHeader($menu, getMenuPath('2'));
    // echo getHeader('locks', 'search');
-   echo '<br><p>Willkommen, ' . $uid . ' (skm #' . $userid . '), bei der Schl&uuml;sselverwaltung.</p>';
+   echo '<br><p>Willkommen, ' . $activeUid . ' (skm #' . $activeUserId . '), bei der Schl&uuml;sselverwaltung.</p>';
 
    echo getFooter();
 }
