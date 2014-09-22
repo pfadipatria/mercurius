@@ -158,11 +158,13 @@ class Key extends AbstractEntity {
       $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
 
       $sql = '
-         REPLACE doorperson
-         SET name = '.$name.',
-            uid = '.$uid.',
-            uidnumber = '.$uidnumber.',
-            mdbid = '.$mdbid.',
+         REPLACE doorkey
+         SET
+            elnumber = '.$elnumber.',
+            code = '.$code.',
+            statusid = '.$statusid.',
+            type = '.$type.',
+            colorid = '.$mdbcoloridid.',
             comment = '.$comment.'
          '.$idString.'
       ';
