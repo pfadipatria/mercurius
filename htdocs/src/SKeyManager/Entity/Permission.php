@@ -8,8 +8,8 @@ class Permission extends AbstractEntity {
         $this->select = '
             SELECT
                permission.id AS id,
-               key,
-               lock,
+               keyid,
+               lockid,
                allows,
                denies,
                status AS statusid,
