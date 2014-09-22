@@ -127,7 +127,7 @@ function getLockEdit($lock = null){
    }
 
    $view['hasData'] = $hasData;
-   $view['key'] = $lock;
+   $view['lock'] = $lock;
 
    return render($view, 'lock_edit');
 }
