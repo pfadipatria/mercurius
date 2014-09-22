@@ -44,13 +44,11 @@
          <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['key']->getType(); ?>">
          <p class="help-block"><?php echo _('The type'); ?></p>
 
-         <?php var_dump(getColors()); ?>
-
          <select name="colorid" class="form-control">
-         <?php foreach(getColors() as $color) { ?>
+         <?php foreach(getColors() as $color) { /* ?>
            <option value="<?php echo $color; ?>"<?php if($view['key']->getColorId() == $color) echo ' selected' ?>><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
            <!-- <option value="2" selected>2</option> -->
-         <?php } ?>
+         <?php */ } ?>
          </select>
 
       </div>
