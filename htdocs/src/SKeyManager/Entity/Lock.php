@@ -116,7 +116,7 @@ class Lock extends AbstractEntity {
             SELECT
                *
             FROM doorlock
-            WHERE id = '.$idString.'
+            WHERE '.$this->getId().'
             ';
          $dbresult = queryDb($con, $sql);
          $oldData = mysqli_fetch_assoc($dbresult);
