@@ -52,7 +52,7 @@ function getKeyDetails($key = null){
 
    $denialView = array(
       'title' => _('Denied by Locks'),
-      'locks' => $denied->getDeniedByLockId($key->getId())
+      'locks' => $denied->getDeniedByKeyId($key->getId())
    );
 
    $view = array(
