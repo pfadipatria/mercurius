@@ -114,33 +114,42 @@ class Lock extends AbstractEntity {
    function save() {
       $idString = '';
       $con = openDb();
+
+      $data = array();
+      $data['number'] = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
+      $data['statusid'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $data['comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
       if($this->getId()) {
          $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
-         return $this->updateDb($con, $idString);
+         return $this->updateDb($con, $data, $idString);
       } else {
-         return $this->insertDb($con);
+         return $this->insertDb($con, $data);
       }
 
    }
 
-   function updateDb($con, $idString) {
-      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
-      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
-      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
-
+   function updateDb($con, $data, $idString) {
       $sql = '
          UPDATE doorlock
          SET
-            number = '.$number.',
-            status = '.$statusid.',
-            comment = '.$comment.'
-            WHERE '.$idString.'
-         ';
+            '.$idString.'
+            ';
+         foreach($data as $key => $value) {
+            $sql .= '
+               '.$key.' = "'.$value.'"
+               ';
+            }
+         $sql .= '
+            WHERE
+               '.$idString.'
+            ';
+
       $dbresult = queryDb($con, $sql);
       return $dbresult;
    }
 
-   function insertDb($con) {
+   function insertDb($con, $data) {
       $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
       $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
       $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
