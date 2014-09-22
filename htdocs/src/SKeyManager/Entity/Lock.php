@@ -164,6 +164,7 @@ class Lock extends AbstractEntity {
          $values .= ' , '.$value;
       }
       $sql .= $keys.' ) VALUES( VALUES(CURRENT_TIMESTAMP() '.$values.' )';
+      var_dump($sql);
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
          $this->id = mysqli_insert_id($con);
