@@ -164,7 +164,7 @@ class Key extends AbstractEntity {
             code = '.$code.',
             statusid = '.$statusid.',
             type = '.$type.',
-            colorid = '.$mdbcoloridid.',
+            colorid = '.$colorid.',
             comment = '.$comment.'
          '.$idString.'
       ';
