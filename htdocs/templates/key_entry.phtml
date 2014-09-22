@@ -14,8 +14,8 @@
             <td><?php echo $view['key']->getStatus(); ?></td>
          </tr>
          <tr>
-            <th style="text-align:right"><?php echo _('Owner'); ?>:</th>
-            <td><?php echo $view['key']->getOwnerName(); ?></td>
+            <th style="text-align:right"><?php echo _('Holder'); ?>:</th>
+            <td><a href="<?php echo $view['key']->getLocation(); ?>"><?php echo $view['key']->getOwnerName(); ?></a></td>
          </tr>
          <tr>
             <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
