@@ -192,7 +192,6 @@ function getColors(){
          colorid,
          name
       FROM doorkeycolor
-      ORDER BY name
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
