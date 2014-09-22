@@ -94,7 +94,7 @@ function showLockEditPage($lockId = '0'){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
          $newLock = new \SKeyManager\Entity\Lock($lock->getId());
          $newLock->load();
-         $view['body'] = getKeyDetails($newLock);
+         $view['body'] = getLockDetails($newLock);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
          $view['body'] = getLockEdit($lock);
