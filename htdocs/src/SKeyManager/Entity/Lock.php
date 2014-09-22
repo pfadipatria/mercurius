@@ -113,6 +113,7 @@ class Lock extends AbstractEntity {
 
    function save() {
       $idString = '';
+      $dbTable = 'doorlock';
       $con = openDb();
 
       $data = array();
@@ -129,9 +130,9 @@ class Lock extends AbstractEntity {
 
    }
 
-   function updateDb($con, $data, $idString) {
+   function updateDb($con, $dbTable, $data, $idString) {
       $sql = '
-         UPDATE doorlock
+         UPDATE '.$dbTable.'
          SET
             '.$idString.'
             ';
@@ -149,23 +150,17 @@ class Lock extends AbstractEntity {
       return $dbresult;
    }
 
-   function insertDb($con, $data) {
-      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
-      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
-      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
-
+   function insertDb($con, $dbTable, $data) {
       $sql = '
-         INSERT INTO doorlock
+         INSERT INTO '.$dbTable.'
             ( lastupdate ';
       $keys = '';
       $values = '';
-      var_dump($data);
       foreach($data as $key => $value){
          $keys .= ' , '.$key;
          $values .= ' , '.$value;
       }
       $sql .= $keys.' ) VALUES( CURRENT_TIMESTAMP() '.$values.' )';
-      var_dump($sql);
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
          $this->id = mysqli_insert_id($con);
