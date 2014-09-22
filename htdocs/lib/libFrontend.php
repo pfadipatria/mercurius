@@ -147,6 +147,24 @@ echo '
    return $result;
 }
 
+function getUsers(){
+   $result = array();
+   $sql = '
+      SELECT
+         id,
+         name,
+         uid,
+         comment
+      FROM doorperson
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'name' => $row['name'], 'uid' => $row['uid'], 'comment' => $row['comment']);
+   }
+   return $result;
+}
+
 function getKeyStatuses(){
    $result = array();
    $sql = '
