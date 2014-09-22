@@ -138,7 +138,7 @@ function showKeyDeletePage($keyId = '0'){
 
    $view = array(
       'header' => getHeader('key', $keyId),
-      'danger' => echo _('Do not delet keys at this point, just mark them as dismissed.');
+      'danger' => _('Do not delet keys at this point, just mark them as dismissed.'),
       'body' => getKeyDetails($key),
       'footer' => getFooter()
    );
