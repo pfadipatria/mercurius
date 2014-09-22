@@ -13,7 +13,7 @@
          <label for="holder"><?php echo _('Holder'); ?></label>
          <select name="holderid" class="form-control">
          <?php foreach(getUsers() as $user) { ?>
-           <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getStatusId() == $user['id']) echo ' selected' ?>><?php echo $user['name']; ?></option>
+           <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getHolderId() == $user['id']) echo ' selected' ?>><?php echo $user['name']; ?></option>
          <?php } ?>
          </select>
          <p class="help-block"><?php echo _('Who has this key at the moment'); ?></p>
