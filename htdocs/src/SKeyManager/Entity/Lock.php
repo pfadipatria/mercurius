@@ -135,7 +135,7 @@ class Lock extends AbstractEntity {
                '.$key.' = "'.$value.'",
                ';            
             }
-      $sql .= $idString
+      $sql .= $idString;
       var_dump($sql);
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
