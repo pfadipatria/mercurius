@@ -1,0 +1,17 @@
+<h3><?php echo $view['title']; ?></h3>
+<table class="table table-hover" style="width:auto">
+    <thead>
+      <th></th>
+      <th></th>
+      <th><?php echo _('Status'); ?></th>
+    </thead>
+    <tbody>
+        <?php foreach($view['keys'] as $key) { ?>
+            <tr onclick="document.location = '<?php echo $key->getKeyId(); ?>';" style="cursor: zoom-in">
+                 <td>MC <?php echo $key->getKeyCode(); ?></td>
+                 <td><?php echo $key->getKeyOwner(); ?></td>
+                 <td><?php echo $key->getKeyStatus(); ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
