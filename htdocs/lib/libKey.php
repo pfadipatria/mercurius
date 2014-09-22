@@ -76,17 +76,17 @@ function showKeyEditPage($keyId = '0'){
       if (array_key_exists('id',$_POST)) {
          $id = $_POST['id'];
       }
-      $person = new SKeyManager\Entity\Person($id);
+      $person = new SKeyManager\Entity\Key($id);
       try {
          if (array_key_exists('id',$_POST)) {
-            $person->load();
+            $key->load();
          }
-         $person->setName($_POST['name']);
-         $person->setUid($_POST['uid']);
-         $person->setUidNumber($_POST['uidnumber']);
-         $person->setMdbId($_POST['mdbid']);
-         $person->setComment($_POST['comment']);
-         $result = $person->save();
+         $key->setName($_POST['name']);
+         $key->setUid($_POST['uid']);
+         $key->setUidNumber($_POST['uidnumber']);
+         $key->setMdbId($_POST['mdbid']);
+         $key->setComment($_POST['comment']);
+         $result = $key->save();
       } catch (Exception $exception) {
          $result = false;
          $message = ' ('.$exception->getMessage().')';
@@ -94,12 +94,12 @@ function showKeyEditPage($keyId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $newPerson = new \SKeyManager\Entity\Person($person->getId());
-         $newPerson->load();
-         $view['body'] = getPersonDetails($newPerson);
+         $newKey = new \SKeyManager\Entity\Key($key->getId());
+         $newKey->load();
+         $view['body'] = getKeyDetails($newKey);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
-         $view['body'] = getPersonEdit($person);
+         $view['body'] = getKeyEdit($key);
       }
    } else {
       if ($keyId === '0') {

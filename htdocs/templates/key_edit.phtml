@@ -14,7 +14,7 @@
          <label for="status"><?php echo _('Status'); ?></label>
          <select name="statusid" class="form-control">
          <?php foreach(getKeyStatuses() as $status) { ?>
-           <option value="<?php echo $status['id']; ?>"<?php if($view['key']->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
+           <option value="<?php echo $status['id']; ?>"<?php if($view['hasData'] && $view['key']->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
          <?php } ?>
          </select>
          <p class="help-block"><?php echo _('The current status of this key'); ?></p>
