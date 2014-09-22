@@ -17,7 +17,7 @@ class Permission extends AbstractEntity {
                doorplace.name AS lockplace,
                allows,
                denies,
-               status AS statusid,
+               permission.status AS statusid,
                permissionstatus.name AS statusname
         ';
 
