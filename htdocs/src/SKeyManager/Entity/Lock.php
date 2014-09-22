@@ -161,7 +161,7 @@ class Lock extends AbstractEntity {
       $values = '';
       var_dump($data);
       foreach($data as $key => $value){
-         $keys .= ' , '.$key.;
+         $keys .= ' , '.$key;
          $values .= ' , '.$value;
       }
       $sql .= $keys.' ) VALUES( VALUES(CURRENT_TIMESTAMP() '.$values.' )';
