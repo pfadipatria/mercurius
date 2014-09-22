@@ -26,7 +26,7 @@ class KeyRepository extends AbstractRepository {
     }
 
     function getByPersonId($id) {
-        return $this->query('WHERE owner = '.$id, 'SKeyManager\Entity\Key');
+        return $this->query('WHERE holder = '.$id, 'SKeyManager\Entity\Key');
     }
 
     function getAll() {
