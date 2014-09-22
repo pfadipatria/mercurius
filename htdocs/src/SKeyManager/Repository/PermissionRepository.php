@@ -18,7 +18,6 @@ class PermissionRepository extends AbstractRepository {
         ';
 
         $this->order = '
-         ORDER BY keycode,keyid,lockcode,lockid
         ';
     }
 
