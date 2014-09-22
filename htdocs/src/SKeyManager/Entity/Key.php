@@ -75,6 +75,10 @@ class Key extends AbstractEntity {
       return $this->type;
    }
 
+   function getColorId(){
+      return $this->colorid;
+   }
+
    function getStatus() {
       return $this->getStatusName();
    }
