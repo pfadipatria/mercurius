@@ -64,7 +64,6 @@ function showKeysPage(){
             showKeyEditPage(getMenuPath('2'));
          } else if (getMenuPath('3') == 'allow') {
             showKeyAllowPage(getMenuPath('2'));
-         } else {
          } else if (getMenuPath('3') == 'delete') {
             showKeyDeletePage(getMenuPath('2'));
          } else {
