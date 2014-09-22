@@ -159,6 +159,7 @@ function getUsers(){
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
+   $result[] = array('id' => '0', 'name' => _('No Holder'), 'uid' => '', 'comment' => '');
 	while ($row = mysqli_fetch_assoc($dbresult)) {
       $result[] = array('id' => $row['id'], 'name' => $row['name'], 'uid' => $row['uid'], 'comment' => $row['comment']);
    }
