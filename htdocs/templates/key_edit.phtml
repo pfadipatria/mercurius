@@ -47,7 +47,7 @@
 
          <select name="colorid" class="form-control">
          <?php foreach(getColors() as $color) { ?>
-           <option value="<?php echo $color; ?>"><?php echo $color['name']; ?></option>
+           <option value="<?php echo $color; ?>"><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
            <!-- <option value="2" selected>2</option> -->
          <?php } ?>
          </select>
