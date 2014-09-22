@@ -44,6 +44,11 @@ class Lock extends AbstractEntity {
       }
    }
 
+   // Needed to provide a Name of a 'empty' lock ?
+   function __get($arg = null) {
+      return null;
+   }
+
    function getId(){
       return $this->id;
    }
