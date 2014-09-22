@@ -146,4 +146,24 @@ echo '
 ';
    return $result;
 }
+
+function getColors(){
+   $result = array();
+   $sql = '
+      SELECT
+         id,
+         colorid,
+         name
+      FROM doorkeycolor
+   ';
+
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_array($dbresult)){
+      $result[$row['id']]['colorid'] = $row['colorid'];
+      $result[$row['id']]['name'] = $row['name'];
+   }
+
+   return $result;
+}
+
 ?>
