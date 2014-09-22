@@ -34,6 +34,6 @@ INSERT INTO doorkey (
                      (SELECT id FROM doorkeycolor WHERE colorid = '${color}'),
                      'imported ${name}'
                     );
-"
+" | iconv -f ISO-8859-1 -t UTF-8
    
 done
