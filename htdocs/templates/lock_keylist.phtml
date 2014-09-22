@@ -7,7 +7,7 @@
     </thead>
     <tbody>
         <?php foreach($view['keys'] as $key) { ?>
-            <tr onclick="document.location = '<?php echo $key->getKeyId(); ?>';" style="cursor: zoom-in">
+            <tr onclick="document.location = '/key/<?php echo $key->getKeyId(); ?>';" style="cursor: zoom-in">
                  <td>MC <?php echo $key->getKeyCode(); ?></td>
                  <td><?php echo $key->getKeyOwner(); ?></td>
                  <td><?php echo $key->getKeyStatus(); ?></td>
