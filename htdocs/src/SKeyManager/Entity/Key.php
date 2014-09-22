@@ -120,6 +120,11 @@ class Key extends AbstractEntity {
       return $this->holder;
    }
 
+   function setHolderId($holderid) {
+      $this->holderid = $holderid;
+      return $this;
+   }
+
    function getHolderName(){
       return $this->getHolder()->getName();
    }
@@ -161,6 +166,7 @@ class Key extends AbstractEntity {
       $elnumber = $this->getElNumber() ? '"'.mysqli_real_escape_string($con, $this->getElNumber()).'"' : 'NULL';
       $code = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
       $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $holderid = $this->getHolderId() ? '"'.mysqli_real_escape_string($con, $this->getHolderId()).'"' : 'NULL';
       $type = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
       $colorid = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
       $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
@@ -171,6 +177,7 @@ class Key extends AbstractEntity {
             elnumber = '.$elnumber.',
             code = '.$code.',
             status = '.$statusid.',
+            holder = '.$holderid.',
             type = '.$type.',
             color = '.$colorid.',
             comment = '.$comment.'
