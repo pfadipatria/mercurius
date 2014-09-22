@@ -51,6 +51,10 @@ class Permission extends AbstractEntity {
       return $this->id;
    }
 
+   function getStatusId() {
+      return $this->statusid;
+   }
+
    function getStatus() {
       return $this->getStatusName();
    }
