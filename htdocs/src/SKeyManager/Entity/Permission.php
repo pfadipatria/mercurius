@@ -9,7 +9,12 @@ class Permission extends AbstractEntity {
             SELECT
                permission.id AS id,
                keyid,
+               doorkey.code AS keycode,
+               doorperson.name AS keyowner,
                lockid,
+               doorlock.sc AS lockcode,
+               doorlock.name AS lockname,
+               doorplace.name AS lockplace,
                allows,
                denies,
                status AS statusid,
@@ -19,6 +24,10 @@ class Permission extends AbstractEntity {
         $this->from = '
             FROM permission
             LEFT JOIN permissionstatus ON (permission.status = permissionstatus.id)
+            LEFT JOIN doorkey ON (permission.keyid = doorkey.id)
+            LEFT JOIN doorperson ON (doorkey.owner = doorperson.id)
+            LEFT JOIN doorlock ON (permission.lockid = doorlock.id)
+            LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
         ';
 
       $this->where = '
