@@ -56,7 +56,7 @@ class Lock extends AbstractEntity {
       return $this->number;
    }
 
-   function setNumer($number){
+   function setNumber($number){
       $this->number = $number;
       return $this;
    }
