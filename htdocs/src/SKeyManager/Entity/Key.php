@@ -87,6 +87,10 @@ class Key extends AbstractEntity {
       return $this->statusname;
    }
 
+   function getStatusId(){
+      return $this->statusid;
+   }
+
    function getOwner() {
       return $this->owner;
    }
