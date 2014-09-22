@@ -4,10 +4,10 @@
         <?php foreach($view['locks'] as $perm) { ?>
             <tr onclick="document.location = '/lock/<?php echo $perm->getLockId(); ?>';" style="cursor: zoom-in">
                  <!-- <td>Id <?php echo $perm->getId(); ?></td> -->
-                 <td>LockId <?php echo $perm->getLockId(); ?></td>
+                 <!-- <td>LockId <?php echo $perm->getLockId(); ?></td> -->
                  <td>SC <?php echo $perm->getLockCode(); ?></td>
-                 <td><?php echo $perm->getLockPlace(); ?></td>
-                 <td><?php echo $perm->getLockName(); ?></td>
+                 <td><?php echo $perm->getLockPlace(); ?> <?php echo $perm->getLockName(); ?></td>
+                 <td><?php echo $perm->getStatus(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
