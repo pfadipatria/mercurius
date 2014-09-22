@@ -164,7 +164,7 @@ class Lock extends AbstractEntity {
          $keys .= ' , '.$key;
          $values .= ' , '.$value;
       }
-      $sql .= $keys.' ) VALUES( VALUES(CURRENT_TIMESTAMP() '.$values.' )';
+      $sql .= $keys.' ) VALUES( CURRENT_TIMESTAMP() '.$values.' )';
       var_dump($sql);
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
