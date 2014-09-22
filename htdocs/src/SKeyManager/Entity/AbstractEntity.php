@@ -16,6 +16,7 @@ abstract class AbstractEntity {
 
     protected function query() {
       $con = openDb();
+      var_dump($this->select.$this->from.$this->where.$where.$this->order);
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$this->order);
       $row = array();
       $locations = array();
