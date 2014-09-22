@@ -162,7 +162,7 @@ function getColors(){
       $result[$row['id']]['colorid'] = $row['colorid'];
       $result[$row['id']]['name'] = $row['name'];
    }
-
+   var_dump($result);
    return $result;
 }
 
