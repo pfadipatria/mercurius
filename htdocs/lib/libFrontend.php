@@ -158,7 +158,7 @@ function getColors(){
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
-	while ($row = mysqli_fetch_array($dbresult)){
+	while ($row = mysqli_fetch_assoc($dbresult)){
       $result[$row['id']]['colorid'] = $row['colorid'];
       $result[$row['id']]['name'] = $row['name'];
    }
