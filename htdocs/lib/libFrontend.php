@@ -156,7 +156,7 @@ function getUsers(){
          uid,
          comment
       FROM doorperson
-      SORT BY name
+      ORDER BY name
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
@@ -174,6 +174,7 @@ function getKeyStatuses(){
          id,
          name
       FROM doorkeystatus
+      ORDER BY name
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
@@ -191,7 +192,7 @@ function getColors(){
          colorid,
          name
       FROM doorkeycolor
-      SORT BY name
+      ORDER BY name
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
