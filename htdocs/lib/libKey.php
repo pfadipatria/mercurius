@@ -65,6 +65,74 @@ function getKeyDetails($key = null){
 }
 
 function showKeyEditPage($keyId = '0'){
+   $view = array(
+      'header' => getHeader('key', ''),
+      'footer' => getFooter()
+   );
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $message = '';
+      $id = null;
+      if (array_key_exists('id',$_POST)) {
+         $id = $_POST['id'];
+      }
+      $person = new SKeyManager\Entity\Person($id);
+      try {
+         if (array_key_exists('id',$_POST)) {
+            $person->load();
+         }
+         $person->setName($_POST['name']);
+         $person->setUid($_POST['uid']);
+         $person->setUidNumber($_POST['uidnumber']);
+         $person->setMdbId($_POST['mdbid']);
+         $person->setComment($_POST['comment']);
+         $result = $person->save();
+      } catch (Exception $exception) {
+         $result = false;
+         $message = ' ('.$exception->getMessage().')';
+      }
+
+      if($result){
+         $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $newPerson = new \SKeyManager\Entity\Person($person->getId());
+         $newPerson->load();
+         $view['body'] = getPersonDetails($newPerson);
+      } else {
+         $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         $view['body'] = getPersonEdit($person);
+      }
+   } else {
+      if ($keyId === '0') {
+         $view['body'] = getKeyEdit();
+      } else {
+         $key = new \SKeyManager\Entity\Key($keyId);
+         $key->load();
+         $view['body'] = getKeyEdit($key);
+      }
+   }
+
+   echo render($view, 'layout');
+}
+
+function getKeyEdit($key = null){
+   $hasData = false;
+   if ($key !== null) {
+      $hasData = true;
+      $view['title'] = $key->getName();
+   } else {
+      $key = new \SKeyManager\Entity\Key();
+      $view['title'] = _('Add a new Key');
+   }
+
+   $view['hasData'] = $hasData;
+   $view['key'] = $key;
+
+   return render($view, 'key_edit');
+}
+
+///////////////////////////////////////////////////////////
+
+function oldshowKeyEditPage($keyId = '0'){
    echo getHeader('keys', '');
    echo '<br>';
    printKeyEdit($keyId);
@@ -72,42 +140,6 @@ function showKeyEditPage($keyId = '0'){
    printKeyPermissions($keyId);
    echo '<br>';
    echo getFooter();
-}
-
-function getKeyPermissions($keyId = '0'){
-
-    $locks = new \SKeyManager\Repository\LockRepository;
-    list($rows, $locations) = $locks->getAllowedByKeyId($keyId);
-
-    $view = array(
-        'headers' => array (
-            'Id',
-            'SC',
-            'Heim',
-            'Name',
-        ),
-        'rows' => $rows,
-        'locations' => $locations
-    );
-
-    return render($view, 'list');
-
-    $key = new \SKeyManager\Entity\KeyEntity($keyId);
-    list($rows, $locations) = $key->getPermissions();
-
-    $view = array(
-        'title' => 'Berechtigungen',
-        'headers' => array (
-            'Id',
-            'SC',
-            'Heim',
-            'Name'
-        ),
-        'rows' => $rows,
-        'locations' => $locations
-    );
-
-    return render($view, 'list');
 }
 
 function printKeyEdit($keyId = '0'){
@@ -189,6 +221,42 @@ function printKeyEdit($keyId = '0'){
    }
 
    echo '</table>';
+}
+
+function getKeyPermissions($keyId = '0'){
+
+    $locks = new \SKeyManager\Repository\LockRepository;
+    list($rows, $locations) = $locks->getAllowedByKeyId($keyId);
+
+    $view = array(
+        'headers' => array (
+            'Id',
+            'SC',
+            'Heim',
+            'Name',
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
+
+    $key = new \SKeyManager\Entity\KeyEntity($keyId);
+    list($rows, $locations) = $key->getPermissions();
+
+    $view = array(
+        'title' => 'Berechtigungen',
+        'headers' => array (
+            'Id',
+            'SC',
+            'Heim',
+            'Name'
+        ),
+        'rows' => $rows,
+        'locations' => $locations
+    );
+
+    return render($view, 'list');
 }
 
 function printKeyPermissions($keyId = '0'){
