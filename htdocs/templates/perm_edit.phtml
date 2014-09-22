@@ -9,7 +9,7 @@
       <td>
          <select name="<?php echo $perm->getId(); ?>" class="form-control">
          <?php foreach(getPermissionStatuses() as $status) { ?>
-           <option value="<?php echo $status['id']; ?>"<?php if($view['perm']->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
+           <option value="<?php echo $status['id']; ?>"<?php if($perm->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
          <?php } ?>
          </select>
       </td>
