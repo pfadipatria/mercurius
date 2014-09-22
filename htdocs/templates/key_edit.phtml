@@ -53,7 +53,7 @@
          <label for="code"><?php echo _('Color'); ?></label>
          <select name="colorid" class="form-control">
          <?php foreach(getColors() as $color) { ?>
-           <option value="<?php echo $color['id']; ?>"<?php if($view['key']->getColorId() == $color['id']) echo ' selected' ?>><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
+           <option value="<?php echo $color['id']; ?>"<?php if($view['hasData'] && $view['key']->getColorId() == $color['id']) echo ' selected' ?>><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
          <?php } ?>
          </select>
          <p class="help-block"><?php echo _('The color of this key'); ?></p>
