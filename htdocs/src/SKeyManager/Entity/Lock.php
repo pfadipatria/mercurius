@@ -123,9 +123,9 @@ class Lock extends AbstractEntity {
 
       if($this->getId()) {
          $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
-         return $this->updateDb($con, $data, $idString);
+         return $this->updateDb($con, $dbTable, $data, $idString);
       } else {
-         return $this->insertDb($con, $data);
+         return $this->insertDb($con, $dbTable, $data);
       }
 
    }
