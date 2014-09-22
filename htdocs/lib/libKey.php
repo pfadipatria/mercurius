@@ -48,12 +48,12 @@ function getKeyDetails($key = null){
       'title' => _('Permissions to Locks'),
       'locks' => $allows->getAllowedByKeyId($key->getId())
    );
-/*
+
    $denialView = array(
       'title' => _('Denied by Locks'),
-      'locks' => $key->getDenyingLocks()
+      'locks' => $allows->getDeniedByLockId($key->getId())
    );
-*/
+
    $view = array(
       'key' => render($keyView, 'key_entry'),
       'permissions' => render($permissionView, 'key_locklist')

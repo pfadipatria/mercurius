@@ -33,6 +33,10 @@ class PermissionRepository extends AbstractRepository {
         return $this->query('WHERE `keyid` = '.$id.' AND `allows` = TRUE', 'SKeyManager\Entity\Permission');
     }
 
+    function getDeniedByLockId($id) {
+        return $this->query('WHERE `lockid` = '.$id.' AND `denies` = TRUE', 'SKeyManager\Entity\Permission');
+    }
+
     function getAll() {
         return $this->query('', 'SKeyManager\Entity\Permission');
     }
