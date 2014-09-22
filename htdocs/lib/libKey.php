@@ -87,7 +87,7 @@ function showKeyEditPage($keyId = '0'){
          $key->setType($_POST['type']);
          $key->setColorId($_POST['colorid']);
          $key->setComment($_POST['comment']);
-         $key->setHolder($_POST['holderid']);
+         $key->setHolderId($_POST['holderid']);
          $result = $key->save();
       } catch (Exception $exception) {
          $result = false;
