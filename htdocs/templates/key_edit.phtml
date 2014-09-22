@@ -10,9 +10,9 @@
          <p class="form-control-static"><?php echo $view['key']->getId(); ?></p>
          <?php } ?>
 
-         <label for="name"><?php echo _('Name'); ?></label>
-         <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if ($view['hasData']) echo $view['key']->getName(); ?>">
-         <p class="help-block"><?php echo _('A human readable name of this person.'); ?></p>
+         <label for="elnumber"><?php echo _('elnumber'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
+         <p class="help-block"><?php echo _('The elnumber of this key.'); ?></p>
 
 
 
