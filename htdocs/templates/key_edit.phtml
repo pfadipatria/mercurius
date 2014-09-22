@@ -44,6 +44,7 @@
          <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['key']->getType(); ?>">
          <p class="help-block"><?php echo _('The type'); ?></p>
 
+         <?php var_dump(getColors()); ?>
 
          <select name="colorid" class="form-control">
          <?php foreach(getColors() as $color) { ?>
