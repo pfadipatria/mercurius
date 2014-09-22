@@ -53,6 +53,9 @@ function showKeysPage(){
       case 'show':
          showKeyDetailsPage(getMenuPath('3'));
          break;
+      case 'add':
+         showKeyEditPage();
+         break;
       case 'edit':
          showKeyEditPage(getMenuPath('3'));
          break;
