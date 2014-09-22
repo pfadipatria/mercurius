@@ -8,9 +8,9 @@
       </td>
       <td>
          <select name="<?php echo $perm->getId(); ?>" class="form-control">
-         <option>removed</option>
-         <option>allowed</option>
-         <option>planned</option>
+         <?php foreach(getPermissionStatuses() as $status) { ?>
+           <option value="<?php echo $status['id']; ?>"<?php $view['perm']->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
+         <?php } ?>
          </select>
       </td>
    </tr>

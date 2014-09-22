@@ -218,4 +218,21 @@ function getColors(){
    return $result;
 }
 
+function getPermissionStatuses(){
+   $result = array();
+   $result[] = array('id' => 0, 'name' => '- removed -');
+   $sql = '
+      SELECT
+         id,
+         name
+      FROM permissionstatus
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'name' => $row['name']);
+   }
+   return $result;
+}
+
 ?>
