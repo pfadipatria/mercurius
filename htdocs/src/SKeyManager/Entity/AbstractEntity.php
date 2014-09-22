@@ -23,4 +23,41 @@ abstract class AbstractEntity {
       return $row;
     }
 
+   function updateDb($con, $dbTable, $data, $idString) {
+      $sql = '
+         UPDATE '.$dbTable.'
+         SET
+            '.$idString.'
+            ';
+         foreach($data as $key => $value) {
+            $sql .= '
+               , '.$key.' = '.$value.'
+               ';
+            }
+         $sql .= '
+            WHERE
+               '.$idString.'
+            ';
+
+      $dbresult = queryDb($con, $sql);
+      return $dbresult;
+   }
+
+   function insertDb($con, $dbTable, $data) {
+      $sql = '
+         INSERT INTO '.$dbTable.'
+            ( lastupdate ';
+      $keys = '';
+      $values = '';
+      foreach($data as $key => $value){
+         $keys .= ' , '.$key;
+         $values .= ' , '.$value;
+      }
+      $sql .= $keys.' ) VALUES( CURRENT_TIMESTAMP() '.$values.' )';
+      $dbresult = queryDb($con, $sql);
+      if ($dbresult) {
+         $this->id = mysqli_insert_id($con);
+      }
+      return $dbresult;
+   }
 }

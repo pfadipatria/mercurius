@@ -162,36 +162,24 @@ class Key extends AbstractEntity {
 
    function save() {
       $idString = '';
+      $dbTable = 'doorkey';
       $con = openDb();
+
+      $data = array();
+      $data['elnumber'] = $this->getElNumber() ? '"'.mysqli_real_escape_string($con, $this->getElNumber()).'"' : 'NULL';
+      $data['code'] = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
+      $data['status'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $data['holder'] = $this->getHolderId() ? '"'.mysqli_real_escape_string($con, $this->getHolderId()).'"' : 'NULL';
+      $data['type'] = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
+      $data['color'] = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
+      $data['comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
       if($this->getId()) {
-         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
+         $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
+         return $this->updateDb($con, $dbTable, $data, $idString);
+      } else {
+         return $this->insertDb($con, $dbTable, $data);
       }
-
-      $elnumber = $this->getElNumber() ? '"'.mysqli_real_escape_string($con, $this->getElNumber()).'"' : 'NULL';
-      $code = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
-      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
-      $holderid = $this->getHolderId() ? '"'.mysqli_real_escape_string($con, $this->getHolderId()).'"' : 'NULL';
-      $type = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
-      $colorid = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
-      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
-
-      $sql = '
-         REPLACE doorkey
-         SET
-            elnumber = '.$elnumber.',
-            code = '.$code.',
-            status = '.$statusid.',
-            holder = '.$holderid.',
-            type = '.$type.',
-            color = '.$colorid.',
-            comment = '.$comment.'
-         '.$idString.'
-      ';
-      $dbresult = queryDb($con, $sql);
-      if ($dbresult) {
-         $this->id = mysqli_insert_id($con);
-      }
-      return $dbresult;
    }
 
 }
