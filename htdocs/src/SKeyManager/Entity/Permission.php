@@ -7,13 +7,13 @@ class Permission extends AbstractEntity {
     function __construct($id = null) {
         $this->select = '
             SELECT
-               id,
+               permission.id AS id,
                key,
                lock,
                allows,
                denies,
                status AS statusid,
-               permissionstatus.name AS statusname,
+               permissionstatus.name AS statusname
         ';
 
         $this->from = '
