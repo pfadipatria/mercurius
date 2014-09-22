@@ -103,9 +103,9 @@ function showLockEditPage($lockId = '0'){
       if ($lockId === '0') {
          $view['body'] = getLockEdit();
       } else {
-         $key = new \SKeyManager\Entity\Lock($lockId);
-         $key->load();
-         $view['body'] = getLockEdit($key);
+         $lock = new \SKeyManager\Entity\Lock($lockId);
+         $lock->load();
+         $view['body'] = getLockEdit($lock);
       }
    }
 
