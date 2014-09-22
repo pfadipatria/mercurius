@@ -108,40 +108,55 @@ class Lock extends AbstractEntity {
 
    function save() {
       $idString = '';
-      $oldData = array();
       $con = openDb();
       if($this->getId()) {
-         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
-         $sql = '
-            SELECT
-               *
-            FROM doorlock
-            WHERE '.$this->getId().'
-            ';
-         $dbresult = queryDb($con, $sql);
-         $oldData = mysqli_fetch_assoc($dbresult);
+         $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
+         return $this->udpate($con, $idString);
+      } else {
+         return $this->insert($con);
       }
 
-      $oldData['number'] = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
-      $oldData['$statusid'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
-      $oldData['$comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+   }
+
+   function update($con, $idString) {
+      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
+      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
 
       $sql = '
-         REPLACE doorlock
+         UPDATE doorlock
          SET
+            number = '.$number.',
+            status = '.$statusid.',
+            comment = '.$comment.'
+            WHERE '.$idString.'
          ';
-         foreach($oldData as $key => $value){
-            $sql .= '
-               '.$key.' = "'.$value.'",
-               ';            
-            }
-      $sql .= $idString;
-      var_dump($sql);
+      $dbresult = queryDb($con, $sql);
+      return $dbresult;
+   }
+
+   function insert($con) {
+      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
+      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
+      $sql = '
+         INSERT INTO doorlock
+            number,
+            status,
+            comment
+         VALUES(
+            '.$number.',
+            '.$statusid.',
+            '.$comment.'
+            )
+         ';
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
          $this->id = mysqli_insert_id($con);
       }
       return $dbresult;
    }
+
 
 }
