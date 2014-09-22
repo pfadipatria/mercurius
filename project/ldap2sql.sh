@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# cat project/ldapExport | ./project/ldap2sql.sh  | mysql 
+
 while read line
 do
    #echo "bearbeite $line"
