@@ -137,7 +137,7 @@ class Lock extends AbstractEntity {
             ';
          foreach($data as $key => $value) {
             $sql .= '
-               '.$key.' = "'.$value.'"
+               , '.$key.' = "'.$value.'"
                ';
             }
          $sql .= '
