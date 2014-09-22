@@ -67,16 +67,36 @@ class Key extends AbstractEntity {
       return $this->code;
    }
 
+   function setCode($code) {
+      $this->code = $code;
+      return $this;
+   }
+
    function getElNumber(){
       return $this->elnumber;
+   }
+
+   function setElNumber($elnumber) {
+      $this->elnumber = $elnumber;
+      return $this;
    }
 
    function getType(){
       return $this->type;
    }
 
+   function setType($type) {
+      $this->type = $type;
+      return $this;
+   }
+
    function getColorId(){
       return $this->colorid;
+   }
+
+   function setColorId($colorid) {
+      $this->colorid = $colorid;
+      return $this;
    }
 
    function getStatus() {
@@ -91,6 +111,11 @@ class Key extends AbstractEntity {
       return $this->statusid;
    }
 
+   function setStatusId($statusid) {
+      $this->statusid = $statusid;
+      return $this;
+   }
+
    function getOwner() {
       return $this->owner;
    }
@@ -103,6 +128,11 @@ class Key extends AbstractEntity {
       return $this->comment;
    }
 
+   function setComment($comment) {
+      $this->comment = $comment;
+      return $this;
+   }
+
    function getLastUpdate(){
       return $this->lastupdate;
    }
@@ -111,6 +141,36 @@ class Key extends AbstractEntity {
       $name = 'MC '.$this->getCode();
       $name .= $this->getOwnerName() ? ' - '.$this->getOwnerName() : '';
       return $name;
+   }
+
+   function save() {
+      $idString = '';
+      $con = openDb();
+      if($this->getId()) {
+         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
+      }
+
+      $elnumber = $this->getElNumber() ? '"'.mysqli_real_escape_string($con, $this->getElNumber()).'"' : 'NULL';
+      $code = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
+      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $type = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
+      $colorid = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
+      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
+      $sql = '
+         REPLACE doorperson
+         SET name = '.$name.',
+            uid = '.$uid.',
+            uidnumber = '.$uidnumber.',
+            mdbid = '.$mdbid.',
+            comment = '.$comment.'
+         '.$idString.'
+      ';
+      $dbresult = queryDb($con, $sql);
+      if ($dbresult) {
+         $this->id = mysqli_insert_id($con);
+      }
+      return $dbresult;
    }
 
 }

@@ -81,10 +81,11 @@ function showKeyEditPage($keyId = '0'){
          if (array_key_exists('id',$_POST)) {
             $key->load();
          }
-         $key->setName($_POST['name']);
-         $key->setUid($_POST['uid']);
-         $key->setUidNumber($_POST['uidnumber']);
-         $key->setMdbId($_POST['mdbid']);
+         $key->setElNumber($_POST['elnumber']);
+         $key->setCode($_POST['code']);
+         $key->setStatusId($_POST['statusid']);
+         $key->setType($_POST['type']);
+         $key->setColorId($_POST['colorid']);
          $key->setComment($_POST['comment']);
          $result = $key->save();
       } catch (Exception $exception) {
