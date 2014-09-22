@@ -131,6 +131,21 @@ function getKeyEdit($key = null){
    return render($view, 'key_edit');
 }
 
+function showKeyDeletePage($keyId = '0'){
+
+   $key = new \SKeyManager\Entity\Key($keyId);
+   $key->load();
+
+   $view = array(
+      'header' => getHeader('key', $keyId),
+      'danger' => _('Do not delet keys at this point, just mark them as dismissed.');
+      'body' => getKeyDetails($key),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
 ///////////////////////////////////////////////////////////
 
 function oldshowKeyEditPage($keyId = '0'){
