@@ -2,7 +2,7 @@
 <form role="form" method="post">
 <table class="table" align="center"><tr><td>
    <?php foreach($view['perm'] as $perm) { ?>
-   <tr class="alert <?php echo getPermissionStatusesClass($perm->getStatusId()); ?>" role="alert">
+   <tr class="alert <?php echo getPermissionStatusesCss($perm->getStatusId()); ?>" role="alert">
       <td>
          <label for="<?php echo $perm->getId(); ?>">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
       </td>
