@@ -235,4 +235,25 @@ function getPermissionStatuses(){
    return $result;
 }
 
+function getPermissionStatusesCss($class = 0){
+   switch($class) {
+      case '1':
+         $result = '';
+         break;
+      case '2':
+         $result = ' alert-success ';
+         break;
+      case '3':
+         $result = ' alert-warning ';
+         break;
+      case '4':
+         $result = ' alert-warning ';
+         break;
+      default:
+         $result = '';
+         break;
+   }
+   return $result;
+}
+
 ?>
