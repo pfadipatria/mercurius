@@ -157,7 +157,7 @@ function getKeyAllow($key = null){
 
    $allowView = array(
       'title' => _('Locks allowed on this key'),
-      'permissions' => $allows->getAllowedByKeyId($key->getId())
+      'perm' => $allows->getAllowedByKeyId($key->getId())
    );
 /*
    $possibleView = array(
