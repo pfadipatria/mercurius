@@ -112,32 +112,22 @@ class Person extends AbstractEntity {
    }
 
    function save() {
-      $idString = '';
+      $dbTable = 'doorperson';
       $con = openDb();
+
+      $data = array();
+      $data['name'] = $this->getName() ? '"'.mysqli_real_escape_string($con, $this->getName()).'"' : 'NULL';
+      $data['uid'] = $this->getUid() ? '"'.mysqli_real_escape_string($con, $this->getUid()).'"' : 'NULL';
+      $data['uidnumber'] = $this->getUidNumber() ? '"'.mysqli_real_escape_string($con, $this->getUidNumber()).'"' : 'NULL';
+      $data['mdbid'] = $this->getMdbId() ? '"'.mysqli_real_escape_string($con, $this->getMdbId()).'"' : 'NULL';
+      $data['comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
       if($this->getId()) {
-         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
+         $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
+         return $this->updateDb($con, $dbTable, $data, $idString);
+      } else {
+         return $this->insertDb($con, $dbTable, $data);
       }
-
-      $name = $this->getName() ? '"'.mysqli_real_escape_string($con, $this->getName()).'"' : 'NULL';
-      $uid = $this->getUid() ? '"'.mysqli_real_escape_string($con, $this->getUid()).'"' : 'NULL';
-      $uidnumber = $this->getUidNumber() ? '"'.mysqli_real_escape_string($con, $this->getUidNumber()).'"' : 'NULL';
-      $mdbid = $this->getMdbId() ? '"'.mysqli_real_escape_string($con, $this->getMdbId()).'"' : 'NULL';
-      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
-
-      $sql = '
-         REPLACE doorperson
-         SET name = '.$name.',
-            uid = '.$uid.',
-            uidnumber = '.$uidnumber.',
-            mdbid = '.$mdbid.',
-            comment = '.$comment.'
-         '.$idString.'
-      ';
-      $dbresult = queryDb($con, $sql);
-      if ($dbresult) {
-         $this->id = mysqli_insert_id($con);
-      }
-      return $dbresult;
    }
 
    function delete() {
