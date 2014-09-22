@@ -56,7 +56,7 @@ function getKeyDetails($key = null){
 
    $view = array(
       'key' => render($keyView, 'key_entry'),
-      'permissions' => render($permissionView, 'key_locklist')
+      'permissions' => render($permissionView, 'key_locklist'),
       'denials' => render($denialView, 'key_locklist')
    );
 
