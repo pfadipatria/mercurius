@@ -54,7 +54,7 @@ class Key extends AbstractEntity {
          $holder = new \SKeyManager\Entity\Person($this->holderid);
          $holder->load();
       } else {
-         $owner = new \SKeyManager\Entity\Person();
+         $holder = new \SKeyManager\Entity\Person();
       }
       $this->holder = $holder;
    }
