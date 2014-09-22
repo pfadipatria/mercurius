@@ -56,7 +56,7 @@ function getLockDetails($lock = null){
    );
 
    $view = array(
-      'lock' => render($lockView, 'lock_entry')
+      'lock' => render($lockView, 'lock_entry'),
       'denials' => render($denialView, 'lock_keylist'),
       'allowed' => render($permissionView, 'lock_keylist')
    );
