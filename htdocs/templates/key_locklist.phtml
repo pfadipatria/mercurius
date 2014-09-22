@@ -2,7 +2,7 @@
 <table class="table table-hover" style="width:auto">
     <tbody>
         <?php foreach($view['locks'] as $perm) { ?>
-            <tr>
+            <tr onclick="document.location = '/lock/<?php echo $perm->getLockId(); ?>';" style="cursor: zoom-in">
                  <!-- <td>Id <?php echo $perm->getId(); ?></td> -->
                  <td>SC <?php echo $perm->getLockCode(); ?></td>
                  <td><?php echo $perm->getLockPlace(); ?></td>

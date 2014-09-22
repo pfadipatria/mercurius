@@ -57,6 +57,10 @@ class Permission extends AbstractEntity {
       return $this->statusname;
    }
 
+   function getLockId(){
+      return $this->lockid;
+   }
+
    function getLockCode(){
       return $this->lockcode;
    }
