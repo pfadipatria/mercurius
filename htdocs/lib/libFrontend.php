@@ -220,7 +220,7 @@ function getColors(){
 
 function getPermissionStatuses(){
    $result = array();
-   $result[] = array('id' => 0, 'name' => '- removed -');
+   $result[] = array('id' => 0, 'name' => '- remove -');
    $sql = '
       SELECT
          id,
