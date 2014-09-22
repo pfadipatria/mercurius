@@ -121,7 +121,7 @@ class Lock extends AbstractEntity {
          REPLACE doorlock
          SET
             number = '.$number.',
-            status = '.$statusid.',,
+            status = '.$statusid.',
             comment = '.$comment.'
          '.$idString.'
       ';
