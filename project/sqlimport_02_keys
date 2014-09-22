@@ -6,7 +6,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-	             owner,
+	                  holder,
                      comment
                     )
                     VALUES
@@ -29,7 +29,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -52,7 +52,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -75,7 +75,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -98,7 +98,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -121,7 +121,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -144,7 +144,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -167,7 +167,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES
@@ -190,7 +190,7 @@ INSERT INTO doorkey (
                      mech,
                      communication,
                      color,
-                     owner,
+                     holder,
                      comment
                     )
                     VALUES

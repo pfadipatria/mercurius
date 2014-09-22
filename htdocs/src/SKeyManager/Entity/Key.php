@@ -5,7 +5,7 @@ namespace SKeyManager\Entity;
 class Key extends AbstractEntity {
 
     protected $locationPattern = '/key/%s';
-   var $owner;
+   var $holder;
    var $allowedLocks;
    var $denyingLocks;
 
@@ -21,7 +21,7 @@ class Key extends AbstractEntity {
                doorkeystatus.name AS statusname,
                doorkeystatus.id AS statusid,
                doorkeymech.bezeichung AS description,
-               owner AS ownerid,
+               holder AS holderid,
                doorkey.comment AS comment,
                communication,
                doorkey.lastupdate AS lastupdate
@@ -49,14 +49,14 @@ class Key extends AbstractEntity {
          $this->$name = $value;
       }
 
-      $owner = null;
-      if(!empty($this->ownerid)) {
-         $owner = new \SKeyManager\Entity\Person($this->ownerid);
-         $owner->load();
+      $holder = null;
+      if(!empty($this->holderid)) {
+         $holder = new \SKeyManager\Entity\Person($this->holderid);
+         $holder->load();
       } else {
          $owner = new \SKeyManager\Entity\Person();
       }
-      $this->owner = $owner;
+      $this->holder = $holder;
    }
 
    function getId(){
@@ -116,12 +116,20 @@ class Key extends AbstractEntity {
       return $this;
    }
 
+   function getHolder() {
+      return $this->holder;
+   }
+
+   function getHolderName(){
+      return $this->getHolder()->getName();
+   }
+
    function getOwner() {
-      return $this->owner;
+      return $this->getHolder();
    }
 
    function getOwnerName(){
-      return $this->getOwner()->getName();
+      return $this->getHolderName();
    }
 
    function getComment(){
@@ -139,7 +147,7 @@ class Key extends AbstractEntity {
 
    function getName() {
       $name = 'MC '.$this->getCode();
-      $name .= $this->getOwnerName() ? ' - '.$this->getOwnerName() : '';
+      $name .= $this->getHolderName() ? ' - '.$this->getHolderName() : '';
       return $name;
    }
 
