@@ -147,6 +147,22 @@ echo '
    return $result;
 }
 
+function getKeyStatuses(){
+   $result = array();
+   $sql = '
+      SELECT
+         id,
+         name
+      FROM doorkeystatus
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'name' => $row['name']);
+   }
+   return $result;
+}
+
 function getColors(){
    $result = array();
    $sql = '
