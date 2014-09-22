@@ -1,0 +1,22 @@
+<h2><?php echo $view['title']; ?></h2>
+<table class="table" style="width:auto" align="center"><tr><td>
+<form role="form" method="post">
+      <div class="row">
+      <div class="form-group">
+
+         <?php foreach($view['perm'] as $perm) { ?>
+            <label for="<?php echo $perm->getId(); ?>">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
+            <select name="<?php echo $perm->getId(); ?>" class="form-control">
+  <option>removed</option>
+  <option>allowed</option>
+  <option>planned</option>
+            </select>
+         <?php } ?>
+
+
+      </div>
+      </div>
+   <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+   <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+
+</form>
