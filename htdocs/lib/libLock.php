@@ -79,15 +79,11 @@ function showLockEditPage($lockId = '0'){
       $lock = new SKeyManager\Entity\Lock($id);
       try {
          if (array_key_exists('id',$_POST)) {
-            $key->load();
+            $lock->load();
          }
-         $lock->setElNumber($_POST['elnumber']);
-         $lock->setCode($_POST['code']);
+         $lock->setNumber($_POST['number']);
          $lock->setStatusId($_POST['statusid']);
-         $lock->setType($_POST['type']);
-         $lock->setColorId($_POST['colorid']);
          $lock->setComment($_POST['comment']);
-         $lock->setHolderId($_POST['holderid']);
          $result = $lock->save();
       } catch (Exception $exception) {
          $result = false;
@@ -96,7 +92,7 @@ function showLockEditPage($lockId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $newLock = new \SKeyManager\Entity\Key($lock->getId());
+         $newLock = new \SKeyManager\Entity\Lock($lock->getId());
          $newLock->load();
          $view['body'] = getKeyDetails($newLock);
       } else {
