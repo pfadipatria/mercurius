@@ -132,6 +132,48 @@ function getKeyEdit($key = null){
    return render($view, 'key_edit');
 }
 
+function showKeyAllowPage($keyId = '0'){
+
+   $key = new \SKeyManager\Entity\Key($keyId);
+   $key->load();
+
+   $view = array(
+      'header' => getHeader('key', $keyId),
+      'body' => getKeyAllow($key),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
+function getKeyAllow($key = null){
+
+   $allows = new \SKeyManager\Repository\PermissionRepository;
+   $possibleAllows = new \SKeyManager\Repository\PermissionRepository;
+
+   $keyView = array(
+     'key' => $key
+   );
+
+   $allowView = array(
+      'title' => _('Locks allowed on this key'),
+      'permissions' => $allows->getAllowedByKeyId($key->getId())
+   );
+/*
+   $possibleView = array(
+      'title' => _('Locks avaible'),
+      'permissions' => $possibleAllows->getNotAllowedByKeyId($key->getId())
+   );
+*/
+   $view = array(
+      'title' => 'Name of Key/Lock',
+      'perm' => render($allowView, 'perm_entry'),
+      // 'right' => render($possibleView, 'perm_entry')
+   );
+
+   return render($view, 'perm_layout');
+}
+
 function showKeyDeletePage($keyId = '0'){
 
    $key = new \SKeyManager\Entity\Key($keyId);
