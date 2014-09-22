@@ -20,7 +20,7 @@ class Lock extends AbstractEntity {
                hasbatteries,
                doorplace.name AS venuename,
                doorplace.id AS venueid,
-               doorlockstatus.id AS statusid,
+               doorlock.status AS statusid,
                doorlockstatus.name AS statusname
         ';
 
@@ -104,6 +104,32 @@ class Lock extends AbstractEntity {
 
    function getLastUpdate(){
       return $this->lastupdate;
+   }
+
+   function save() {
+      $idString = '';
+      $con = openDb();
+      if($this->getId()) {
+         $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
+      }
+
+      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
+      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+
+      $sql = '
+         REPLACE doorlock
+         SET
+            number = '.$number.',
+            status = '.$statusid.',,
+            comment = '.$comment.'
+         '.$idString.'
+      ';
+      $dbresult = queryDb($con, $sql);
+      if ($dbresult) {
+         $this->id = mysqli_insert_id($con);
+      }
+      return $dbresult;
    }
 
 }
