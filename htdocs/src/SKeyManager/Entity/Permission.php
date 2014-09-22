@@ -37,6 +37,7 @@ class Permission extends AbstractEntity {
       ';
 
         $this->order = '
+         ORDER BY keyid,lockcode,lockid
         ';
     }
 
