@@ -5,12 +5,14 @@
 
          <?php foreach($view['perm'] as $perm) { ?>
       <div class="form-group">
-            <label for="<?php echo $perm->getId(); ?>">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
+            <label for="<?php echo $perm->getId(); ?>" class="col-sm-2">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
+                <div class="col-sm-10">
             <select name="<?php echo $perm->getId(); ?>" class="form-control">
   <option>removed</option>
   <option>allowed</option>
   <option>planned</option>
             </select>
+      </div>
       </div>
          <?php } ?>
 
