@@ -4,7 +4,9 @@
         <?php foreach($view['locks'] as $perm) { ?>
             <tr>
                  <!-- <td>Id <?php echo $perm->getId(); ?></td> -->
-                 <td>Id <?php echo $perm->getId(); ?></td>
+                 <td>SC <?php echo $perm->getLockCode(); ?></td>
+                 <td><?php echo $perm->getLockPlace(); ?></td>
+                 <td><?php echo $perm->getLockName(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
