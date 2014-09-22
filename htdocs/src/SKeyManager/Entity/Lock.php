@@ -108,23 +108,35 @@ class Lock extends AbstractEntity {
 
    function save() {
       $idString = '';
+      $oldData = array();
       $con = openDb();
       if($this->getId()) {
          $idString = ', id = '.mysqli_real_escape_string($con, $this->getId());
+         $sql = '
+            SELECT
+               *
+            FROM doorlock
+            WHERE id = '.$idString.'
+            ';
+         $dbresult = queryDb($con, $sql);
+         $oldData = mysqli_fetch_assoc($dbresult);
       }
 
-      $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
-      $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
-      $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+      $oldData['number'] = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
+      $oldData['$statusid'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $oldData['$comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
 
       $sql = '
          REPLACE doorlock
          SET
-            number = '.$number.',
-            status = '.$statusid.',
-            comment = '.$comment.'
-         '.$idString.'
-      ';
+         ';
+         foreach($oldData as $key => $value){
+            $sql .= '
+               '.$key.' = "'.$value.'",
+               ';            
+            }
+      $sql .= $idString
+      var_dump($sql);
       $dbresult = queryDb($con, $sql);
       if ($dbresult) {
          $this->id = mysqli_insert_id($con);
