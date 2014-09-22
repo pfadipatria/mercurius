@@ -56,6 +56,11 @@ class Lock extends AbstractEntity {
       return $this->number;
    }
 
+   function setNumer($number){
+      $this->number = $number;
+      return $this;
+   }
+
    function getName(){
       return $this->name;
    }
@@ -85,15 +90,6 @@ class Lock extends AbstractEntity {
 
    function setStatusId($statusid){
       $this->statusid = $statusid;
-      return $this;
-   }
-
-   function getNumber(){
-      return $this->number;
-   }
-
-   function setNumer($number){
-      $this->number = $number;
       return $this;
    }
 
