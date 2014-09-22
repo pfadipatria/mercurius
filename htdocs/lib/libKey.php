@@ -76,7 +76,7 @@ function showKeyEditPage($keyId = '0'){
       if (array_key_exists('id',$_POST)) {
          $id = $_POST['id'];
       }
-      $person = new SKeyManager\Entity\Key($id);
+      $key = new SKeyManager\Entity\Key($id);
       try {
          if (array_key_exists('id',$_POST)) {
             $key->load();
