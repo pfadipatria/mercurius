@@ -156,7 +156,7 @@ function getColors(){
          name
       FROM doorkeycolor
    ';
-
+   $con = openDb();
    $dbresult = queryDb($con, $sql);
 	while ($row = mysqli_fetch_array($dbresult)){
       $result[$row['id']]['colorid'] = $row['colorid'];
