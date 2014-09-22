@@ -10,7 +10,7 @@ class Permission extends AbstractEntity {
                permission.id AS id,
                keyid,
                doorkey.code AS keycode,
-               doorperson.name AS keyowner,
+               doorperson.name AS keyholder,
                doorkeystatus.name AS keystatus,
                lockid,
                doorlock.sc AS lockcode,
@@ -26,7 +26,7 @@ class Permission extends AbstractEntity {
             FROM permission
             LEFT JOIN permissionstatus ON (permission.status = permissionstatus.id)
             LEFT JOIN doorkey ON (permission.keyid = doorkey.id)
-            LEFT JOIN doorperson ON (doorkey.owner = doorperson.id)
+            LEFT JOIN doorperson ON (doorkey.holder = doorperson.id)
             LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
             LEFT JOIN doorlock ON (permission.lockid = doorlock.id)
             LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
@@ -83,8 +83,12 @@ class Permission extends AbstractEntity {
       return $this->keycode;
    }
 
+   function getKeyHolder(){
+      return $this->keyholder;
+   }
+
    function getKeyOwner(){
-      return $this->keyowner;
+      return $this->getKeyHolder();
    }
 
    function getKeyStatus(){
