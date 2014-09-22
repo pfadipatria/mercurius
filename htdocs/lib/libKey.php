@@ -38,15 +38,17 @@ function showKeyDetailsPage($keyId = '0'){
 
 function getKeyDetails($key = null){
 
+   $allows = new \SKeyManager\Repository\PermissionRepository;
+
    $keyView = array(
      'key' => $key
    );
-/*
+
    $permissionView = array(
       'title' => _('Permissions to Locks'),
-      'locks' => $key->getAllowedLocks()
+      'locks' => $allows->getAllowedByKeyId($key->getId())
    );
-
+/*
    $denialView = array(
       'title' => _('Denied by Locks'),
       'locks' => $key->getDenyingLocks()
@@ -54,7 +56,7 @@ function getKeyDetails($key = null){
 */
    $view = array(
       'key' => render($keyView, 'key_entry')
-   //   'permissions' => render($permissionView, 'key_locklist'),
+      'permissions' => render($permissionView, 'key_locklist'),
    //   'denials' => render($denialView, 'key_locklist')
    );
 

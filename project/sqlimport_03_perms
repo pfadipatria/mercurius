@@ -1,16 +1,7 @@
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (5, 11);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (5, 3);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (10, 11);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (10, 12);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (2, 2);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (4, 2);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (4, 7);
-INSERT INTO doorlock_locks_key (`key`, `lock`) VALUES (4, 8);
-
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (6, 11);
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (6, 2);
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (5, 2);
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (5, 7);
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (2, 4);
-INSERT INTO doorkey_opens_lock (`key`, `lock`) VALUES (9, 9);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (1, 1, 2, 1, 0, 1);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (2, 1, 5, 1, 0, 1);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (3, 3, 2, 1, 0, 1);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (4, 3, 4, 1, 0, 1);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (5, 1, 4, 0, 1, 1);
+INSERT INTO `skm_dev`.`permission` (`id`, `key`, `lock`, `allows`, `denies`, `status`) VALUES (6, 4, 5, 0, 1, 1);
 
