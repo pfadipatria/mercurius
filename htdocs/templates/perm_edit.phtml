@@ -1,10 +1,10 @@
 <h2><?php echo $view['title']; ?></h2>
-<form role="form" method="post" class="form-horizontal">
-<table class="table" style="width:auto" align="center"><tr><td>
+<form role="form" method="post">
+<table class="table" align="center"><tr><td>
    <?php foreach($view['perm'] as $perm) { ?>
    <tr>
       <td>
-         <label for="<?php echo $perm->getId(); ?>" class="col-sm-2">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
+         <label for="<?php echo $perm->getId(); ?>">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
       </td>
       <td>
          <select name="<?php echo $perm->getId(); ?>" class="form-control">
@@ -15,8 +15,13 @@
       </td>
    </tr>
    <?php } ?>
-   <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
-   <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
-
+   <tr>
+      <td>
+         <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+      </td>
+      <td>
+         <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+      </td>
+   </tr>
 </form>
 </table>
