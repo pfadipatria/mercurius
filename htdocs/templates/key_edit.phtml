@@ -16,7 +16,7 @@
 
          <label for="comment"><?php echo _('Comment'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="comment" name="comment" value="<?php if ($view['hasData']) echo $view['key']->getComment(); ?>">
-         <p class="help-block"><?php echo _('A comment or more information about this key.'); ?></p>
+         <p class="help-block"><?php echo _('A comment or more information about this key'); ?></p>
 
          <?php if ($view['hasData']) { ?>
             <label for="lastupdate"><?php echo _('Last Update'); ?></label>
@@ -25,16 +25,24 @@
 
       </div>
       </div>
-   <button type="button" class="btn" onclick="goBack()">Abbrechen</button>
-   <button type="submit" class="btn btn-default">Speichern</button>
+   <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+   <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
    <br /><br />
       <div class="row">
       <div class="form-group">
-         <p style="font-size:1.5em; font-weight:bold"><?php echo _('Internal attributes you should not change'); ?></p>
+         <p style="font-size:1.3em; font-weight:bold"><?php echo _('Internal attributes YOU SHOULD NOT change'); ?></p>
 
          <label for="elnumber"><?php echo _('elnumber'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
-         <p class="help-block"><?php echo _('The elnumber of this key.'); ?></p>
+         <p class="help-block"><?php echo _('The elnumber of this key'); ?></p>
+
+         <label for="code"><?php echo _('MC'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="code" name="code" value="<?php if ($view['hasData']) echo $view['key']->getCode(); ?>">
+         <p class="help-block"><?php echo _('The MC / Code'); ?></p>
+
+         <label for="code"><?php echo _('Type'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['key']->getType(); ?>">
+         <p class="help-block"><?php echo _('The type'); ?></p>
 
       </div>
       </div>
