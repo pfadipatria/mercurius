@@ -147,9 +147,11 @@ class Lock extends AbstractEntity {
 
       $sql = '
          INSERT INTO doorlock
+            (
             number,
             status,
             comment
+            )
          VALUES(
             '.$number.',
             '.$statusid.',
