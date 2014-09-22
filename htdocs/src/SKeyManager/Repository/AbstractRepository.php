@@ -11,6 +11,7 @@ abstract class AbstractRepository {
     protected function query($where = ' ', $object = null) {
       $result = array();
       $con = openDb();
+      var_dump($this->select.$this->from.$this->where.$where.$this->order);
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$where.$this->order);
       while ($row = mysqli_fetch_assoc($dbresult)){
          $entity = new $object($row['id']);
