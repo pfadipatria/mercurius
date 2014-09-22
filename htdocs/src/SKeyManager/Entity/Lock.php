@@ -111,14 +111,14 @@ class Lock extends AbstractEntity {
       $con = openDb();
       if($this->getId()) {
          $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
-         return $this->update($con, $idString);
+         return $this->updateDb($con, $idString);
       } else {
-         return $this->insert($con);
+         return $this->insertDb($con);
       }
 
    }
 
-   function update($con, $idString) {
+   function updateDb($con, $idString) {
       $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
       $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
       $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
@@ -135,7 +135,7 @@ class Lock extends AbstractEntity {
       return $dbresult;
    }
 
-   function insert($con) {
+   function insertDb($con) {
       $number = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
       $statusid = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
       $comment = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';

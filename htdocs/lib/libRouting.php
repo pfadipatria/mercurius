@@ -84,6 +84,9 @@ function showLocksPage(){
       case 'show':
          showLockDetailsPage(getMenuPath('3'));
          break;
+      case 'add':
+         showLockEditPage();
+         break;
       case 'edit':
          showLockEditPage(getMenuPath('3'));
          break;
