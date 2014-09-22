@@ -167,7 +167,7 @@ function getKeyAllow($key = null){
 */
    $view = array(
       'title' => 'Name of Key/Lock',
-      'perm' => render($allowView, 'perm_entry'),
+      'perm' => render($allowView, 'perm_edit'),
       // 'right' => render($possibleView, 'perm_entry')
    );
 
