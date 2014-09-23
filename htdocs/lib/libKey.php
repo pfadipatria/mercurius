@@ -148,6 +148,16 @@ function showKeyAllowPage($keyId = '0'){
 
 function getKeyAllow($key = null){
 
+   $locks = new \SKeyManager\Repository\LockRepository;
+
+   $view = array(
+      'key' => $key,
+      'locks' => $locks
+   );
+
+   return render($view, 'perm_layout');
+   return;
+//////////////////////////////////////////
    $allows = new \SKeyManager\Repository\PermissionRepository;
    $possibleAllows = new \SKeyManager\Repository\PermissionRepository;
 
