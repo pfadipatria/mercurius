@@ -1,15 +1,15 @@
-<h2><?php echo $view['title']; ?></h2>
 <form role="form" method="post">
+<input type="hidden" class="form-control" id="keyid" name="keyid" value="<?php echo $view['keyid']; ?>">
 <table class="table" align="center"><tr><td>
-   <?php foreach($view['perm'] as $perm) { ?>
-   <tr class="alert <?php echo getPermissionStatusesCss($perm->getStatusId()); ?>" role="alert">
+   <?php foreach($view['permlist'] as $perm) { ?>
+   <tr class="alert" role="alert">
       <td>
-         <label for="<?php echo $perm->getId(); ?>">SC <?php echo $perm->getLockCode().' - '.$perm->getLockName(); ?></label>
+         <label for="<?php echo $perm['permid']; ?>"><?php echo $perm['name']; ?></label>
       </td>
       <td>
-         <select name="<?php echo $perm->getId(); ?>" class="form-control">
+         <select name="<?php echo  $perm['permid']; ?>" class="form-control">
          <?php foreach(getPermissionStatuses() as $status) { ?>
-           <option value="<?php echo $status['id']; ?>"<?php if($perm->getStatusId() == $status['id']) echo ' selected'; ?>><?php echo $status['name']; ?></option>
+           <option value="<?php echo $status['id']; ?>"<?php if($perm['statusid']) echo ' selected'; ?>><?php echo $status['name']; ?></option>
          <?php } ?>
          </select>
       </td>

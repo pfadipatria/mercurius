@@ -149,10 +149,26 @@ function showKeyAllowPage($keyId = '0'){
 function getKeyAllow($key = null){
 
    $locks = new \SKeyManager\Repository\LockRepository;
+   $perms = new \SKeyManager\Repository\PermissionRepository;
+
+   $lockLlist = array();
+   foreach($locks->getAll() as $lock) {
+      $lockList[$lock->getId()]['name'] = $lock->getFullName();
+      $lockList[$lock->getId()]['lockid'] = $lock->getId();
+      // @TODO getKeyAllowedOnLock should only return ONE permission entity
+      $perm = $perms->getKeyAllowedOnLock($key->getId(), $lock->getId());
+      $lockList[$lock->getId()]['permid'] = $perm ? $perm['0']->getId() : null;
+      $lockList[$lock->getId()]['statusid'] = $perm ? $perm['0']->getStatusId() : null;
+   }
+
+   $permView = array(
+      'keyid' => $key->getId(),
+      'permlist' => $lockList
+   );
 
    $view = array(
-      'key' => $key,
-      'locks' => $locks
+      'title' => sprintf(_('Change allowed locks on %s'), $key->getName()),
+      'perm' => render($permView, 'perm_edit')
    );
 
    return render($view, 'perm_layout');

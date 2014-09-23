@@ -29,6 +29,10 @@ class PermissionRepository extends AbstractRepository {
         return $this->query('WHERE keyid = '.$id, 'SKeyManager\Entity\Permission');
     }
 
+    function getKeyAllowedOnLock($keyId, $lockId) {
+         return $this->query('WHERE keyid = '.$keyId.' AND lockid = '.$lockId.' AND `allows` = TRUE ', 'SKeyManager\Entity\Permission');
+    }
+
     function getAllowedByKeyId($id) {
         return $this->query('WHERE `keyid` = '.$id.' AND `allows` = TRUE', 'SKeyManager\Entity\Permission');
     }
