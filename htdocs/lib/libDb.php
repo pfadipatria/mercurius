@@ -1,7 +1,14 @@
 <?php
 
-function openDb($dbHost = 'mysql02', $dbUsername = 'skm_dev', $dbPassword = 'irg3nd', $dbName = 'skm_dev')
+function openDb($dbHost = 'localhost', $dbUsername = 'skm', $dbPassword = 'skm', $dbName = 'skm')
 {	
+   global $config;
+
+   $dbHost = isset($config['dbhost']) ? $config['dbhost'] : $dbHost ;
+   $dbName = isset($config['dbname']) ? $config['dbname'] : $dbName ;
+   $dbUsername = isset($config['dbuser']) ? $config['dbuser'] : $dbUsername ;
+   $dbPassword = isset($config['dbpass']) ? $config['dbpass'] : $dbPassword ;
+
 	//@TODO use db credentials as parameter and remove global
 	// global $dbHost,$dbUsername,$dbPassword,$dbName;
 
