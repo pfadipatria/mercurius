@@ -1,13 +1,20 @@
 <form role="form" method="post">
 <input type="hidden" class="form-control" id="keyid" name="keyid" value="<?php echo $view['keyid']; ?>">
 <table class="table" align="center"><tr><td>
+   <tr align="center">
+      <td colspan="2">
+         <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+         &nbsp;&nbsp;
+         <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+      </td>
+   </tr>
    <?php foreach($view['permlist'] as $perm) { ?>
-   <tr class="alert<?php echo ' '.getPermissionStatusesCss($perm['statusid']); ?>" role="alert">
+   <tr id="entry<?php echo  $perm['lockid']; ?>" class="alert<?php echo ' '.getPermissionStatusesCss($perm['statusid']); ?>" role="alert">
       <td>
-         <label for="<?php echo $perm['permid']; ?>"><?php echo $perm['name']; ?></label>
+         <label for="<?php echo $perm['lockid']; ?>"><?php echo $perm['name']; ?></label>
       </td>
       <td>
-         <select name="<?php echo  $perm['permid']; ?>" class="form-control">
+         <select id="select<?php echo  $perm['lockid']; ?>" class="form-control" onchange="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(document.getElementById('select<?php echo  $perm['lockid']; ?>').selectedIndex)">
          <?php foreach(getPermissionStatuses() as $status) { ?>
            <option value="<?php echo $status['id']; ?>"<?php if($status['id'] == $perm['statusid']) echo ' selected="selected" selected'; ?>><?php echo $status['name']; ?></option>
          <?php } ?>
@@ -15,11 +22,10 @@
       </td>
    </tr>
    <?php } ?>
-   <tr>
-      <td>
+   <tr align="center">
+      <td colspan="2">
          <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
-      </td>
-      <td>
+         &nbsp;&nbsp;
          <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
       </td>
    </tr>

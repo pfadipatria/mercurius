@@ -49,6 +49,26 @@ ul#Navigation a#Aktiv {
 function goBack() {
     window.history.back()
 }
+function getClassFromStatusId(statusId) {
+   text = "";
+   switch(statusId) {
+       case 1:
+           text = "alert alert-info";
+           break;
+       case 2:
+           text = "alert alert-success";
+           break;
+       case 3:
+           text = "alert alert-warning";
+           break;
+       case 4:
+           text = "alert alert-warning";
+           break;
+       default:
+           text = "alert";
+   }
+   return text;
+}
 </script>
 
 </head>
