@@ -9,6 +9,5 @@ function readConfigFiles() {
    $mainConfig = file_exists($mainConfigFile) ? parse_ini_file($mainConfigFile) : array() ;
 
    $config = array_replace($sampleConfig, $mainConfig);
-   var_dump($config);
 
 }
