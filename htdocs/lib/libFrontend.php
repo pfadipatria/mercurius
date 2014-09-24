@@ -238,7 +238,7 @@ function getPermissionStatuses(){
 function getPermissionStatusesCss($class = 0){
    switch($class) {
       case '1':
-         $result = '';
+         $result = ' alert-info ';
          break;
       case '2':
          $result = ' alert-success ';

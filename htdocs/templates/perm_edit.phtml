@@ -2,14 +2,14 @@
 <input type="hidden" class="form-control" id="keyid" name="keyid" value="<?php echo $view['keyid']; ?>">
 <table class="table" align="center"><tr><td>
    <?php foreach($view['permlist'] as $perm) { ?>
-   <tr class="alert" role="alert">
+   <tr class="alert<?php echo ' '.getPermissionStatusesCss($perm['statusid']); ?>" role="alert">
       <td>
          <label for="<?php echo $perm['permid']; ?>"><?php echo $perm['name']; ?></label>
       </td>
       <td>
          <select name="<?php echo  $perm['permid']; ?>" class="form-control">
          <?php foreach(getPermissionStatuses() as $status) { ?>
-           <option value="<?php echo $status['id']; ?>"<?php if($perm['statusid']) echo ' selected'; ?>><?php echo $status['name']; ?></option>
+           <option value="<?php echo $status['id']; ?>"<?php if($status['id'] == $perm['statusid']) echo ' selected="selected" selected'; ?>><?php echo $status['name']; ?></option>
          <?php } ?>
          </select>
       </td>

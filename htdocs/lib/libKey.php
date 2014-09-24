@@ -161,6 +161,7 @@ function getKeyAllow($key = null){
       $lockList[$lock->getId()]['statusid'] = $perm ? $perm['0']->getStatusId() : null;
    }
 
+   // var_dump($lockList);
    $permView = array(
       'keyid' => $key->getId(),
       'permlist' => $lockList
