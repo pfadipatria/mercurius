@@ -45,9 +45,7 @@ abstract class AbstractRepository {
       return $dbresult;
    }
 
-   function updateDb($con, $dbTable, $data, $conditons) {
-      var_dump($data);
-      var_dump($conditions);
+   function updateDb($con, $dbTable, $data, $conditions) {
       $sql = '
          UPDATE '.$dbTable.'
          SET
