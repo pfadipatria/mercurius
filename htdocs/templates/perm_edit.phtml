@@ -21,6 +21,13 @@
          <?php } ?>
          </select>
       </td>
+      <td>
+         <span class="glyphicon glyphicon-asterisk" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Unknown'); ?>" onclick="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(1); document.getElementById('entry<?php echo  $perm['lockid']; ?>').getElementsByTagName('option')[1].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-unchecked" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Remove'); ?>" onclick="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(0); document.getElementById('entry<?php echo  $perm['lockid']; ?>').getElementsByTagName('option')[0].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-ok" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Active'); ?>" onclick="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(2); document.getElementById('entry<?php echo  $perm['lockid']; ?>').getElementsByTagName('option')[2].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-log-in" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('To be set'); ?>" onclick="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(3); document.getElementById('entry<?php echo  $perm['lockid']; ?>').getElementsByTagName('option')[3].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-log-out" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('To be removed'); ?>" onclick="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(4); document.getElementById('entry<?php echo  $perm['lockid']; ?>').getElementsByTagName('option')[4].selected = 'selected'"></span>&nbsp;
+      </td>
    </tr>
    <?php } ?>
    <tr align="center">
