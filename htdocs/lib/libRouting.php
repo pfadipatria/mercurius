@@ -34,6 +34,9 @@ function routing($loggedIn = false){
       case 'person':
          showPersonPage();
          break;
+      case 'history':
+         showHistoryPage();
+         break;
       case 'login':
          showLoginPage();
          break;
@@ -140,3 +143,8 @@ function showPersonPage(){
          showPersonListPage();
    }
 }
+
+function showHistoryPage(){
+   showHistoryListPage();
+}
+

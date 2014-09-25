@@ -57,12 +57,15 @@ function getPersonDetails($person = null){
 }
 
 function showPersonEditPage($personId = '0'){
+   global $activeUserId;
+
    $view = array(
       'header' => getHeader('person', ''),
       'footer' => getFooter()
    );
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $history = new \SKeyManager\Entity\History();
       $message = '';
       $id = null;
       if (array_key_exists('id',$_POST)) {
@@ -70,8 +73,10 @@ function showPersonEditPage($personId = '0'){
       }
       $person = new SKeyManager\Entity\Person($id);
       try {
+         $history->setComment('Person erstellt');
          if (array_key_exists('id',$_POST)) {
             $person->load();
+            $history->setComment('Person aktualisiert');
          }
          $person->setName($_POST['name']);
          $person->setUid($_POST['uid']);
@@ -86,6 +91,7 @@ function showPersonEditPage($personId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $history->setPersonId($person->getId())->setAuthorId($activeUserId)->save();
          $newPerson = new \SKeyManager\Entity\Person($person->getId());
          $newPerson->load();
          $view['body'] = getPersonDetails($newPerson);
@@ -123,6 +129,8 @@ function getPersonEdit($person = null){
 }
 
 function showPersonDeletePage($personId = '0'){
+   global $activeUserId;
+
    $deletable = false;
 
    $person = new \SKeyManager\Entity\Person($personId);
@@ -137,10 +145,12 @@ function showPersonDeletePage($personId = '0'){
    if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id'] && $_POST['confirm'] == true) {
       $personId = $_POST['id'];
       $name = '';
+      $history = new \SKeyManager\Entity\History();
       $person = new SKeyManager\Entity\Person($personId);
       try {
          $person->load();
          $name = $person->getName();
+         $history->setPersonId($person->getId())->setAuthorId($activeUserId)->setComment('Person wurde gelöscht: '.$name.' ('.$person->getId().')');
          $result = $person->delete();
       } catch (Exception $exception) {
          $result = false;
@@ -149,6 +159,7 @@ function showPersonDeletePage($personId = '0'){
 
       if($result){
          $view['success'] = _('OK! '.$name.' wurde gelöscht.');
+         $history->save();
          $view['body'] = getPersonList();
          $view['header'] = getHeader('person');
       } else {

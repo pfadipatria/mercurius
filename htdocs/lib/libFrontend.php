@@ -95,6 +95,9 @@ function getMenu($menu = '', $submenu = ''){
       case 'person':
          $personLink = $activeLink;
          break;
+      case 'history':
+         $historyLink = $activeLink;
+         break;
       case 'help':
          $helpLink = $activeLink;
          break;

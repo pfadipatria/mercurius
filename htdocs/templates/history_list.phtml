@@ -1,0 +1,26 @@
+<table class="table table-hover" style="width:auto">
+   <thead>
+      <tr>
+          <!-- <th><?php echo _('Id'); ?></th> -->
+          <th><?php echo _('Date'); ?></th>
+          <th><?php echo _('Key Id'); ?></th>
+          <th><?php echo _('Lock Id'); ?></th>
+          <th><?php echo _('Person Id'); ?></th>
+          <th><?php echo _('Comment'); ?></th>
+          <th><?php echo _('Author'); ?></th>
+      </tr>
+   </thead>
+    <tbody>
+        <?php foreach($view['story'] as $history) { ?>
+            <tr>
+                    <!-- <td><?php echo $history->getId(); ?></td> -->
+                    <td><?php echo $history->getDate(); ?></td>
+                    <td><?php echo $history->getKeyId(); ?></td>
+                    <td><?php echo $history->getLockId(); ?></td>
+                    <td><?php echo $history->getPersonId(); ?></td>
+                    <td><?php echo $history->getComment(); ?></td>
+                    <td><?php echo $history->getAuthorName(); ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
