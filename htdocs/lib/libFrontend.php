@@ -95,18 +95,12 @@ function getMenu($menu = '', $submenu = ''){
       case 'person':
          $personLink = $activeLink;
          break;
-      case 'history':
-         $historyLink = $activeLink;
-         break;
       case 'help':
          $helpLink = $activeLink;
          break;
    }
 
    switch($submenu) {
-      case 'search':
-         $searchLink = $activeLink;
-         break;
       case 'add':
          $addLink = $activeLink;
          break;
@@ -132,9 +126,9 @@ $result = '
          $result .= '
    <ul class="nav nav-justified">
       <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
-      <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li>
+      <!-- <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li> -->
       <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
-      <li><a href="/' . $menu .'/history">Verlauf</a></li>
+      <!-- <li><a href="/' . $menu .'/history">Verlauf</a></li> -->
    </ul>
 ';
       break;
