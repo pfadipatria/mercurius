@@ -7,9 +7,12 @@ function loggedIn() {
    if (isset($_SERVER['REMOTE_USER'])){
       $uid = $_SERVER['REMOTE_USER'];
       if (!uidExists($uid)){
-         // addUser($uid);
-         // #TODO
-         echo 'ERROR: add user function has to be implemented';
+         if(addUser($uid)){
+            // @TODO move this text inside the html tags...
+            echo 'Your user has been added to the database';
+         } else {
+            echo 'Your user could not have been added to the database';
+         }
       }
 
       $activeUserId = getIdFromUid($uid);
@@ -40,4 +43,17 @@ function getIdFromUid($uid) {
    return $result;
 }
 
-?>
+function addUser($uid) {
+   $name = ucfirst($uid);
+   $comment = _('Created automatically');
+   $sql = '
+      INSERT INTO doorperson
+      SET
+         uid = "'.$uid.'",
+         name = "'.$name.'",
+         comment = "'.$comment.'"
+   ';
+
+   $con = openDb();
+   return $dbresult = queryDb($con, $sql);
+}
