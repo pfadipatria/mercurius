@@ -155,6 +155,7 @@ function showKeyAllowPage($keyId = '0'){
 }
 
 function getKeyAllow($key = null){
+   global $activeUserId;
 
    $view = array();
 
@@ -183,6 +184,8 @@ function getKeyAllow($key = null){
 
          if($result){
             $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+            $history = new \SKeyManager\Entity\History();
+            $history->setKeyId($keyId)->setComment('Schlüssel Permission aktualisiert')->setAuthorId($activeUserId)->save();
          } else {
             $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
          }
