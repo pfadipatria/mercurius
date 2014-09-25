@@ -140,4 +140,19 @@ function getLockEdit($lock = null){
    return render($view, 'lock_edit');
 }
 
+function showLockDeletePage($lockId = '0'){
+
+   $lock = new \SKeyManager\Entity\Lock($lockId);
+   $lock->load();
+
+   $view = array(
+      'header' => getHeader('lock', $lockId),
+      'danger' => _('Do not delete locks at this point, just mark them as inactive.'),
+      'body' => getLockDetails($lock),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
 ?>
