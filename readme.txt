@@ -1,23 +1,32 @@
 
 ############################################################################
 #                                                                          #
-#          After SNASA conquered the smoon I present you the               #
+#          After SNASA conquered the smoon, I present you the              #
 #                                                                          #
-#                            skeymanager                                   #
+#                            SKeyManager                                   #
 #                                                                          #
-# The s is abbreviated to prevent legal problems with a producer of locks, #
-#  but it also disguises very good as Winter Sports Administration Tool.   #
+# The S is abbreviated to prevent legal issues with a producer of locks,   #
+# but it also disguises very good as a Winter Sports Administration Tool.  #
 #                                                                          #
 ############################################################################
 
 ############################################################################
 # Installation
 
+ * Install software
+   * Webweserver (Debian/Ubuntu: apache2 libapache2-mod-php5 php-net-ldap2 php5-ldap php5-mysql)
+   * MySQL-Server
+   * Git
+
  * Create database and grants
 
  * Configure apache with the sample from ./projects/apache_sample.conf
-   * Make sure there is a basic auth
-   * Make sure all needed rewrites (and its modul) is present
+   * Add a basic auth
+   * Make sure all needed rewrites are present
+   * Load Modules
+      * rewrite
+      * ldap
+      * authnz_ldap
 
  * Clone repo from hermssb03
 

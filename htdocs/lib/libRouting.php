@@ -40,6 +40,9 @@ function routing($loggedIn = false){
       case 'login':
          showLoginPage();
          break;
+      case 'help':
+         showHelpPage();
+         break;
       default:
          showStartPage();
    }
@@ -144,6 +147,10 @@ function showPersonPage(){
       default:
          showPersonListPage();
    }
+}
+
+function showHelpPage(){
+   showHelpDefaultPage();
 }
 
 function showHistoryPage(){
