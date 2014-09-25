@@ -26,6 +26,18 @@
             <td><?php echo $view['lock']->getName(); ?></td>
          </tr>
          <tr>
+            <th style="text-align:right"><?php echo _('Electronic'); ?>:</th>
+            <td><?php if($view['lock']->getHasBatteries() === '1') { echo _('Yes'); } ?><?php if($view['lock']->getHasBatteries() === '0') { echo _('No'); } ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Type'); ?>:</th>
+            <td><?php echo $view['lock']->getType(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Postition'); ?>:</th>
+            <td><?php echo $view['lock']->getPosition(); ?></td>
+         </tr>
+         <tr>
             <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
             <td><?php echo $view['lock']->getComment(); ?></td>
          </tr>

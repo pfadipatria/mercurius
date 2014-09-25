@@ -20,7 +20,7 @@ class LockRepository extends AbstractRepository {
         ';
 
         $this->order = '
-            ORDER BY sc
+            ORDER BY place,sc,id
         ';
     }
 

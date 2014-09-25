@@ -39,9 +39,41 @@
       <div class="form-group">
          <p style="font-size:1.3em; font-weight:bold"><?php echo _('Internal attributes YOU SHOULD NOT change'); ?></p>
 
+         <label for="code"><?php echo _('SC'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="code" name="code" value="<?php if ($view['hasData']) echo $view['lock']->getCode(); ?>">
+         <p class="help-block"><?php echo _('The \'Schlosscode\' of this lock'); ?></p>
+
+         <label for="venueid"><?php echo _('Venue'); ?></label>
+         <select name="venueid" class="form-control">
+         <?php foreach(getVenues() as $venue) { ?>
+           <option value="<?php echo $venue['id']; ?>"<?php if($view['hasData'] && $view['lock']->getVenueId() == $venue['id']) echo ' selected="selected" selected' ?>><?php echo $venue['name']; ?></option>
+         <?php } ?>
+         </select>
+         <p class="help-block"><?php echo _('Where this lock is located'); ?></p>
+
+         <label for="hasbatteries"><?php echo _('Electronic'); ?></label>
+         <select name="hasbatteries" class="form-control">
+           <option value=""<?php if($view['hasData'] && $view['lock']->getHasBatteries() === '') echo ' selected="selected" selected' ?>><?php echo _('- unknown -'); ?></option>
+           <option value="0"<?php if($view['hasData'] && $view['lock']->getHasBatteries() === '0') echo ' selected="selected" selected' ?>><?php echo _('No'); ?></option>
+           <option value="1"<?php if($view['hasData'] && $view['lock']->getHasBatteries() === '1') echo ' selected="selected" selected' ?>><?php echo _('Yes'); ?></option>
+         </select>
+         <p class="help-block"><?php echo _('Does this lock have an electronic'); ?></p>
+
+         <label for="name"><?php echo _('Name'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="name" name="name" value="<?php if ($view['hasData']) echo $view['lock']->getName(); ?>">
+         <p class="help-block"><?php echo _('The name of the room'); ?></p>
+
          <label for="number"><?php echo _('Number'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="number" name="number" value="<?php if ($view['hasData']) echo $view['lock']->getNumber(); ?>">
-         <p class="help-block"><?php echo _('The number of this lock'); ?></p>
+         <p class="help-block"><?php echo _('The alphanumeric number of this lock'); ?></p>
+
+         <label for="type"><?php echo _('Type'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['lock']->getType(); ?>">
+         <p class="help-block"><?php echo _('The type of this lock'); ?></p>
+
+         <label for="position"><?php echo _('Position'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="position" name="position" value="<?php if ($view['hasData']) echo $view['lock']->getPosition(); ?>">
+         <p class="help-block"><?php echo _('The position of the pins in this lock'); ?></p>
 
 
       </div>

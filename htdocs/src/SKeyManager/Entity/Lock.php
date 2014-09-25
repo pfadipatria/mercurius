@@ -57,6 +57,11 @@ class Lock extends AbstractEntity {
       return $this->code;
    }
 
+   function setCode($code){
+      $this->code = $code;
+      return $this;
+   }
+
    function getNumber(){
       return $this->number;
    }
@@ -70,6 +75,11 @@ class Lock extends AbstractEntity {
       return $this->name;
    }
 
+   function setName($name){
+      $this->name = $name;
+      return $this;
+   }
+
    function getFullName(){
       $name = 'SC '.$this->getCode();
       $name .= $this->getVenue() ? ' - '.$this->getVenue() : '';
@@ -79,6 +89,15 @@ class Lock extends AbstractEntity {
 
    function getVenue(){
       return $this->venuename;
+   }
+
+   function getVenueId(){
+      return $this->venueid;
+   }
+
+   function setVenueId($venueid){
+      $this->venueid = $venueid;
+      return $this;
    }
 
    function getStatus() {
@@ -95,6 +114,33 @@ class Lock extends AbstractEntity {
 
    function setStatusId($statusid){
       $this->statusid = $statusid;
+      return $this;
+   }
+
+   function getHasBatteries(){
+      return $this->hasbatteries;
+   }
+
+   function setHasBatteries($hasbatteries){
+      $this->hasbatteries = $hasbatteries;
+      return $this;
+   }
+
+   function getType(){
+      return $this->type;
+   }
+
+   function setType($type){
+      $this->type = $type;
+      return $this;
+   }
+
+   function getPosition(){
+      return $this->position;
+   }
+
+   function setPosition($position){
+      $this->position = $position;
       return $this;
    }
 
@@ -119,6 +165,12 @@ class Lock extends AbstractEntity {
       $data = array();
       $data['number'] = $this->getNumber() ? '"'.mysqli_real_escape_string($con, $this->getNumber()).'"' : 'NULL';
       $data['status'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
+      $data['sc'] = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
+      $data['place'] = $this->getVenueId() ? '"'.mysqli_real_escape_string($con, $this->getVenueId()).'"' : 'NULL';
+      $data['hasbatteries'] = $this->getHasBatteries() ? '"'.mysqli_real_escape_string($con, $this->getHasBatteries()).'"' : 'NULL';
+      $data['name'] = $this->getName() ? '"'.mysqli_real_escape_string($con, $this->getName()).'"' : 'NULL';
+      $data['type'] = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
+      $data['position'] = $this->getPosition() ? '"'.mysqli_real_escape_string($con, $this->getPosition()).'"' : 'NULL';
       $data['comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
 
       if($this->getId()) {

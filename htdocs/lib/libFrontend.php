@@ -253,4 +253,21 @@ function getPermissionStatusesCss($class = 0){
    return $result;
 }
 
+function getVenues(){
+   $result = array();
+   $sql = '
+      SELECT
+         id,
+         name
+      FROM doorplace
+      ORDER BY id
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'name' => $row['name']);
+   }
+   return $result;
+}
+
 ?>

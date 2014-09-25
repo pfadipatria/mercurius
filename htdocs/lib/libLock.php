@@ -65,6 +65,8 @@ function getLockDetails($lock = null){
 }
 
 function showLockEditPage($lockId = '0'){
+   global $activeUserId;
+
    $view = array(
       'header' => getHeader('lock', ''),
       'footer' => getFooter()
@@ -72,17 +74,26 @@ function showLockEditPage($lockId = '0'){
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $message = '';
+      $history = new \SKeyManager\Entity\History();
       $id = null;
       if (array_key_exists('id',$_POST)) {
          $id = $_POST['id'];
       }
       $lock = new SKeyManager\Entity\Lock($id);
       try {
+         $history->setComment('Schloss erstellt');
          if (array_key_exists('id',$_POST)) {
             $lock->load();
+            $history->setComment('Schloss aktualisiert');
          }
          $lock->setNumber($_POST['number']);
          $lock->setStatusId($_POST['statusid']);
+         $lock->setCode($_POST['code']);
+         $lock->setVenueId($_POST['venueid']);
+         $lock->setHasBatteries($_POST['hasbatteries']);
+         $lock->setName($_POST['name']);
+         $lock->setType($_POST['type']);
+         $lock->setPosition($_POST['position']);
          $lock->setComment($_POST['comment']);
          $result = $lock->save();
       } catch (Exception $exception) {
@@ -92,6 +103,7 @@ function showLockEditPage($lockId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $history->setLockId($lock->getId())->setAuthorId($activeUserId)->save();
          $newLock = new \SKeyManager\Entity\Lock($lock->getId());
          $newLock->load();
          $view['body'] = getLockDetails($newLock);
