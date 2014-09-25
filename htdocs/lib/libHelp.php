@@ -4,13 +4,13 @@ function showHelpDefaultPage(){
 
    global $config;
 
-   $supportName = isset($config['supportName']) ? $config['supportName'] : '<a generic support name>' ;
-   $supportMail = isset($config['supportMail']) ? $config['supportMail'] : 'support@test.com' ;
+   $supportMail = isset($config['supportMail']) ? $config['supportMail'] : '' ;
+   $supportName = isset($config['supportName']) ? $config['supportName'] : $supportMail ;
 
    $helpView = array(
-      $title = _('Help / About'),
-      $supportName = $supportName,
-      $supportMail = $supportMail
+      'title' => _('Help / About'),
+      'supportName' => $supportName,
+      'supportMail' => $supportMail
    );
 
    $view = array(
