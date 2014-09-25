@@ -67,6 +67,8 @@ function getKeyDetails($key = null){
 }
 
 function showKeyEditPage($keyId = '0'){
+   global $activeUserId;
+
    $view = array(
       'header' => getHeader('key', ''),
       'footer' => getFooter()
@@ -74,14 +76,17 @@ function showKeyEditPage($keyId = '0'){
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
       $message = '';
+      $history = new \SKeyManager\Entity\History();
       $id = null;
       if (array_key_exists('id',$_POST)) {
          $id = $_POST['id'];
       }
       $key = new SKeyManager\Entity\Key($id);
       try {
+         $history->setComment('Schlüssel erstellt');
          if (array_key_exists('id',$_POST)) {
             $key->load();
+            $history->setComment('Schlüssel aktualisiert');
          }
          $key->setElNumber($_POST['elnumber']);
          $key->setCode($_POST['code']);
@@ -98,6 +103,7 @@ function showKeyEditPage($keyId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         $history->setKeyId($key->getId())->setAuthorId($activeUserId)->save();
          $newKey = new \SKeyManager\Entity\Key($key->getId());
          $newKey->load();
          $view['body'] = getKeyDetails($newKey);

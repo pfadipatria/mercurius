@@ -27,7 +27,7 @@ abstract class AbstractEntity {
       $sql = '
          UPDATE '.$dbTable.'
          SET
-            '.$idString.'
+            lastupdate = CURRENT_TIMESTAMP()
             ';
          foreach($data as $key => $value) {
             $sql .= '
