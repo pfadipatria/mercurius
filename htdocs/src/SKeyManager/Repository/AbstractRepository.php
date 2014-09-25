@@ -20,4 +20,59 @@ abstract class AbstractRepository {
 
       return $result;
     }
+
+   function deleteDb($dbTable, $conditions) {
+      // prevent deleteting the whole table
+      if(empty($conditions)) {
+         return false;
+      }
+
+      $con = openDb();
+      $sql = '
+         DELETE FROM '.$dbTable.'
+         WHERE
+            ';
+         foreach($conditions as $key => $value) {
+            $sql .= '
+               '.$key.' = '.$value.' AND 
+               ';
+            }
+         $sql .= '
+            TRUE
+            ';
+
+      $dbresult = queryDb($con, $sql);
+      return $dbresult;
+   }
+
+   function updateDb($con, $dbTable, $data, $conditons) {
+      var_dump($data);
+      var_dump($conditions);
+      $sql = '
+         UPDATE '.$dbTable.'
+         SET
+            lastupdate = CURRENT_TIMESTAMP()
+            ';
+         foreach($data as $key => $value) {
+            $sql .= '
+               , '.$key.' = '.$value.'
+               ';
+            }
+         $sql .= '
+            WHERE
+            ';
+         foreach($conditions as $key => $value) {
+            $sql .= '
+               '.$key.' = '.$value.' AND
+               ';
+            }
+         $sql .= '
+               TRUE
+               ';
+
+
+      $dbresult = queryDb($con, $sql);
+      return $dbresult;
+   }
+
 }

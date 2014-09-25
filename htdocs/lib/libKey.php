@@ -150,6 +150,38 @@ function showKeyAllowPage($keyId = '0'){
 
 function getKeyAllow($key = null){
 
+   // User contrib on http://php.net/manual/en/function.preg-grep.php
+   function preg_grep_keys($pattern, $input, $flags = 0) {
+       return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
+   }
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $permValues = preg_grep_keys('/^select/', $_POST);
+      // var_dump($permValues);
+
+      $message = '';
+      $keyId = null;
+      if (array_key_exists('keyid',$_POST)) {
+         $keyId = $_POST['keyid'];
+         $perms = new \SKeyManager\Repository\PermissionRepository;
+         try {
+            foreach($permValues as $lockId => $statusId){
+               $perms->setAllowPermission($keyId, substr($lockId, 6), 'allows', $statusId);
+            }
+         } catch (Exception $exception) {
+            $result = false;
+            $message = ' ('.$exception->getMessage().')';
+         }
+/*
+         if($result){
+            $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
+         } else {
+            $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
+         }
+*/
+      }
+   }
+
    $locks = new \SKeyManager\Repository\LockRepository;
    $perms = new \SKeyManager\Repository\PermissionRepository;
 

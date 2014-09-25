@@ -14,7 +14,7 @@
          <label for="<?php echo $perm['lockid']; ?>"><?php echo $perm['name']; ?></label>
       </td>
       <td>
-         <select id="select<?php echo  $perm['lockid']; ?>" class="form-control" onchange="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(document.getElementById('select<?php echo  $perm['lockid']; ?>').selectedIndex)">
+         <select id="select<?php echo  $perm['lockid']; ?>" name="select<?php echo  $perm['lockid']; ?>" class="form-control" onchange="document.getElementById('entry<?php echo  $perm['lockid']; ?>').className = getClassFromStatusId(document.getElementById('select<?php echo  $perm['lockid']; ?>').selectedIndex)">
          <?php foreach(getPermissionStatuses() as $status) { ?>
            <option value="<?php echo $status['id']; ?>"<?php if($status['id'] == $perm['statusid']) echo ' selected="selected" selected'; ?>><?php echo $status['name']; ?></option>
          <?php } ?>
