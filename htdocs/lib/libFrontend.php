@@ -47,9 +47,12 @@ function getMenuPath ($level = '1') {
 }
 
 function getHeader ($menu = '', $submenu = '') {
+   global $config;
+
    $view = array(
-        'menu' => getMenu($menu, $submenu),
-        'title' => 'skeymanager - dev'
+        'title' => $config['siteName'],
+        'subTitle' => $config['siteSubTitle'],
+        'menu' => getMenu($menu, $submenu)
    );
 
    return render($view, 'header');
@@ -67,81 +70,32 @@ function getFooter () {
 }
 
 function getMenu($menu = '', $submenu = ''){
-   $result = '';
-   if ( $menu == '' ) {
-      return $result;
+
+   $mainEntries = array(
+      'key' => array('path' => '/key', 'name' => _('Schlüssel')),
+      'lock' => array('path' => '/lock', 'name' => _('Schlösser')),
+      'person' => array('path' => '/person', 'name' => _('Personen')),
+      'history' => array('path' => '/history', 'name' => _('Verlauf')),
+      'help' => array('path' => '/help', 'name' => _('Hilfe'))
+   );
+
+   $subEntries = array();
+   if($menu == 'lock' || $menu == 'key' || $menu == 'person' ) {
+      $subEntries = array(
+      'list' => array('path' => '/list', 'name' => _('Liste')),
+      'search' => array('path' => '/search', 'name' => _('Suchen')),
+      'add' => array('path' => '/add', 'name' => _('Hinzufügen'))
+      );
    }
 
-   $activeLink = ' class="active"  ';
-   $passiveLink = ' ';
-   $homeLink = $keysLink = $locksLink = $personLink = $historyLink = $helpLink = $listLink = $searchLink = $addLink = $passiveLink;
+   $view = array(
+      'mainEntries' => $mainEntries,
+      'mainActive' => $menu,
+      'subEntries' => $subEntries,
+      'subActive' => $submenu
+   );
 
-   switch($menu) {
-      case '':
-         $homeLink = $activeLink;
-         break;
-      case 'keys':
-         $keysLink = $activeLink;
-         break;
-      case 'key':
-         $keysLink = $activeLink;
-         break;
-      case 'locks':
-         $locksLink = $activeLink;
-         break;
-      case 'lock':
-         $locksLink = $activeLink;
-         break;
-      case 'person':
-         $personLink = $activeLink;
-         break;
-      case 'history':
-         $historyLink = $activeLink;
-         break;
-      case 'help':
-         $helpLink = $activeLink;
-         break;
-   }
-
-   switch($submenu) {
-      case 'add':
-         $addLink = $activeLink;
-         break;
-   }
-
-$result = '
-
-<h1>SKeyManager - DEV</h1>
-<div class="navbar masthead" style="width:60%">
-   <ul class="nav nav-justified">
-      <li ' . $keysLink . '><a href="/key">Schl&uuml;ssel</a></li>
-      <li ' . $locksLink . '><a href="/lock">Schl&ouml;sser</a></li>
-      <li ' . $personLink . '><a href="/person">Personen</a></li>
-      <li ' . $historyLink . '><a href="/history">Verlauf</a></li>
-      <li ' . $helpLink . '><a href="/help">Help</a></li>
-   </ul>
-';
-
-   switch($menu){
-      case 'keys':
-      case 'locks':
-      case 'person':
-         $result .= '
-   <ul class="nav nav-justified">
-      <li><a href="/' . $menu .'/list"' . $listLink . '>Liste</a></li>
-      <!-- <li><a href="/' . $menu .'/search"' . $searchLink . '>Suchen</a></li> -->
-      <li><a href="/' . $menu .'/add"' . $addLink . '>Hinzuf&uuml;gen</a></li>
-      <!-- <li><a href="/' . $menu .'/history">Verlauf</a></li> -->
-   </ul>
-';
-      break;
-   }
-
-$result .= '</div>';
-
-echo '
-';
-   return $result;
+   return render($view, 'main_menu');
 }
 
 function getUsers(){

@@ -73,6 +73,15 @@ function getClassFromStatusId(statusId) {
 
 </head>
 <body id="seite" bgcolor="#FFFFFF" link="black" vlink="black" alink="red">
-   <?php echo $view['menu']; ?>
    <table width="80%" border="0" align="center">
+   <tr align="center">
+      <td>
+         <h1><?php echo $view['title']; ?> <span style="font-size:0.5em"><span class="glyphicon glyphicon-flash"></span> <?php echo $view['subTitle']; ?></span></h1>
+      </td>
+   </tr>
+   <tr align="center">
+      <td>
+         <?php echo $view['menu']; ?>
+      </td>
+   </tr>
    <tr align="center"><td>

@@ -5,7 +5,7 @@ function showKeyListPage(){
    $keys = new \SKeyManager\Repository\KeyRepository;
 
    $view = array(
-        'header' => getHeader('keys', 'list'),
+        'header' => getHeader('key', 'list'),
         'body' => getKeyList($keys),
         'footer' => getFooter()
     );

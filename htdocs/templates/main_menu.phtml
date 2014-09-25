@@ -1,0 +1,13 @@
+<div class="navbar masthead" style="width:60%">
+   <ul class="nav nav-justified">
+      <?php foreach($view['mainEntries'] as $mainEntry => $menuData) { ?>
+         <li <?php if($view['mainActive'] == $mainEntry) { echo 'style="background:#e0e0e0"'; } ?>><a href="<?php echo $menuData['path']; ?>"><?php echo $menuData['name']; ?></a></li>
+      <?php } ?>
+   <?php if(isset($view['subEntries'])) { ?>
+   <ul class="nav nav-justified">
+      <?php foreach($view['subEntries'] as $subEntry => $menuData) { ?>
+         <li <?php if($view['subActive'] == $subEntry) { echo 'style="background:#e0e0e0"'; } ?>><a href="<?php echo $view['mainEntries'][$view['mainActive']]['path'].$menuData['path']; ?>"><?php echo $menuData['name']; ?></a></li>
+      <?php } ?>
+   </ul>
+   <?php } ?>
+</div>
