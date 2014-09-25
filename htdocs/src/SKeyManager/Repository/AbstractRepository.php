@@ -73,4 +73,19 @@ abstract class AbstractRepository {
       return $dbresult;
    }
 
+   function insertDb($con, $dbTable, $data) {
+      $sql = '
+         INSERT INTO '.$dbTable.'
+         SET
+            lastupdate = CURRENT_TIMESTAMP()
+            ';
+         foreach($data as $key => $value) {
+            $sql .= '
+               , '.$key.' = '.$value.'
+               ';
+            }
+      $dbresult = queryDb($con, $sql);
+      return $dbresult;
+   }
+
 }

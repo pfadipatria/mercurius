@@ -60,9 +60,14 @@ class PermissionRepository extends AbstractRepository {
         if($status == 0){
            return $this->deleteDb($dbTable, $conditions);
         } else {
+           // Check if the permission already exists
            if($this->getKeyAllowedOnLock($keyId, $lockId)) {
                $con = openDb();
                return $this->updateDb($con, $dbTable, array('status' => $status), $conditions);
+           } else {
+               $conditions['status'] = $status;
+               $con = openDb();
+               return $this->insertDb($con, $dbTable, $conditions);
            }
         }
     }

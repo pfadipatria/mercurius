@@ -150,6 +150,8 @@ function showKeyAllowPage($keyId = '0'){
 
 function getKeyAllow($key = null){
 
+   $view = array();
+
    // User contrib on http://php.net/manual/en/function.preg-grep.php
    function preg_grep_keys($pattern, $input, $flags = 0) {
        return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
@@ -166,19 +168,19 @@ function getKeyAllow($key = null){
          $perms = new \SKeyManager\Repository\PermissionRepository;
          try {
             foreach($permValues as $lockId => $statusId){
-               $perms->setAllowPermission($keyId, substr($lockId, 6), 'allows', $statusId);
+               $result = $perms->setAllowPermission($keyId, substr($lockId, 6), 'allows', $statusId);
             }
          } catch (Exception $exception) {
             $result = false;
             $message = ' ('.$exception->getMessage().')';
          }
-/*
+
          if($result){
             $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
          } else {
             $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
          }
-*/
+
       }
    }
 
@@ -201,36 +203,9 @@ function getKeyAllow($key = null){
       'permlist' => $lockList
    );
 
-   $view = array(
-      'title' => sprintf(_('Change allowed locks on %s'), $key->getName()),
-      'perm' => render($permView, 'perm_edit')
-   );
+   $view['title'] = sprintf(_('Change allowed locks on %s'), $key->getName());
+   $view['perm'] = render($permView, 'perm_edit');
 
-   return render($view, 'perm_layout');
-   return;
-//////////////////////////////////////////
-   $allows = new \SKeyManager\Repository\PermissionRepository;
-   $possibleAllows = new \SKeyManager\Repository\PermissionRepository;
-
-   $keyView = array(
-     'key' => $key
-   );
-
-   $allowView = array(
-      'title' => _('Locks allowed on this key'),
-      'perm' => $allows->getAllowedByKeyId($key->getId())
-   );
-/*
-   $possibleView = array(
-      'title' => _('Locks avaible'),
-      'permissions' => $possibleAllows->getNotAllowedByKeyId($key->getId())
-   );
-*/
-   $view = array(
-      'title' => 'Name of Key/Lock',
-      'perm' => render($allowView, 'perm_edit'),
-      // 'right' => render($possibleView, 'perm_entry')
-   );
 
    return render($view, 'perm_layout');
 }
