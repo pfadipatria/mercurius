@@ -12,7 +12,7 @@ do
    # echo "Inserting cn: ${cn} uid: ${uid} uidnumber: ${uidnumber}"
    # continue
    echo "
-INSERT INTO doorperson (
+INSERT INTO person (
                      name,
                      uid,
                      uidnumber

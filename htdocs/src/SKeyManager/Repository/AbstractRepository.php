@@ -29,7 +29,7 @@ abstract class AbstractRepository {
 
       $con = openDb();
       $sql = '
-         DELETE FROM '.$dbTable.'
+         DELETE FROM `'.$dbTable.'`
          WHERE
             ';
          foreach($conditions as $key => $value) {
@@ -47,7 +47,7 @@ abstract class AbstractRepository {
 
    function updateDb($con, $dbTable, $data, $conditions) {
       $sql = '
-         UPDATE '.$dbTable.'
+         UPDATE `'.$dbTable.'`
          SET
             lastupdate = CURRENT_TIMESTAMP()
             ';
@@ -75,7 +75,7 @@ abstract class AbstractRepository {
 
    function insertDb($con, $dbTable, $data) {
       $sql = '
-         INSERT INTO '.$dbTable.'
+         INSERT INTO `'.$dbTable.'`
          SET
             lastupdate = CURRENT_TIMESTAMP()
             ';

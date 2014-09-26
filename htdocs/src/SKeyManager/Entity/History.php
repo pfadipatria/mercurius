@@ -11,11 +11,11 @@ class History extends AbstractEntity {
             SELECT
                history.id AS id,
                history.keyid,
-               doorkey.code AS keycode,
+               key.code AS keycode,
                history.lockid,
-               doorlock.sc AS lockcode,
+               lock.sc AS lockcode,
                personid,
-               doorperson.name AS personname,
+               person.name AS personname,
                history.comment AS comment,
                history.userid,
                user.name AS username,
@@ -23,11 +23,11 @@ class History extends AbstractEntity {
         ';
 
         $this->from = '
-            FROM history
-            LEFT JOIN doorkey ON (history.keyid = doorkey.id)
-            LEFT JOIN doorlock ON (history.lockid = doorlock.id)
-            LEFT JOIN doorperson ON (history.personid = doorperson.id)
-            LEFT JOIN doorperson AS user ON (history.userid = user.id)
+            FROM `history`
+            LEFT JOIN `key` ON (history.keyid = key.id)
+            LEFT JOIN `lock` ON (history.lockid = lock.id)
+            LEFT JOIN `person` ON (history.personid = person.id)
+            LEFT JOIN `person` AS user ON (history.userid = user.id)
         ';
 
       $this->where = '
@@ -40,7 +40,7 @@ class History extends AbstractEntity {
     }
 
    // Needed to provide a Name of a 'empty' history entry ?
-   function __get() {
+   function __get($arg) {
       return null;
    }
 

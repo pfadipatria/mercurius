@@ -20,10 +20,10 @@ class Person extends AbstractEntity {
       ';
 
       $this->from = '
-         FROM doorperson
+         FROM `person`
       ';
       $this->where = '
-         WHERE doorperson.id = '.$id.'
+         WHERE person.id = '.$id.'
       ';
       $this->order = '
          ORDER BY name;
@@ -31,7 +31,7 @@ class Person extends AbstractEntity {
    }
 
    // Needed to provide a Name of a 'empty' person ?
-   function __get() {
+   function __get($arg) {
       return null;
    }
 
@@ -112,7 +112,7 @@ class Person extends AbstractEntity {
    }
 
    function save() {
-      $dbTable = 'doorperson';
+      $dbTable = 'person';
       $con = openDb();
 
       $data = array();
@@ -136,7 +136,7 @@ class Person extends AbstractEntity {
       if($this->getId()) {
          $con = openDb();
          $sql = '
-            DELETE FROM doorperson
+            DELETE FROM `person`
             WHERE id = '.mysqli_real_escape_string($con, $this->getId()).'
          ';
          $return = queryDb($con, $sql);

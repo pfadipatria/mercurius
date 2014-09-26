@@ -61,7 +61,7 @@ function getKeyFromDb(){
    $result = array();
 
 /*
-   $query = 'select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) ';
+   $query = 'select key.id,elnumber,code,keycolor.name AS colorname,keytatus.name AS statusname,keymech.bezeichung AS bezeichung,comment from key JOIN keycolor ON (key.color = keycolor.id ) JOIN keytatus ON (key.status = keytatus.id) JOIN keymech ON (key.mechnumber = keymech.id ) ';
    $con = openDb();
    $dbresult = queryDb($con, $query);
 	while ($row = mysqli_fetch_array($dbresult)){
@@ -69,8 +69,8 @@ function getKeyFromDb(){
    }
 */
 
-  # $query = 'select doorkey.id,elnumber,code,doorkeycolor.name AS colorname,doorkeytatus.name AS statusname,doorkeymech.bezeichung AS bezeichung,comment from doorkey JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id ) JOIN doorkeytatus ON (doorkey.status = doorkeytatus.id) JOIN doorkeymech ON (doorkey.mechnumber = doorkeymech.id ) LIMIT 10';
-   $query = 'select * from doorkey limit 10';
+  # $query = 'select key.id,elnumber,code,keycolor.name AS colorname,keytatus.name AS statusname,keymech.bezeichung AS bezeichung,comment from key JOIN keycolor ON (key.color = keycolor.id ) JOIN keytatus ON (key.status = keytatus.id) JOIN keymech ON (key.mechnumber = keymech.id ) LIMIT 10';
+   $query = 'select * from key limit 10';
    $con = openDb();
    $dbresult = queryDb($con, $query);
 /*	while ($row = mysqli_fetch_array($dbresult)){

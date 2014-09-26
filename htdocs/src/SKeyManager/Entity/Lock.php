@@ -9,28 +9,28 @@ class Lock extends AbstractEntity {
     function __construct($id = null) {
         $this->select = '
             SELECT
-               doorlock.id AS id,
+               lock.id AS id,
                number,
-               doorlock.name AS name,
+               lock.name AS name,
                sc AS code,
                comment,
                lastupdate,
                type,
                position,
                hasbatteries,
-               doorplace.name AS venuename,
-               doorplace.id AS venueid,
-               doorlock.status AS statusid,
-               doorlockstatus.name AS statusname
+               place.name AS venuename,
+               place.id AS venueid,
+               lock.status AS statusid,
+               lockstatus.name AS statusname
         ';
 
         $this->from = '
-               FROM doorlock
-               LEFT JOIN doorplace ON (doorlock.place = doorplace.id)
-               LEFT JOIN doorlockstatus ON (doorlock.status = doorlockstatus.id)
+               FROM `lock`
+               LEFT JOIN `place` ON (lock.place = place.id)
+               LEFT JOIN `lockstatus` ON (lock.status = lockstatus.id)
         ';
         $this->where = '
-               WHERE doorlock.id = '.$id.'
+               WHERE lock.id = '.$id.'
         ';
         $this->order = '
                ORDER BY sc
@@ -45,7 +45,7 @@ class Lock extends AbstractEntity {
    }
 
    // Needed to provide a Name of a 'empty' lock ?
-   function __get() {
+   function __get($arg) {
       return null;
    }
 
@@ -159,7 +159,7 @@ class Lock extends AbstractEntity {
 
    function save() {
       $idString = '';
-      $dbTable = 'doorlock';
+      $dbTable = 'lock';
       $con = openDb();
 
       $data = array();

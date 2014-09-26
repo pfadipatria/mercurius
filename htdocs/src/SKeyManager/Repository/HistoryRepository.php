@@ -14,7 +14,7 @@ class HistoryRepository extends AbstractRepository {
         ';
 
         $this->from = '
-            FROM history
+            FROM `history`
         ';
 
         $this->order = '

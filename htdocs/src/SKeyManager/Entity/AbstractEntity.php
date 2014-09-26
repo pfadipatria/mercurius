@@ -24,7 +24,7 @@ abstract class AbstractEntity {
 
    function updateDb($con, $dbTable, $data, $idString) {
       $sql = '
-         UPDATE '.$dbTable.'
+         UPDATE `'.$dbTable.'`
          SET
             lastupdate = CURRENT_TIMESTAMP()
             ';
@@ -44,7 +44,7 @@ abstract class AbstractEntity {
 
    function insertDb($con, $dbTable, $data) {
       $sql = '
-         INSERT INTO '.$dbTable.'
+         INSERT INTO `'.$dbTable.'`
             ( lastupdate ';
       $keys = '';
       $values = '';

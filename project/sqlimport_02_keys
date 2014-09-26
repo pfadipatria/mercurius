@@ -1,5 +1,5 @@
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -14,15 +14,15 @@ INSERT INTO doorkey (
                      '1',
                      '1001',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
 		             '1',
                      'imported old M. Wenger / Gummi'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -37,15 +37,15 @@ INSERT INTO doorkey (
                      '3',
                      '1003',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '4',
                      'imported old Heimkoordinator'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -60,15 +60,15 @@ INSERT INTO doorkey (
                      '4',
                      '1004',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '3',
                      'imported old GPP Sekretariat 1'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -83,15 +83,15 @@ INSERT INTO doorkey (
                      '5',
                      '1005',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '3',
                      'imported old GPP Sekretariat 2'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -106,15 +106,15 @@ INSERT INTO doorkey (
                      '6',
                      '1006',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '5',
                      'imported Trüff'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -129,15 +129,15 @@ INSERT INTO doorkey (
                      '7',
                      '1007',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '2',
                      'imported Ketchup'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -152,15 +152,15 @@ INSERT INTO doorkey (
                      '8',
                      '1008',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '4',
                      'imported old M. Rieben / Question'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -175,15 +175,15 @@ INSERT INTO doorkey (
                      '10',
                      '1010',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      '2',
                      'imported old GPP Delbag'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -198,15 +198,15 @@ INSERT INTO doorkey (
                      '11',
                      '1501',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      '4',
                      'imported old W. Niklaus 1/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -220,14 +220,14 @@ INSERT INTO doorkey (
                      '12',
                      '1502',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old W. Niklaus 2/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -241,14 +241,14 @@ INSERT INTO doorkey (
                      '13',
                      '1503',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old W. Niklaus 3/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -262,14 +262,14 @@ INSERT INTO doorkey (
                      '14',
                      '1521',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '3'),
+                     (SELECT id FROM keymech WHERE number = '3'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -283,14 +283,14 @@ INSERT INTO doorkey (
                      '16',
                      '1523',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '3'),
+                     (SELECT id FROM keymech WHERE number = '3'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -304,14 +304,14 @@ INSERT INTO doorkey (
                      '17',
                      '1541',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '4'),
+                     (SELECT id FROM keymech WHERE number = '4'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old T. V.Graffenried / P'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -325,14 +325,14 @@ INSERT INTO doorkey (
                      '18',
                      '1542',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '4'),
+                     (SELECT id FROM keymech WHERE number = '4'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported Trüff'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -346,14 +346,14 @@ INSERT INTO doorkey (
                      '19',
                      '1543',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '4'),
+                     (SELECT id FROM keymech WHERE number = '4'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported Trüff'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -367,14 +367,14 @@ INSERT INTO doorkey (
                      '20',
                      '1561',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '5'),
+                     (SELECT id FROM keymech WHERE number = '5'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Abwart MRR'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -388,14 +388,14 @@ INSERT INTO doorkey (
                      '21',
                      '1562',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '5'),
+                     (SELECT id FROM keymech WHERE number = '5'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported Abwart MRR'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -409,14 +409,14 @@ INSERT INTO doorkey (
                      '23',
                      '1581',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 1/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -430,14 +430,14 @@ INSERT INTO doorkey (
                      '24',
                      '1582',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 2/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -451,14 +451,14 @@ INSERT INTO doorkey (
                      '25',
                      '1583',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 3/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -472,14 +472,14 @@ INSERT INTO doorkey (
                      '26',
                      '1584',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Abwart MRR'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -493,14 +493,14 @@ INSERT INTO doorkey (
                      '27',
                      '1585',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -514,14 +514,14 @@ INSERT INTO doorkey (
                      '29',
                      '1702',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported Vreni Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -535,14 +535,14 @@ INSERT INTO doorkey (
                      '30',
                      '1703',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -556,14 +556,14 @@ INSERT INTO doorkey (
                      '31',
                      '1704',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old D. Schatzmann / Ston'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -577,14 +577,14 @@ INSERT INTO doorkey (
                      '33',
                      '1706',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported Crash'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -598,14 +598,14 @@ INSERT INTO doorkey (
                      '34',
                      '1707',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported Hägi'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -619,14 +619,14 @@ INSERT INTO doorkey (
                      '35',
                      '1708',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported '
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -640,14 +640,14 @@ INSERT INTO doorkey (
                      '36',
                      '1709',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported '
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -661,14 +661,14 @@ INSERT INTO doorkey (
                      '37',
                      '1801',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '8'),
+                     (SELECT id FROM keymech WHERE number = '8'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old Fam. Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -682,14 +682,14 @@ INSERT INTO doorkey (
                      '38',
                      '1802',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '8'),
+                     (SELECT id FROM keymech WHERE number = '8'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported Mieter Habg / Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -703,14 +703,14 @@ INSERT INTO doorkey (
                      '39',
                      '1803',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '8'),
+                     (SELECT id FROM keymech WHERE number = '8'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -724,14 +724,14 @@ INSERT INTO doorkey (
                      '41',
                      '1902',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '9'),
+                     (SELECT id FROM keymech WHERE number = '9'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old Fam. Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -745,14 +745,14 @@ INSERT INTO doorkey (
                      '42',
                      '1903',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '9'),
+                     (SELECT id FROM keymech WHERE number = '9'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -766,14 +766,14 @@ INSERT INTO doorkey (
                      '43',
                      '1261',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported old V. Singa / Wakita 1/'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -787,14 +787,14 @@ INSERT INTO doorkey (
                      '44',
                      '1262',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported old V. Singa / Wakita 2/'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -808,14 +808,14 @@ INSERT INTO doorkey (
                      '46',
                      '1264',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -829,14 +829,14 @@ INSERT INTO doorkey (
                      '47',
                      '1265',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported '
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -850,14 +850,14 @@ INSERT INTO doorkey (
                      '48',
                      '1266',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -871,14 +871,14 @@ INSERT INTO doorkey (
                      '49',
                      '2361',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '11'),
+                     (SELECT id FROM keymech WHERE number = '11'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '5'),
+                     (SELECT id FROM keycolor WHERE colorid = '5'),
                      'imported old P. Ammann / Shrimp'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -892,14 +892,14 @@ INSERT INTO doorkey (
                      '50',
                      '2362',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '11'),
+                     (SELECT id FROM keymech WHERE number = '11'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '5'),
+                     (SELECT id FROM keycolor WHERE colorid = '5'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -913,14 +913,14 @@ INSERT INTO doorkey (
                      '52',
                      '2402',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '12'),
+                     (SELECT id FROM keymech WHERE number = '12'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Martin Mischler 2/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -934,14 +934,14 @@ INSERT INTO doorkey (
                      '53',
                      '2403',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '12'),
+                     (SELECT id FROM keymech WHERE number = '12'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Martin Mischler 3/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -955,14 +955,14 @@ INSERT INTO doorkey (
                      '54',
                      '2441',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '13'),
+                     (SELECT id FROM keymech WHERE number = '13'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old D. Arni / Trüff'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -976,14 +976,14 @@ INSERT INTO doorkey (
                      '55',
                      '2442',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '13'),
+                     (SELECT id FROM keymech WHERE number = '13'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old P. Beyeler / Smart'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -997,14 +997,14 @@ INSERT INTO doorkey (
                      '56',
                      '2443',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '13'),
+                     (SELECT id FROM keymech WHERE number = '13'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old A. Amsler / Baghi'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1018,14 +1018,14 @@ INSERT INTO doorkey (
                      '58',
                      '2481',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '14'),
+                     (SELECT id FROM keymech WHERE number = '14'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Mieter 1/5 alles'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1039,14 +1039,14 @@ INSERT INTO doorkey (
                      '59',
                      '2482',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '14'),
+                     (SELECT id FROM keymech WHERE number = '14'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Mieter 2/5 ohne Bar'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1060,14 +1060,14 @@ INSERT INTO doorkey (
                      '60',
                      '2483',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '14'),
+                     (SELECT id FROM keymech WHERE number = '14'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1081,14 +1081,14 @@ INSERT INTO doorkey (
                      '61',
                      '2521',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 1/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1102,14 +1102,14 @@ INSERT INTO doorkey (
                      '62',
                      '2522',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 2/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1123,14 +1123,14 @@ INSERT INTO doorkey (
                      '63',
                      '2523',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 3/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1144,14 +1144,14 @@ INSERT INTO doorkey (
                      '64',
                      '2524',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Schach 1/3'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1165,14 +1165,14 @@ INSERT INTO doorkey (
                      '66',
                      '2526',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Schach 3/3'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1186,14 +1186,14 @@ INSERT INTO doorkey (
                      '67',
                      '2541',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '16'),
+                     (SELECT id FROM keymech WHERE number = '16'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Mieter 3/5 ohne Auf.'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1207,14 +1207,14 @@ INSERT INTO doorkey (
                      '69',
                      '1102',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1228,14 +1228,14 @@ INSERT INTO doorkey (
                      '70',
                      '1103',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old A. Baumann / Omega'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1249,14 +1249,14 @@ INSERT INTO doorkey (
                      '71',
                      '1104',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Fuso'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1270,14 +1270,14 @@ INSERT INTO doorkey (
                      '72',
                      '1131',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '18'),
+                     (SELECT id FROM keymech WHERE number = '18'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster / kaputt?'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1291,14 +1291,14 @@ INSERT INTO doorkey (
                      '73',
                      '1132',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '18'),
+                     (SELECT id FROM keymech WHERE number = '18'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old B. Lüthi'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1312,14 +1312,14 @@ INSERT INTO doorkey (
                      '74',
                      '1161',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '19'),
+                     (SELECT id FROM keymech WHERE number = '19'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Merlin'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1333,14 +1333,14 @@ INSERT INTO doorkey (
                      '75',
                      '1162',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '19'),
+                     (SELECT id FROM keymech WHERE number = '19'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old S. Hauck / Cumulus'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1354,14 +1354,14 @@ INSERT INTO doorkey (
                      '77',
                      '1164',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '19'),
+                     (SELECT id FROM keymech WHERE number = '19'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old M. Nuspliger / Smile'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1375,14 +1375,14 @@ INSERT INTO doorkey (
                      '78',
                      '1201',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1396,14 +1396,14 @@ INSERT INTO doorkey (
                      '79',
                      '1202',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported A. Quadri / Colibri'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1417,14 +1417,14 @@ INSERT INTO doorkey (
                      '80',
                      '1203',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Allegro'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1438,14 +1438,14 @@ INSERT INTO doorkey (
                      '82',
                      '1205',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1459,14 +1459,14 @@ INSERT INTO doorkey (
                      '83',
                      '1206',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster / kaputt'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1480,14 +1480,14 @@ INSERT INTO doorkey (
                      '84',
                      '1301',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Amada'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1501,14 +1501,14 @@ INSERT INTO doorkey (
                      '85',
                      '1302',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Sinalco'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1522,14 +1522,14 @@ INSERT INTO doorkey (
                      '86',
                      '1303',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Luc Pelletier / Slus'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1543,14 +1543,14 @@ INSERT INTO doorkey (
                      '88',
                      '1305',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old N. Funariu / Delphin'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1564,14 +1564,14 @@ INSERT INTO doorkey (
                      '89',
                      '1306',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Karbon'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1585,14 +1585,14 @@ INSERT INTO doorkey (
                      '90',
                      '1307',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported kaputt'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1606,14 +1606,14 @@ INSERT INTO doorkey (
                      '91',
                      '1308',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old B. Kurz / Ilia'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1627,14 +1627,14 @@ INSERT INTO doorkey (
                      '92',
                      '1309',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old M. Liechti / Libra'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1648,14 +1648,14 @@ INSERT INTO doorkey (
                      '93',
                      '1310',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Weasley'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1669,14 +1669,14 @@ INSERT INTO doorkey (
                      '94',
                      '1311',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Francesca Stocker / Cele'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1690,14 +1690,14 @@ INSERT INTO doorkey (
                      '96',
                      '1313',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old S. Baer / Nuña'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1711,14 +1711,14 @@ INSERT INTO doorkey (
                      '97',
                      '1314',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Krusty'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1732,14 +1732,14 @@ INSERT INTO doorkey (
                      '98',
                      '1315',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported David Moos / Pax'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1753,14 +1753,14 @@ INSERT INTO doorkey (
                      '99',
                      '1316',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported kaputt'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1774,14 +1774,14 @@ INSERT INTO doorkey (
                      '100',
                      '1317',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1795,14 +1795,14 @@ INSERT INTO doorkey (
                      '2',
                      '1002',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old D. Perrenoud / Pant'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1816,14 +1816,14 @@ INSERT INTO doorkey (
                      '9',
                      '1009',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '1',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Hermelin'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1837,14 +1837,14 @@ INSERT INTO doorkey (
                      '22',
                      '1563',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '5'),
+                     (SELECT id FROM keymech WHERE number = '5'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Sekretariat'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1858,14 +1858,14 @@ INSERT INTO doorkey (
                      '28',
                      '1701',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported Werner Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1879,14 +1879,14 @@ INSERT INTO doorkey (
                      '32',
                      '1705',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '7'),
+                     (SELECT id FROM keymech WHERE number = '7'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old N. Perrottet / Chisu'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1900,14 +1900,14 @@ INSERT INTO doorkey (
                      '40',
                      '1901',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '9'),
+                     (SELECT id FROM keymech WHERE number = '9'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '3'),
+                     (SELECT id FROM keycolor WHERE colorid = '3'),
                      'imported old Fam. Wenger'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1921,14 +1921,14 @@ INSERT INTO doorkey (
                      '45',
                      '1263',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '10'),
+                     (SELECT id FROM keymech WHERE number = '10'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '7'),
+                     (SELECT id FROM keycolor WHERE colorid = '7'),
                      'imported old V. Singa / Wakita 3/'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1942,14 +1942,14 @@ INSERT INTO doorkey (
                      '51',
                      '2401',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '12'),
+                     (SELECT id FROM keymech WHERE number = '12'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Martin Mischler 1/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1963,14 +1963,14 @@ INSERT INTO doorkey (
                      '57',
                      '2444',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '13'),
+                     (SELECT id FROM keymech WHERE number = '13'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old D. Arni / Trüff'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -1984,14 +1984,14 @@ INSERT INTO doorkey (
                      '65',
                      '2525',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Schach 2/3'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2005,14 +2005,14 @@ INSERT INTO doorkey (
                      '68',
                      '1101',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old C. Laubscher / Spiro'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2026,14 +2026,14 @@ INSERT INTO doorkey (
                      '76',
                      '1163',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '19'),
+                     (SELECT id FROM keymech WHERE number = '19'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old E. Gass / Tintin'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2047,14 +2047,14 @@ INSERT INTO doorkey (
                      '81',
                      '1204',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old A. Kurz / Zivy'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2068,14 +2068,14 @@ INSERT INTO doorkey (
                      '87',
                      '1304',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported Nova'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2089,14 +2089,14 @@ INSERT INTO doorkey (
                      '95',
                      '1312',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '8'),
+                     (SELECT id FROM keycolor WHERE colorid = '8'),
                      'imported old S. Biesold / Caillou'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2110,14 +2110,14 @@ INSERT INTO doorkey (
                      '101',
                      '2404',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '12'),
+                     (SELECT id FROM keymech WHERE number = '12'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '5'),
+                     (SELECT id FROM keycolor WHERE colorid = '5'),
                      'imported old Martin Mischler 4/4'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2131,14 +2131,14 @@ INSERT INTO doorkey (
                      '107',
                      '1504',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2152,14 +2152,14 @@ INSERT INTO doorkey (
                      '108',
                      '1586',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 4/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2173,14 +2173,14 @@ INSERT INTO doorkey (
                      '109',
                      '1587',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 5/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2194,14 +2194,14 @@ INSERT INTO doorkey (
                      '110',
                      '1588',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 6/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2215,14 +2215,14 @@ INSERT INTO doorkey (
                      '111',
                      '1589',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 7/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2236,14 +2236,14 @@ INSERT INTO doorkey (
                      '112',
                      '1590',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '6'),
+                     (SELECT id FROM keymech WHERE number = '6'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported old Doron 8/8'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2257,14 +2257,14 @@ INSERT INTO doorkey (
                      '15',
                      '1522',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '3'),
+                     (SELECT id FROM keymech WHERE number = '3'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '9'),
+                     (SELECT id FROM keycolor WHERE colorid = '9'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2278,14 +2278,14 @@ INSERT INTO doorkey (
                      '113',
                      '1011',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2299,14 +2299,14 @@ INSERT INTO doorkey (
                      '114',
                      '1505',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Abu Seck'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2320,14 +2320,14 @@ INSERT INTO doorkey (
                      '115',
                      '1506',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Stähli - Seck'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2341,14 +2341,14 @@ INSERT INTO doorkey (
                      '102',
                      '2527',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 4/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2362,14 +2362,14 @@ INSERT INTO doorkey (
                      '103',
                      '2528',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 5/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2383,14 +2383,14 @@ INSERT INTO doorkey (
                      '104',
                      '2529',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '15'),
+                     (SELECT id FROM keymech WHERE number = '15'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Salsa 6/6'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2404,14 +2404,14 @@ INSERT INTO doorkey (
                      '105',
                      '2542',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '16'),
+                     (SELECT id FROM keymech WHERE number = '16'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Mieter 4/5 nur Kü + '
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2425,14 +2425,14 @@ INSERT INTO doorkey (
                      '106',
                      '2543',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '16'),
+                     (SELECT id FROM keymech WHERE number = '16'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '1'),
+                     (SELECT id FROM keycolor WHERE colorid = '1'),
                      'imported old Mieter 5/5 nur Saal'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2446,14 +2446,14 @@ INSERT INTO doorkey (
                      '116',
                      '1207',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '20'),
+                     (SELECT id FROM keymech WHERE number = '20'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Kerstin Fleisch / Cayenn'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2467,14 +2467,14 @@ INSERT INTO doorkey (
                      '117',
                      '1318',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Merlin'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2488,14 +2488,14 @@ INSERT INTO doorkey (
                      '118',
                      '1319',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Vera Käser / Cherry'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2509,14 +2509,14 @@ INSERT INTO doorkey (
                      '119',
                      '1320',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Ozelot'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2530,14 +2530,14 @@ INSERT INTO doorkey (
                      '120',
                      '1321',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Nero'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2551,14 +2551,14 @@ INSERT INTO doorkey (
                      '127',
                      '1327',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Esther Marbach / Melek'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2572,14 +2572,14 @@ INSERT INTO doorkey (
                      '128',
                      '1328',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Auriga'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2593,14 +2593,14 @@ INSERT INTO doorkey (
                      '129',
                      '1329',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Melanie Schäfer / Nina'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2614,14 +2614,14 @@ INSERT INTO doorkey (
                      '130',
                      '1012',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '1'),
+                     (SELECT id FROM keymech WHERE number = '1'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Beat Egger / Chisu'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2635,14 +2635,14 @@ INSERT INTO doorkey (
                      '124',
                      '1325',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Stephanie Zaugg / Nyella'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2656,14 +2656,14 @@ INSERT INTO doorkey (
                      '121',
                      '1322',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Patricia Balz / Maki'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2677,14 +2677,14 @@ INSERT INTO doorkey (
                      '122',
                      '1323',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Vera Greuter / Picea'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2698,14 +2698,14 @@ INSERT INTO doorkey (
                      '123',
                      '1324',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Anna Stocker / Serafina'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2719,14 +2719,14 @@ INSERT INTO doorkey (
                      '125',
                      '1326',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Nova'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2740,14 +2740,14 @@ INSERT INTO doorkey (
                      '126',
                      '1105',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Robert Schiske'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2761,14 +2761,14 @@ INSERT INTO doorkey (
                      '131',
                      '1330',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported T B Tännler / Panda'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2782,14 +2782,14 @@ INSERT INTO doorkey (
                      '132',
                      '1331',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '21'),
+                     (SELECT id FROM keymech WHERE number = '21'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Leonie Richard / Tanoshi'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2803,14 +2803,14 @@ INSERT INTO doorkey (
                      '133',
                      '1106',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported keymaster'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2824,14 +2824,14 @@ INSERT INTO doorkey (
                      '134',
                      '1107',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '17'),
+                     (SELECT id FROM keymech WHERE number = '17'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported temp. Barteam'
                     );
 
 
-INSERT INTO doorkey (
+INSERT INTO `key` (
                      elnumber,
                      code,
                      type,
@@ -2845,9 +2845,9 @@ INSERT INTO doorkey (
                      '135',
                      '1507',
                      '2',
-                     (SELECT id FROM doorkeymech WHERE number = '2'),
+                     (SELECT id FROM keymech WHERE number = '2'),
                      '0',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '255'),
+                     (SELECT id FROM keycolor WHERE colorid = '255'),
                      'imported Matthias Gähwiler'
                     );
 

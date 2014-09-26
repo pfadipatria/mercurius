@@ -15,7 +15,7 @@ do
 
    # echo "Inserting elnummer: ${elnumber} code: ${code} mechnumber: ${mechnumber} color: ${color} name: ${name}"
    echo "
-INSERT INTO doorkey (
+INSERT INTO key (
                      elnumber,
                      code,
                      type,
@@ -29,9 +29,9 @@ INSERT INTO doorkey (
                      '${elnumber}',
                      '${code}',
                      '${type}',
-                     (SELECT id FROM doorkeymech WHERE number = '${mechnumber}'),
+                     (SELECT id FROM keymech WHERE number = '${mechnumber}'),
                      '${com}',
-                     (SELECT id FROM doorkeycolor WHERE colorid = '${color}'),
+                     (SELECT id FROM keycolor WHERE colorid = '${color}'),
                      'imported ${name}'
                     );
 " | iconv -f ISO-8859-1 -t UTF-8

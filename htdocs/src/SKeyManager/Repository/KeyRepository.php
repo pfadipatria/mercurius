@@ -14,7 +14,7 @@ class KeyRepository extends AbstractRepository {
         ';
 
         $this->from = '
-            FROM doorkey
+            FROM `key`
         ';
 
         $this->where = '

@@ -12,34 +12,34 @@ class Key extends AbstractEntity {
     function __construct($id = null) {
         $this->select = '
             SELECT
-               doorkey.id,
+               key.id,
                elnumber,
                code,
                type,
-               doorkeycolor.name AS colorname,
-               doorkeycolor.id AS colorid,
-               doorkeystatus.name AS statusname,
-               doorkeystatus.id AS statusid,
-               doorkeymech.bezeichung AS description,
+               keycolor.name AS colorname,
+               keycolor.id AS colorid,
+               keystatus.name AS statusname,
+               keystatus.id AS statusid,
+               keymech.bezeichung AS description,
                holder AS holderid,
-               doorkey.comment AS comment,
+               key.comment AS comment,
                communication,
-               doorkey.lastupdate AS lastupdate
+               key.lastupdate AS lastupdate
         ';
 
         $this->from = '
-            FROM doorkey
-            LEFT JOIN doorkeycolor ON (doorkey.color = doorkeycolor.id)
-            LEFT JOIN doorkeystatus ON (doorkey.status = doorkeystatus.id)
-            LEFT JOIN doorkeymech ON (doorkey.mech = doorkeymech.id)
+            FROM `key`
+            LEFT JOIN `keycolor` ON (key.color = keycolor.id)
+            LEFT JOIN `keystatus` ON (key.status = keystatus.id)
+            LEFT JOIN `keymech` ON (key.mech = keymech.id)
         ';
 
       $this->where = '
-         WHERE doorkey.id = '.$id.'
+         WHERE key.id = '.$id.'
       ';
 
         $this->order = '
-            ORDER BY doorkey.code
+            ORDER BY key.code
         ';
     }
 
@@ -162,7 +162,7 @@ class Key extends AbstractEntity {
 
    function save() {
       $idString = '';
-      $dbTable = 'doorkey';
+      $dbTable = 'key';
       $con = openDb();
 
       $data = array();

@@ -25,7 +25,7 @@ function loggedIn() {
 function uidExists($uid) {
    $result = false;
 
-   $query = "select count(*) from doorperson where uid = '" . $uid . "';";
+   $query = "select count(*) from person where uid = '" . $uid . "';";
    $count = queryValue($query);
    if ( $count == 1 ) {
       $result = true;
@@ -37,7 +37,7 @@ function uidExists($uid) {
 function getIdFromUid($uid) {
    $result = 0;
 
-   $query = "select id from doorperson where uid = '" . $uid . "';";
+   $query = "select id from person where uid = '" . $uid . "';";
    $result = queryValue($query);
 
    return $result;
@@ -47,7 +47,7 @@ function addUser($uid) {
    $name = ucfirst($uid);
    $comment = _('Created automatically');
    $sql = '
-      INSERT INTO doorperson
+      INSERT INTO person
       SET
          uid = "'.$uid.'",
          name = "'.$name.'",

@@ -1,5 +1,5 @@
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -10,11 +10,11 @@ INSERT INTO doorlock (
                      'MUB',
                      'Saal-Hof Aussen',
                      '101',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -25,11 +25,11 @@ INSERT INTO doorlock (
                      'MUB',
                      'Saal-Hof Innen',
                      '102',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -40,11 +40,11 @@ INSERT INTO doorlock (
                      'MUC',
                      'Korridor Aussen',
                      '103',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -55,11 +55,11 @@ INSERT INTO doorlock (
                      'MUD',
                      'Bar Aussen',
                      '104',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -70,11 +70,11 @@ INSERT INTO doorlock (
                      'MUE',
                      'Bar Innen',
                      '105',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -85,11 +85,11 @@ INSERT INTO doorlock (
                      'MUF',
                      ' Putzraum Treppe',
                      '106',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -100,11 +100,11 @@ INSERT INTO doorlock (
                      'MUG',
                      'Putzraum Gang',
                      '107',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -115,11 +115,11 @@ INSERT INTO doorlock (
                      'MUI',
                      'Archiv',
                      '108',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -130,11 +130,11 @@ INSERT INTO doorlock (
                      'MUJ',
                      'Küche ',
                      '109',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -145,11 +145,11 @@ INSERT INTO doorlock (
                      'MUK',
                      'Saal Innen',
                      '110',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -160,11 +160,11 @@ INSERT INTO doorlock (
                      'MEA',
                      'Haupteingang',
                      '111',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -175,11 +175,11 @@ INSERT INTO doorlock (
                      'MEB',
                      'Material',
                      '112',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -190,11 +190,11 @@ INSERT INTO doorlock (
                      'MEC',
                      'Gang',
                      '113',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -205,11 +205,11 @@ INSERT INTO doorlock (
                      'MED',
                      'Hallo',
                      '114',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -220,11 +220,11 @@ INSERT INTO doorlock (
                      'MEE',
                      'Stockeren',
                      '115',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -235,11 +235,11 @@ INSERT INTO doorlock (
                      'MEF',
                      'Mannenberg',
                      '116',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -250,11 +250,11 @@ INSERT INTO doorlock (
                      'MEG',
                      'Führer West',
                      '117',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -265,11 +265,11 @@ INSERT INTO doorlock (
                      'M1B',
                      'Saal',
                      '118',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -280,11 +280,11 @@ INSERT INTO doorlock (
                      'M2A',
                      'Vorplatz Abwartswohn.',
                      '119',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -295,11 +295,11 @@ INSERT INTO doorlock (
                      'M2C',
                      'Archiv',
                      '120',
-                     (SELECT id FROM doorplace WHERE name = 'Mauerrain')
+                     (SELECT id FROM place WHERE name = 'Mauerrain')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -310,11 +310,11 @@ INSERT INTO doorlock (
                      'HUA',
                      'Dusche Herren',
                      '201',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -325,11 +325,11 @@ INSERT INTO doorlock (
                      'HUB',
                      'Waschraum Herren',
                      '202',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -340,11 +340,11 @@ INSERT INTO doorlock (
                      'HUC',
                      'Kombiraum Damen',
                      '203',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -355,11 +355,11 @@ INSERT INTO doorlock (
                      'HUD',
                      'WC Herren',
                      '204',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -370,11 +370,11 @@ INSERT INTO doorlock (
                      'HUE',
                      'Kombiraum Leiter',
                      '205',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -385,11 +385,11 @@ INSERT INTO doorlock (
                      'HEA',
                      'Haupteingang',
                      '206',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -400,11 +400,11 @@ INSERT INTO doorlock (
                      'HEB',
                      'Hi Küche Nord',
                      '207',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -415,11 +415,11 @@ INSERT INTO doorlock (
                      'HEC',
                      'Hi Küche Ost',
                      '208',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -430,11 +430,11 @@ INSERT INTO doorlock (
                      'Vo',
                      'Küche Aussen',
                      '209',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -445,11 +445,11 @@ INSERT INTO doorlock (
                      'Vo',
                      'Küche Innen',
                      '210',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -460,11 +460,11 @@ INSERT INTO doorlock (
                      'HEF',
                      'Massenlager klein In.',
                      '211',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -475,11 +475,11 @@ INSERT INTO doorlock (
                      'HEG',
                      'Massenlager klein Au.',
                      '212',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -490,11 +490,11 @@ INSERT INTO doorlock (
                      'HEH',
                      'Massenlager gross Ost',
                      '213',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -505,11 +505,11 @@ INSERT INTO doorlock (
                      'HEH',
                      'Massenlag.gross West',
                      '214',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -520,11 +520,11 @@ INSERT INTO doorlock (
                      'HEJ',
                      'Telefonkabine',
                      '215',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -535,11 +535,11 @@ INSERT INTO doorlock (
                      'HEK',
                      'Aufenthalt gross',
                      '216',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -550,11 +550,11 @@ INSERT INTO doorlock (
                      'HEL',
                      'Aufenthalt Klein',
                      '217',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -565,11 +565,11 @@ INSERT INTO doorlock (
                      'HEM',
                      'Cheminée',
                      '218',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -580,11 +580,11 @@ INSERT INTO doorlock (
                      'HEN',
                      'Lager 1',
                      '219',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -595,11 +595,11 @@ INSERT INTO doorlock (
                      'HEO',
                      'Lager 2',
                      '220',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -610,11 +610,11 @@ INSERT INTO doorlock (
                      'HEP',
                      'Lager 3',
                      '221',
-                     (SELECT id FROM doorplace WHERE name = 'Hartlisberg')
+                     (SELECT id FROM place WHERE name = 'Hartlisberg')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -625,11 +625,11 @@ INSERT INTO doorlock (
                      'EEA',
                      'Haupteingang',
                      '301',
-                     (SELECT id FROM doorplace WHERE name = 'Elfenau')
+                     (SELECT id FROM place WHERE name = 'Elfenau')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -640,11 +640,11 @@ INSERT INTO doorlock (
                      'YEA',
                      'Haupteingang',
                      '401',
-                     (SELECT id FROM doorplace WHERE name = 'Eymatt')
+                     (SELECT id FROM place WHERE name = 'Eymatt')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -655,11 +655,11 @@ INSERT INTO doorlock (
                      'BEB',
                      'Saal',
                      '501',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -670,11 +670,11 @@ INSERT INTO doorlock (
                      'BUB',
                      'Material',
                      '502',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -685,11 +685,11 @@ INSERT INTO doorlock (
                      'BEA',
                      'Haupteingang',
                      '503',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -700,11 +700,11 @@ INSERT INTO doorlock (
                      'BEC',
                      'Bar',
                      '504',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -715,11 +715,11 @@ INSERT INTO doorlock (
                      'BED',
                      'Aufenthalt klein',
                      '505',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 
 
-INSERT INTO doorlock (
+INSERT INTO `lock` (
                      number,
                      name,
                      sc,
@@ -730,6 +730,6 @@ INSERT INTO doorlock (
                      'BEF',
                      'Küche',
                      '506',
-                     (SELECT id FROM doorplace WHERE name = 'Bantiger')
+                     (SELECT id FROM place WHERE name = 'Bantiger')
                     );
 

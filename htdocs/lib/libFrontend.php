@@ -106,7 +106,7 @@ function getUsers(){
          name,
          uid,
          comment
-      FROM doorperson
+      FROM person
       ORDER BY name
    ';
    $con = openDb();
@@ -124,7 +124,7 @@ function getKeyStatuses(){
       SELECT
          id,
          name
-      FROM doorkeystatus
+      FROM keystatus
       ORDER BY name
    ';
    $con = openDb();
@@ -141,7 +141,7 @@ function getLockStatuses(){
       SELECT
          id,
          name
-      FROM doorlockstatus
+      FROM lockstatus
       ORDER BY name
    ';
    $con = openDb();
@@ -159,7 +159,7 @@ function getColors(){
          id,
          colorid,
          name
-      FROM doorkeycolor
+      FROM keycolor
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
@@ -213,7 +213,7 @@ function getVenues(){
       SELECT
          id,
          name
-      FROM doorplace
+      FROM place
       ORDER BY id
    ';
    $con = openDb();

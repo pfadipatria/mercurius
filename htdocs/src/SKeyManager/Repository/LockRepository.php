@@ -13,7 +13,7 @@ class LockRepository extends AbstractRepository {
         ';
 
         $this->from = '
-               FROM doorlock
+               FROM `lock`
         ';
 
         $this->where = '

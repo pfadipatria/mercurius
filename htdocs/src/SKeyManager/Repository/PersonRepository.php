@@ -16,7 +16,7 @@ class PersonRepository extends AbstractRepository {
         ';
 
         $this->from = '
-            FROM doorperson
+            FROM `person`
         ';
 
         $this->order = '
