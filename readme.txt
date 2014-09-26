@@ -37,10 +37,4 @@
 
    * Import locks, keys and sample permissions:
 
-      cat project/sqlimport_0* | iconv -f ISO-8859-1 -t UTF-8 | mysql 
-
-
-############################################################################
-# Development
-
-php vendor/bin/phpmd htdocs/ html cleancode,codesize,controversial,design,naming,unusedcode --reportfile /var/www/phpmd.html
+      cat project/sqlimport_0* | iconv -f ISO-8859-1 -t UTF-8 | mysql

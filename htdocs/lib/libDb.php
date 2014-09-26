@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @SuppressWarnings(PHPMD.CodeSize)
+ */
 function openDb($dbHost = 'localhost', $dbUsername = 'skm', $dbPassword = 'skm', $dbName = 'skm')
 {	
    global $config;
