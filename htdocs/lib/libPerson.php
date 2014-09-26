@@ -144,6 +144,7 @@ function showPersonDeletePage($personId = '0'){
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id'] && $_POST['confirm'] == true) {
       $personId = $_POST['id'];
+      $message = '';
       $name = '';
       $history = new \SKeyManager\Entity\History();
       $person = new SKeyManager\Entity\Person($personId);
