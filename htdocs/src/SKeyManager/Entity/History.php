@@ -40,7 +40,7 @@ class History extends AbstractEntity {
     }
 
    // Needed to provide a Name of a 'empty' history entry ?
-   function __get($arg = null) {
+   function __get() {
       return null;
    }
 

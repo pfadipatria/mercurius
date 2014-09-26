@@ -31,7 +31,7 @@ class Person extends AbstractEntity {
    }
 
    // Needed to provide a Name of a 'empty' person ?
-   function __get($arg = null) {
+   function __get() {
       return null;
    }
 
@@ -133,8 +133,6 @@ class Person extends AbstractEntity {
    function delete() {
       // @TODO Check if db integrity conditions are fullfilled
 
-      $result = false;
-
       if($this->getId()) {
          $con = openDb();
          $sql = '
@@ -144,6 +142,6 @@ class Person extends AbstractEntity {
          $return = queryDb($con, $sql);
       }
 
-      return $return;
+      return false;
    }
 }

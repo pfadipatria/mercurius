@@ -55,5 +55,5 @@ function addUser($uid) {
    ';
 
    $con = openDb();
-   return $dbresult = queryDb($con, $sql);
+   return queryDb($con, $sql);
 }
