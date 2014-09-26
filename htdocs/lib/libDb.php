@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @SuppressWarnings(PHPMD.CodeSize)
+ * @SuppressWarnings(PHPMD.Design.NpathComplexity)
  */
 function openDb($dbHost = 'localhost', $dbUsername = 'skm', $dbPassword = 'skm', $dbName = 'skm')
 {	

@@ -154,6 +154,9 @@ function showKeyAllowPage($keyId = '0'){
    echo render($view, 'layout');
 }
 
+/**
+ * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+ */
 function getKeyAllow($key = null){
    global $activeUserId;
 
