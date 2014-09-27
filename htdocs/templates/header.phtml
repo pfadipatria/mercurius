@@ -97,7 +97,7 @@ function getClassFromLockStatusId(statusId) {
    <table width="80%" border="0" align="center">
    <tr align="center">
       <td>
-         <h1><?php echo $view['title']; ?> <span style="font-size:0.5em"><span class="glyphicon glyphicon-flash"></span> <?php echo $view['subTitle']; ?></span></h1>
+         <h1><?php echo $view['title']; ?><?php if(!empty($view['subTitle'])) { ?> <span style="font-size:0.5em"><span class="glyphicon glyphicon-flash"></span> <?php echo $view['subTitle']; ?></span><?php } ?></h1>
          <?php if(!empty($view['pageHeadline'])) { ?>
             <p><?php echo $view['pageHeadline']; ?></p>
          <?php } ?>
