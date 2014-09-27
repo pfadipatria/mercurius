@@ -187,7 +187,7 @@ function getLockDeny($lock = null){
          if($result){
             $view['success'] = _('OK! The entry has been updated.');
             $history = new \SKeyManager\Entity\History();
-            $history->setKeyId($keyId)->setComment('Updated lock permission')->setAuthorId($activeUserId)->save();
+            $history->setLockId($lockId)->setComment('Updated lock permission')->setAuthorId($activeUserId)->save();
          } else {
             $view['danger'] = _('ERROR! Could not update the entry.'.$message);
          }
