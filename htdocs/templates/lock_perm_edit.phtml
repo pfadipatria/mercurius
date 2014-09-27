@@ -1,0 +1,41 @@
+<a href="/lock/<?php echo $view['lockid']; ?>"><?php echo _('Back to the lock details'); ?></a>
+<form role="form" method="post">
+<input type="hidden" class="form-control" id="lockid" name="lockid" value="<?php echo $view['lockid']; ?>">
+<table class="table" align="center"><tr><td>
+   <tr align="center">
+      <td colspan="2">
+         <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+         &nbsp;&nbsp;
+         <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+      </td>
+   </tr>
+   <?php foreach($view['permlist'] as $perm) { ?>
+   <tr id="entry<?php echo  $perm['keyid']; ?>" class="alert<?php echo ' '.getLockPermissionStatusesCss($perm['statusid']); ?>" role="alert">
+      <td>
+         <label for="<?php echo $perm['keyid']; ?>"><?php echo $perm['name']; ?></label>
+      </td>
+      <td>
+         <select id="select<?php echo  $perm['keyid']; ?>" name="select<?php echo  $perm['keyid']; ?>" class="form-control" onchange="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(document.getElementById('select<?php echo  $perm['keyid']; ?>').selectedIndex)">
+         <?php foreach(getPermissionStatuses() as $status) { ?>
+           <option value="<?php echo $status['id']; ?>"<?php if($status['id'] == $perm['statusid']) echo ' selected="selected" selected'; ?>><?php echo $status['name']; ?></option>
+         <?php } ?>
+         </select>
+      </td>
+      <td>
+         <span class="glyphicon glyphicon-asterisk" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Unknown'); ?>" onclick="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(1); document.getElementById('entry<?php echo  $perm['keyid']; ?>').getElementsByTagName('option')[1].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-unchecked" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Remove'); ?>" onclick="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(0); document.getElementById('entry<?php echo  $perm['keyid']; ?>').getElementsByTagName('option')[0].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-ok" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('Active'); ?>" onclick="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(2); document.getElementById('entry<?php echo  $perm['keyid']; ?>').getElementsByTagName('option')[2].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-log-in" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('To be set'); ?>" onclick="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(3); document.getElementById('entry<?php echo  $perm['keyid']; ?>').getElementsByTagName('option')[3].selected = 'selected'"></span>&nbsp;
+         <span class="glyphicon glyphicon-log-out" style="cursor: pointer" data-toggle="tooltip" title="<?php echo _('To be removed'); ?>" onclick="document.getElementById('entry<?php echo  $perm['keyid']; ?>').className = getClassFromLockStatusId(4); document.getElementById('entry<?php echo  $perm['keyid']; ?>').getElementsByTagName('option')[4].selected = 'selected'"></span>&nbsp;
+      </td>
+   </tr>
+   <?php } ?>
+   <tr align="center">
+      <td colspan="2">
+         <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+         &nbsp;&nbsp;
+         <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+      </td>
+   </tr>
+</form>
+</table>

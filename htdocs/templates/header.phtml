@@ -69,6 +69,27 @@ function getClassFromStatusId(statusId) {
    }
    return text;
 }
+
+function getClassFromLockStatusId(statusId) {
+   text = "";
+   switch(statusId) {
+       case 1:
+           text = "alert alert-info";
+           break;
+       case 2:
+           text = "alert alert-danger";
+           break;
+       case 3:
+           text = "alert alert-danger";
+           break;
+       case 4:
+           text = "alert";
+           break;
+       default:
+           text = "alert";
+   }
+   return text;
+}
 </script>
 
 </head>

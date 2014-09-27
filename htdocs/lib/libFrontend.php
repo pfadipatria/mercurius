@@ -213,6 +213,27 @@ function getPermissionStatusesCss($class = 0){
    return $result;
 }
 
+function getLockPermissionStatusesCss($class = 0){
+   switch($class) {
+      case '1':
+         $result = ' alert-info ';
+         break;
+      case '2':
+         $result = ' alert-danger ';
+         break;
+      case '3':
+         $result = ' alert-warning ';
+         break;
+      case '4':
+         $result = ' alert-warning ';
+         break;
+      default:
+         $result = '';
+         break;
+   }
+   return $result;
+}
+
 function getVenues(){
    $result = array();
    $sql = '

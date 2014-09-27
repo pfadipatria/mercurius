@@ -144,6 +144,82 @@ function getLockEdit($lock = null){
    return render($view, 'lock_edit');
 }
 
+function showLockDenyPage($lockId = '0'){
+
+   $lock = new \SKeyManager\Entity\Lock($lockId);
+   $lock->load();
+
+   $view = array(
+      'header' => getHeader('lock', $lockId),
+      'body' => getLockDeny($lock),
+      'footer' => getFooter()
+   );
+
+   echo render($view, 'layout');
+}
+
+function getLockDeny($lock = null){
+   global $activeUserId;
+
+   $view = array();
+
+   // User contrib on http://php.net/manual/en/function.preg-grep.php
+   function preg_grep_keys($pattern, $input, $flags = 0) {
+       return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
+   }
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+      $permValues = preg_grep_keys('/^select/', $_POST);
+      $message = '';
+      $lockId = null;
+      if (array_key_exists('lockid',$_POST)) {
+         $lockId = $_POST['lockid'];
+         $perms = new \SKeyManager\Repository\PermissionRepository;
+         try {
+            foreach($permValues as $keyId => $statusId){
+               $result = $perms->setDenyPermission($lockId, substr($keyId, 6), $statusId);
+            }
+         } catch (Exception $exception) {
+            $result = false;
+            $message = ' ('.$exception->getMessage().')';
+         }
+
+         if($result){
+            $view['success'] = _('OK! The entry has been updated.');
+            $history = new \SKeyManager\Entity\History();
+            $history->setKeyId($keyId)->setComment('Updated lock permission')->setAuthorId($activeUserId)->save();
+         } else {
+            $view['danger'] = _('ERROR! Could not update the entry.'.$message);
+         }
+
+      }
+   }
+
+   $keys = new \SKeyManager\Repository\KeyRepository;
+   $perms = new \SKeyManager\Repository\PermissionRepository;
+
+   $keylist = array();
+   foreach($keys->getAll() as $key) {
+      $keylist[$key->getId()]['name'] = $key->getName();
+      $keylist[$key->getId()]['keyid'] = $key->getId();
+      // @TODO getKeyAllowedOnLock should only return ONE permission entity
+      $perm = $perms->getLockDeniedForKey($lock->getId(), $key->getId());
+      $keylist[$key->getId()]['permid'] = $perm ? $perm['0']->getId() : null;
+      $keylist[$key->getId()]['statusid'] = $perm ? $perm['0']->getStatusId() : null;
+   }
+
+   $permView = array(
+      'lockid' => $lock->getId(),
+      'permlist' => $keylist
+   );
+
+   $view['title'] = sprintf(_('Change denied keys on %s'), $lock->getName());
+   $view['perm'] = render($permView, 'lock_perm_edit');
+
+
+   return render($view, 'perm_layout');
+}
+
 function showLockDeletePage($lockId = '0'){
 
    $lock = new \SKeyManager\Entity\Lock($lockId);

@@ -33,6 +33,10 @@ class PermissionRepository extends AbstractRepository {
          return $this->query('WHERE `keyid` = '.$keyId.' AND `lockid` = '.$lockId.' AND `allows` = TRUE ', 'SKeyManager\Entity\Permission');
     }
 
+    function getLockDeniedForKey($lockId, $keyId) {
+         return $this->query('WHERE `keyid` = '.$keyId.' AND `lockid` = '.$lockId.' AND `denies` = TRUE ', 'SKeyManager\Entity\Permission');
+    }
+
     function getAllowedByKeyId($id) {
         return $this->query('WHERE `keyid` = '.$id.' AND `allows` = TRUE', 'SKeyManager\Entity\Permission');
     }
@@ -62,6 +66,28 @@ class PermissionRepository extends AbstractRepository {
         } else {
            // Check if the permission already exists
            if($this->getKeyAllowedOnLock($keyId, $lockId)) {
+               $con = openDb();
+               return $this->updateDb($con, $dbTable, array('status' => $status), $conditions);
+           } else {
+               $conditions['status'] = $status;
+               $con = openDb();
+               return $this->insertDb($con, $dbTable, $conditions);
+           }
+        }
+    }
+
+    function setDenyPermission($lockId = 0, $keyId = 0, $status = 0) {
+        $dbTable = 'permission';
+        $conditions = array(
+            'lockid' => $lockId,
+            'keyid' => $keyId,
+            'denies' => true
+        );
+        if($status == 0){
+           return $this->deleteDb($dbTable, $conditions);
+        } else {
+           // Check if the permission already exists
+           if($this->getLockDeniedForKey($lockId, $keyId)) {
                $con = openDb();
                return $this->updateDb($con, $dbTable, array('status' => $status), $conditions);
            } else {
