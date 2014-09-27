@@ -163,6 +163,9 @@ class Key extends AbstractEntity {
    function getName() {
       $name = 'MC '.$this->getCode();
       $name .= $this->getHolderName() ? ' - '.$this->getHolderName() : '';
+      if(!$this->getHolderName()) {
+         $name .= $this->getComment() ? ' - '.$this->getCommentShort() : '';
+      }
       return $name;
    }
 
