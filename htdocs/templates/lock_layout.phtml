@@ -1,6 +1,16 @@
 <?php echo $view['lock']; ?>
 <a href="/lock" data-toggle="tooltip" title="<?php echo _('Back to Locklist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
-<?php echo $view['denials']; ?>
-<a href="/lock" data-toggle="tooltip" title="<?php echo _('Back to Locklist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
-<?php echo $view['allowed']; ?>
+
+
+<table><tr valign="top">
+   <td align="center">
+      <?php echo $view['denials']; ?>
+   </td>
+   <td style="padding:2em;"></td>
+   <td align="center">
+      <?php echo $view['allowed']; ?>
+   </td>
+</tr></table>
+
+
 <a href="/lock" data-toggle="tooltip" title="<?php echo _('Back to Locklist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>

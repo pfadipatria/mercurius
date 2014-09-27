@@ -47,12 +47,14 @@ function getKeyDetails($key = null){
 
    $permissionView = array(
       'title' => _('Permissions to Locks'),
+      'titleColor' => 'green',
       'keyLocation' => $key->getLocation(),
       'locks' => $allows->getAllowedByKeyId($key->getId())
    );
 
    $denialView = array(
       'title' => _('Denied by Locks'),
+      'titleColor' => 'red',
       'keyLocation' => $key->getLocation(),
       'locks' => $denied->getDeniedByKeyId($key->getId())
    );

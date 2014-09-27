@@ -6,11 +6,11 @@
       <th><?php echo _('Status'); ?></th>
     </thead>
     <tbody>
-        <?php foreach($view['keys'] as $key) { ?>
-            <tr onclick="document.location = '/key/<?php echo $key->getKeyId(); ?>';" style="cursor: zoom-in">
-                 <td>MC <?php echo $key->getKeyCode(); ?></td>
-                 <td><?php echo $key->getKeyOwner(); ?></td>
-                 <td><?php echo $key->getKeyStatus(); ?></td>
+        <?php foreach($view['keys'] as $perm) { ?>
+            <tr onclick="document.location = '/key/<?php echo $perm->getKeyId(); ?>';" style="cursor: zoom-in">
+                 <td>MC <?php echo $perm->getKeyCode(); ?></td>
+                 <td><?php echo $perm->getKeyOwner(); ?></td>
+                 <td><?php echo $perm->getStatus(); ?></td>
             </tr>
         <?php } ?>
     </tbody>

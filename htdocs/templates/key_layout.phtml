@@ -1,7 +1,14 @@
 <?php echo $view['key']; ?>
 <a href="/key" data-toggle="tooltip" title="<?php echo _('Back to Keylist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
-<?php echo $view['permissions']; ?>
-<a href="/key" data-toggle="tooltip" title="<?php echo _('Back to Keylist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
-<?php echo $view['denials']; ?>
+<table><tr valign="top">
+   <td align="center">
+      <?php echo $view['permissions']; ?>
+   </td>
+   <td style="padding:2em;"></td>
+   <!-- <td style="border: 1px solid black; border-color:white; border-left-color: black; padding:1em"></td> -->
+   <td align="center">
+      <?php echo $view['denials']; ?>
+   </td>
+</tr></table>
 <a href="/key" data-toggle="tooltip" title="<?php echo _('Back to Keylist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
 
