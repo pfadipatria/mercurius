@@ -19,7 +19,7 @@
                         <?php echo $history->getPersonName() ? '<a style="color:black" href="/person/'.$history->getPersonId().'">'.$history->getPersonName().'</a>' : ''; ?>
                     </td>
                     <td><?php echo $history->getComment(); ?></td>
-                    <td><?php echo $history->getAuthorName(); ?></td>
+                    <td><?php echo $history->getAuthorName() ? '<a style="color:black" href="/person/'.$history->getAuthorId().'">'.$history->getAuthorName().'</a>' : 'unknown ('.$history->getAuthorId().')'; ?></td>
             </tr>
         <?php } ?>
     </tbody>
