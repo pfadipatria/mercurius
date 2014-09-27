@@ -55,5 +55,14 @@ function addUser($uid) {
    ';
 
    $con = openDb();
-   return queryDb($con, $sql);
+   $dbresult = queryDb($con, $sql);
+   $history = new \SKeyManager\Entity\History();
+   if($dbresult){
+      $dbId = mysqli_insert_id($con);
+      $history->setPersonId($dbId)->setComment(sprintf(_('Created user automatically: %s (%s, %s)'), $name, $dbId, $uid));
+   } else {
+      $history->setComment(_('Could not creat user automatically'));
+   }
+   $history->save();
+   return $dbresult;
 }
