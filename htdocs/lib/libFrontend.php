@@ -57,6 +57,7 @@ function getHeader ($menu = '', $submenu = '') {
    $view = array(
         'title' => $config['siteName'],
         'subTitle' => $config['siteSubTitle'],
+        'pageHeadline' => isset($config['pageHeadline']) ? $config['pageHeadline'] : '',
         'menu' => getMenu($menu, $submenu)
    );
 
