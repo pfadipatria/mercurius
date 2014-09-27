@@ -65,6 +65,10 @@ class History extends AbstractEntity {
       return $this;
    }
 
+   function getKeyCode(){
+      return $this->keycode;
+   }
+
    function getLockId(){
       return $this->lockid;
    }
@@ -74,6 +78,10 @@ class History extends AbstractEntity {
       return $this;
    }
 
+   function getLockCode(){
+      return $this->lockcode;
+   }
+
    function getPersonId(){
       return $this->personid;
    }
@@ -81,6 +89,10 @@ class History extends AbstractEntity {
    function setPersonId($personId) {
       $this->personid = $personId;
       return $this;
+   }
+
+   function getPersonName(){
+      return $this->personname;
    }
 
    function getComment(){

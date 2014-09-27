@@ -3,9 +3,7 @@
       <tr>
           <!-- <th><?php echo _('Id'); ?></th> -->
           <th><?php echo _('Date'); ?></th>
-          <th><?php echo _('Key Id'); ?></th>
-          <th><?php echo _('Lock Id'); ?></th>
-          <th><?php echo _('Person Id'); ?></th>
+          <th><?php echo _('Entity'); ?></th>
           <th><?php echo _('Comment'); ?></th>
           <th><?php echo _('Author'); ?></th>
       </tr>
@@ -15,9 +13,11 @@
             <tr>
                     <!-- <td><?php echo $history->getId(); ?></td> -->
                     <td><?php echo $history->getDate(); ?></td>
-                    <td><?php echo $history->getKeyId(); ?></td>
-                    <td><?php echo $history->getLockId(); ?></td>
-                    <td><?php echo $history->getPersonId(); ?></td>
+                    <td>
+                        <?php echo $history->getKeyCode() ? '<a style="color:black" href="/key/'.$history->getKeyId().'">MC '.$history->getKeyCode().'</a>' : ''; ?>
+                        <?php echo $history->getLockCode() ? '<a style="color:black" href="/lock/'.$history->getLockId().'">SC '.$history->getLockCode().'</a>' : ''; ?>
+                        <?php echo $history->getPersonName() ? '<a style="color:black" href="/person/'.$history->getPersonId().'">'.$history->getPersonName().'</a>' : ''; ?>
+                    </td>
                     <td><?php echo $history->getComment(); ?></td>
                     <td><?php echo $history->getAuthorName(); ?></td>
             </tr>
