@@ -1,0 +1,34 @@
+<h2><?php echo $view['title']; ?></h2>
+<table class="table" style="width:auto" align="center"><tr><td>
+<form role="form" method="post">
+      <div class="row">
+      <div class="form-group">
+
+
+         <?php if ($view['entry']->getKeyId()) { ?>
+         <label for="keyid"><?php echo _('KeyId').' '.$view['entry']->getKeyId(); ?></label><br>
+         <input type="hidden" class="form-control" maxlength="45" id="keyid" name="keyid" value="<?php echo $view['entry']->getKeyId(); ?>">
+         <?php } ?>
+
+         <?php if ($view['entry']->getLockId()) { ?>
+         <label for="lockid"><?php echo _('LockId'); ?></label><br>
+         <input type="hidden" class="form-control" maxlength="45" id="lockid" name="lockid" value="<?php echo $view['entry']->getLockId(); ?>">
+         <p class="form-control-static"><?php echo $view['entry']->getLockId(); ?></p>
+         <?php } ?>
+
+         <?php if ($view['entry']->getPersonId()) { ?>
+         <label for="personid"><?php echo _('PersonId'); ?></label><br>
+         <input type="hidden" class="form-control" maxlength="45" id="personid" name="personid" value="<?php echo $view['entry']->getPersonId(); ?>">
+         <p class="form-control-static"><?php echo $view['entry']->getPersonId(); ?></p>
+         <?php } ?>
+
+         <label for="comment"><?php echo _('Comment'); ?></label>
+         <input type="text" class="form-control" maxlength="120" size="120" id="comment" name="comment">
+         <p class="help-block"><?php echo _('A comment'); ?></p>
+
+      </div>
+      </div>
+   <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+   <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
+
+</form>
