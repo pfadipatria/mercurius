@@ -133,10 +133,16 @@ class Key extends AbstractEntity {
       return $this->getHolder()->getName();
    }
 
+   /**
+    * For backward compability, to be removed. Its now called holder instead of owner
+    */
    function getOwner() {
       return $this->getHolder();
    }
 
+   /**
+    * For backward compability, to be removed. Its now called holder instead of owner
+    */
    function getOwnerName(){
       return $this->getHolderName();
    }

@@ -14,6 +14,12 @@ abstract class AbstractEntity {
       return sprintf($this->locationPattern, $this->id);
    }
 
+   function getCommentShort($chars = 10) {
+      $result = $this->getComment();
+
+      return (strlen($result) > $chars) ? substr($result, 0, $chars).'...' : $result;
+   }
+
     protected function query() {
       $con = openDb();
       $dbresult = queryDb($con, $this->select.$this->from.$this->where.$this->order);

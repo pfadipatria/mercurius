@@ -1,14 +1,12 @@
 <h2><?php echo $view['lock']->getFullName(); ?></h2>
 <table class="table" style="width:auto">
     <tbody>
+         <!--
          <tr>
             <th style="text-align:right"><?php echo _('Id'); ?>:</th>
             <td><?php echo $view['lock']->getId(); ?></td>
          </tr>
-         <tr>
-            <th style="text-align:right"><?php echo _('Number'); ?>:</th>
-            <td><?php echo $view['lock']->getNumber(); ?></td>
-         </tr>
+         -->
          <tr>
             <th style="text-align:right"><?php echo _('SC'); ?>:</th>
             <td><?php echo $view['lock']->getCode(); ?></td>
@@ -24,6 +22,10 @@
          <tr>
             <th style="text-align:right"><?php echo _('Name'); ?>:</th>
             <td><?php echo $view['lock']->getName(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Number'); ?>:</th>
+            <td><?php echo $view['lock']->getNumber(); ?></td>
          </tr>
          <tr>
             <th style="text-align:right"><?php echo _('Electronic'); ?>:</th>

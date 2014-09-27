@@ -6,7 +6,7 @@
           <th><?php echo _('Uid'); ?></th>
           <!-- <th><?php echo _('UidNumber'); ?></th> -->
           <!-- <th><?php echo _('MdbId'); ?></th> -->
-          <th><?php echo _('# of Keys'); ?></th>
+          <th align="center"><?php echo _('Keys'); ?></th>
           <th><?php echo _('Comment'); ?></th>
       </tr>
    </thead>
@@ -18,11 +18,11 @@
                     <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $person->getUid(); ?></td>
                     <!-- <td><?php echo $person->getUidNumber(); ?></td> -->
                     <!-- <td><?php echo $person->getMdbId(); ?></td> -->
-                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $person->getNumberOfKeys(); ?></td>
-                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $person->getComment(); ?></td>
-                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: pointer"><span class="glyphicon glyphicon-zoom-in"></span></td>
-                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>/edit';" style="cursor: pointer"><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>/delete';" style="cursor: pointer"><span class="glyphicon glyphicon-trash"></span></td>
+                    <td align="center" onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $person->getNumberOfKeys(); ?></td>
+                    <td onclick="document.location = '<?php echo $person->getLocation(); ?>';" style="cursor: zoom-in" data-toggle="tooltip" title="<?php echo $person->getComment(); ?>"><?php echo $person->getCommentShort(); ?></td>
+                    <td><a href="<?php echo $person->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Details'); ?>" style="color:black"><span class="glyphicon glyphicon-zoom-in"></span></a></td>
+                    <td><a href="<?php echo $person->getLocation(); ?>/edit" data-toggle="tooltip" title="<?php echo _('Edit'); ?>" style="color:black"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a href="<?php echo $person->getLocation(); ?>/delete" data-toggle="tooltip" title="<?php echo _('Delete'); ?>" style="color:black"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         <?php } ?>
     </tbody>
