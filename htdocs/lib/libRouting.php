@@ -74,6 +74,8 @@ function showKeysPage(){
             showHistoryCommentPage(getMenuPath('2'));
          } else if (getMenuPath('3') == 'delete') {
             showKeyDeletePage(getMenuPath('2'));
+         } else if (getMenuPath('3') == 'holder' && getMenuPath('4') == 'delete') {
+            showKeyDeleteHolderPage(getMenuPath('2'));
          } else {
             showKeyDetailsPage(getMenuPath('2'));
          }

@@ -42,6 +42,11 @@ function getMenuPath ($level = '1') {
       } else {
       $result[3] = '';
    }
+   if(!empty($explodedRequest[4])) {
+      $result[4] = $explodedRequest[4];
+      } else {
+      $result[4] = '';
+   }
 
    return $result[$level];
 }
