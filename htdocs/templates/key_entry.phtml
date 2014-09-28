@@ -13,7 +13,11 @@
          </tr>
          <tr>
             <th style="text-align:right"><?php echo _('Holder'); ?>:</th>
-            <td><a href="<?php echo $view['key']->getHolder()->getLocation(); ?>"><?php echo $view['key']->getOwnerName(); ?></a></td>
+            <td><a href="<?php echo $view['key']->getHolder()->getLocation(); ?>"><?php echo $view['key']->getOwnerName(); ?></a>
+               <?php if($view['key']->getDHolderId()) { ?>
+                  <sub data-toggle="tooltip" title="<?php echo _('Designated holder'); ?>"> (<span class="glyphicon glyphicon-arrow-right"></span> <a href="<?php echo $view['key']->getDHolder()->getLocation(); ?>"><?php echo $view['key']->getDHolderName(); ?></a>)</sub>
+               <?php } ?>
+            </td>
          </tr>
          <tr>
             <th style="text-align:right"><?php echo _('Status'); ?>:</th>

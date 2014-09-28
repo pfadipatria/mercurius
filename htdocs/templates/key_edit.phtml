@@ -5,12 +5,22 @@
       <div class="form-group">
 
          <label for="holder"><?php echo _('Holder'); ?></label>
-         <select name="holderid" class="form-control">
+         <select name="holderid" id="holderid" class="form-control">
          <?php foreach(getUsers() as $user) { ?>
            <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getHolderId() == $user['id']) echo ' selected="selected" selected' ?>><?php echo $user['name']; ?></option>
          <?php } ?>
-         </select>
+         </select><a href="#" style="color:black" data-toggle="tooltip" title="<?php echo _('Remove user'); ?>"><span style="float:right;" class="glyphicon glyphicon-remove" onclick="document.getElementById('holderid').getElementsByTagName('option')[0].selected = 'selected'"></span></a>
          <p class="help-block"><?php echo _('Who has this key at the moment'); ?></p>
+
+         <label for="dholder"><?php echo _('Designated holder'); ?></label>
+         <select name="dholderid" id="dholderid" class="form-control">
+         <?php foreach(getUsers() as $user) { ?>
+           <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getDHolderId() == $user['id']) echo ' selected="selected" selected' ?>><?php echo $user['name']; ?></option>
+         <?php } ?>
+         </select>
+         <a href="#" style="color:black" data-toggle="tooltip" title="<?php echo _('Move to holder'); ?>"><span style="float:right;" class="glyphicon glyphicon-arrow-up" onclick="document.getElementById('holderid').selectedIndex = document.getElementById('dholderid').selectedIndex; document.getElementById('dholderid').selectedIndex = 0"></span></a>
+         <a href="#" style="color:black" data-toggle="tooltip" title="<?php echo _('Remove user'); ?>"><span style="float:right;" class="glyphicon glyphicon-remove" onclick="document.getElementById('dholderid').getElementsByTagName('option')[0].selected = 'selected'"></span></a>
+         <p class="help-block"><?php echo _('Who will have this key in the future'); ?></p>
 
          <label for="status"><?php echo _('Status'); ?></label>
          <select name="statusid" class="form-control">

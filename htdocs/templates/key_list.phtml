@@ -13,7 +13,11 @@
             <tr>
                     <!-- <td><?php echo $key->getId(); ?></td> -->
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getCode(); ?></td>
-                    <td><a href="<?php echo $key->getHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show person details'); ?>" style="color:black"><?php echo $key->getOwnerName(); ?></a></td>
+                    <td><a href="<?php echo $key->getHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show person details'); ?>" style="color:black"><?php echo $key->getOwnerName(); ?></a>
+                    <?php if($key->getDHolderId()) { ?>
+                    <sub> (<span class="glyphicon glyphicon-arrow-right"></span> <a href="<?php echo $key->getDHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of designated holder'); ?>" style="color:black"><?php echo $key->getDHolderName(); ?></a>)</sub>
+                    <?php } ?>
+                    </td>
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in"><?php echo $key->getStatusName(); ?></td>
                     <td onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in" data-toggle="tooltip" title="<?php echo $key->getComment(); ?>"><?php echo $key->getCommentShort(15); ?></td>
                     <td><a href="<?php echo $key->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details'); ?>" style="color:black"><span class="glyphicon glyphicon-zoom-in"></span></a></td>

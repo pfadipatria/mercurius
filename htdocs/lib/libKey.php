@@ -98,6 +98,7 @@ function showKeyEditPage($keyId = '0'){
          $key->setComment($_POST['comment']);
          $oldHolderId = $key->getHolderId();
          $key->setHolderId($_POST['holderid']);
+         $key->setDHolderId($_POST['dholderid']);
          $key->setMechId($_POST['mechid']);
          $key->setCommunication($_POST['com']);
          $result = $key->save();

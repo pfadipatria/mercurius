@@ -26,6 +26,7 @@ class Key extends AbstractEntity {
                keymech.description AS mechdesc,
                keymech.user AS mechuser,
                holder AS holderid,
+               dholder AS dholderid,
                key.comment AS comment,
                key.communication,
                key.lastupdate AS lastupdate
@@ -61,6 +62,15 @@ class Key extends AbstractEntity {
          $holder = new \SKeyManager\Entity\Person();
       }
       $this->holder = $holder;
+
+      $dholder = null;
+      if(!empty($this->dholderid)) {
+         $dholder = new \SKeyManager\Entity\Person($this->dholderid);
+         $dholder->load();
+      } else {
+         $dholder = new \SKeyManager\Entity\Person();
+      }
+      $this->dholder = $dholder;
    }
 
    function getId(){
@@ -145,6 +155,23 @@ class Key extends AbstractEntity {
       return $this->getHolder()->getName();
    }
 
+   function getDHolder() {
+      return $this->dholder;
+   }
+
+   function getDHolderId() {
+      return $this->dholderid;
+   }
+
+   function setDHolderId($dholderid) {
+      $this->dholderid = $dholderid;
+      return $this;
+   }
+
+   function getDHolderName(){
+      return $this->getDHolder()->getName();
+   }
+
    /**
     * For backward compability, to be removed. Its now called holder instead of owner
     */
@@ -221,6 +248,7 @@ class Key extends AbstractEntity {
       $data['code'] = $this->getCode() ? '"'.mysqli_real_escape_string($con, $this->getCode()).'"' : 'NULL';
       $data['status'] = $this->getStatusId() ? '"'.mysqli_real_escape_string($con, $this->getStatusId()).'"' : 'NULL';
       $data['holder'] = $this->getHolderId() ? '"'.mysqli_real_escape_string($con, $this->getHolderId()).'"' : 'NULL';
+      $data['dholder'] = $this->getDHolderId() ? '"'.mysqli_real_escape_string($con, $this->getDHolderId()).'"' : 'NULL';
       $data['type'] = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
       $data['color'] = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
       $data['mech'] = $this->getMechId() ? '"'.mysqli_real_escape_string($con, $this->getMechId()).'"' : 'NULL';

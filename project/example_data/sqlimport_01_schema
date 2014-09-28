@@ -17,6 +17,7 @@ CREATE  TABLE IF NOT EXISTS `key` (
   `mech` INT NULL ,
   `status` INT NOT NULL DEFAULT 1 ,
   `holder` INT NULL ,
+  `dholder` INT NULL,
   `comment` VARCHAR(120) NULL ,
   `communication` TINYINT(1) NULL ,
   `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
