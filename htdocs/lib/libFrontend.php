@@ -65,14 +65,10 @@ function getHeader ($menu = '', $submenu = '') {
 }
 
 function getFooter () {
-   $result = '
-   </td></tr></table>';
-   // $result .= '<hr><p><pre>' . var_dump($_SERVER) .'</pre></p>';
-   $result .= '
-</body>
-</html>';
 
-   return $result;
+   $view = array();
+
+   return render($view, 'main_footer');
 }
 
 function getMenu($menu = '', $submenu = ''){
