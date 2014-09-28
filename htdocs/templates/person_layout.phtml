@@ -1,4 +1,28 @@
-<?php echo $view['person']; ?>
-<a href="/person" data-toggle="tooltip" title="<?php echo _('Back to Userlist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
-<?php echo $view['keys']; ?>
-<a href="/person" data-toggle="tooltip" title="<?php echo _('Back to Userlist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
+<h2><?php echo $view['title']; ?></h2>
+<table class="table" style="width:auto">
+   <tr>
+      <td width="50%" align="center"><h3><?php echo _('Details'); ?></h3></td>
+      <td align="center"><h3><?php echo _('Keys'); ?></h3></td>
+   </tr>
+   <tr>
+      <td>
+         <?php echo $view['person']; ?>
+      </td>
+      <td>
+         <?php echo $view['keys']; ?>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center">
+         <a href="/person" data-toggle="tooltip" title="<?php echo _('Back to Userlist'); ?>" style="color:black"><span class="glyphicon glyphicon-list-alt"></span></a>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center"><h3><?php echo _('History'); ?></h3></td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center">
+         <?php echo $view['history']; ?>
+      </td>
+   </tr>
+</table>

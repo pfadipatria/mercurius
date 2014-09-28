@@ -40,6 +40,8 @@ function showPersonDetailsPage($personId = '0'){
 
 function getPersonDetails($person = null){
 
+   $history = new \SKeyManager\Repository\HistoryRepository;
+
    $personView = array(
      'person' => $person
    );
@@ -48,9 +50,15 @@ function getPersonDetails($person = null){
       'keys' => $person->getKeys()
    );
 
+   $historyView = array(
+      'story' => $history->getByPersonId($person->getId())
+   );
+
    $view = array(
+      'title' => $person->getName(),
       'person' => render($personView, 'person_entry'),
-      'keys' => render($keyView, 'person_keylist')
+      'keys' => render($keyView, 'person_keylist'),
+      'history' => render($historyView, 'history_list')
    );
 
    return render($view, 'person_layout');

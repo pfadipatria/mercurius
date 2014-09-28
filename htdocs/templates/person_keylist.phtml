@@ -1,11 +1,10 @@
-<h3><?php echo _('Keys'); ?></h3>
 <table class="table table-hover" style="width:auto">
     <tbody>
         <?php foreach($view['keys'] as $key) { ?>
             <tr onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in">
                  <td>MC <?php echo $key->getCode(); ?></td>
                  <td><?php echo $key->getStatusName(); ?></td>
-                 <td><?php echo $key->getComment(); ?></td>
+                 <td data-toggle="tooltip" title="<?php echo $key->getComment(); ?>"><?php echo $key->getCommentShort(); ?></td>
                  <td>
                     <a href="<?php echo $key->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('View the deatils of this key'); ?>" style="color:black"><span class="glyphicon glyphicon-zoom-in"></span></a>&nbsp;&nbsp;&nbsp;
                     <a href="<?php echo $key->getLocation(); ?>/edit" data-toggle="tooltip" title="<?php echo _('Edit this key'); ?>" style="color:black"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;

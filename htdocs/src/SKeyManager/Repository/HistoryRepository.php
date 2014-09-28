@@ -27,4 +27,10 @@ class HistoryRepository extends AbstractRepository {
         return $this->query('', 'SKeyManager\Entity\History');
     }
 
+    function getByPersonId($personId) {
+        //  var_dump($personId);
+        return $this->query(' WHERE personid = '.$personId.' ', 'SKeyManager\Entity\History');
+        return $this->query('', 'SKeyManager\Entity\History');
+    }
+
 }
