@@ -1,0 +1,99 @@
+
+
+-- -----------------------------------------------------
+-- Data for table `keystatus`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `keystatus` (`id`, `name`) VALUES (1, 'unknown');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (2, 'active');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (3, 'broken');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (4, 'planned');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (5, 'dismissed');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `keycolor`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (1, 1, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (2, 2, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (3, 3, 'rot', 11674146);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (4, 4, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (5, 5, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (6, 6, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (7, 7, 'grün', 3329330);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (8, 8, 'braun', 10506797);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (9, 9, 'grau', 12632256);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (10, 10, NULL, NULL);
+INSERT INTO `keycolor` (`id`, `colorid`, `name`, `display`) VALUES (11, 255, NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lockstatus`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (1, 'unknown');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (2, 'active');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (3, 'active needs batteries');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (4, 'active needs maintenance');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (5, 'broken');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (6, 'broken in maintenance');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (7, 'inactive');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `keymech`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (1, 1, 0000, 'GPP CL/CR/Sekr/Heim');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (2, 2, 1001, 'MRR Abwart');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (3, 3, 1002, 'MRR Heimchef');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (4, 4, 1003, 'Archivar');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (5, 5, 1004, 'MRR Mieter');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (6, 6, 1005, 'MRR Doron');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (7, 7, 2001, 'HABG Abwart');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (8, 8, 2003, 'HABG Cheminée');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (9, 9, 2005, 'HABG Mieter');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (10, 10, 3005, 'Elfenau Eingang');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (11, 11, 4005, 'Eymatt Mieter');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (12, 12, 5001, 'Bantiger Abwart');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (13, 13, 5002, 'Bantiger Heimchef');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (14, 14, 5003, 'Bantiger Mieter');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (15, 15, 5004, 'Bantig. Salsa/Schach');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (16, 16, 5005, 'Bantiger Reserve');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (17, 17, 0001, 'Pfadi-MCL Bar');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (18, 18, 0002, 'Pfadi-MCL Material');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (19, 19, 0003, 'Pfadi-MCL Hallo');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (20, 20, 0004, 'Pfadi-MCL AL');
+INSERT INTO `keymech` (`id`, `number`, `description`, `user`) VALUES (21, 21, 0005, 'Pfadi-TF/WF');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `place`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `place` (`id`, `name`) VALUES (1, 'unknown');
+INSERT INTO `place` (`id`, `name`) VALUES (2, 'Mauerrain');
+INSERT INTO `place` (`id`, `name`) VALUES (3, 'Hartlisberg');
+INSERT INTO `place` (`id`, `name`) VALUES (4, 'Elfenau');
+INSERT INTO `place` (`id`, `name`) VALUES (5, 'Eymatt');
+INSERT INTO `place` (`id`, `name`) VALUES (6, 'Bantiger');
+INSERT INTO `place` (`id`, `name`) VALUES (7, 'Tannental');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `permissionstatus`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `permissionstatus` (`id`, `name`) VALUES (1, 'unknown');
+INSERT INTO `permissionstatus` (`id`, `name`) VALUES (2, 'active');
+INSERT INTO `permissionstatus` (`id`, `name`) VALUES (3, 'to be set');
+INSERT INTO `permissionstatus` (`id`, `name`) VALUES (4, 'to be removed');
+
+COMMIT;
+
