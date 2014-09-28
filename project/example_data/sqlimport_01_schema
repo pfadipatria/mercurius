@@ -1,0 +1,179 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+
+-- -----------------------------------------------------
+-- Table `key`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `key` ;
+
+CREATE  TABLE IF NOT EXISTS `key` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `elnumber` INT NULL ,
+  `code` VARCHAR(45) NULL ,
+  `type` VARCHAR(45) NULL ,
+  `color` INT NULL ,
+  `mech` INT NULL ,
+  `status` INT NOT NULL DEFAULT 1 ,
+  `holder` INT NULL ,
+  `comment` VARCHAR(120) NULL ,
+  `communication` TINYINT(1) NULL ,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `keystatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `keystatus` ;
+
+CREATE  TABLE IF NOT EXISTS `keystatus` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `keycolor`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `keycolor` ;
+
+CREATE  TABLE IF NOT EXISTS `keycolor` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `colorid` INT NULL ,
+  `name` VARCHAR(45) NULL ,
+  `display` INT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lock`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lock` ;
+
+CREATE  TABLE IF NOT EXISTS `lock` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `number` VARCHAR(5) NULL ,
+  `name` VARCHAR(120) NULL ,
+  `sc` INT NULL ,
+  `status` INT NOT NULL DEFAULT 1 ,
+  `hasbatteries` TINYINT(1) NULL ,
+  `comment` VARCHAR(120) NULL ,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `type` VARCHAR(120) NULL ,
+  `position` INT NULL ,
+  `place` INT NOT NULL DEFAULT 1 ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lockstatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lockstatus` ;
+
+CREATE  TABLE IF NOT EXISTS `lockstatus` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `keymech`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `keymech` ;
+
+CREATE  TABLE IF NOT EXISTS `keymech` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `number` INT NULL ,
+  `description` INT NULL ,
+  `user` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `person`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `person` ;
+
+CREATE  TABLE IF NOT EXISTS `person` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `uid` VARCHAR(45) NULL ,
+  `uidnumber` INT NULL ,
+  `mdbid` INT NULL ,
+  `comment` VARCHAR(120) NULL ,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `place`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `place` ;
+
+CREATE  TABLE IF NOT EXISTS `place` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `permissionstatus`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `permissionstatus` ;
+
+CREATE  TABLE IF NOT EXISTS `permissionstatus` (
+  `id` INT NOT NULL ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `permission`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `permission` ;
+
+CREATE  TABLE IF NOT EXISTS `permission` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `keyid` INT NOT NULL ,
+  `lockid` INT NOT NULL ,
+  `allows` TINYINT(1) NOT NULL DEFAULT FALSE ,
+  `denies` TINYINT(1) NOT NULL DEFAULT FALSE ,
+  `status` INT NOT NULL DEFAULT 1 ,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `history`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `history` ;
+
+CREATE  TABLE IF NOT EXISTS `history` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `keyid` INT NULL ,
+  `lockid` INT NULL ,
+  `personid` INT NULL ,
+  `comment` VARCHAR(120) NULL ,
+  `userid` INT NULL ,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
