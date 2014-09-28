@@ -31,7 +31,7 @@ class SearchRepository extends AbstractRepository {
             key.code like "%'.$query.'%" OR
             keycolor.name like "%'.$query.'%" OR
             keystatus.name like "%'.$query.'%" OR
-            holder like "%'.$query.'%" OR
+            person.name like "%'.$query.'%" OR
             key.comment like "%'.$query.'%"
       ';
       return $keys->getAll();
