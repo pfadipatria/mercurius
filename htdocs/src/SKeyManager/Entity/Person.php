@@ -110,6 +110,11 @@ class Person extends AbstractEntity {
       return $keys->getByPersonId($this->id);
    }
 
+   function getDesignatedKeys() {
+      $keys = new \SKeyManager\Repository\KeyRepository;
+      return $keys->getByDesignatedPersonId($this->id);
+   }
+
    function getNumberOfKeys() {
       return count($this->getKeys());
    }

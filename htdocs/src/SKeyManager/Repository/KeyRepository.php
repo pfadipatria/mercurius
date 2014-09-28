@@ -29,6 +29,10 @@ class KeyRepository extends AbstractRepository {
         return $this->query('WHERE holder = '.$id, 'SKeyManager\Entity\Key');
     }
 
+    function getByDesignatedPersonId($id) {
+        return $this->query('WHERE dholder = '.$id, 'SKeyManager\Entity\Key');
+    }
+
     function getAll() {
         return $this->query('', 'SKeyManager\Entity\Key');
     }

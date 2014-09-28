@@ -50,6 +50,10 @@ function getPersonDetails($person = null){
       'keys' => $person->getKeys()
    );
 
+   $designatedKeyView = array(
+      'keys' => $person->getDesignatedKeys()
+   );
+
    $historyView = array(
       'story' => $history->getByPersonId($person->getId())
    );
@@ -58,6 +62,7 @@ function getPersonDetails($person = null){
       'title' => $person->getName(),
       'person' => render($personView, 'person_entry'),
       'keys' => render($keyView, 'person_keylist'),
+      'dkeys' => render($designatedKeyView, 'person_designated_keylist'),
       'history' => render($historyView, 'history_list')
    );
 

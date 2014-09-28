@@ -2,11 +2,7 @@
     <tbody>
         <?php foreach($view['keys'] as $key) { ?>
             <tr onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in">
-                 <td>MC <?php echo $key->getCode(); ?>
-                    <?php if($key->getDHolderId()) { ?>
-                    <sub> (<span class="glyphicon glyphicon-arrow-right"></span> <a href="<?php echo $key->getDHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of designated holder'); ?>" style="color:black"><?php echo $key->getDHolderName(); ?></a>)</sub>
-                    <?php } ?>
-                 </td>
+                 <td>MC <?php echo $key->getCode(); ?></td>
                  <td><?php echo $key->getStatusName(); ?></td>
                  <td data-toggle="tooltip" title="<?php echo $key->getComment(); ?>"><?php echo $key->getCommentShort(); ?></td>
                  <td>
