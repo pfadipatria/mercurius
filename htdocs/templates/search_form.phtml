@@ -1,0 +1,17 @@
+<table class="table" style="width:auto" align="center"><tr><td>
+<form id="searchform" name="searchform" role="form" method="get" action="/<?php if($view['entity']) { echo $view['entity']; } ?>">
+      <div class="row">
+      <div class="form-group">
+
+         <label for="query"><?php echo _('Search'); ?></label><br>
+         <input type="text" class="form-control" size="120" maxlength="120" id="q" name="q" placeholder="<?php echo _('Enter your search term here...'); ?>">
+      </div>
+      </div>
+   <button style="float:right" type="submit" class="btn btn-default"><?php echo _('Search'); ?></button>
+</form>
+<div style="float:left">
+         <input type="radio" name="entity" value="" onclick="document.getElementById('searchform').action = '/';" <?php if($view['entity'] == '') { echo 'checked'; } ?>> <?php echo _('All'); ?>
+         <input type="radio" name="entity" value="key" onclick="document.getElementById('searchform').action = '/key';" <?php if($view['entity'] == 'key') { echo 'checked'; } ?>> <?php echo _('Keys'); ?>
+         <input type="radio" name="entity" value="lock" onclick="document.getElementById('searchform').action = '/lock';" <?php if($view['entity'] == 'lock') { echo 'checked'; } ?>> <?php echo _('Locks'); ?>
+         <input type="radio" name="entity" value="person" onclick="document.getElementById('searchform').action = '/person';" <?php if($view['entity'] == 'person') { echo 'checked'; } ?>> <?php echo _('People'); ?>
+</div>

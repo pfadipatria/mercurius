@@ -51,6 +51,9 @@ function routing($loggedIn = false){
       case 'help':
          showHelpPage();
          break;
+      case 'search':
+         showSearchPage();
+         break;
       default:
          showStartPage();
    }
@@ -66,6 +69,9 @@ function showKeysPage(){
          break;
       case 'show':
          showKeyDetailsPage(getMenuPath('3'));
+         break;
+      case 'search':
+         showSearchPage('key');
          break;
       case 'add':
          showKeyEditPage();
@@ -103,6 +109,9 @@ function showLocksPage(){
          break;
       case 'show':
          showLockDetailsPage(getMenuPath('3'));
+         break;
+      case 'search':
+         showSearchPage('lock');
          break;
       case 'add':
          showLockEditPage();
@@ -146,7 +155,7 @@ function showPersonPage(){
          showPersonEditPage();
          break;
       case 'search':
-         showPersonSearchPage();
+         showSearchPage('person');
          break;
       case 'history':
          showPersonHistoryPage();

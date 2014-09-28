@@ -23,11 +23,11 @@ function showSearchPage($entity = null){
 
 function getSearchForm($entity = null){
 
-    $view = array(
+   $view = array(
+      'entity' => $entity
+   );
 
-    );
-
-    return render($view, 'search_form');
+   return render($view, 'search_form');
 }
 
 function getSearchResult($entity = '', $query){
