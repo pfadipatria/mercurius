@@ -175,6 +175,38 @@ function getColors(){
    return $result;
 }
 
+function getMechanics(){
+   $result = array();
+   $result[] = array('id' => 0, 'number' => '', 'description' => '', 'user' => ' unknown ');
+   $sql = '
+      SELECT
+         id,
+         number,
+         description,
+         user
+      FROM keymech
+   ';
+   $con = openDb();
+   $dbresult = queryDb($con, $sql);
+   var_dump($dbresult);
+	while ($row = mysqli_fetch_assoc($dbresult)) {
+      $result[] = array('id' => $row['id'], 'number' => $row['number'], 'description' => sprintf('%04d',$row['description']), 'user' => $row['user']);
+   }
+   return $result;
+}
+
+function getCommunications($value = 'all'){
+   $result = array(
+      null => array('value' => 'null', 'name' => _('unknown'), 'color' => '#C0C0C0'),
+      0 => array('value' => '0', 'name' => _('No'), 'color' => '#000000'),
+      1 => array('value' => '1', 'name' => _('Yes'), 'color' => '#008000')
+   );
+   if($value === 'all') {
+      return $result;
+   }
+   return $result[$value];
+}
+
 function getPermissionStatuses(){
    $result = array();
    $result[] = array('id' => 0, 'name' => '- removed -');

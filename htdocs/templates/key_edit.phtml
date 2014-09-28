@@ -4,16 +4,10 @@
       <div class="row">
       <div class="form-group">
 
-         <?php if ($view['hasData']) { ?>
-         <label for="id"><?php echo _('Id'); ?></label>
-         <input type="hidden" class="form-control" maxlength="45" id="id" name="id" value="<?php echo $view['key']->getId(); ?>">
-         <p class="form-control-static"><?php echo $view['key']->getId(); ?></p>
-         <?php } ?>
-
          <label for="holder"><?php echo _('Holder'); ?></label>
          <select name="holderid" class="form-control">
          <?php foreach(getUsers() as $user) { ?>
-           <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getHolderId() == $user['id']) echo ' selected' ?>><?php echo $user['name']; ?></option>
+           <option value="<?php echo $user['id']; ?>"<?php if($view['hasData'] && $view['key']->getHolderId() == $user['id']) echo ' selected="selected" selected' ?>><?php echo $user['name']; ?></option>
          <?php } ?>
          </select>
          <p class="help-block"><?php echo _('Who has this key at the moment'); ?></p>
@@ -21,20 +15,14 @@
          <label for="status"><?php echo _('Status'); ?></label>
          <select name="statusid" class="form-control">
          <?php foreach(getKeyStatuses() as $status) { ?>
-           <option value="<?php echo $status['id']; ?>"<?php if($view['hasData'] && $view['key']->getStatusId() == $status['id']) echo ' selected' ?>><?php echo $status['name']; ?></option>
+           <option value="<?php echo $status['id']; ?>"<?php if($view['hasData'] && $view['key']->getStatusId() == $status['id']) echo ' selected="selected" selected' ?>><?php echo $status['name']; ?></option>
          <?php } ?>
          </select>
+
          <p class="help-block"><?php echo _('The current status of this key'); ?></p>
-
-
          <label for="comment"><?php echo _('Comment'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="comment" name="comment" value="<?php if ($view['hasData']) echo $view['key']->getComment(); ?>">
          <p class="help-block"><?php echo _('A comment or more information about this key'); ?></p>
-
-         <?php if ($view['hasData']) { ?>
-            <label for="lastupdate"><?php echo _('Last Update'); ?></label>
-            <p class="form-control-static"><?php echo $view['key']->getLastUpdate(); ?></p>
-         <?php } ?>
 
       </div>
       </div>
@@ -45,26 +33,54 @@
       <div class="form-group">
          <p style="font-size:1.3em; font-weight:bold"><?php echo _('Internal attributes YOU SHOULD NOT change'); ?></p>
 
-         <label for="elnumber"><?php echo _('elnumber'); ?></label>
-         <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
-         <p class="help-block"><?php echo _('The elnumber of this key'); ?></p>
-
          <label for="code"><?php echo _('MC'); ?></label>
          <input type="text" class="form-control" maxlength="45" id="code" name="code" value="<?php if ($view['hasData']) echo $view['key']->getCode(); ?>">
          <p class="help-block"><?php echo _('The MC / Code'); ?></p>
 
-         <label for="code"><?php echo _('Type'); ?></label>
-         <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['key']->getType(); ?>">
-         <p class="help-block"><?php echo _('The type'); ?></p>
-
-         <label for="code"><?php echo _('Color'); ?></label>
+         <label for="color"><?php echo _('Color'); ?></label>
          <select name="colorid" class="form-control">
          <?php foreach(getColors() as $color) { ?>
-           <option value="<?php echo $color['id']; ?>"<?php if($view['hasData'] && $view['key']->getColorId() == $color['id']) echo ' selected' ?>><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
+           <option value="<?php echo $color['id']; ?>"<?php if($view['hasData'] && $view['key']->getColorId() == $color['id']) echo ' selected="selected" selected' ?>><?php echo $color['name']; ?> (<?php echo $color['colorid']; ?>)</option>
          <?php } ?>
          </select>
          <p class="help-block"><?php echo _('The color of this key'); ?></p>
 
+         <label for="mech"><?php echo _('Mechanic'); ?></label>
+         <select name="mechid" class="form-control">
+         <?php foreach(getMechanics() as $mechanic) { ?>
+           <option value="<?php echo $mechanic['id']; ?>"<?php if($view['hasData'] && $view['key']->getMechId() == $mechanic['id']) echo ' selected="selected" selected' ?>><?php echo $mechanic['description']; ?> - <?php echo $mechanic['user']; ?> (<?php echo $mechanic['number']; ?>)</option>
+         <?php } ?>
+         </select>
+         <p class="help-block"><?php echo _('The mechanic of this key'); ?></p>
+
+         <label for="com"><?php echo _('Communication'); ?></label>
+         <select name="com" class="form-control">
+         <?php foreach(getCommunications() as $com) { ?>
+           <option value="<?php echo $com['value']; ?>"<?php if($view['hasData'] && $view['key']->getCommunication() === $com['value']) echo ' selected="selected" selected' ?>><?php echo $com['name']; ?></option>
+         <?php } ?>
+         </select>
+         <p class="help-block"><?php echo _('The color of this key'); ?></p>
+
+         <label for="elnumber"><?php echo _('elnumber'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="elnumber" name="elnumber" value="<?php if ($view['hasData']) echo $view['key']->getElNumber(); ?>">
+         <p class="help-block"><?php echo _('The elnumber of this key'); ?></p>
+
+         <label for="type"><?php echo _('Type'); ?></label>
+         <input type="text" class="form-control" maxlength="45" id="type" name="type" value="<?php if ($view['hasData']) echo $view['key']->getType(); ?>">
+         <p class="help-block"><?php echo _('The type'); ?></p>
+
+         <?php if ($view['hasData']) { ?>
+         <label for="id"><?php echo _('Id'); ?></label>
+         <input type="hidden" class="form-control" maxlength="45" id="id" name="id" value="<?php echo $view['key']->getId(); ?>">
+         <p class="form-control-static"><?php echo $view['key']->getId(); ?></p>
+         <?php } ?>
+
+         <?php if ($view['hasData']) { ?>
+            <label for="lastupdate"><?php echo _('Last Update'); ?></label>
+            <p class="form-control-static"><?php echo $view['key']->getLastUpdate(); ?></p>
+         <?php } ?>
       </div>
       </div>
+      <button type="button" class="btn" onclick="goBack()"><?php echo _('Cancel'); ?></button>
+      <button type="submit" class="btn btn-default"><?php echo _('Save'); ?></button>
 </form>

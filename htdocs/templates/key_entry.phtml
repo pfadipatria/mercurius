@@ -12,16 +12,40 @@
             <td><?php echo $view['key']->getCode(); ?></td>
          </tr>
          <tr>
-            <th style="text-align:right"><?php echo _('Status'); ?>:</th>
-            <td><?php echo $view['key']->getStatus(); ?></td>
-         </tr>
-         <tr>
             <th style="text-align:right"><?php echo _('Holder'); ?>:</th>
             <td><a href="<?php echo $view['key']->getHolder()->getLocation(); ?>"><?php echo $view['key']->getOwnerName(); ?></a></td>
          </tr>
          <tr>
+            <th style="text-align:right"><?php echo _('Status'); ?>:</th>
+            <td><?php echo $view['key']->getStatus(); ?></td>
+         </tr>
+         <tr>
             <th style="text-align:right"><?php echo _('Comment'); ?>:</th>
             <td><?php echo $view['key']->getComment(); ?></td>
+         </tr>
+         <tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Color'); ?>:</th>
+            <td><div><?php echo $view['key']->getColorName(); ?> <div style="display:inline-block; width: 4em; height: 1em; background: #<?php echo $view['key']->getColorDisplay(); ?>"></div></div></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Mechanic'); ?>:</th>
+            <td><?php echo $view['key']->getMechDesc(); ?> - <?php echo $view['key']->getMechUser(); ?> (<?php echo $view['key']->getMechNumber(); ?>)</td>
+         </tr>
+         <?php $com = getCommunications($view['key']->getCommunication()); ?>
+         <tr>
+            <th style="text-align:right"><?php echo _('Communication'); ?>:</th>
+            <td>
+               <span style="color:<?php echo $com['color']; ?>"><?php echo $com['name']; ?></span>
+            </td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('ElNumber'); ?>:</th>
+            <td><?php echo $view['key']->getElNumber(); ?></td>
+         </tr>
+         <tr>
+            <th style="text-align:right"><?php echo _('Type'); ?>:</th>
+            <td><?php echo $view['key']->getType(); ?></td>
          </tr>
          <tr>
             <th style="text-align:right"><?php echo _('Last Updated'); ?>:</th>

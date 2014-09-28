@@ -13,17 +13,21 @@ class Key extends AbstractEntity {
         $this->select = '
             SELECT
                key.id,
-               elnumber,
-               code,
-               type,
+               key.elnumber,
+               key.code,
+               key.type,
+               key.color AS colorid,
                keycolor.name AS colorname,
-               keycolor.id AS colorid,
+               keycolor.display AS colordisplay,
+               key.status AS statusid,
                keystatus.name AS statusname,
-               keystatus.id AS statusid,
-               keymech.bezeichung AS description,
+               key.mech AS mechid,
+               keymech.number AS mechnumber,
+               keymech.description AS mechdesc,
+               keymech.user AS mechuser,
                holder AS holderid,
                key.comment AS comment,
-               communication,
+               key.communication,
                key.lastupdate AS lastupdate
         ';
 
@@ -99,6 +103,14 @@ class Key extends AbstractEntity {
       return $this;
    }
 
+   function getColorName(){
+      return $this->colorname;
+   }
+
+   function getColorDisplay(){
+      return dechex($this->colordisplay);
+   }
+
    function getStatus() {
       return $this->getStatusName();
    }
@@ -156,6 +168,36 @@ class Key extends AbstractEntity {
       return $this;
    }
 
+   function getMechId() {
+      return $this->mechid;
+   }
+
+   function setMechId($mechId) {
+      $this->mechid = $mechId;
+      return $this;
+   }
+
+   function getMechNumber() {
+      return $this->mechnumber;
+   }
+
+   function getMechDesc() {
+      return $this->mechdesc ? sprintf('%04d', $this->mechdesc) : null ;
+   }
+
+   function getMechUser() {
+      return $this->mechuser;
+   }
+
+   function getCommunication(){
+      return $this->communication;
+   }
+
+   function setCommunication($communication) {
+      $this->communication = $communication;
+      return $this;
+   }
+
    function getLastUpdate(){
       return $this->lastupdate;
    }
@@ -181,7 +223,15 @@ class Key extends AbstractEntity {
       $data['holder'] = $this->getHolderId() ? '"'.mysqli_real_escape_string($con, $this->getHolderId()).'"' : 'NULL';
       $data['type'] = $this->getType() ? '"'.mysqli_real_escape_string($con, $this->getType()).'"' : 'NULL';
       $data['color'] = $this->getColorId() ? '"'.mysqli_real_escape_string($con, $this->getColorId()).'"' : 'NULL';
+      $data['mech'] = $this->getMechId() ? '"'.mysqli_real_escape_string($con, $this->getMechId()).'"' : 'NULL';
       $data['comment'] = $this->getComment() ? '"'.mysqli_real_escape_string($con, $this->getComment()).'"' : 'NULL';
+      $data['communication'] = 'NULL';
+      if($this->getCommunication() == '1') {
+         $data['communication'] = '1';
+      }
+      if($this->getCommunication() == '0') {
+         $data['communication'] = '0';
+      }
 
       if($this->getId()) {
          $idString = ' id = '.mysqli_real_escape_string($con, $this->getId());
