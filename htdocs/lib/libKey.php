@@ -96,6 +96,7 @@ function showKeyEditPage($keyId = '0'){
          $key->setType($_POST['type']);
          $key->setColorId($_POST['colorid']);
          $key->setComment($_POST['comment']);
+         $oldHolderId = $key->getHolderId();
          $key->setHolderId($_POST['holderid']);
          $key->setMechId($_POST['mechid']);
          $key->setCommunication($_POST['com']);
@@ -107,9 +108,19 @@ function showKeyEditPage($keyId = '0'){
 
       if($result){
          $view['success'] = _('OK! Der Eintrag wurde aktualisiert.');
-         $history->setKeyId($key->getId())->setAuthorId($activeUserId)->save();
          $newKey = new \SKeyManager\Entity\Key($key->getId());
          $newKey->load();
+            error_log('holder changed old: '.$oldHolderId.' new '.$newKey->getHolderId().' ');
+         // Also add the person id to the history if the holder has changed
+         if ($oldHolderId != $newKey->getHolderId()) {
+            // Create history for the old holder
+            $oldHistory = new \SKeyManager\Entity\History();
+            $oldHistory->setKeyId($key->getId())->setPersonId($oldHolderId)->setComment(_('Removed holder'))->setAuthorId($activeUserId)->save();
+            // Create history for the new key
+            $historyPersonId = $key->getHolderId() ? $key->getHolderId() : $newKey->getHolderId();
+            $history->setPersonId($historyPersonId);
+         }
+         $history->setKeyId($key->getId())->setAuthorId($activeUserId)->save();
          $view['body'] = getKeyDetails($newKey);
       } else {
          $view['danger'] = _('Fehler! Der Eintrag konnte nicht aktualisiert werden.'.$message);
