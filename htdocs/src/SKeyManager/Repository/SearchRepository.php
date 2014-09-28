@@ -17,6 +17,9 @@ class SearchRepository extends AbstractRepository {
             holder AS holderid,
             person.name AS holdername,
             person.uid AS holderuid,
+            dholder AS dholderid,
+            dperson.name AS dholdername,
+            dperson.uid AS dholderuid,
             key.comment AS comment
       ';
       $keys->from = '
@@ -25,6 +28,7 @@ class SearchRepository extends AbstractRepository {
          LEFT JOIN `keystatus` ON (key.status = keystatus.id)
          LEFT JOIN `keymech` ON (key.mech = keymech.id)
          LEFT JOIN `person` ON (key.holder = person.id)
+         LEFT JOIN `person` AS dperson ON (key.dholder = dperson.id)
       ';
       $keys->where = '
          WHERE
@@ -32,6 +36,7 @@ class SearchRepository extends AbstractRepository {
             keycolor.name like "%'.$query.'%" OR
             keystatus.name like "%'.$query.'%" OR
             person.name like "%'.$query.'%" OR
+            dperson.name like "%'.$query.'%" OR
             key.comment like "%'.$query.'%"
       ';
       return $keys->getAll();
