@@ -160,6 +160,7 @@ function getLockStatuses(){
 
 function getColors(){
    $result = array();
+   $result[] = array('id' => 0, 'colorid' => '0', 'name' => '- unknown -', 'display' => '000000');
    $sql = '
       SELECT
          id,
