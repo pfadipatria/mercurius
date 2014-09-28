@@ -14,9 +14,17 @@ function routing($loggedIn = false){
 
     header('Content-Type: text/html; charset=utf8');
 
-    if($loggedIn){
-        $menuPath = getMenuPath();
+    if (!$loggedIn) {
+      showLoginPage();
+      return;
     }
+
+   $menuPath = getMenuPath();
+
+   if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['q'])) {
+      showSearchPage($menuPath);
+      return;
+   }
 
    switch($menuPath) {
       case 'keys':

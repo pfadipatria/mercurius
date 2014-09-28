@@ -28,4 +28,8 @@ class PersonRepository extends AbstractRepository {
         return $this->query('', 'SKeyManager\Entity\Person');
     }
 
+    function getSubSet($condition) {
+        return $this->query($condition, 'SKeyManager\Entity\Person');
+    }
+
 }

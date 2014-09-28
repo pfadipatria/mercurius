@@ -25,7 +25,7 @@ function showLoginPage () {
 function getMenuPath ($level = '1') {
    $result = array();
 
-   $explodedRequest = explode('/', $_SERVER['REQUEST_URI']);
+   $explodedRequest = explode('/', $_SERVER['SCRIPT_URL']);
    $result[0] = $explodedRequest[0];
    if(!empty($explodedRequest[1])) {
       $result[1] = $explodedRequest[1];

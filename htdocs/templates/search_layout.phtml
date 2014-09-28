@@ -1,0 +1,13 @@
+<h2><?php echo $view['title']; ?></h2>
+<?php if(!empty($view['keys'])) { ?>
+   <h3><?php echo _('Keys'); ?></h3> 
+   <?php echo $view['keys']; ?>
+<?php } ?>
+<?php if(!empty($view['locks'])) { ?>
+   <h3><?php echo _('Locks'); ?></h3> 
+   <?php echo $view['locks']; ?>
+<?php } ?>
+<?php if(!empty($view['people'])) { ?>
+   <h3><?php echo _('People'); ?></h3> 
+   <?php echo $view['people']; ?>
+<?php } ?>
