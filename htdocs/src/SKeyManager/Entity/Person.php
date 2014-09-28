@@ -37,8 +37,11 @@ class Person extends AbstractEntity {
 
    function load() {
       $data = $this->query();
-      foreach($data as $name => $value){
-         $this->$name = $value;
+      // i'm unsure whether this if is needed. its not if empty person is never loaded?!
+      if (!empty($data)) {
+         foreach($data as $name => $value){
+            $this->$name = $value;
+         }
       }
 
       // We can't load the Keys here, as it would loop (persons are 'owned' by a key anyway, not vice versa)
