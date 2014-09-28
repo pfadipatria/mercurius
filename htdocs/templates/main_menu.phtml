@@ -3,6 +3,7 @@
       <?php foreach($view['mainEntries'] as $mainEntry => $menuData) { ?>
          <li <?php if($view['mainActive'] == $mainEntry) { echo 'style="background:#e0e0e0"'; } ?>><a href="<?php echo $menuData['path']; ?>"><?php echo $menuData['name']; ?></a></li>
       <?php } ?>
+   </ul>
    <?php if(isset($view['subEntries'])) { ?>
    <ul class="nav nav-justified">
       <?php foreach($view['subEntries'] as $subEntry => $menuData) { ?>

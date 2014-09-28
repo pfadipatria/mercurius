@@ -77,6 +77,7 @@ function getMenu($menu = '', $submenu = ''){
       'key' => array('path' => '/key', 'name' => _('Schlüssel')),
       'lock' => array('path' => '/lock', 'name' => _('Schlösser')),
       'person' => array('path' => '/person', 'name' => _('Personen')),
+      'search' => array('path' => '/search', 'name' => _('Search')),
       'history' => array('path' => '/history', 'name' => _('Verlauf')),
       'help' => array('path' => '/help', 'name' => _('Hilfe'))
    );
