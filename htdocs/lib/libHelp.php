@@ -8,7 +8,7 @@ function showHelpDefaultPage(){
    $supportName = isset($config['supportName']) ? $config['supportName'] : $supportMail ;
 
    $helpView = array(
-      'title' => _('Help / About'),
+      'title' => _('Help'),
       'supportName' => $supportName,
       'supportMail' => $supportMail
    );
