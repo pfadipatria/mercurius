@@ -54,6 +54,9 @@ function routing($loggedIn = false){
       case 'search':
          showSearchPage();
          break;
+      case 'pref':
+         showPrefPage();
+         break;
       default:
          showStartPage();
    }
@@ -182,5 +185,9 @@ function showHelpPage(){
 
 function showHistoryPage(){
    showHistoryListPage();
+}
+
+function showPrefPage(){
+   showPrefListPage();
 }
 

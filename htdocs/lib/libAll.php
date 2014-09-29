@@ -13,6 +13,7 @@ require_once 'libConfig.php';
 require_once 'libHistory.php';
 require_once 'libHelp.php';
 require_once 'libSearch.php';
+require_once 'libPref.php';
 require_once __DIR__.'/../src/SKeyManager/Repository/AbstractRepository.php';
 require_once __DIR__.'/../src/SKeyManager/Repository/PersonRepository.php';
 require_once __DIR__.'/../src/SKeyManager/Repository/KeyRepository.php';

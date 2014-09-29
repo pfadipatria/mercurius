@@ -1,0 +1,146 @@
+<h2><?php echo $view['title']; ?></h2>
+<p><?php echo $view['subTitle']; ?></p>
+<table class="table" style="width:auto">
+
+   <tr><td><h3><?php echo _('Key Status'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+         </tr>
+         <?php $keystatuslist = getKeyStatuses(); asort($keystatuslist); foreach($keystatuslist as $status) { ?>
+            <tr>
+            <td><?php echo $status['id']; ?></td>
+            <td><?php echo $status['name']; ?></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Key Color'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Color Id'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+            <th><?php echo _('Display'); ?></th>
+            <th><span class="glyphicon glyphicon-chevron-right"></span> <?php echo _('Hex'); ?></th>
+            <th><sub><span class="glyphicon glyphicon-chevron-down"></span></sub></th>
+         </tr>
+         <?php $keycolorlist = getColors(); asort($keycolorlist); foreach($keycolorlist as $color) { ?>
+            <tr>
+               <td><?php echo $color['id']; ?></td>
+               <td><?php echo $color['colorid']; ?></td>
+               <td><?php echo $color['name']; ?></td>
+               <td><?php echo $color['display']; ?></td>
+               <td><?php echo dechex($color['display']); ?></td>
+               <td>
+                  <?php if ($color['display']) { ?>
+                  <span class="glyphicon glyphicon-bookmark" style="font-size:1.5em; color:#<?php echo dechex($color['display']); ?>"></span>
+                  <?php } ?>
+               </td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Key Mechanic'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Number'); ?></th>
+            <th><?php echo _('Description'); ?></th>
+            <th><?php echo _('User'); ?></th>
+         </tr>
+         <?php $keyMechlist = getMechanics(); asort($keyMechlist); foreach($keyMechlist as $mech) { ?>
+            <tr>
+            <td><?php echo $mech['id']; ?></td>
+            <td><?php echo $mech['number']; ?></td>
+            <td><?php echo $mech['description']; ?></td>
+            <td><?php echo $mech['user']; ?></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Lock Status'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+         </tr>
+         <?php $lockStatuslist = getLockStatuses(); asort($lockStatuslist); foreach($lockStatuslist as $status) { ?>
+            <tr>
+            <td><?php echo $status['id']; ?></td>
+            <td><?php echo $status['name']; ?></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Place'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+         </tr>
+         <?php $venues = getVenues(); asort($venues); foreach($venues as $venue) { ?>
+            <tr>
+            <td><?php echo $venue['id']; ?></td>
+            <td><?php echo $venue['name']; ?></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Permission Status / CSS'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Db Id'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+            <th style="width:2em"></th>
+            <th><?php echo _('Key css'); ?></th>
+            <th style="width:2em"></th>
+            <th><?php echo _('Lock css'); ?></th>
+         </tr>
+         <?php $permStatuses = getPermissionStatuses(); asort($permStatuses); foreach($permStatuses as $permStatus) { ?>
+            <tr>
+            <td><?php echo $permStatus['id']; ?></td>
+            <td><?php echo $permStatus['name']; ?></td>
+            <td></td>
+            <td class="alert <?php echo getKeyPermissionStatusesCss($permStatus['id']); ?>"><?php echo getKeyPermissionStatusesCss($permStatus['id']); ?></td>
+            <td></td>
+            <td class="alert <?php echo getLockPermissionStatusesCss($permStatus['id']); ?>"><?php echo getLockPermissionStatusesCss($permStatus['id']); ?></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+   <tr><td><h3><?php echo _('Communication'); ?></h3></td></tr>
+   <tr><td>
+      <table class="table table-hover" style="width:auto">
+         <tr>
+            <th><?php echo _('Index'); ?></th>
+            <th><?php echo _('Name'); ?></th>
+            <th><?php echo _('Color'); ?></th>
+            <th><sub><span class="glyphicon glyphicon-chevron-down"></span></sub></th>
+         </tr>
+         <?php $coms = getCommunications(); asort($coms); foreach($coms as $com) { ?>
+            <tr>
+            <td><?php echo $com['value']; ?></td>
+            <td><?php echo $com['name']; ?></td>
+            <td><?php echo $com['color']; ?></td>
+            <td><span class="glyphicon glyphicon-bookmark" style="font-size:1.5em; color:<?php echo $com['color']; ?>"></span></td>
+            </tr>
+         <?php } ?>
+      </table>
+   </td></tr>
+
+</table>
+

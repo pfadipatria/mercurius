@@ -79,6 +79,7 @@ function getMenu($menu = '', $submenu = ''){
       'person' => array('path' => '/person', 'name' => _('Personen')),
       'search' => array('path' => '/search', 'name' => _('Search')),
       'history' => array('path' => '/history', 'name' => _('Verlauf')),
+      'pref' => array('path' => '/pref', 'name' => _('Einstellungen')),
       'help' => array('path' => '/help', 'name' => _('Hilfe'))
    );
 
@@ -88,6 +89,17 @@ function getMenu($menu = '', $submenu = ''){
       'list' => array('path' => '/list', 'name' => _('Liste')),
       'search' => array('path' => '/search', 'name' => _('Suchen')),
       'add' => array('path' => '/add', 'name' => _('Hinzufügen'))
+      );
+   }
+
+   if($menu == 'pref' ) {
+      $subEntries = array(
+      'keystatus' => array('path' => '/key/status', 'name' => _('KeyStatus')),
+      'keycolor' => array('path' => '/key/color', 'name' => _('KeyColor')),
+      'keymech' => array('path' => '/key/mech', 'name' => _('KeyMech')),
+      'lockstatus' => array('path' => '/lock/status', 'name' => _('LockStatus')),
+      'permstatus' => array('path' => '/perm/status', 'name' => _('PermStat')),
+      'place' => array('path' => '/place', 'name' => _('Place'))
       );
    }
 
@@ -157,18 +169,19 @@ function getLockStatuses(){
 
 function getColors(){
    $result = array();
-   $result[] = array('id' => 0, 'colorid' => '0', 'name' => '- unknown -', 'display' => '000000');
+   $result[] = array('id' => 0, 'colorid' => null, 'name' => '- unknown -', 'display' => null);
    $sql = '
       SELECT
          id,
          colorid,
-         name
+         name,
+         display
       FROM keycolor
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
 	while ($row = mysqli_fetch_assoc($dbresult)) {
-      $result[] = array('id' => $row['id'], 'colorid' => $row['colorid'], 'name' => $row['name']);
+      $result[] = array('id' => $row['id'], 'colorid' => $row['colorid'], 'name' => $row['name'], 'display' => $row['display']);
    }
    return $result;
 }
@@ -186,7 +199,6 @@ function getMechanics(){
    ';
    $con = openDb();
    $dbresult = queryDb($con, $sql);
-   var_dump($dbresult);
 	while ($row = mysqli_fetch_assoc($dbresult)) {
       $result[] = array('id' => $row['id'], 'number' => $row['number'], 'description' => sprintf('%04d',$row['description']), 'user' => $row['user']);
    }
@@ -222,7 +234,12 @@ function getPermissionStatuses(){
    return $result;
 }
 
+// #TODO rename to getKeyPermissionStatusesCss
 function getPermissionStatusesCss($class = 0){
+   return getKeyPermissionStatusesCss($class);
+}
+
+function getKeyPermissionStatusesCss($class = 0){
    switch($class) {
       case '1':
          $result = ' alert-info ';
