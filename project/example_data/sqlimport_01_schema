@@ -170,10 +170,36 @@ CREATE  TABLE IF NOT EXISTS `history` (
   `personid` INT NULL ,
   `comment` VARCHAR(120) NULL ,
   `userid` INT NULL ,
+  `permid` INT NULL ,
+  `groupid` INT NULL ,
   `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `group`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `group` ;
+
+CREATE TABLE IF NOT EXISTS `group` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `membership`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `membership` ;
+
+CREATE TABLE IF NOT EXISTS `membership` (
+  `groupid` INT NOT NULL,
+  `personid` INT NOT NULL,
+  `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`groupid`, `personid`))
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -8,7 +8,8 @@ INSERT INTO `keystatus` (`id`, `name`) VALUES (1, 'unknown');
 INSERT INTO `keystatus` (`id`, `name`) VALUES (2, 'active');
 INSERT INTO `keystatus` (`id`, `name`) VALUES (3, 'broken');
 INSERT INTO `keystatus` (`id`, `name`) VALUES (4, 'planned');
-INSERT INTO `keystatus` (`id`, `name`) VALUES (5, 'dismissed');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (5, 'lost');
+INSERT INTO `keystatus` (`id`, `name`) VALUES (6, 'dismissed');
 
 COMMIT;
 
@@ -37,6 +38,7 @@ INSERT INTO `lockstatus` (`id`, `name`) VALUES (4, 'active needs maintenance');
 INSERT INTO `lockstatus` (`id`, `name`) VALUES (5, 'broken');
 INSERT INTO `lockstatus` (`id`, `name`) VALUES (6, 'broken in maintenance');
 INSERT INTO `lockstatus` (`id`, `name`) VALUES (7, 'inactive');
+INSERT INTO `lockstatus` (`id`, `name`) VALUES (8, 'dismissed');
 
 COMMIT;
 
@@ -120,6 +122,16 @@ INSERT INTO `permissionstatus` (`id`, `name`) VALUES (1, 'unknown');
 INSERT INTO `permissionstatus` (`id`, `name`) VALUES (2, 'active');
 INSERT INTO `permissionstatus` (`id`, `name`) VALUES (3, 'to be set');
 INSERT INTO `permissionstatus` (`id`, `name`) VALUES (4, 'to be removed');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `group`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `group` (`id`, `name`) VALUES (1, 'Administrator');
+INSERT INTO `group` (`id`, `name`) VALUES (2, 'Editor');
+INSERT INTO `group` (`id`, `name`) VALUES (3, 'Gast');
 
 COMMIT;
 
