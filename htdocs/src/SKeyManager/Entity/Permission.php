@@ -99,4 +99,43 @@ class Permission extends AbstractEntity {
       return $this->keystatus;
    }
 
+   function getSymbol(){
+
+      if( $this->allows ) {
+         switch ($this->statusid) {
+         case 1:
+            return '+?';
+            break;
+         case 2:
+            return 'o';
+            break;
+         case 3:
+            return '++';
+            break;
+         case 4:
+            return '+-';
+            break;
+         }
+      }
+
+      if( $this->denies ) {
+         switch ($this->statusid) {
+         case 1:
+            return '-?';
+            break;
+         case 2:
+            return 'x';
+            break;
+         case 3:
+            return '-+';
+            break;
+         case 4:
+            return '--';
+            break;
+         }
+      }
+
+      return '';
+   }
+
 }

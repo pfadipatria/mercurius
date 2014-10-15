@@ -67,6 +67,9 @@ function showKeysPage(){
       case 'list':
          showKeyListPage();
          break;
+      case 'permissions':
+         showPermissionMatrixPage();
+         break;
       case '':
          showKeyListPage();
          break;

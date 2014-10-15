@@ -296,4 +296,39 @@ function showKeyDeleteHolderPage($keyId = '0'){
    echo render($view, 'layout');
 }
 
+function showPermissionMatrixPage(){
+
+   $keys = new \SKeyManager\Repository\KeyRepository;
+   $locks = new \SKeyManager\Repository\LockRepository;
+   $perms = new \SKeyManager\Repository\PermissionRepository;
+
+   $view = array(
+        'header' => getHeader('key', 'permissions'),
+        'body' => getPermissionMatrix($keys, $locks, $perms),
+        'footer' => getFooter()
+    );
+
+    echo render($view, 'layout');
+}
+
+function getPermissionMatrix($keys = null, $locks = null, $perms = null){
+
+    $numberOfLocks = count($locks->getAll());
+
+    $permArray = array();
+
+    foreach($perms->getAll() as $perm) {
+         $permArray[$perm->getKeyId()][$perm->getLockId()] = $perm->getSymbol();
+    }
+
+    $view = array(
+        'keys' => $keys->getAll(),
+        'locks' => $locks->getAll(),
+        'perms' => $permArray,
+        'numberOfLocks' => $numberOfLocks
+    );
+
+    return render($view, 'perm_matrix');
+}
+
 ?>

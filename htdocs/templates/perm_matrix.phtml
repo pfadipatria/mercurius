@@ -1,0 +1,39 @@
+<table class="table table-striped" style="width:auto; font-size: 0.5em" border="1">
+    <thead>
+           <tr>
+              <td>Key \ Lock</td>
+              <?php foreach($view['locks'] as $lock) { ?>
+                 <td><div style="width: 10px; height: 150px; white-space: nowrap; transform: translate(70px, 70px) rotate(-90deg);"><a href="<?php echo $lock->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of Lock'); ?>" style="color:black"><?php echo $lock->getFullName(); ?></a></div></td>
+              <?php } ?>
+              <td>Lock / Key</td>
+           </tr>
+    </thead>
+    <tbody>
+        <?php foreach($view['keys'] as $key) { ?>
+            <tr>
+                 <td><nobr>
+                    <a href="<?php echo $key->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of key'); ?>" style="color:black">MC <?php echo $key->getCode(); ?></a>
+                    <!-- <?php echo $key->getStatusName(); ?> -->
+                    <a href="<?php echo $key->getHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of holder'); ?>" style="color:black"><?php echo $key->getHolderName(); ?></a>
+                 </nobr></td>
+                 <?php foreach($view['locks'] as $lock) { ?>
+                    <td>
+                        <?php if(isset($view['perms'][$key->getId()][$lock->getId()])) echo $view['perms'][$key->getId()][$lock->getId()]; ?>
+                    </td>
+                 <?php } ?>
+                 <td><nobr>
+                    <a href="<?php echo $key->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of key'); ?>" style="color:black">MC <?php echo $key->getCode(); ?></a>
+                    <!-- <?php echo $key->getStatusName(); ?> -->
+                    <a href="<?php echo $key->getHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of holder'); ?>" style="color:black"><?php echo $key->getHolderName(); ?></a>
+                 </nobr></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+           <tr>
+              <td>Key / Lock</td>
+              <?php foreach($view['locks'] as $lock) { ?>
+                 <td><div style="width: 10px; height: 150px; white-space: nowrap; transform: translate(70px, 70px) rotate(-90deg);"><a href="<?php echo $lock->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of Lock'); ?>" style="color:black"><?php echo $lock->getFullName(); ?></a></div></td>
+              <?php } ?>
+              <td>Lock \ Key</td>
+           </tr>
+</table>
