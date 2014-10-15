@@ -4,6 +4,7 @@
             <tr onclick="document.location = '<?php echo $key->getLocation(); ?>';" style="cursor: zoom-in">
                  <td>MC <?php echo $key->getCode(); ?></td>
                  <td><?php echo $key->getStatusName(); ?></td>
+                 <td><a href="<?php echo $key->getHolder()->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('Show details of holder'); ?>" style="color:black"><?php echo $key->getHolderName(); ?></a></td>
                  <td data-toggle="tooltip" title="<?php echo $key->getComment(); ?>"><?php echo $key->getCommentShort(); ?></td>
                  <td>
                     <a href="<?php echo $key->getLocation(); ?>" data-toggle="tooltip" title="<?php echo _('View the deatils of this key'); ?>" style="color:black"><span class="glyphicon glyphicon-zoom-in"></span></a>&nbsp;&nbsp;&nbsp;
