@@ -256,41 +256,62 @@ function showKeyDeletePage($keyId = '0'){
 function showKeyDeleteHolderPage($keyId = '0'){
    global $activeUserId;
 
+   # @TODO check dependencies
+   # $deletable = false;
+   $deletable = true;
+
    $view = array(
       'header' => getHeader('key', $keyId),
       'footer' => getFooter()
    );
 
-   $history = new \SKeyManager\Entity\History();
-   $message = '';
-   $id = null;
-   if ($keyId) {
-      $id = $keyId;
-   }
-   $key = new SKeyManager\Entity\Key($id);
-   try {
-      $historyComment = 'Deleted holder';
-      if ($keyId) {
-         $key->load();
-         $historyComment = sprintf(_('Deleted holder %s'), $key->getHolderName());
-      }
-      $history->setComment($historyComment);
-      $key->setHolderId('');
-      $result = $key->save();
-   } catch (Exception $exception) {
-      $result = false;
-      $message = ' ('.$exception->getMessage().')';
-   }
 
-   if($result){
-      $view['success'] = _('OK! The holder has been removed');
-      $history->setKeyId($key->getId())->setAuthorId($activeUserId)->save();
-      $newKey = new \SKeyManager\Entity\Key($key->getId());
-      $newKey->load();
-      $view['body'] = getKeyDetails($newKey);
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['id'] && $_POST['confirm'] == true) {
+      $history = new \SKeyManager\Entity\History();
+      $message = '';
+      $id = null;
+      if ($keyId) {
+         $id = $keyId;
+      }
+      $key = new SKeyManager\Entity\Key($id);
+      try {
+         $historyComment = 'Deleted holder';
+         if ($keyId) {
+            $key->load();
+            $historyComment = sprintf(_('Deleted holder %s'), $key->getHolderName());
+         }
+         $history->setComment($historyComment);
+         $key->setHolderId('');
+         $result = $key->save();
+      } catch (Exception $exception) {
+         $result = false;
+         $message = ' ('.$exception->getMessage().')';
+      }
+
+      if($result){
+         $view['success'] = _('OK! The holder has been removed');
+         $history->setKeyId($key->getId())->setAuthorId($activeUserId)->save();
+         $newKey = new \SKeyManager\Entity\Key($key->getId());
+         $newKey->load();
+         $view['body'] = getKeyDetails($newKey);
+      } else {
+         $view['danger'] = _('ERROR! Could not remove holder.'.$message);
+         $view['body'] = getKeyDetails($keyId);
+      }
    } else {
-      $view['danger'] = _('ERROR! Could not remove holder.'.$message);
-      $view['body'] = getKeyDetails($keyId);
+      // Check for conditions to be true for holder deletion
+      $person->getKeys() ? $deletable = false : $deletable = true;
+      if ($deletable) {
+         $deleteView = array(
+            'personDetails' => render(array('person' => $person), 'person_entry'),
+            'person' => $person,
+         );
+         $view['body'] = render($deleteView, 'person_delete');
+      } else {
+         $view['danger'] = sprintf(_('%s can not be deleted (he probably still owns keys).'), $person->getName());
+         $view['body'] = getPersonDetails($person);
+      }
    }
 
    echo render($view, 'layout');
