@@ -209,7 +209,7 @@ class Key extends AbstractEntity {
    }
 
    function getMechDesc() {
-      return $this->mechdesc ? sprintf('%04d', $this->mechdesc) : null ;
+      return sprintf('%04d', $this->mechdesc);
    }
 
    function getMechUser() {
