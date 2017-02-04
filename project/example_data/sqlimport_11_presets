@@ -43,74 +43,13 @@ INSERT INTO `lockstatus` (`id`, `name`) VALUES (8, 'dismissed');
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `keymech`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (1,  0000, 'GPP CL/CR/Sekr/Heim', 1000000000, '1001');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (17, 0001, 'Pfadi-MCL Bar',       1000005000, '1101');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (18, 0002, 'Pfadi-MCL Material',  1000007500, '1131');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (19, 0003, 'Pfadi-MCL Hallo',     1000008750, '1161');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (20, 0004, 'Pfadi-MCL AL',        1000009375, '1201');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (21, 0005, 'Pfadi-TF/WF',         1000009687, '1301');
-
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (2,  1001, 'MRR Abwart',          1000010000, '1501');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (3,  1002, 'MRR Heimchef',        1000020000, '1521');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (4,  1003, 'Archivar',            1000030000, '1541');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (5,  1004, 'MRR Mieter',          1000040000, '1561');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (6,  1005, 'MRR Doron',           1000050000, '1581');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    1006, 'MRR Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    1007, 'MRR Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    1008, 'MRR Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    1009, 'MRR Reserve');
-
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (7,  2001, 'HABG Abwart',         1000060000, '1701');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    2002, 'HABG Reserve');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (8,  2003, 'HABG Cheminée',       1000070000, '1801');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    2004, 'HABG Reserve');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (9,  2005, 'HABG Mieter',         1000080000, '1901');
-
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    3001, 'Elfenau Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    3002, 'Elfenau Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    3003, 'Elfenau Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    3004, 'Elfenau Reserve');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (10, 3005, 'Elfenau Eingang',     1000090000, '1261');
-
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    4001, 'Eymatt Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    4002, 'Eymatt Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    4003, 'Eymatt Reserve');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    4004, 'Eymatt Reserve');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (11, 4005, 'Eymatt Mieter',       1000100000, '2361');
-
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (12, 5001, 'Bantiger Abwart',     1000110000, '2401');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (13, 5002, 'Bantiger Heimchef',   1000120000, '2441');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (14, 5003, 'Bantiger Mieter',     1000130000, '2481');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (15, 5004, 'Banti. Salsa/Schach', 1000140000, '2521');
-INSERT INTO `keymech` (`number`, `description`, `user`, `order`, `kc`) VALUES (16, 5005, 'Bantiger Reserve',    1000150000, '2541');
-
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    6001, 'RESERVER 1');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    6002, 'RESERVER 1');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    6003, 'RESERVER 1');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    6004, 'RESERVER 1');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    6005, 'RESERVER 1');
-
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    7001, 'RESERVER 2');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    7002, 'RESERVER 2');
-INSERT INTO `keymech` (          `description`, `user`)       VALUES (    7003, 'RESERVER 2');
-
-
-COMMIT;
-
--- -----------------------------------------------------
 -- Data for table `place`
 -- -----------------------------------------------------
 START TRANSACTION;
 INSERT INTO `place` (`id`, `name`) VALUES (1, 'unknown');
-INSERT INTO `place` (`id`, `name`) VALUES (2, 'Mauerrain');
-INSERT INTO `place` (`id`, `name`) VALUES (3, 'Hartlisberg');
-INSERT INTO `place` (`id`, `name`) VALUES (4, 'Elfenau');
-INSERT INTO `place` (`id`, `name`) VALUES (5, 'Eymatt');
-INSERT INTO `place` (`id`, `name`) VALUES (6, 'Bantiger');
-INSERT INTO `place` (`id`, `name`) VALUES (7, 'Tannental');
+INSERT INTO `place` (`id`, `name`) VALUES (2, 'Home');
+INSERT INTO `place` (`id`, `name`) VALUES (3, 'Office');
+INSERT INTO `place` (`id`, `name`) VALUES (4, 'Somewhere else');
 
 COMMIT;
 
@@ -131,7 +70,7 @@ COMMIT;
 START TRANSACTION;
 INSERT INTO `group` (`id`, `name`) VALUES (1, 'Administrator');
 INSERT INTO `group` (`id`, `name`) VALUES (2, 'Editor');
-INSERT INTO `group` (`id`, `name`) VALUES (3, 'Gast');
+INSERT INTO `group` (`id`, `name`) VALUES (3, 'Guest');
 
 COMMIT;
 
